@@ -18,8 +18,14 @@ from flask import Flask, render_template, jsonify, redirect, url_for, request, s
 
 print(f"DEBUG: Starting dashboard.py with Python: {sys.executable}")
 
+
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(32)
+# Set a fixed, secure secret key (generated once, keep private)
+app.secret_key = 'b1e2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2'
+# Set session cookie options for compatibility
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+app.config['SESSION_COOKIE_SECURE'] = False
+app.config['SESSION_COOKIE_DOMAIN'] = None
 
 # ===== CONFIGURATION =====
 JSON_DIR = "/home/bihac-danas/web-scraper/facebook_ready_posts"
@@ -470,11 +476,10 @@ def index():
         if not articles:
             html += '<p>No articles found. Run scrapers first.</p>'
         else:
-            for i, article in enumerate(articles[:20]):
+            for i, article in enumerate(articles):
                 is_new = article['is_new']
                 status_class = "status-new" if is_new else "status-published"
                 status_text = "🆕 NEW" if is_new else f"✅ Published: {article['published'][:19] if article['published'] else ''}"
-                
                 html += f'''
                 <div class="article-card {'published' if not is_new else ''}">
                     <div class="article-title">{article['title']}</div>
@@ -484,19 +489,15 @@ def index():
                         <span class="{status_class}">{status_text}</span>
                         <button class="content-toggle" id="toggle-{i}" onclick="toggleContent({i})">↓ Expand</button>
                     </div>
-                    
                     <div class="article-content" id="content-{i}" style="display: none;">
                         {article['content'].replace('<', '&lt;').replace('>', '&gt;').replace('\\n', '<br>')}
                     </div>
-                    
                     <div class="actions">
                 '''
-                
                 if is_new:
                     html += f'''
                         <a href="/post/{article['filename']}" class="btn btn-post">📤 Post to Facebook</a>
                     '''
-                
                 html += f'''
                         <small>File: {article['filename']}</small>
                     </div>

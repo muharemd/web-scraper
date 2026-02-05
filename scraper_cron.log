@@ -1002,3 +1002,4 @@ Scraping Bihać.org categories...
     EMAIL_HTML="<html>
                ^
 SyntaxError: unterminated string literal (detected at line 143)
+/bin/sh: 1: /home/bihac-danas/scraper-env/bin/python3: not found

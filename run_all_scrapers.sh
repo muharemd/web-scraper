@@ -4,7 +4,7 @@
 # Sends email notifications when new articles are found
 
 # Use Python from virtual environment
-PYTHON="/home/bihac-danas/scraper-env/bin/python3"
+PYTHON="/home/bihac-danas/web-scraper/scraper-env/bin/python3"
 
 # Configuration
 SCRAPERS=(
