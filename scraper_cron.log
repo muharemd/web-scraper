@@ -1002,3 +1002,15 @@ Scraping Bihać.org categories...
     EMAIL_HTML="<html>
                ^
 SyntaxError: unterminated string literal (detected at line 143)
+  File "/home/bihac-danas/web-scraper/./run_all_scrapers.sh", line 165
+    🚀 Bihać Scrapers Report - $TODAY
+    ^
+SyntaxError: invalid character '🚀' (U+1F680)
+  File "/home/bihac-danas/web-scraper/./run_all_scrapers.sh", line 165
+    🚀 Bihać Scrapers Report - $TODAY
+    ^
+SyntaxError: invalid character '🚀' (U+1F680)
+  File "/home/bihac-danas/web-scraper/./run_all_scrapers.sh", line 165
+    🚀 Bihać Scrapers Report - $TODAY
+    ^
+SyntaxError: invalid character '🚀' (U+1F680)
