@@ -1,0 +1,14 @@
+nohup: ignoring input
+
+    🚀 Facebook Posting Dashboard
+    ================================
+    Starting server on:
+    Local:   http://localhost:8080
+    Network: http://localhost:8080
+    
+    Use this URL in your email notifications!
+    
+ * Serving Flask app 'dashboard'
+ * Debug mode: off
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.

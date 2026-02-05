@@ -1,0 +1,11 @@
+{
+  "scraped_urls": [
+    "https://www.kbbihac.ba/novosti"
+  ],
+  "content_hashes": [
+    "093bbfe58177"
+  ],
+  "last_run": "2026-02-05T11:11:08.250705",
+  "script_name": "kbbihac.py",
+  "script_hash": "b9db21b77e7b"
+}

@@ -1,0 +1,16 @@
+{
+  "scraped_urls": [
+    "https://www.vodovod-bihac.ba/bs/kategorija/aktuelnosti/1",
+    "https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-cetvrtak-5-februara-2026-godine/600",
+    "https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-utorak-3-februara-2026-godine/597",
+    "https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-srijeda-4-februara-2026-godine/599",
+    "https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-ponedjeljak-2-februara-2026-godine/596",
+    "https://www.vodovod-bihac.ba/bs/kategorija/obavijest-o-kvaliteti-vode/2"
+  ],
+  "content_hashes": [
+    "86654b211aaf"
+  ],
+  "last_run": "2026-02-05T11:11:16.007523",
+  "script_name": "vodovod-bihac.py",
+  "script_hash": "820244bade12"
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Posting Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .actions {
+            padding: 1.5rem 2rem;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #dd6b20;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .articles-container {
+            padding: 0 2rem 2rem;
+        }
+
+        .articles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .articles-header h2 {
+            color: #2d3748;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .filter-btn:hover {
+            border-color: #667eea;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .article-card.new {
+            border-left: 4px solid #48bb78;
+        }
+
+        .article-card.published {
+            border-left: 4px solid #a0aec0;
+            opacity: 0.9;
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .article-content {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-content:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(transparent, white);
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-new {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-published {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .source-badge {
+            background: #ebf8ff;
+            color: #2c5282;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .no-articles {
+            text-align: center;
+            padding: 3rem;
+            color: #718096;
+        }
+
+        .server-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.875rem;
+            border-top: 1px solid #e9ecef;
+            background: #f8f9fa;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .article-header {
+                flex-direction: column;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 Facebook Posting Dashboard</h1>
+            <p>Manage and post articles from Bihać scrapers</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>{{ total }}</h3>
+                <p>Total Articles</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ new_count }}</h3>
+                <p>New Articles</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ published_count }}</h3>
+                <p>Published</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ articles|length }}</h3>
+                <p>Showing</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="/run-scrapers" class="btn btn-warning">
+                🚀 Run All Scrapers
+            </a>
+            {% if new_count > 0 %}
+            <a href="/post-all-new" class="btn btn-success" 
+               onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">
+                📤 Post All New ({{ new_count }})
+            </a>
+            {% else %}
+            <button class="btn btn-success" disabled>
+                📤 No New Articles
+            </button>
+            {% endif %}
+            <a href="/refresh" class="btn btn-primary">
+                🔄 Refresh
+            </a>
+            <a href="/logout" class="btn btn-danger">
+                🔓 Logout
+            </a>
+        </div>
+
+        <div class="server-info">
+            <strong>Dashboard URL:</strong> http://{{ server_ip }}:{{ port }}<br>
+            <strong>Articles Location:</strong> /home/bihac-danas/facebook_ready_posts/<br>
+            <strong>Current Time:</strong> {{ now.strftime('%Y-%m-%d %H:%M:%S') }}
+        </div>
+
+        <div class="articles-container">
+            <div class="articles-header">
+                <h2>Articles ({{ articles|length }})</h2>
+                <div class="filters">
+                    <button class="filter-btn active" onclick="filterArticles('all')">All</button>
+                    <button class="filter-btn" onclick="filterArticles('new')">New ({{ new_count }})</button>
+                    <button class="filter-btn" onclick="filterArticles('published')">Published ({{ published_count }})</button>
+                </div>
+            </div>
+
+            {% if articles %}
+            <div class="articles-grid" id="articles-grid">
+                {% for article in articles %}
+                <div class="article-card {% if article.published %}published{% else %}new{% endif %}" 
+                     data-status="{% if article.published %}published{% else %}new{% endif %}">
+                    <div class="article-header">
+                        <div style="flex: 1;">
+                            <div class="article-title">{{ article.title }}</div>
+                            <div class="article-meta">
+                                <span>📅 {{ article.date }}</span>
+                                <span class="source-badge">{{ article.source_name }}</span>
+                                <span class="status-badge {% if article.published %}status-published{% else %}status-new{% endif %}">
+                                    {% if article.published %}✅ Published{% else %}🆕 New{% endif %}
+                                </span>
+                                {% if article.published %}
+                                <span>📤 {{ article.published[:16] }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div style="font-family: monospace; font-size: 0.875rem; color: #718096;">
+                            {{ article.filename }}
+                        </div>
+                    </div>
+                    
+                    <div class="article-content">
+                        {{ article.content_preview }}
+                    </div>
+                    
+                    <div class="article-actions">
+                        {% if not article.published %}
+                        <a href="/post/{{ article.filename }}" class="btn btn-primary"
+                           onclick="return confirm('Post this to Facebook?')">
+                            📤 Post to Facebook
+                        </a>
+                        {% endif %}
+                        <a href="{{ article.url }}" target="_blank" class="btn" style="background: #e2e8f0; color: #4a5568;">
+                            🔗 View Source
+                        </a>
+                        <button class="btn" style="background: #f7fafc; color: #4a5568;" 
+                                onclick="showDetails('{{ article.filename|escapejs }}')">
+                            👁️ Preview
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-articles">
+                <h3>No articles found</h3>
+                <p>Run the scrapers to collect new articles.</p>
+                <a href="/run-scrapers" class="btn btn-warning">🚀 Run Scrapers</a>
+            </div>
+            {% endif %}
+
+            {% if articles|length > 20 %}
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span>...</span>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="footer">
+            <p>Bihac Scrapers System • {{ now.strftime('%Y-%m-%d %H:%M') }}</p>
+            <p>Server: http://{{ server_ip }}:{{ port }} • Webhook: https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh every 60 seconds
+        setTimeout(() => {
+            window.location.reload();
+        }, 60000);
+
+        // Filter articles
+        function filterArticles(status) {
+            const articles = document.querySelectorAll('.article-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Update active filter button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide articles based on filter
+            articles.forEach(article => {
+                if (status === 'all') {
+                    article.style.display = 'block';
+                } else {
+                    const articleStatus = article.getAttribute('data-status');
+                    article.style.display = articleStatus === status ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Show article details
+        function showDetails(filename) {
+            alert('Article details for: ' + filename + '\n\nFull details would be shown here.');
+        }
+
+        // Confirm before posting all
+        document.querySelectorAll('.btn-success').forEach(btn => {
+            if (btn.textContent.includes('Post All')) {
+                btn.addEventListener('click', function(e) {
+                    if (!confirm('Are you sure you want to post ALL new articles?')) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+
+        // Search functionality (placeholder)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                alert('Search functionality would open here');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "scraped_urls": [
+    "https://www.dzbihac.com/index.php/bs/medija-centar/novosti/oglasi/141-ponuda-ddd",
+    "https://www.dzbihac.com/index.php/bs/medija-centar/novosti/oglasi/162-oglas-za-prodaju-rashodovanog-vozila-putem-licitacije",
+    "https://www.dzbihac.com/index.php/bs/medija-centar/novosti/oglasi/124-javni-oglas-za-zakup",
+    "https://www.dzbihac.com/index.php/bs/medija-centar/novosti/oglasi/177-dani-dz-bihac"
+  ],
+  "content_hashes": [
+    "3cac9189393e",
+    "a11a1a6223cf",
+    "f6451d63e3b7",
+    "6853514ba8e5"
+  ],
+  "last_run": "2026-02-05T09:00:07.225357",
+  "script_name": "dzbinac.py",
+  "script_hash": "777b2639747b"
+}

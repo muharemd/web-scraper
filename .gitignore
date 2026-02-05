@@ -1,0 +1,45 @@
+# Ignore SSH directory
+.ssh/
+
+# Ignore Bash configuration files
+.bash_profile
+.bashrc
+.viminfo
+.bash_history
+.mutt
+.vim
+.profile
+.bash_logout
+.lesshst
+.viminfo
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments (ignore ALL)
+venv/
+env/
+.venv/
+.scraper-env/
+scraper-env/
+
+# Playwright binaries (these are huge)
+**/playwright/
+**/playwright/**
+
+# Node binaries inside Playwright
+**/playwright/driver/
+**/playwright/driver/**
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE/editor files
+.vscode/
+.idea/
+.selected_editor
