@@ -15006,3 +15006,673 @@ Closing connection to imap.gmail.com...
 [0;32m============================================================[0m
 [0;32m✅ ALL SCRAPERS COMPLETED[0m
 [0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-09 23:03:44
+============================================================
+
+📊 JSON files before: 2
+
+[0;34m▶ Running: vladausk.py[0m
+============================================================
+🚀 VLADA USK News Scraper - REFINED
+============================================================
+Script: vladausk.py
+Script hash: 8277faf88052
+Target: https://vladausk.ba/v4/vrsta/kategorija/4
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Fetching category page: https://vladausk.ba/v4/vrsta/kategorija/4
+Found 33 h3 elements, filtering for news...
+  Processing: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Processing: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Processing: Javni oglas za izbor i imenovanje članova ......
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Javni poziv i Odluka o nabavci usluga restorana ......
+  Processing: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Processing: Tehnička ispravka javnog oglasa za prijem ......
+  Processing: Javni poziv za prijavu kandidata za članove ......
+  Processing: Javni oglas - Viši referent za tehničke poslove...
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Obavještenja iz Vlade...
+  Processing: Obavještenja iz ministarstava...
+
+Found 12 valid news articles
+
+Processing 12 news articles...
+
+Article 1: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Date: 2026-02-06
+  Content length: 73 chars
+  Content hash: 23c4ea4431dd
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Date: 2026-02-06
+  Content length: 63 chars
+  Content hash: 8a36ff424bbe
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas za izbor i imenovanje članova ......
+  Date: 2026-02-04
+  Content length: 45 chars
+  Content hash: 3d8191208380
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2026-02-03
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga restorana ......
+  Date: 2026-01-29
+  Content length: 51 chars
+  Content hash: aca600591a06
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Date: 2026-01-29
+  Content length: 75 chars
+  Content hash: 2b80bc2a6884
+  ⚠️  Duplicate content detected
+
+Article 1: Tehnička ispravka javnog oglasa za prijem ......
+  Date: 2026-01-28
+  Content length: 45 chars
+  Content hash: c387287f0c40
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prijavu kandidata za članove ......
+  Date: 2026-01-22
+  Content length: 47 chars
+  Content hash: dd6f73643956
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas - Viši referent za tehničke poslove...
+  Date: 2026-01-15
+  Content length: 47 chars
+  Content hash: f6c1ee39bc51
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2025-12-29
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz Vlade...
+  Date: 2026-02-09
+  Content length: 21 chars
+  Content hash: c8895511a0f1
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz ministarstava...
+  Date: 2026-02-09
+  Content length: 29 chars
+  Content hash: 54ea12342703
+  ⚠️  Duplicate content detected
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: kbbihac.py[0m
+============================================================
+🚀 KB Bihać News Scraper
+============================================================
+Script: kbbihac.py
+Script hash: b9db21b77e7b
+Target: https://www.kbbihac.ba/novosti
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kbbihac.py (hash: b9db21b77e7b)
+Time: 2026-02-09 23:03:47.229902
+============================================================
+Looking for news links on: https://www.kbbihac.ba/novosti
+Found pagination, checking for more pages...
+Found 1 unique news links
+
+Processing 1 links...
+
+[1/1] Checking: https://www.kbbihac.ba/novosti
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: kcbihac.py[0m
+============================================================
+🚀 KC Bihać News Scraper
+============================================================
+Script: kcbihac.py
+Script hash: 4a8d788ff48a
+Target: https://kcbihac.ba/novosti.php
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kcbihac.py (hash: 4a8d788ff48a)
+Time: 2026-02-09 23:03:48.489110
+============================================================
+Looking for news links on: https://kcbihac.ba/novosti.php
+  Found link: Novosti (current)... -> index.php#0
+Looking for news in tables...
+Found 1 unique news links
+
+Processing 1 links...
+
+[1/1] Checking: https://kcbihac.ba/index.php#0
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rtvusk.py[0m
+============================================================
+🚀 RTV USK News Scraper - FIXED
+============================================================
+Script: rtvusk.py
+Script hash: 15d516b03539
+Target: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Scraping RTV USK: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Found 28 h2 elements
+  Found: U Bihaću je danas održana 7. sjednica Vlade Unsko-...
+  Found: Skuplji život, ista primanja: Građani pod sve veći...
+  Found: Zabrinjavajući rezultati istraživanja: Identifikov...
+  Found: Humanitarni bazar u Bihaću za liječenje 22-godišnj...
+  Found: Decenija predanog rada Odjela za brak i porodicu M...
+  Found: Bihaćki aerodrom između očekivanja i političke stv...
+  Found: Sutra će biti obilježena 32. godišnjica slamanja a...
+  Found: U Cazinu održane javne rasprave u vezi usvojenog i...
+  Found: Zaštita potrošača: Usklađivanja pravne regulative ...
+  Found: Ministar finansija Danko Jakšić reagirao na izjavu...
+  Found: Protesti u Sanskom Mostu - Sanjani razočarani rado...
+  Found: GSS Cazin značajno unaprijedila kapacitete ove slu...
+  Found: Sindikat SŠO i Ministarstvo obrazovanja potpisali ...
+  Found: Snijeg pogodovao pšenici, proizvođači se nadaju bo...
+  Found: Sutra u Bosni i Hercegovini pretežno oblačno vrije...
+  Found: Poslijepodne uz RTV USK : Powerdance u Bihaću - Tr...
+  Found: Poslijepodne uz RTV USK – gost Samir Grozdanić, pr...
+  Found: CIK BiH objavio rezultate: Siniša Karan osvojio na...
+  Found: U kanjonu rijeke Une prema Bosanskoj Krupi jučer z...
+  Found: BIHAĆ: Tri osobe uhapšene zbog razbojništva nad br...
+  Found: Pozitivna priča OŠ 'Gornje Prekounje - Ripač': Nas...
+  Found: Kroz vannastavne aktivnosti MSS Bosanski Petrovac ...
+  Found: Ministrica Pozder: Izrada planske dokumentacije i ...
+  Found: KUC Sarajevo i Kantonalna bolnica Bihać jačaju sar...
+  Found: Vrhovni sud Federacije BiH ukinuo presudu za ubist...
+  Found: Sedam prošlih dana: Rezime bh sedmice u događajima...
+Total article links found: 26
+
+Processing 15 articles...
+
+[1/15] Checking: https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+  Fetching: https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+  Title: U Bihaću je danas održana 7. sjednica Vlade Unsko-sanskog ka...
+  Content: 1416 chars
+  Content hash: 16f769c2e0d3
+  ✅ Saved: 15d516b03539-20260209-001.json
+
+[2/15] Checking: https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+  Fetching: https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+  Title: Skuplji život, ista primanja: Građani pod sve većim pritisko...
+  Content: 462 chars
+  Content hash: 374a74697aa3
+  ✅ Saved: 15d516b03539-20260209-002.json
+
+[3/15] Checking: https://www.rtvusk.ba/clanak/zabrinjavajuci-rezultati-istrazivanja-identifikovani-pritisci-i-zagadivaci-na-gornjem-toku-une/12720
+  Fetching: https://www.rtvusk.ba/clanak/zabrinjavajuci-rezultati-istrazivanja-identifikovani-pritisci-i-zagadivaci-na-gornjem-toku-une/12720
+  Title: Zabrinjavajući rezultati istraživanja: Identifikovani pritis...
+  Content: 731 chars
+  Content hash: ca3043ef162a
+  ✅ Saved: 15d516b03539-20260209-003.json
+
+[4/15] Checking: https://www.rtvusk.ba/clanak/humanitarni-bazar-u-bihacu-za-lijecenje-22-godisnje-merjem-begic/12716
+  Fetching: https://www.rtvusk.ba/clanak/humanitarni-bazar-u-bihacu-za-lijecenje-22-godisnje-merjem-begic/12716
+  Title: Humanitarni bazar u Bihaću za liječenje 22-godišnje Merjem B...
+  Content: 1119 chars
+  Content hash: 7286cddedff2
+  ✅ Saved: 15d516b03539-20260209-004.json
+
+[5/15] Checking: https://www.rtvusk.ba/clanak/decenija-predanog-rada-odjela-za-brak-i-porodicu-medzlisa-iz-bosanski-petrovac/12715
+  Fetching: https://www.rtvusk.ba/clanak/decenija-predanog-rada-odjela-za-brak-i-porodicu-medzlisa-iz-bosanski-petrovac/12715
+  Title: Decenija predanog rada Odjela za brak i porodicu Medžlisa IZ...
+  Content: 583 chars
+  Content hash: d42dd9359e01
+  ✅ Saved: 15d516b03539-20260209-005.json
+
+[6/15] Checking: https://www.rtvusk.ba/clanak/bihacki-aerodrom-izmedu-ocekivanja-i-politicke-stvarnosti/12691
+  ⏩ Already processed
+
+[7/15] Checking: https://www.rtvusk.ba/clanak/sutra-ce-biti-obiljezena-32-godisnjica-slamanja-agresorske-februarske-ofanzive-danas-u-mesdzidu-klanjan-prvi-dzuma-namaz/12670
+  ⏩ Already processed
+
+[8/15] Checking: https://www.rtvusk.ba/clanak/u-cazinu-odrzane-javne-rasprave-u-vezi-usvojenog-i-revidiranog-prostornog-plana/12664
+  ⏩ Already processed
+
+[9/15] Checking: https://www.rtvusk.ba/clanak/zastita-potrosaca-uskladivanja-pravne-regulative-dodataka-prehrani-s-eu-standardima-je-pitanje-zivota-i-zdravlja-djece/12662
+  ⏩ Already processed
+
+[10/15] Checking: https://www.rtvusk.ba/clanak/ministar-finansija-danko-jaksic-reagirao-na-izjavu-predsjednika-sindikata-srednjeg-obrazovanja-samira-fajica/12661
+  ⏩ Already processed
+
+[11/15] Checking: https://www.rtvusk.ba/clanak/protesti-u-sanskom-mostu-sanjani-razocarani-radom-pravosuda-u-predmetima-ratnih-zlocina/12655
+  ⏩ Already processed
+
+[12/15] Checking: https://www.rtvusk.ba/clanak/gss-cazin-znacajno-unaprijedila-kapacitete-ove-sluzbe-a-samim-tim-i-sigurnost-gradana/12601
+  ⏩ Already processed
+
+[13/15] Checking: https://www.rtvusk.ba/clanak/sindikat-sso-i-ministarstvo-obrazovanja-potpisali-sporazum-o-visini-osnovice-za-obracun-placa-u-ovoj-godini/12632
+  ⏩ Already processed
+
+[14/15] Checking: https://www.rtvusk.ba/clanak/snijeg-pogodovao-psenici-proizvodaci-se-nadaju-boljoj-godini-i-vecim-poticajima/12729
+  Fetching: https://www.rtvusk.ba/clanak/snijeg-pogodovao-psenici-proizvodaci-se-nadaju-boljoj-godini-i-vecim-poticajima/12729
+  Title: Snijeg pogodovao pšenici, proizvođači se nadaju boljoj godin...
+  Content: 1735 chars
+  Content hash: 2c982641b903
+  ✅ Saved: 15d516b03539-20260209-014.json
+
+[15/15] Checking: https://www.rtvusk.ba/clanak/sutra-u-bosni-i-hercegovini-pretezno-oblacno-vrijeme/12728
+  Fetching: https://www.rtvusk.ba/clanak/sutra-u-bosni-i-hercegovini-pretezno-oblacno-vrijeme/12728
+  Title: Sutra u Bosni i Hercegovini pretežno oblačno vrijeme...
+  Content: 887 chars
+  Content hash: b9a5942c2968
+  ✅ Saved: 15d516b03539-20260209-015.json
+
+============================================================
+Scraping completed!
+New posts created: 7
+
+📋 NEW POSTS CREATED:
+  📄 15d516b03539-20260209-001.json
+    U Bihaću je danas održana 7. sjednica Vlade Unsko-sanskog kantona...
+    🔗 https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+
+  📄 15d516b03539-20260209-002.json
+    Skuplji život, ista primanja: Građani pod sve većim pritiskom...
+    🔗 https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+
+  📄 15d516b03539-20260209-003.json
+    Zabrinjavajući rezultati istraživanja: Identifikovani pritisci i zagađ...
+    🔗 https://www.rtvusk.ba/clanak/zabrinjavajuci-rezultati-istrazivanja-identifikovani-pritisci-i-zagadivaci-na-gornjem-toku-une/12720
+
+  📄 15d516b03539-20260209-004.json
+    Humanitarni bazar u Bihaću za liječenje 22-godišnje Merjem Begić...
+    🔗 https://www.rtvusk.ba/clanak/humanitarni-bazar-u-bihacu-za-lijecenje-22-godisnje-merjem-begic/12716
+
+  📄 15d516b03539-20260209-005.json
+    Decenija predanog rada Odjela za brak i porodicu Medžlisa IZ Bosanski ...
+    🔗 https://www.rtvusk.ba/clanak/decenija-predanog-rada-odjela-za-brak-i-porodicu-medzlisa-iz-bosanski-petrovac/12715
+
+  📄 15d516b03539-20260209-014.json
+    Snijeg pogodovao pšenici, proizvođači se nadaju boljoj godini i većim ...
+    🔗 https://www.rtvusk.ba/clanak/snijeg-pogodovao-psenici-proizvodaci-se-nadaju-boljoj-godini-i-vecim-poticajima/12729
+
+  📄 15d516b03539-20260209-015.json
+    Sutra u Bosni i Hercegovini pretežno oblačno vrijeme...
+    🔗 https://www.rtvusk.ba/clanak/sutra-u-bosni-i-hercegovini-pretezno-oblacno-vrijeme/12728
+
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (18s)[0m
+
+[0;34m▶ Running: radiobihac.py[0m
+============================================================
+🚀 Radio Bihać News Scraper
+============================================================
+Script: radiobihac.py
+Script hash: 77de09e61a43
+Target: https://www.radiobihac.com
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: radiobihac.py (hash: 77de09e61a43)
+Time: 2026-02-09 23:04:07.417831
+============================================================
+Scraping Radio Bihać: https://www.radiobihac.com
+Looking for news articles...
+  Found: OBAVIJESTI, NAJAVE...
+  Found: 09.02.2026 - Koalicija "Pod lupom": Indicije o izbornim nepr...
+  Found: 09.02.2026 - Žrijebanje grupa UEFA Lige nacija 12. februara,...
+  Found: 09.02.2026 - Cijene hrane u FBiH ne prate svjetski trend sni...
+  Found: 09.02.2026 - Roditelji njegovatelji u fokusu, veća izdvajanj...
+  Found: 09.02.2026 - Statistika: Odnos broja muškaraca i žena u BiH ...
+  Found: 09.02.2026 - Uživo na BHRT: ZOI Milano Cortina 2026 - 9. feb...
+  Found: Hrnjić i FUZIP na GP Izačić: Jačati granične procedure izvoz...
+  Found: U Sanskom Mostu danas protestni skup: Slučaj glavnog državno...
+  Found: EMISIJE - Radio Bihać...
+  Found: EKO KULT Svakog drugog petka od 13:05 sati.Urednik i voditel...
+  Found: MUZIKA NA ŠILTETIMA Svakog ponedjeljka i srijede.Urednik i v...
+  Found: VOLI SVOJE, PODRŽI DOMAĆE! Svakog petka od 12:05.Urednica i ...
+  Found: ZA MARKU VIŠE Svakog drugog utorka od 13:05.Urednik i vodite...
+  Found: SCENA Svake druge srijede od 12:05 sati.Urednik i voditelj e...
+  Found: AKTUALNO U kategoriji "Aktualno" nalaze se prilozi, reportaž...
+  Found: STOKUĆA MAHALUŠA Svakog ponedjeljka i petka od 10:30.Autor i...
+  Found: KONTRAPUNKT U novom terminu, svakog drugog četvrtka od 17.00...
+  Found: FAIR PLAY Svakog ponedjeljka od 13.05 sati.Urednik i voditel...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: 2026-02-09 09:02:11 Isplata invalidnina za januar u Federaci...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: Mali aljaški malamut do suza nasmijao svoju vlasnicu...
+  Found: Noj jurio bicikliste, oni "umirali" od smijeha...
+  Found: Prijatelji se ne ostavljaju u nevolji...
+  Found: Spust niz Lovćen koji ledi krv u žilama...
+  Found: Stojadin sigurno juri kroz snijeg...
+  Found: Najnoviji model američke kompanije BostonDynamics...
+  Found: Obavijesti i najave...
+  Found: Udomljavanje napuštenih životinja...
+  Found: IZMJENA JAVNOG POZIVA ZA DODJELU KUĆICA - WINTER 2025...
+  Found: Radio Televizija Bihać 2017...
+Found 47 date stamps on page
+Total unique article links: 51
+
+Processing 10 article pages...
+
+[1/10] Checking: http://www.radiobihac.com/kategorija/obavijesti/17
+  ⏩ Already processed
+
+[2/10] Checking: https://www.radiobihac.com/vijest/koalicija-pod-lupom-indicije-o-izbornim-nepravilnostima-narusavaju-regularnost-izbora-u-rs/15280
+  Fetching: https://www.radiobihac.com/vijest/koalicija-pod-lupom-indicije-o-izbornim-nepravilnostima-narusavaju-regularnost-izbora-u-rs/15280
+  Title: Koalicija "Pod lupom": Indicije o izbornim nepravilnostima n...
+  Content: 0 chars
+  Content hash: 
+  ⚠️  Duplicate content detected
+
+[3/10] Checking: https://www.radiobihac.com/vijest/zrijebanje-grupa-uefa-lige-nacija-12-februara-bosna-i-hercegovina-u-drugom-sesiru/15279
+  Fetching: https://www.radiobihac.com/vijest/zrijebanje-grupa-uefa-lige-nacija-12-februara-bosna-i-hercegovina-u-drugom-sesiru/15279
+  Title: Žrijebanje grupa UEFA Lige nacija 12. februara, Bosna i Herc...
+  Content: 0 chars
+  Content hash: 
+  ⚠️  Duplicate content detected
+
+[4/10] Checking: https://www.radiobihac.com/vijest/cijene-hrane-u-fbih-ne-prate-svjetski-trend-snizenja-spinat-skup-kao-meso/15278
+  Fetching: https://www.radiobihac.com/vijest/cijene-hrane-u-fbih-ne-prate-svjetski-trend-snizenja-spinat-skup-kao-meso/15278
+  Title: Cijene hrane u FBiH ne prate svjetski trend sniženja: Špinat...
+  Content: 0 chars
+  Content hash: 
+  ⚠️  Duplicate content detected
+
+[5/10] Checking: https://www.radiobihac.com/vijest/roditelji-njegovatelji-u-fokusu-veca-izdvajanja-vece-naknade-i-izmjene-zakona/15277
+  ⏩ Already processed
+
+[6/10] Checking: https://www.radiobihac.com/vijest/statistika-odnos-broja-muskaraca-i-zena-u-bih-varira-prema-dobnoj-skupini/15276
+  ⏩ Already processed
+
+[7/10] Checking: https://www.radiobihac.com/vijest/uzivo-na-bhrt-zoi-milano-cortina-2026-9-februar/15275
+  ⏩ Already processed
+
+[8/10] Checking: https://www.radiobihac.com/vijest/hrnjic-i-fuzip-na-gp-izacic-jacati-granicne-procedure-izvoza-i-povoljan-poslovni-ambijent/15262
+  ⏩ Already processed
+
+[9/10] Checking: https://www.radiobihac.com/vijest/u-sanskom-mostu-danas-protestni-skup-slucaj-glavnog-drzavnog-tuzioca-milanka-kajganica/15261
+  ⏩ Already processed
+
+[10/10] Checking: https://www.radiobihac.com/emisije
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: vodovod-bihac.py[0m
+============================================================
+🚰 Vodovod Bihać Utility Announcement Scraper
+============================================================
+Script: vodovod-bihac.py
+Script hash: 820244bade12
+Target: https://www.vodovod-bihac.ba/
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: vodovod-bihac.py (hash: 820244bade12)
+Time: 2026-02-09 23:04:10.709227
+============================================================
+Scraping Vodovod Bihać: https://www.vodovod-bihac.ba/
+Looking for utility announcements...
+  Found announcement: AKTUELNOSTI...
+  Found announcement: Obavijest o kvaliteti vode...
+  Found announcement: Više informacija...
+Total announcement links: 3
+
+Processing 3 announcement pages...
+
+[1/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/aktuelnosti/1
+  ⏩ Already processed
+
+[2/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/obavijest-o-kvaliteti-vode/2
+  ⏩ Already processed
+
+[3/3] Checking: https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-petak-6-februara-2026-godine/601
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New announcements posted: 0
+
+ℹ️  No new announcements found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usnkrajina.py[0m
+📁 Loaded state: 34 URLs, 34 hashes
+============================================================
+📰 USN KRAJINA NEWS SCRAPER
+============================================================
+Script: usnkrajina.py
+Script hash: 666ab78f5b46
+Target: https://usnkrajina.com.ba
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: usnkrajina_state.json
+Time: 2026-02-09 23:04:11.838568
+============================================================
+Scraping USN Krajina: https://usnkrajina.com.ba
+Looking for news articles...
+  🌐 Fetching: https://usnkrajina.com.ba
+  🔍 Looking for article links...
+  ✅ Found 15 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/vijesti/
+  🌐 Fetching: https://usnkrajina.com.ba/vijesti/
+  🔍 Looking for article links...
+  ✅ Found 12 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/aktuelnosti/
+  🌐 Fetching: https://usnkrajina.com.ba/aktuelnosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/aktuelnosti/
+
+📂 Checking section: https://usnkrajina.com.ba/category/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/category/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/category/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/blog/
+  🌐 Fetching: https://usnkrajina.com.ba/blog/
+  🔍 Looking for article links...
+  ✅ Found 4 articles using strategy
+
+📊 Found 30 total articles
+📊 New articles to process: 1
+
+Processing 1 new articles...
+
+
+[1/1] Processing: https://usnkrajina.com.ba/socijalne-mjere-isplacena-jednokratna-pomoc-od-1-000-km-za-vise-od-1-280-novorodjene-djece/
+  🌐 Fetching: https://usnkrajina.com.ba/socijalne-mjere-isplacena-jednokratna-pomoc-od-1-000-km-za-vise-od-1-280-novorodjene-djece/
+    📝 Parsing article...
+    ✅ Title from h1: SOCIJALNE MJERE: Isplaćena jednokratna pomoć od 1....
+    ✅ Date from meta: 2026-02-05
+    ⚠️  Using paragraph collection strategy
+    🖼️  Image: https://usnkrajina.com.ba/wp-content/uploads/2025/...
+  ✅ Saved: 666ab78f5b46-20260205-001.json
+    Title: SOCIJALNE MJERE: Isplaćena jednokratna pomoć od 1.000 KM za ...
+    Date: 2026-02-05
+    Content length: 1641 chars
+    Content hash: 0b5863471ddc
+
+============================================================
+Scraping completed!
+New posts saved: 1
+Total scraped URLs in state: 35
+Total content hashes in state: 35
+
+📋 NEW POSTS CREATED:
+
+  📄 666ab78f5b46-20260205-001.json
+    SOCIJALNE MJERE: Isplaćena jednokratna pomoć od 1.000 KM za više od 1....
+    🔗 https://usnkrajina.com.ba/socijalne-mjere-isplacena-jednokratna-pomoc-od-1-000-km-za-vise-od-1-280-novorodjene-djece/
+    📝 Content: 1641 chars
+
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+
+💾 State saved to usnkrajina_state.json
+============================================================
+  [0;32m✓ Completed successfully (10s)[0m
+
+[0;34m▶ Running: bihac-org.py[0m
+📁 Loaded state: 4 URLs, 4 hashes
+============================================================
+🏛️  BIHAC.ORG NEWS SCRAPER
+============================================================
+Script: bihac-org.py
+Script hash: bdd511b72044
+Target: https://www.bihac.org
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: bihac_org_state.json
+Time: 2026-02-09 23:04:21.637982
+============================================================
+Scraping Bihać.org categories...
+
+📂 Category: Gradska Uprava
+   URL: https://www.bihac.org/obavijesti
+  Found 4 articles
+  New articles: 0
+
+📂 Category: Javni Pozivi
+   URL: https://www.bihac.org/javni-pozivi
+  Found 0 articles
+  New articles: 0
+
+✅ No new articles found.
+
+💾 State saved to bihac_org_state.json
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: bihamk-rss.py[0m
+============================================================
+🚗 BIHAMK Traffic RSS Import Feeder
+============================================================
+Script:          bihamk-rss.py
+Script hash:     852ea23249f5
+Feed URL:        https://bihamk.ba/spi/stanje-na-cesti-u-bih/rss
+Output directory:/home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: bihamk-rss.py (hash: 852ea23249f5)
+Time:   2026-02-09 23:04:23.429730
+Feed:   BIHAMK Traffic Updates
+============================================================
+Found 1 traffic updates.
+
+[1/1] Processing traffic update...
+  Title: Stanje na cesti u BiH...
+  Date:  2026-02-09
+  Hash:  b2c85616b001
+  ⏩ Already processed (URL)
+
+============================================================
+Import completed.
+New traffic posts created: 0
+
+ℹ️  No new traffic posts created.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 2
+  JSON files after:  10
+  [0;32mNew files created: 8[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 15d516b03539-20260209-001.json
+    Title: U Bihaću je danas održana 7. sjednica Vlade Unsko-sanskog kantona
+    Original URL: https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+  Found new: 15d516b03539-20260209-002.json
+    Title: Skuplji život, ista primanja: Građani pod sve većim pritiskom
+    Original URL: https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+  Found new: 15d516b03539-20260209-003.json
+    Title: Zabrinjavajući rezultati istraživanja: Identifikovani pritisci i zagađivači na gornjem toku Une
+    Original URL: https://www.rtvusk.ba/clanak/zabrinjavajuci-rezultati-istrazivanja-identifikovani-pritisci-i-zagadivaci-na-gornjem-toku-une/12720
+  Found new: 15d516b03539-20260209-004.json
+    Title: Humanitarni bazar u Bihaću za liječenje 22-godišnje Merjem Begić
+    Original URL: https://www.rtvusk.ba/clanak/humanitarni-bazar-u-bihacu-za-lijecenje-22-godisnje-merjem-begic/12716
+  Found new: 15d516b03539-20260209-005.json
+    Title: Decenija predanog rada Odjela za brak i porodicu Medžlisa IZ Bosanski Petrovac
+    Original URL: https://www.rtvusk.ba/clanak/decenija-predanog-rada-odjela-za-brak-i-porodicu-medzlisa-iz-bosanski-petrovac/12715
+  Found new: 15d516b03539-20260209-014.json
+    Title: Snijeg pogodovao pšenici, proizvođači se nadaju boljoj godini i većim poticajima
+    Original URL: https://www.rtvusk.ba/clanak/snijeg-pogodovao-psenici-proizvodaci-se-nadaju-boljoj-godini-i-vecim-poticajima/12729
+  Found new: 15d516b03539-20260209-015.json
+    Title: Sutra u Bosni i Hercegovini pretežno oblačno vrijeme
+    Original URL: https://www.rtvusk.ba/clanak/sutra-u-bosni-i-hercegovini-pretezno-oblacno-vrijeme/12728
+  Found new: 666ab78f5b46-20260205-001.json
+    Title: SOCIJALNE MJERE: Isplaćena jednokratna pomoć od 1.000 KM za više od 1.280 novorođene djece
+    Original URL: https://usnkrajina.com.ba/socijalne-mjere-isplacena-jednokratna-pomoc-od-1-000-km-za-vise-od-1-280-novorodjene-djece/
+2026-02-09 23:03:44 | Before: 2 | After: 10 | New: 8 | Files: 15d516b03539-20260209-001.json 15d516b03539-20260209-002.json 15d516b03539-20260209-003.json 15d516b03539-20260209-004.json 15d516b03539-20260209-005.json 15d516b03539-20260209-014.json 15d516b03539-20260209-015.json 666ab78f5b46-20260205-001.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Could not connect to smtp.gmail.com (Network is unreachable).
+Could not send the message.
+  ✓ Email sent to hare.de@gmail.com with mutt
+Could not connect to smtp.gmail.com (Network is unreachable).
+Could not send the message.
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m

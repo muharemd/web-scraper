@@ -572,6 +572,10 @@
                                 onclick="showDetails('{{ article.filename|e }}')">
                             👁️ Preview
                         </button>
+                        <a href="/delete/{{ article.filename }}" class="btn" style="background: #feb2b2; color: #c53030;"
+                           onclick="return confirm('Are you sure you want to delete this article?\n\nTitle: {{ article.title }}\n\nThis action cannot be undone!')">
+                            🗑️ Delete
+                        </a>
                     </div>
                 </div>
                 {% endfor %}

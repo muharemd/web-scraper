@@ -408,6 +408,38 @@ def post_article(filename):
             error=result.get('stderr', result.get('error', 'Unknown'))
         )
 
+@app.route('/delete/<filename>')
+@login_required
+def delete_article(filename):
+    """Delete an article JSON file with logging"""
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    
+    filepath = os.path.join(JSON_DIR, filename)
+    
+    if not os.path.exists(filepath):
+        log_activity(client_ip, username, "DELETE_FAILED", f"File not found: {filename}")
+        return render_template('error.html',
+            error_type='error',
+            title='File Not Found',
+            message='The requested article file could not be found.',
+            details={'File': filename}
+        ), 404
+    
+    try:
+        os.remove(filepath)
+        log_activity(client_ip, username, "DELETE_SUCCESS", f"File deleted: {filename}")
+        return redirect(url_for('index'))
+    except Exception as e:
+        log_activity(client_ip, username, "DELETE_FAILED", f"File: {filename}, Error: {str(e)}")
+        return render_template('error.html',
+            error_type='error',
+            title='Delete Failed',
+            message='An error occurred while deleting the article.',
+            details={'File': filename},
+            error=str(e)
+        )
+
 @app.route('/get-article/<filename>')
 @login_required
 def get_article(filename):
