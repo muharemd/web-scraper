@@ -18,6 +18,8 @@ SCRAPERS=(
     "usnkrajina.py"
     #"komrad-bihac.py"
     "bihac-org.py"
+    "klix_feed.py"
+    "bihamk-rss.py"
 )
 
 EMAILS=("hare.de@gmail.com" "danasbihac@gmail.com")
