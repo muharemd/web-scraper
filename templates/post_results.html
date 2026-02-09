@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting Results - Facebook Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .result-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-card.success {
+            border-left: 4px solid #48bb78;
+        }
+
+        .result-card.error {
+            border-left: 4px solid #f56565;
+        }
+
+        .result-card h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-filename {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #718096;
+        }
+
+        .error-message {
+            background: #fff5f5;
+            color: #c53030;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            border: 1px solid #feb2b2;
+        }
+
+        .no-articles {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .no-articles h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header, .result-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📤 Posting Results</h1>
+            
+            {% if results %}
+            <div class="summary">
+                <h2>Summary</h2>
+                <p style="font-size: 1.5rem; margin-top: 0.5rem;">
+                    <strong>{{ success_count }}</strong> / {{ results|length }} articles posted successfully
+                </p>
+                {% if success_count == results|length %}
+                <p style="margin-top: 0.5rem;">✅ All articles posted successfully!</p>
+                {% elif success_count == 0 %}
+                <p style="margin-top: 0.5rem;">❌ All posting attempts failed</p>
+                {% else %}
+                <p style="margin-top: 0.5rem;">⚠️ Some articles failed to post</p>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <a href="/" class="btn">← Back to Dashboard</a>
+        </div>
+
+        {% if results %}
+        <div class="results-grid">
+            {% for result in results %}
+            <div class="result-card {% if result.success %}success{% else %}error{% endif %}">
+                <h3>
+                    {% if result.success %}✅{% else %}❌{% endif %}
+                    {{ result.title }}
+                </h3>
+                <div class="result-filename">File: {{ result.filename }}</div>
+                {% if not result.success and result.error %}
+                <div class="error-message">
+                    <strong>Error:</strong> {{ result.error[:200] }}{% if result.error|length > 200 %}...{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-articles">
+            <h2>No New Articles</h2>
+            <p>No new articles found to post.</p>
+            <a href="/" class="btn">← Back to Dashboard</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

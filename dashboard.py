@@ -158,7 +158,7 @@ def login():
         
         if not username or not password:
             log_failed_login(client_ip, username, "MISSING_CREDENTIALS")
-            return render_login_form(error="Please enter both username and password")
+            return render_template('login.html', error="Please enter both username and password", now=datetime.now())
         
         is_valid, role = verify_password(username, password)
         
@@ -176,48 +176,10 @@ def login():
             log_failed_login(client_ip, username, "INVALID_CREDENTIALS")
             log_access(client_ip, username, "LOGIN_FAILED", "", "FAILED")
             
-            return render_login_form(error="Invalid username or password")
+            return render_template('login.html', error="Invalid username or password", now=datetime.now())
     
     log_access(client_ip, "ANONYMOUS", "LOGIN_PAGE_VIEW")
-    return render_login_form()
-
-def render_login_form(error=None):
-    """Render login form"""
-    return f'''
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Dashboard Login</title>
-        <style>
-            body {{ font-family: Arial; background: #667eea; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }}
-            .login-box {{ background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 100%; max-width: 400px; }}
-            h1 {{ color: #333; text-align: center; margin-bottom: 1.5rem; }}
-            .form-group {{ margin-bottom: 1rem; }}
-            label {{ display: block; margin-bottom: 0.5rem; color: #555; }}
-            input {{ width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 5px; font-size: 1rem; }}
-            button {{ width: 100%; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; margin-top: 1rem; }}
-            .error {{ background: #fee; color: #c33; padding: 0.75rem; border-radius: 5px; margin-bottom: 1rem; border-left: 4px solid #c33; }}
-        </style>
-    </head>
-    <body>
-        <div class="login-box">
-            <h1>🔐 Dashboard Login</h1>
-            {f'<div class="error">{error}</div>' if error else ''}
-            <form method="POST">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" required autofocus>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" required>
-                </div>
-                <button type="submit">Sign In</button>
-            </form>
-        </div>
-    </body>
-    </html>
-    '''
+    return render_template('login.html', error=None, now=datetime.now())
 
 @app.route('/logout')
 def logout():
@@ -251,33 +213,35 @@ def get_articles():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 
-                # Determine source from filename
-                source_name = "Unknown"
-                if 'dz' in filename.lower():
-                    source_name = 'Dom zdravlja'
-                elif 'vod' in filename.lower():
-                    source_name = 'Vodovod'
-                elif 'bihac' in filename.lower():
-                    source_name = 'Grad Bihać'
-                elif 'usk' in filename.lower():
-                    source_name = 'USK'
-                elif 'krajina' in filename.lower():
-                    source_name = 'USN Krajina'
-                elif 'komrad' in filename.lower():
-                    source_name = 'Komrad'
-                elif 'radio' in filename.lower():
-                    source_name = 'Radio Bihać'
-                elif 'rtv' in filename.lower():
-                    source_name = 'RTV USK'
-                elif 'vlada' in filename.lower():
-                    source_name = 'Vlada USK'
-                elif 'kb' in filename.lower():
-                    source_name = 'Kantonalna bolnica'
-                elif 'kc' in filename.lower():
-                    source_name = 'Kantonalni centar'
+                # Get source name from JSON or infer from filename
+                source_name = data.get('source_name', 'Unknown')
+                if source_name == 'Unknown':
+                    if 'dz' in filename.lower():
+                        source_name = 'Dom zdravlja'
+                    elif 'vod' in filename.lower():
+                        source_name = 'Vodovod'
+                    elif 'bihac' in filename.lower():
+                        source_name = 'Grad Bihać'
+                    elif 'usk' in filename.lower():
+                        source_name = 'USK'
+                    elif 'krajina' in filename.lower():
+                        source_name = 'USN Krajina'
+                    elif 'komrad' in filename.lower():
+                        source_name = 'Komrad'
+                    elif 'radio' in filename.lower():
+                        source_name = 'Radio Bihać'
+                    elif 'rtv' in filename.lower():
+                        source_name = 'RTV USK'
+                    elif 'vlada' in filename.lower():
+                        source_name = 'Vlada USK'
+                    elif 'kb' in filename.lower():
+                        source_name = 'Kantonalna bolnica'
+                    elif 'kc' in filename.lower():
+                        source_name = 'Kantonalni centar'
                 
                 content = data.get('content', '')
-                content_preview = content[:200] + '...' if len(content) > 200 else content
+                # Show full content on dashboard
+                content_preview = content
                 
                 articles.append({
                     'filename': filename,
@@ -341,188 +305,60 @@ def index():
     """Main dashboard page"""
     try:
         articles = get_articles()
-        total = len([f for f in os.listdir(JSON_DIR) if f.endswith('.json')]) if os.path.exists(JSON_DIR) else 0
-        new_count = sum(1 for a in articles if a.get('is_new'))
-        published_count = total - new_count
         
-        html = f'''
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Facebook Dashboard</title>
-            <style>
-                body {{ font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }}
-                .header {{ background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
-                .stats {{ display: flex; gap: 20px; margin: 20px 0; }}
-                .stat-card {{ background: white; padding: 20px; border-radius: 10px; flex: 1; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }}
-                .new {{ border-top: 4px solid #4CAF50; }}
-                .published {{ border-top: 4px solid #2196F3; }}
-                .total {{ border-top: 4px solid #9C27B0; }}
-                .article-card {{ 
-                    background: white; 
-                    padding: 20px; 
-                    margin-bottom: 15px; 
-                    border-radius: 8px; 
-                    border-left: 4px solid #FF9800;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                }}
-                .article-card.published {{ border-left-color: #4CAF50; }}
-                .article-title {{ 
-                    font-size: 18px; 
-                    font-weight: bold; 
-                    margin-bottom: 10px; 
-                    color: #333;
-                }}
-                .article-meta {{ 
-                    color: #666; 
-                    font-size: 14px; 
-                    margin-bottom: 10px;
-                    display: flex;
-                    gap: 15px;
-                }}
-                .article-content {{ 
-                    background: #f9f9f9; 
-                    padding: 15px; 
-                    border-radius: 5px; 
-                    margin: 15px 0;
-                    border-left: 3px solid #ddd;
-                    font-size: 15px;
-                    line-height: 1.5;
-                    max-height: 300px;
-                    overflow-y: auto;
-                }}
-                .actions {{ margin-top: 15px; }}
-                .btn {{ 
-                    padding: 8px 16px; 
-                    border: none; 
-                    border-radius: 4px; 
-                    cursor: pointer; 
-                    text-decoration: none; 
-                    display: inline-block;
-                    margin-right: 10px;
-                    font-size: 14px;
-                }}
-                .btn-post {{ background: #4CAF50; color: white; }}
-                .btn-post-all {{ background: #2196F3; color: white; }}
-                .btn-run {{ background: #9C27B0; color: white; }}
-                .btn-logout {{ background: #f44336; color: white; }}
-                .nav {{ margin: 20px 0; }}
-                .user-info {{ float: right; color: #666; }}
-                .status-new {{ color: #4CAF50; font-weight: bold; }}
-                .status-published {{ color: #2196F3; }}
-                .content-toggle {{ 
-                    background: none;
-                    border: none;
-                    color: #667eea;
-                    cursor: pointer;
-                    font-size: 12px;
-                    padding: 0;
-                    margin-left: 10px;
-                }}
-            </style>
-            <script>
-                function toggleContent(id) {{
-                    var content = document.getElementById('content-' + id);
-                    var btn = document.getElementById('toggle-' + id);
-                    if (content.style.display === 'none') {{
-                        content.style.display = 'block';
-                        btn.textContent = '↑ Collapse';
-                    }} else {{
-                        content.style.display = 'none';
-                        btn.textContent = '↓ Expand';
-                    }}
-                }}
-                
-                function confirmPostAll() {{
-                    return confirm('Post ALL {new_count} new articles?');
-                }}
-            </script>
-        </head>
-        <body>
-            <div class="header">
-                <h1>🚀 Facebook Posting Dashboard</h1>
-                <div class="user-info">
-                    User: {session.get('username', 'Unknown')}<br>
-                    IP: {get_client_ip()}
-                </div>
-                <div class="nav">
-                    <a href="/refresh" class="btn">🔄 Refresh</a>
-                    <a href="/post-all-new" class="btn btn-post-all" onclick="return confirmPostAll()">📤 Post All New ({new_count})</a>
-                    <a href="/run-scrapers" class="btn btn-run">🤖 Run Scrapers</a>
-                    <a href="/list" class="btn">📋 List View</a>
-                    <a href="/view-logs" class="btn">📊 View Logs</a>
-                    <a href="/logout" class="btn btn-logout">🚪 Logout</a>
-                </div>
-            </div>
+        # Count all files correctly
+        if os.path.exists(JSON_DIR):
+            total = 0
+            new_count = 0
+            published_count = 0
             
-            <div class="stats">
-                <div class="stat-card total">
-                    <h3>📁 Total</h3>
-                    <h1>{total}</h1>
-                </div>
-                <div class="stat-card new">
-                    <h3>🆕 New</h3>
-                    <h1>{new_count}</h1>
-                </div>
-                <div class="stat-card published">
-                    <h3>✅ Published</h3>
-                    <h1>{published_count}</h1>
-                </div>
-            </div>
-            
-            <h2>Latest Articles</h2>
-        '''
-        
-        if not articles:
-            html += '<p>No articles found. Run scrapers first.</p>'
+            for filename in os.listdir(JSON_DIR):
+                if filename.endswith('.json'):
+                    total += 1
+                    try:
+                        with open(os.path.join(JSON_DIR, filename), 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            if data.get('published'):
+                                published_count += 1
+                            else:
+                                new_count += 1
+                    except:
+                        pass
         else:
-            for i, article in enumerate(articles):
-                is_new = article['is_new']
-                status_class = "status-new" if is_new else "status-published"
-                status_text = "🆕 NEW" if is_new else f"✅ Published: {article['published'][:19] if article['published'] else ''}"
-                html += f'''
-                <div class="article-card {'published' if not is_new else ''}">
-                    <div class="article-title">{article['title']}</div>
-                    <div class="article-meta">
-                        <span><strong>Source:</strong> {article['source_name']}</span>
-                        <span><strong>Date:</strong> {article['date']}</span>
-                        <span class="{status_class}">{status_text}</span>
-                        <button class="content-toggle" id="toggle-{i}" onclick="toggleContent({i})">↓ Expand</button>
-                    </div>
-                    <div class="article-content" id="content-{i}" style="display: none;">
-                        {article['content'].replace('<', '&lt;').replace('>', '&gt;').replace('\\n', '<br>')}
-                    </div>
-                    <div class="actions">
-                '''
-                if is_new:
-                    html += f'''
-                        <a href="/post/{article['filename']}" class="btn btn-post">📤 Post to Facebook</a>
-                    '''
-                html += f'''
-                        <small>File: {article['filename']}</small>
-                    </div>
-                </div>
-                '''
+            total = 0
+            new_count = 0
+            published_count = 0
         
-        html += '''
-        </body>
-        </html>
-        '''
+        # Get server IP
+        import socket
+        try:
+            server_ip = socket.gethostbyname(socket.gethostname())
+            if server_ip.startswith('127.'):
+                # Try to get actual IP if localhost
+                server_ip = request.host.split(':')[0]
+        except:
+            server_ip = request.host.split(':')[0]
         
-        return html
+        return render_template('index.html',
+                             articles=articles,
+                             total=total,
+                             new_count=new_count,
+                             published_count=published_count,
+                             server_ip=server_ip,
+                             port=8080,
+                             now=datetime.now(),
+                             username=session.get('username', 'Unknown'),
+                             client_ip=get_client_ip())
             
     except Exception as e:
         print(f"ERROR in index route: {e}")
         traceback.print_exc()
-        return f'''
-        <html>
-        <body style="font-family: Arial; padding: 40px;">
-            <h1>Dashboard Error</h1>
-            <p><strong>Error:</strong> {str(e)}</p>
-            <p><a href="/">Refresh</a> | <a href="/logout">Logout</a></p>
-        </body>
-        </html>
-        ''', 500
+        return render_template('error.html',
+            error_type='error',
+            title='Dashboard Error',
+            message='An error occurred while loading the dashboard.',
+            error=str(e)
+        ), 500
 
 @app.route('/post/<filename>')
 @login_required
@@ -535,7 +371,12 @@ def post_article(filename):
     
     if not os.path.exists(filepath):
         log_activity(client_ip, username, "POST_FAILED", f"File not found: {filename}")
-        return f"File not found: {filename}", 404
+        return render_template('error.html',
+            error_type='error',
+            title='File Not Found',
+            message='The requested article file could not be found.',
+            details={'File': filename}
+        ), 404
     
     log_activity(client_ip, username, "POST_ATTEMPT", f"File: {filename}")
     
@@ -559,16 +400,29 @@ def post_article(filename):
         log_activity(client_ip, username, "POST_FAILED", 
                     f"File: {filename}, Error: {result.get('stderr', result.get('error', 'Unknown'))[:200]}")
         
-        return f'''
-        <html>
-        <body style="font-family: Arial; padding: 40px;">
-            <h1 style="color: red;">❌ Failed to Post</h1>
-            <p>File: {filename}</p>
-            <p>Error: {result.get('stderr', result.get('error', 'Unknown'))}</p>
-            <p><a href="/">← Back</a></p>
-        </body>
-        </html>
-        '''
+        return render_template('error.html',
+            error_type='error',
+            title='Failed to Post',
+            message='An error occurred while posting the article.',
+            details={'File': filename},
+            error=result.get('stderr', result.get('error', 'Unknown'))
+        )
+
+@app.route('/get-article/<filename>')
+@login_required
+def get_article(filename):
+    """Get article JSON data for preview"""
+    filepath = os.path.join(JSON_DIR, filename)
+    
+    if not os.path.exists(filepath):
+        return jsonify({'error': 'File not found'}), 404
+    
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/post-all-new')
 @login_required
@@ -585,15 +439,7 @@ def post_all_new():
     
     if not new_articles:
         log_activity(client_ip, username, "BULK_POST_FAILED", "No new articles found")
-        return '''
-        <html>
-        <body style="font-family: Arial; padding: 40px;">
-            <h1>No New Articles</h1>
-            <p>No new articles found to post.</p>
-            <p><a href="/">← Back</a></p>
-        </body>
-        </html>
-        '''
+        return render_template('post_results.html', results=[], success_count=0)
     
     results = []
     for article in new_articles:
@@ -622,41 +468,7 @@ def post_all_new():
     log_activity(client_ip, username, "BULK_POST_COMPLETE", 
                 f"Success: {success_count}/{len(results)}")
     
-    html = f'''
-    <html>
-    <head>
-        <title>Posting Results</title>
-        <style>
-            body {{ font-family: Arial; padding: 20px; }}
-            .success {{ background: #f0fff0; padding: 10px; margin: 5px; border-left: 4px solid #4CAF50; }}
-            .error {{ background: #fff0f0; padding: 10px; margin: 5px; border-left: 4px solid #f44336; }}
-        </style>
-    </head>
-    <body>
-        <h1>📤 Posting Results</h1>
-        <p>Success: <strong>{success_count}</strong> / {len(results)}</p>
-        <p><a href="/">← Back to Dashboard</a></p>
-        <hr>
-    '''
-    
-    for r in results:
-        if r['success']:
-            html += f'''
-            <div class="success">
-                ✅ <strong>{r['title']}</strong><br>
-                <small>File: {r['filename']}</small>
-            </div>
-            '''
-        else:
-            html += f'''
-            <div class="error">
-                ❌ <strong>{r['title']}</strong><br>
-                <small>Error: {r['error'][:100]}</small>
-            </div>
-            '''
-    
-    html += '</body></html>'
-    return html
+    return render_template('post_results.html', results=results, success_count=success_count)
 
 @app.route('/run-scrapers')
 @login_required
@@ -682,25 +494,10 @@ def run_scrapers():
             log_activity(client_ip, username, "SCRAPERS_RUN_FAILED", 
                         f"Exit code: {result.returncode}")
         
-        html = f'''
-        <html>
-        <head>
-            <title>Scrapers Output</title>
-            <style>
-                body {{ font-family: monospace; padding: 20px; }}
-                pre {{ background: #f5f5f5; padding: 15px; border-radius: 5px; max-height: 600px; overflow: auto; }}
-                .error {{ background: #fff0f0; color: #c00; }}
-            </style>
-        </head>
-        <body>
-            <h1>🤖 Scrapers Output</h1>
-            <pre>{result.stdout}</pre>
-            <pre class="error">{result.stderr}</pre>
-            <p><a href="/">← Back</a></p>
-        </body>
-        </html>
-        '''
-        return html
+        return render_template('scraper_output.html',
+                             stdout=result.stdout,
+                             stderr=result.stderr,
+                             returncode=result.returncode)
     except Exception as e:
         log_activity(client_ip, username, "SCRAPERS_RUN_ERROR", f"Exception: {str(e)}")
         return f"Error: {str(e)}"
@@ -716,68 +513,7 @@ def list_articles():
     
     articles = get_articles()
     
-    html = f'''
-    <html>
-    <head>
-        <title>Article List</title>
-        <style>
-            body {{ font-family: Arial; padding: 20px; }}
-            .article {{ 
-                border: 1px solid #ddd; 
-                padding: 15px; 
-                margin: 10px 0; 
-                border-radius: 5px;
-                background: white;
-            }}
-            .new {{ border-left: 4px solid #4CAF50; }}
-            .published {{ border-left: 4px solid #2196F3; }}
-            .article-content {{
-                background: #f9f9f9;
-                padding: 10px;
-                margin: 10px 0;
-                border-radius: 3px;
-                font-size: 14px;
-                max-height: 200px;
-                overflow-y: auto;
-            }}
-            .btn {{ 
-                padding: 5px 10px; 
-                background: #4CAF50; 
-                color: white; 
-                text-decoration: none;
-                border-radius: 3px;
-                display: inline-block;
-                margin-right: 5px;
-            }}
-        </style>
-    </head>
-    <body>
-        <h1>📋 All Articles ({len(articles)})</h1>
-        <p><a href="/">← Dashboard</a> | <a href="/logout">Logout</a></p>
-        <hr>
-    '''
-    
-    for article in articles:
-        status_class = "new" if article['is_new'] else "published"
-        status_text = "🆕 NEW" if article['is_new'] else f"✅ Published: {article['published'][:19] if article['published'] else ''}"
-        btn = f'<a href="/post/{article["filename"]}" class="btn">📤 Post</a>' if article['is_new'] else ''
-        
-        html += f'''
-        <div class="article {status_class}">
-            <h3>{article['title']}</h3>
-            <p><strong>{article['source_name']}</strong> | {article['date']} | {status_text}</p>
-            <div class="article-content">
-                {article['content'].replace('<', '&lt;').replace('>', '&gt;').replace('\\n', '<br>')}
-            </div>
-            <p>
-                {btn}
-                <small>File: {article['filename']}</small>
-            </p>
-        </div>
-        '''
-    
-    html += '</body></html>'
-    return html
+    return render_template('list.html', articles=articles)
 
 @app.route('/view-logs')
 @login_required
@@ -811,64 +547,10 @@ def view_logs():
     except:
         failed_logins = "No failed login log found"
     
-    html = f'''
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Security Logs</title>
-        <style>
-            body {{ font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }}
-            .header {{ background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
-            .log-section {{ background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; }}
-            pre {{ 
-                background: #f9f9f9; 
-                padding: 15px; 
-                border-radius: 5px; 
-                overflow: auto; 
-                max-height: 400px;
-                font-family: monospace;
-                font-size: 12px;
-                border: 1px solid #ddd;
-            }}
-            .btn {{ 
-                padding: 8px 16px; 
-                border: none; 
-                border-radius: 4px; 
-                cursor: pointer; 
-                text-decoration: none; 
-                display: inline-block;
-                margin-right: 10px;
-                font-size: 14px;
-                background: #607d8b; 
-                color: white; 
-            }}
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <h1>📊 Security Logs</h1>
-            <p><a href="/" class="btn">← Back to Dashboard</a></p>
-        </div>
-        
-        <div class="log-section">
-            <h2>🛡️ Failed Login Attempts</h2>
-            <pre>{failed_logins}</pre>
-        </div>
-        
-        <div class="log-section">
-            <h2>👤 Access Log</h2>
-            <pre>{access_log}</pre>
-        </div>
-        
-        <div class="log-section">
-            <h2>📝 Activity Log</h2>
-            <pre>{activity_log}</pre>
-        </div>
-    </body>
-    </html>
-    '''
-    
-    return html
+    return render_template('logs.html',
+                         access_log=access_log,
+                         activity_log=activity_log,
+                         failed_logins=failed_logins)
 
 @app.route('/refresh')
 @login_required
