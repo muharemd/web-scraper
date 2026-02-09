@@ -18,7 +18,7 @@ SCRAPERS=(
     "usnkrajina.py"
     #"komrad-bihac.py"
     "bihac-org.py"
-    "klix_feed.py"
+    #"klix_feed.py"
     "bihamk-rss.py"
 )
 
