@@ -496,6 +496,11 @@
             <a href="/run-scrapers" class="btn btn-warning">
                 🚀 Run All Scrapers
             </a>
+            <form action="/run-rewrite-titles" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-primary">
+                    ✍️ Rewrite Titles (DeepSeek)
+                </button>
+            </form>
             {% if new_count > 0 %}
             <a href="/post-all-new" class="btn btn-success" 
                onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">
@@ -538,6 +543,11 @@
                     <div class="article-header">
                         <div style="flex: 1;">
                             <div class="article-title">{{ article.title }}</div>
+                            {% if article.title_rewritten %}
+                            <div style="font-size: 0.95rem; color: #667eea; font-weight: 500; margin-top: 0.5rem; font-style: italic;">
+                                ✍️ {{ article.title_rewritten }}
+                            </div>
+                            {% endif %}
                             <div class="article-meta">
                                 <span>📅 {{ article.date }}</span>
                                 <span class="source-badge">{{ article.source_name }}</span>

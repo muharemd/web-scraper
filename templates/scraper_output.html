@@ -137,28 +137,30 @@
     <div class="container">
         <div class="header">
             <h1>🤖 Scraper Output</h1>
-            <p style="color: #718096; margin-bottom: 1rem;">Results from running all scrapers</p>
+            <p style="color: #718096; margin-bottom: 1rem;">Results from running a script</p>
             <a href="/" class="btn">← Back to Dashboard</a>
         </div>
 
         <div class="output-section">
-            {% if returncode == 0 %}
+            {% if status == 'success' or returncode == 0 %}
             <div class="status-indicator status-success">
-                ✅ Scrapers completed successfully (Exit Code: {{ returncode }})
+                ✅ Script completed successfully
+                {% if returncode is defined %}(Exit Code: {{ returncode }}){% endif %}
             </div>
             {% else %}
             <div class="status-indicator status-error">
-                ❌ Scrapers failed (Exit Code: {{ returncode }})
+                ❌ Script failed
+                {% if returncode is defined %}(Exit Code: {{ returncode }}){% endif %}
             </div>
             {% endif %}
 
-            <h2>📋 Standard Output</h2>
+            <h2>📋 Output</h2>
             <div class="output-content">
-                {% if stdout %}{{ stdout }}{% else %}No output{% endif %}
+                {% if output is defined %}{{ output }}{% elif stdout is defined %}{{ stdout }}{% else %}No output{% endif %}
             </div>
         </div>
 
-        {% if stderr %}
+        {% if stderr is defined and stderr %}
         <div class="output-section">
             <h2>⚠️ Error Output</h2>
             <div class="output-content error-output">{{ stderr }}</div>
