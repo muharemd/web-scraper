@@ -1,26 +1,4 @@
-@app.route('/run-rewrite-titles', methods=['POST'])
-@login_required
-def run_rewrite_titles():
-    """Run the rewrite_titles_deepseek.sh script and show result."""
-    try:
-        result = subprocess.run(["/bin/bash", "rewrite_titles_deepseek.sh"], capture_output=True, text=True, timeout=120)
-        output = result.stdout + "\n" + result.stderr
-        status = "success" if result.returncode == 0 else "error"
-    except Exception as e:
-        output = str(e)
-        status = "error"
-    return render_template('scraper_output.html',
-                          output=output,
-                          status=status,
-                          now=datetime.now(),
-                          username=session.get('username', 'Unknown'),
-                          client_ip=get_client_ip())
-#!/usr/bin/env python3
-"""
-Facebook Posting Dashboard - SIMPLIFIED WORKING VERSION
-No ipaddress module dependency
-"""
-
+## The /run-rewrite-titles route should be at the end of the file, after all other routes and functions are defined.
 import os
 import sys
 import json
