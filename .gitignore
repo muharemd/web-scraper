@@ -43,3 +43,12 @@ dist/
 .vscode/
 .idea/
 .selected_editor
+
+# API keys and sensitive configuration
+.deepseek_config
+*.config
+.env
+dashboard_users.json
+*_access.log
+*_activity.log
+*failed_logins.log

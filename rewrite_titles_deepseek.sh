@@ -1,10 +1,24 @@
 #!/bin/bash
 
 FOLDER="/home/bihac-danas/web-scraper/facebook_ready_posts"
-#API_KEY="$DEEPSEEK_API_KEY"
-API_KEY="YOUR_API_KEY_REMOVED_FROM_HISTORY"
 MODEL="deepseek-chat"
 API_URL="https://api.deepseek.com/v1/chat/completions"
+
+# Load API key from secure config file
+CONFIG_FILE="/home/bihac-danas/web-scraper/.deepseek_config"
+if [ -f "$CONFIG_FILE" ]; then
+    source "$CONFIG_FILE"
+else
+    echo "ERROR: Config file not found at $CONFIG_FILE"
+    exit 1
+fi
+
+if [ -z "$DEEPSEEK_API_KEY" ]; then
+    echo "ERROR: DEEPSEEK_API_KEY not set in config file"
+    exit 1
+fi
+
+API_KEY="$DEEPSEEK_API_KEY"
 
 for file in "$FOLDER"/*.json; do
     echo "Checking: $file"
