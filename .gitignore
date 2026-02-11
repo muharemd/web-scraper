@@ -52,6 +52,3 @@ dashboard_users.json
 *_access.log
 *_activity.log
 *failed_logins.log
-
-*dashboard_access.log
-*dashboard_activity.log
