@@ -16,7 +16,7 @@ print(f"DEBUG: Starting dashboard.py with Python: {sys.executable}")
 
 app = Flask(__name__)
 # Set a fixed, secure secret key (generated once, keep private)
-app.secret_key = 'b1e2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2'
+app.secret_key = 'b1e2c3d4e5f6a7b8againc9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2'
 # Set session cookie options for compatibility
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.config['SESSION_COOKIE_SECURE'] = False
@@ -585,6 +585,24 @@ def view_logs():
 def refresh():
     """Refresh page"""
     return redirect(url_for('index'))
+
+@app.route('/run-rewrite-titles', methods=['POST'])
+@login_required
+def run_rewrite_titles():
+    """Run the rewrite_titles_deepseek.sh script and show result."""
+    try:
+        result = subprocess.run(["/bin/bash", "rewrite_titles_deepseek.sh"], capture_output=True, text=True, timeout=120)
+        output = result.stdout + "\n" + result.stderr
+        status = "success" if result.returncode == 0 else "error"
+    except Exception as e:
+        output = str(e)
+        status = "error"
+    return render_template('scraper_output.html',
+                          output=output,
+                          status=status,
+                          now=datetime.now(),
+                          username=session.get('username', 'Unknown'),
+                          client_ip=get_client_ip())
 
 if __name__ == '__main__':
     print(f"\n{'='*50}")
