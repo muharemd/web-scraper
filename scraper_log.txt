@@ -29233,3 +29233,2000 @@ Closing connection to imap.gmail.com...
 [0;32m============================================================[0m
 [0;32m✅ ALL SCRAPERS COMPLETED[0m
 [0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-12 21:31:39
+============================================================
+
+📊 JSON files before: 0
+
+[0;34m▶ Running: vladausk.py[0m
+============================================================
+🚀 VLADA USK News Scraper - REFINED
+============================================================
+Script: vladausk.py
+Script hash: 8277faf88052
+Target: https://vladausk.ba/v4/vrsta/kategorija/4
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Fetching category page: https://vladausk.ba/v4/vrsta/kategorija/4
+Found 33 h3 elements, filtering for news...
+  Processing: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Processing: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Processing: Javni oglas za izbor i imenovanje članova ......
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Javni poziv i Odluka o nabavci usluga restorana ......
+  Processing: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Processing: Tehnička ispravka javnog oglasa za prijem ......
+  Processing: Javni poziv za prijavu kandidata za članove ......
+  Processing: Javni oglas - Viši referent za tehničke poslove...
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Obavještenja iz Vlade...
+  Processing: Obavještenja iz ministarstava...
+
+Found 12 valid news articles
+
+Processing 12 news articles...
+
+Article 1: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Date: 2026-02-06
+  Content length: 73 chars
+  Content hash: 23c4ea4431dd
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Date: 2026-02-06
+  Content length: 63 chars
+  Content hash: 8a36ff424bbe
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas za izbor i imenovanje članova ......
+  Date: 2026-02-04
+  Content length: 45 chars
+  Content hash: 3d8191208380
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2026-02-03
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga restorana ......
+  Date: 2026-01-29
+  Content length: 51 chars
+  Content hash: aca600591a06
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Date: 2026-01-29
+  Content length: 75 chars
+  Content hash: 2b80bc2a6884
+  ⚠️  Duplicate content detected
+
+Article 1: Tehnička ispravka javnog oglasa za prijem ......
+  Date: 2026-01-28
+  Content length: 45 chars
+  Content hash: c387287f0c40
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prijavu kandidata za članove ......
+  Date: 2026-01-22
+  Content length: 47 chars
+  Content hash: dd6f73643956
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas - Viši referent za tehničke poslove...
+  Date: 2026-01-15
+  Content length: 47 chars
+  Content hash: f6c1ee39bc51
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2025-12-29
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz Vlade...
+  Date: 2026-02-12
+  Content length: 21 chars
+  Content hash: c8895511a0f1
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz ministarstava...
+  Date: 2026-02-12
+  Content length: 29 chars
+  Content hash: 54ea12342703
+  ⚠️  Duplicate content detected
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: kbbihac.py[0m
+============================================================
+🚀 KB Bihać News Scraper
+============================================================
+Script: kbbihac.py
+Script hash: b9db21b77e7b
+Target: https://www.kbbihac.ba/novosti
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kbbihac.py (hash: b9db21b77e7b)
+Time: 2026-02-12 21:31:41.876628
+============================================================
+Looking for news links on: https://www.kbbihac.ba/novosti
+Found pagination, checking for more pages...
+Found 1 unique news links
+
+Processing 1 links...
+
+[1/1] Checking: https://www.kbbihac.ba/novosti
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: kcbihac.py[0m
+============================================================
+🚀 KC Bihać News Scraper
+============================================================
+Script: kcbihac.py
+Script hash: 4a8d788ff48a
+Target: https://kcbihac.ba/novosti.php
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kcbihac.py (hash: 4a8d788ff48a)
+Time: 2026-02-12 21:31:43.061953
+============================================================
+Looking for news links on: https://kcbihac.ba/novosti.php
+  Found link: Novosti (current)... -> index.php#0
+Looking for news in tables...
+Found 1 unique news links
+
+Processing 1 links...
+
+[1/1] Checking: https://kcbihac.ba/index.php#0
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rtvusk.py[0m
+============================================================
+🚀 RTV USK News Scraper - FIXED
+============================================================
+Script: rtvusk.py
+Script hash: 15d516b03539
+Target: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Scraping RTV USK: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Found 28 h2 elements
+  Found: O podršci i mjerama Zavoda FBiH: Danas u Bihaću pr...
+  Found: U Bihaću održana druga redovna izvještajna sjednic...
+  Found: Održana redovna sjednica Vlade USK: Usvojene odluk...
+  Found: Sjajna Bosna savladala Reggianu i s prvog mjesta i...
+  Found: Ključ: Uz učešće državnog ministra Elmedina Konako...
+  Found: Žene u praksi: Naučnice, profesorice i angažirane ...
+  Found: Konaković u Biljanima: 'Težina ovog zločina ogleda...
+  Found: Unapređenje sistema upravljanja otpadom tema sasta...
+  Found: Sjećanje na prve branioce BiH: Godišnjica Patriots...
+  Found: Obilježena 35. godišnjica osnivanja Patriotske lig...
+  Found: Macron ima novu viziju Evrope: Njemačka i Italija ...
+  Found: U Bihaću je danas održana 7. sjednica Vlade Unsko-...
+  Found: Skuplji život, ista primanja: Građani pod sve veći...
+  Found: Sutra u našoj zemlji veći dio dana pretežno oblačn...
+  Found: Izdvojeno iz TV Dnevnika – gost: Almir Šahmanija...
+  Found: Poslijepodne uz RTV USK – gosti: Emir Gonilović, D...
+  Found: Godišnjica trajnih uspomena: Živi svjedoci i učesn...
+  Found: BIHAĆ: Tri osobe uhapšene zbog razbojništva nad br...
+  Found: Sindikat SŠO i Ministarstvo obrazovanja potpisali ...
+  Found: Pozitivna priča OŠ 'Gornje Prekounje - Ripač': Nas...
+  Found: Humanitarni bazar u Bihaću za liječenje 22-godišnj...
+  Found: Zaštita potrošača: Usklađivanja pravne regulative ...
+  Found: Na današnji dan, prije 49 godina, poginuo je Džema...
+  Found: Izabrani najuspješniji sportisti i sportski radnic...
+  Found: Vrijeme u BiH pretežno oblačno sa otopljenjem...
+  Found: Vrijeme pretežno oblačno, tokom dana kiša, na plan...
+  Found: Protesti u Sanskom Mostu - Sanjani razočarani rado...
+Total article links found: 27
+
+Processing 15 articles...
+
+[1/15] Checking: https://www.rtvusk.ba/clanak/o-podrsci-i-mjerama-zavoda-fbih-danas-u-bihacu-prezentirani-programi-mjera-za-zaposljavanje-u-tekucoj-godini/12810
+  ⏩ Already processed
+
+[2/15] Checking: https://www.rtvusk.ba/clanak/u-bihacu-odrzana-druga-redovna-izvjestajna-sjednica-skupstine-udruzenja-distroficara-usk-a/12808
+  ⏩ Already processed
+
+[3/15] Checking: https://www.rtvusk.ba/clanak/odrzana-redovna-sjednica-vlade-usk-usvojene-odluke-kojim-se-osigurava-redovno-funkcioniranje-ustanova-iz-vise-resora/12806
+  ⏩ Already processed
+
+[4/15] Checking: https://www.rtvusk.ba/clanak/sjajna-bosna-savladala-reggianu-i-s-prvog-mjesta-ide-u-cetvrtfinale-evropa-kupa/12787
+  ⏩ Already processed
+
+[5/15] Checking: https://www.rtvusk.ba/clanak/kljuc-uz-ucesce-drzavnog-ministra-elmedina-konakovica-sinoc-odrzana-tribina-stranke-nip-bih/12778
+  ⏩ Already processed
+
+[6/15] Checking: https://www.rtvusk.ba/clanak/zene-u-praksi-naucnice-profesorice-i-angazirane-zene-u-istrazivackim-projektima-s-prostora-usk-a-sirom-su-svijeta/12777
+  ⏩ Already processed
+
+[7/15] Checking: https://www.rtvusk.ba/clanak/konakovic-u-biljanima-tezina-ovog-zlocina-ogleda-se-u-cinjenici-da-su-ga-pocinile-komsije/12775
+  ⏩ Already processed
+
+[8/15] Checking: https://www.rtvusk.ba/clanak/unapredenje-sistema-upravljanja-otpadom-tema-sastanka-u-sanskom-mostu/12764
+  ⏩ Already processed
+
+[9/15] Checking: https://www.rtvusk.ba/clanak/sjecanje-na-prve-branioce-bih-godisnjica-patriotske-lige/12746
+  ⏩ Already processed
+
+[10/15] Checking: https://www.rtvusk.ba/clanak/obiljezena-35-godisnjica-osnivanja-patriotske-lige-u-bihacu/12741
+  ⏩ Already processed
+
+[11/15] Checking: https://www.rtvusk.ba/clanak/macron-ima-novu-viziju-evrope-njemacka-i-italija-su-protiv/12732
+  ⏩ Already processed
+
+[12/15] Checking: https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+  ⏩ Already processed
+
+[13/15] Checking: https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+  ⏩ Already processed
+
+[14/15] Checking: https://www.rtvusk.ba/clanak/sutra-u-nasoj-zemlji-veci-dio-dana-pretezno-oblacno-vrijeme-sa-kisom-vecinom-prije-podne/12813
+  ⏩ Already processed
+
+[15/15] Checking: https://www.rtvusk.ba/clanak/izdvojeno-iz-tv-dnevnika-gost-almir-sahmanija/12812
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: radiobihac.py[0m
+============================================================
+🚀 Radio Bihać News Scraper
+============================================================
+Script: radiobihac.py
+Script hash: 77de09e61a43
+Target: https://www.radiobihac.com
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: radiobihac.py (hash: 77de09e61a43)
+Time: 2026-02-12 21:31:44.962050
+============================================================
+Scraping Radio Bihać: https://www.radiobihac.com
+Looking for news articles...
+  Found: OBAVIJESTI, NAJAVE...
+  Found: 12.02.2026 - Elvedina Muzaferija 16. u disciplini Super-G na...
+  Found: 12.02.2026 - 📣 NOVA KORT VIKEND AKCIJA JE PRED NAMA !!! 📣...
+  Found: 12.02.2026 - Gradonačelnik Sedić ponovo u posjeti bihaćkim f...
+  Found: 12.02.2026 - Prezentirana iskustva i primjeri dobre prakse i...
+  Found: 12.02.2026 - U Muftijstvu bihaćkom potpisan protokol o surad...
+  Found: 12.02.2026 - Reprezentacija BiH danas će saznati protivnike ...
+  Found: EMISIJE - Radio Bihać...
+  Found: EKO KULT Svakog drugog petka od 13:05 sati.Urednik i voditel...
+  Found: MUZIKA NA ŠILTETIMA Svakog ponedjeljka i srijede.Urednik i v...
+  Found: VOLI SVOJE, PODRŽI DOMAĆE! Svakog petka od 12:05.Urednica i ...
+  Found: ZA MARKU VIŠE Svakog drugog utorka od 13:05.Urednik i vodite...
+  Found: SCENA Svake druge srijede od 12:05 sati.Urednik i voditelj e...
+  Found: AKTUALNO U kategoriji "Aktualno" nalaze se prilozi, reportaž...
+  Found: STOKUĆA MAHALUŠA Svakog ponedjeljka i petka od 10:30.Autor i...
+  Found: KONTRAPUNKT U novom terminu, svakog drugog četvrtka od 17.00...
+  Found: FAIR PLAY Svakog ponedjeljka od 13.05 sati.Urednik i voditel...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: 2026-02-09 09:02:11 Isplata invalidnina za januar u Federaci...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: Mali aljaški malamut do suza nasmijao svoju vlasnicu...
+  Found: Noj jurio bicikliste, oni "umirali" od smijeha...
+  Found: Prijatelji se ne ostavljaju u nevolji...
+  Found: Spust niz Lovćen koji ledi krv u žilama...
+  Found: Stojadin sigurno juri kroz snijeg...
+  Found: Najnoviji model američke kompanije BostonDynamics...
+  Found: Obavijesti i najave...
+  Found: Udomljavanje napuštenih životinja...
+  Found: IZMJENA JAVNOG POZIVA ZA DODJELU KUĆICA - WINTER 2025...
+  Found: Radio Televizija Bihać 2017...
+Found 47 date stamps on page
+Total unique article links: 48
+
+Processing 10 article pages...
+
+[1/10] Checking: http://www.radiobihac.com/kategorija/obavijesti/17
+  ⏩ Already processed
+
+[2/10] Checking: https://www.radiobihac.com/vijest/elvedina-muzaferija-16-u-disciplini-super-g-na-zoi/15311
+  ⏩ Already processed
+
+[3/10] Checking: https://www.radiobihac.com/vijest/nova-kort-vikend-akcija-je-pred-nama/15310
+  ⏩ Already processed
+
+[4/10] Checking: https://www.radiobihac.com/vijest/gradonacelnik-sedic-ponovo-u-posjeti-bihackim-firmama/15309
+  ⏩ Already processed
+
+[5/10] Checking: https://www.radiobihac.com/vijest/prezentirana-iskustva-i-primjeri-dobre-prakse-iz-prve-faze-drr-programa/15307
+  ⏩ Already processed
+
+[6/10] Checking: https://www.radiobihac.com/vijest/u-muftijstvu-bihackom-potpisan-protokol-o-suradnji-u-projektu-obnove-dzamije-fethija/15306
+  ⏩ Already processed
+
+[7/10] Checking: https://www.radiobihac.com/vijest/reprezentacija-bih-danas-ce-saznati-protivnike-u-uefa-ligi-nacija/15305
+  ⏩ Already processed
+
+[8/10] Checking: https://www.radiobihac.com/emisije
+  ⏩ Already processed
+
+[9/10] Checking: https://www.radiobihac.com/emisija/eko-kult/22
+  ⏩ Already processed
+
+[10/10] Checking: https://www.radiobihac.com/emisija/muzika-na-siltetima/24
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vodovod-bihac.py[0m
+============================================================
+🚰 Vodovod Bihać Utility Announcement Scraper
+============================================================
+Script: vodovod-bihac.py
+Script hash: 820244bade12
+Target: https://www.vodovod-bihac.ba/
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: vodovod-bihac.py (hash: 820244bade12)
+Time: 2026-02-12 21:31:47.018771
+============================================================
+Scraping Vodovod Bihać: https://www.vodovod-bihac.ba/
+Looking for utility announcements...
+  Found announcement: AKTUELNOSTI...
+  Found announcement: Obavijest o kvaliteti vode...
+  Found announcement: Više informacija...
+Total announcement links: 3
+
+Processing 3 announcement pages...
+
+[1/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/aktuelnosti/1
+  ⏩ Already processed
+
+[2/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/obavijest-o-kvaliteti-vode/2
+  ⏩ Already processed
+
+[3/3] Checking: https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-cetvrtak-12-februara-2026-godine/603
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New announcements posted: 0
+
+ℹ️  No new announcements found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usnkrajina.py[0m
+📁 Loaded state: 36 URLs, 36 hashes
+============================================================
+📰 USN KRAJINA NEWS SCRAPER
+============================================================
+Script: usnkrajina.py
+Script hash: 666ab78f5b46
+Target: https://usnkrajina.com.ba
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: usnkrajina_state.json
+Time: 2026-02-12 21:31:48.153075
+============================================================
+Scraping USN Krajina: https://usnkrajina.com.ba
+Looking for news articles...
+  🌐 Fetching: https://usnkrajina.com.ba
+  🔍 Looking for article links...
+  ✅ Found 15 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/vijesti/
+  🌐 Fetching: https://usnkrajina.com.ba/vijesti/
+  🔍 Looking for article links...
+  ✅ Found 12 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/aktuelnosti/
+  🌐 Fetching: https://usnkrajina.com.ba/aktuelnosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/aktuelnosti/
+
+📂 Checking section: https://usnkrajina.com.ba/category/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/category/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/category/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/blog/
+  🌐 Fetching: https://usnkrajina.com.ba/blog/
+  🔍 Looking for article links...
+  ✅ Found 4 articles using strategy
+
+📊 Found 30 total articles
+📊 New articles to process: 0
+✅ No new articles found.
+
+💾 State saved to usnkrajina_state.json
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: bihac-org.py[0m
+📁 Loaded state: 4 URLs, 4 hashes
+============================================================
+🏛️  BIHAC.ORG NEWS SCRAPER
+============================================================
+Script: bihac-org.py
+Script hash: bdd511b72044
+Target: https://www.bihac.org
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: bihac_org_state.json
+Time: 2026-02-12 21:31:54.913113
+============================================================
+Scraping Bihać.org categories...
+
+📂 Category: Gradska Uprava
+   URL: https://www.bihac.org/obavijesti
+  Found 4 articles
+  New articles: 0
+
+📂 Category: Javni Pozivi
+   URL: https://www.bihac.org/javni-pozivi
+  Found 0 articles
+  New articles: 0
+
+✅ No new articles found.
+
+💾 State saved to bihac_org_state.json
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: bihamk-rss.py[0m
+============================================================
+🚗 BIHAMK Traffic RSS Import Feeder
+============================================================
+Script:          bihamk-rss.py
+Script hash:     852ea23249f5
+Feed URL:        https://bihamk.ba/spi/stanje-na-cesti-u-bih/rss
+Output directory:/home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: bihamk-rss.py (hash: 852ea23249f5)
+Time:   2026-02-12 21:31:57.164373
+Feed:   BIHAMK Traffic Updates
+============================================================
+Found 1 traffic updates.
+
+[1/1] Processing traffic update...
+  Title: Stanje na cesti u BiH...
+  Date:  2026-02-12
+  Hash:  b2c85616b001
+  ⏩ Already processed (URL)
+
+============================================================
+Import completed.
+New traffic posts created: 0
+
+ℹ️  No new traffic posts created.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: prostornobihac.py[0m
+2026-02-12 21:31:58,085 - prostornobihac - INFO - Scraping vijesti: https://www.prostornobihac.ba/vijesti
+2026-02-12 21:31:59,019 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-001.json
+2026-02-12 21:32:00,020 - prostornobihac - INFO - Scraping dokumenti: https://www.prostornobihac.ba/dokumenti/2
+2026-02-12 21:32:01,613 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-002.json
+2026-02-12 21:32:01,615 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-003.json
+2026-02-12 21:32:01,616 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-004.json
+2026-02-12 21:32:01,617 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-005.json
+2026-02-12 21:32:01,618 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-006.json
+2026-02-12 21:32:01,619 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-007.json
+2026-02-12 21:32:01,621 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-008.json
+2026-02-12 21:32:01,622 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-009.json
+2026-02-12 21:32:01,623 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-010.json
+2026-02-12 21:32:02,623 - prostornobihac - INFO - Scraped 10 articles from Prostorno Bihać
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: grad-cazin.py[0m
+2026-02-12 21:32:03,229 - gradcazin - INFO - Scraping https://gradcazin.gov.ba/novosti
+2026-02-12 21:32:03,934 - gradcazin - INFO - Saved: a20f8b27b7b2-20260212-001.json
+2026-02-12 21:32:03,935 - gradcazin - INFO - Scraped 1 articles from Grad Cazin
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: opcina-buzim.py[0m
+2026-02-12 21:32:04,490 - opcinabuzim - INFO - Scraping https://opcinabuzim.ba/
+2026-02-12 21:32:05,633 - opcinabuzim - INFO - Saved: ee5814865242-20260212-001.json
+2026-02-12 21:32:05,635 - opcinabuzim - INFO - Saved: ee5814865242-20260212-002.json
+2026-02-12 21:32:05,636 - opcinabuzim - INFO - Saved: ee5814865242-20260212-003.json
+2026-02-12 21:32:05,637 - opcinabuzim - INFO - Saved: ee5814865242-20260212-004.json
+2026-02-12 21:32:05,639 - opcinabuzim - INFO - Saved: ee5814865242-20260212-005.json
+2026-02-12 21:32:05,640 - opcinabuzim - INFO - Saved: ee5814865242-20260212-006.json
+2026-02-12 21:32:05,641 - opcinabuzim - INFO - Saved: ee5814865242-20260212-007.json
+2026-02-12 21:32:05,642 - opcinabuzim - INFO - Saved: ee5814865242-20260212-008.json
+2026-02-12 21:32:05,643 - opcinabuzim - INFO - Saved: ee5814865242-20260212-009.json
+2026-02-12 21:32:05,645 - opcinabuzim - INFO - Saved: ee5814865242-20260212-010.json
+2026-02-12 21:32:05,645 - opcinabuzim - INFO - Scraped 10 articles from Općina Bužim
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: sanski-most.py[0m
+2026-02-12 21:32:06,216 - sanskimost - INFO - Scraping https://sanskimost.gov.ba/index.php/obavijesti
+2026-02-12 21:32:06,745 - sanskimost - INFO - Scraped 0 articles from Općina Sanski Most
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crt_ba.py[0m
+2026-02-12 21:32:07,374 - crt_ba - INFO - Scraping https://crt.ba/
+2026-02-12 21:32:10,392 - crt_ba - INFO - Scraping https://crt.ba/category/aktuelnosti/
+2026-02-12 21:32:13,094 - crt_ba - INFO - Scraped 0 articles from CRT Cazin
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: pufbih.py[0m
+2026-02-12 21:32:13,659 - pufbih - INFO - Scraping https://www.pufbih.ba/objave/list
+2026-02-12 21:32:13,836 - pufbih - INFO - Scraped 0 articles from PU FBIH
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: uino.py[0m
+2026-02-12 21:32:14,378 - uino - INFO - Scraping https://www.uino.gov.ba/portal/bs/novosti/
+2026-02-12 21:32:15,794 - uino - INFO - Scraping https://www.uino.gov.ba/portal/bs/oglasi/
+2026-02-12 21:32:16,003 - uino - INFO - Saved: 77d96f21e736-20260212-001.json
+2026-02-12 21:32:17,015 - uino - INFO - Scraped 1 articles from UINO BiH
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: ussume.py[0m
+2026-02-12 21:32:17,589 - ussume - INFO - Scraping https://ussume.ba/category/novosti/
+2026-02-12 21:32:17,934 - ussume - INFO - Saved: 05a383f704d5-20260212-001.json
+2026-02-12 21:32:17,940 - ussume - INFO - Saved: 05a383f704d5-20260212-002.json
+2026-02-12 21:32:17,945 - ussume - INFO - Saved: 05a383f704d5-20260212-003.json
+2026-02-12 21:32:17,951 - ussume - INFO - Saved: 05a383f704d5-20260212-004.json
+2026-02-12 21:32:17,956 - ussume - INFO - Saved: 05a383f704d5-20260212-005.json
+2026-02-12 21:32:17,960 - ussume - INFO - Saved: 05a383f704d5-20260212-006.json
+2026-02-12 21:32:17,965 - ussume - INFO - Saved: 05a383f704d5-20260212-007.json
+2026-02-12 21:32:17,970 - ussume - INFO - Saved: 05a383f704d5-20260212-008.json
+2026-02-12 21:32:17,976 - ussume - INFO - Saved: 05a383f704d5-20260212-009.json
+2026-02-12 21:32:17,981 - ussume - INFO - Saved: 05a383f704d5-20260212-010.json
+2026-02-12 21:32:17,985 - ussume - INFO - Saved: 05a383f704d5-20260212-011.json
+2026-02-12 21:32:17,990 - ussume - INFO - Saved: 05a383f704d5-20260212-012.json
+2026-02-12 21:32:17,995 - ussume - INFO - Saved: 05a383f704d5-20260212-013.json
+2026-02-12 21:32:17,999 - ussume - INFO - Saved: 05a383f704d5-20260212-014.json
+2026-02-12 21:32:18,004 - ussume - INFO - Saved: 05a383f704d5-20260212-015.json
+2026-02-12 21:32:18,009 - ussume - INFO - Saved: 05a383f704d5-20260212-016.json
+2026-02-12 21:32:18,014 - ussume - INFO - Saved: 05a383f704d5-20260212-017.json
+2026-02-12 21:32:18,018 - ussume - INFO - Saved: 05a383f704d5-20260212-018.json
+2026-02-12 21:32:18,023 - ussume - INFO - Saved: 05a383f704d5-20260212-019.json
+2026-02-12 21:32:19,024 - ussume - INFO - Scraping https://ussume.ba/licitacije/
+2026-02-12 21:32:20,179 - ussume - INFO - Scraped 19 articles from US Šume
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: zzousk.py[0m
+2026-02-12 21:32:20,882 - zzousk - INFO - Scraping https://www.zzousk.ba/novosti
+2026-02-12 21:32:21,617 - zzousk - INFO - Saved: a60bfdbeda75-20260212-001.json
+2026-02-12 21:32:21,619 - zzousk - INFO - Saved: a60bfdbeda75-20260212-002.json
+2026-02-12 21:32:21,620 - zzousk - INFO - Saved: a60bfdbeda75-20260212-003.json
+2026-02-12 21:32:21,621 - zzousk - INFO - Saved: a60bfdbeda75-20260212-004.json
+2026-02-12 21:32:21,622 - zzousk - INFO - Saved: a60bfdbeda75-20260212-005.json
+2026-02-12 21:32:21,624 - zzousk - INFO - Saved: a60bfdbeda75-20260212-006.json
+2026-02-12 21:32:21,625 - zzousk - INFO - Saved: a60bfdbeda75-20260212-007.json
+2026-02-12 21:32:21,626 - zzousk - INFO - Saved: a60bfdbeda75-20260212-008.json
+2026-02-12 21:32:21,627 - zzousk - INFO - Saved: a60bfdbeda75-20260212-009.json
+2026-02-12 21:32:21,628 - zzousk - INFO - Saved: a60bfdbeda75-20260212-010.json
+2026-02-12 21:32:21,629 - zzousk - INFO - Saved: a60bfdbeda75-20260212-011.json
+2026-02-12 21:32:21,630 - zzousk - INFO - Saved: a60bfdbeda75-20260212-012.json
+2026-02-12 21:32:21,640 - zzousk - INFO - Saved: a60bfdbeda75-20260212-013.json
+2026-02-12 21:32:21,642 - zzousk - INFO - Saved: a60bfdbeda75-20260212-014.json
+2026-02-12 21:32:21,643 - zzousk - INFO - Saved: a60bfdbeda75-20260212-015.json
+2026-02-12 21:32:22,643 - zzousk - INFO - Scraping https://www.zzousk.ba/dokumenti/9
+2026-02-12 21:32:23,777 - zzousk - INFO - Scraping https://www.zzousk.ba/dokumenti/11
+2026-02-12 21:32:25,009 - zzousk - INFO - Scraped 15 articles from ZZO USK
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: cesteusk.py[0m
+2026-02-12 21:32:25,563 - cesteusk - INFO - Scraping https://cesteusk.com/
+2026-02-12 21:32:25,851 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-001.json
+2026-02-12 21:32:25,855 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-002.json
+2026-02-12 21:32:25,859 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-003.json
+2026-02-12 21:32:25,862 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-004.json
+2026-02-12 21:32:25,865 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-005.json
+2026-02-12 21:32:25,869 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-006.json
+2026-02-12 21:32:26,869 - cesteusk - INFO - Scraping https://cesteusk.com/kategorija/konkursi/
+2026-02-12 21:32:27,007 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-007.json
+2026-02-12 21:32:27,012 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-008.json
+2026-02-12 21:32:28,013 - cesteusk - INFO - Scraping https://cesteusk.com/javne-nabavke/
+2026-02-12 21:32:28,335 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-009.json
+2026-02-12 21:32:29,336 - cesteusk - INFO - Scraped 9 articles from Ceste USK
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: pravosudje.py[0m
+2026-02-12 21:32:29,903 - pravosudje - INFO - Scraping https://pravosudje.ba/vstvfo/B/1/kategorije-vijesti/6919/6968/6947
+2026-02-12 21:32:30,707 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-001.json
+2026-02-12 21:32:30,709 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-002.json
+2026-02-12 21:32:30,710 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-003.json
+2026-02-12 21:32:30,711 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-004.json
+2026-02-12 21:32:30,712 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-005.json
+2026-02-12 21:32:30,714 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-006.json
+2026-02-12 21:32:30,715 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-007.json
+2026-02-12 21:32:30,716 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-008.json
+2026-02-12 21:32:30,718 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-009.json
+2026-02-12 21:32:31,718 - pravosudje - INFO - Scraping https://pravosudje.ba/vstvfo/B/1/kategorije-vijesti/6919/6968/6946
+2026-02-12 21:32:33,234 - pravosudje - INFO - Scraping https://opsud-bihac.pravosudje.ba/vstvfo/B/17/grupe-vijesti/305
+2026-02-12 21:32:35,037 - pravosudje - INFO - Scraping https://opsud-bihac.pravosudje.ba/vstvfo/B/17/kategorije-vijesti/4196/4205/118576
+2026-02-12 21:32:36,858 - pravosudje - INFO - Scraped 9 articles from Pravosudje BiH
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: radiovkladusa.py[0m
+2026-02-12 21:32:37,452 - radiovkladusa - INFO - Scraping https://www.radiovkladusa.ba/
+2026-02-12 21:32:37,885 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-001.json
+2026-02-12 21:32:37,889 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-002.json
+2026-02-12 21:32:37,895 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-003.json
+2026-02-12 21:32:37,899 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-004.json
+2026-02-12 21:32:37,904 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-005.json
+2026-02-12 21:32:37,908 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-006.json
+2026-02-12 21:32:37,912 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-007.json
+2026-02-12 21:32:37,916 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-008.json
+2026-02-12 21:32:37,921 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-009.json
+2026-02-12 21:32:37,926 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-010.json
+2026-02-12 21:32:37,932 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-011.json
+2026-02-12 21:32:37,937 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-012.json
+2026-02-12 21:32:37,942 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-013.json
+2026-02-12 21:32:37,947 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-014.json
+2026-02-12 21:32:37,952 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-015.json
+2026-02-12 21:32:37,957 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-016.json
+2026-02-12 21:32:37,962 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-017.json
+2026-02-12 21:32:37,967 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-018.json
+2026-02-12 21:32:37,972 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-019.json
+2026-02-12 21:32:37,978 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-020.json
+2026-02-12 21:32:38,979 - radiovkladusa - INFO - Scraping https://www.radiovkladusa.ba/kategorija/servisne-informacije/
+2026-02-12 21:32:39,186 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-021.json
+2026-02-12 21:32:39,191 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-022.json
+2026-02-12 21:32:39,196 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-023.json
+2026-02-12 21:32:39,200 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-024.json
+2026-02-12 21:32:39,206 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-025.json
+2026-02-12 21:32:39,211 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-026.json
+2026-02-12 21:32:39,215 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-027.json
+2026-02-12 21:32:39,220 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-028.json
+2026-02-12 21:32:39,225 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-029.json
+2026-02-12 21:32:39,230 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-030.json
+2026-02-12 21:32:39,237 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-031.json
+2026-02-12 21:32:39,242 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-032.json
+2026-02-12 21:32:39,247 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-033.json
+2026-02-12 21:32:39,252 - radiovkladusa - INFO - Saved: 5ff97b4fe8c8-20260212-034.json
+2026-02-12 21:32:40,253 - radiovkladusa - INFO - Scraped 34 articles from Radio V Kladuša
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: npuna.py[0m
+2026-02-12 21:32:40,854 - npuna - INFO - Scraping https://npuna.com/blog/
+2026-02-12 21:32:42,401 - npuna - INFO - Saved: 3b916ec995f3-20260212-001.json
+2026-02-12 21:32:43,402 - npuna - INFO - Scraping https://npuna.com/smjestajni-kapaciteti/
+2026-02-12 21:32:46,244 - npuna - INFO - Scraped 1 articles from NP Una
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: fena_rss.py[0m
+============================================================
+FENA RSS Scraper - FENA
+============================================================
+Loaded 25 previously scraped articles
+
+Fetching FENA RSS feed: https://fena.ba/rss
+Total entries in feed: 100
+
+Found relevant: Bihać jača saradnju s lokalnim privrednicima: Fokus na nova ...
+  ⊘ Skipped (already scraped)
+Found relevant: Vlada USK nastavlja podršku mladim sportašicama...
+  ⊘ Skipped (already scraped)
+Found relevant: Türkiye to fund restoration of Fethija Mosque in Bihać...
+  ⊘ Skipped (already scraped)
+Found relevant: Završen upis ogrjeva za penzionere u USK, u toku usaglašavan...
+  ⊘ Skipped (already scraped)
+Found relevant: Obrazovanje i socijalna zaštita u fokusu budžeta USK...
+  ⊘ Skipped (already scraped)
+Found relevant: Počinju pripreme za obnovu Fethija džamije, projekat finansi...
+  ⊘ Skipped (already scraped)
+Found relevant: U Srebreniku počinje manifestacija 'Dani povelje 2026'...
+  ⊘ Skipped (already scraped)
+Found relevant: PIO RS mijenja način isplate penzija nakon brojnih zloupotre...
+  ⊘ Skipped (already scraped)
+
+============================================================
+✅ Scraping completed
+   New articles: 0
+   Total tracked: 25
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 0
+  JSON files after:  109
+  [0;32mNew files created: 109[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 05a383f704d5-20260212-001.json
+    Title: Unapređenje saradnje ŠPD “Unsko – sanske šume” sa interesnim grupama
+    Original URL: https://ussume.ba/unapredjenje-saradnje-spd-unsko-sanske-sume-sa-interesnim-grupama/
+  Found new: 05a383f704d5-20260212-002.json
+    Title: Unapređenje saradnje ŠPD “Unsko – sanske šume” sa interesnim grupama
+    Original URL: https://ussume.ba/unapredjenje-saradnje-spd-unsko-sanske-sume-sa-interesnim-grupama/
+  Found new: 05a383f704d5-20260212-003.json
+    Title: Javni poziv
+    Original URL: https://ussume.ba/javni-poziv-2/
+  Found new: 05a383f704d5-20260212-004.json
+    Title: Javni poziv
+    Original URL: https://ussume.ba/javni-poziv-2/
+  Found new: 05a383f704d5-20260212-005.json
+    Title: Širimo znanje i svijest o zaštiti životne sredine!
+    Original URL: https://ussume.ba/sirimo-znanje-i-svijest-o-zastiti-zivotne-sredine/
+  Found new: 05a383f704d5-20260212-006.json
+    Title: Širimo znanje i svijest o zaštiti životne sredine!
+    Original URL: https://ussume.ba/sirimo-znanje-i-svijest-o-zastiti-zivotne-sredine/
+  Found new: 05a383f704d5-20260212-007.json
+    Title: Javni oglas za prijem pripravnika
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-pripravnika/
+  Found new: 05a383f704d5-20260212-008.json
+    Title: Javni oglas za prijem pripravnika
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-pripravnika/
+  Found new: 05a383f704d5-20260212-009.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-7/
+  Found new: 05a383f704d5-20260212-010.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-7/
+  Found new: 05a383f704d5-20260212-011.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-6/
+  Found new: 05a383f704d5-20260212-012.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-6/
+  Found new: 05a383f704d5-20260212-013.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-5/
+  Found new: 05a383f704d5-20260212-014.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-5/
+  Found new: 05a383f704d5-20260212-015.json
+    Title: Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa donijela važne odluke na današnjoj sjednici
+    Original URL: https://ussume.ba/uprava-spd-unsko-sanske-sume-d-o-o-bosanska-krupa-donijela-vazne-odluke-na-danasnjoj-sjednici/
+  Found new: 05a383f704d5-20260212-016.json
+    Title: Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa donijela važne odluke na današnjoj sjednici
+    Original URL: https://ussume.ba/uprava-spd-unsko-sanske-sume-d-o-o-bosanska-krupa-donijela-vazne-odluke-na-danasnjoj-sjednici/
+  Found new: 05a383f704d5-20260212-017.json
+    Title: Suad Behić ispraćen u penziju
+    Original URL: https://ussume.ba/suad-behic-ispracen-u-penziju/
+  Found new: 05a383f704d5-20260212-018.json
+    Title: Suad Behić ispraćen u penziju
+    Original URL: https://ussume.ba/suad-behic-ispracen-u-penziju/
+  Found new: 05a383f704d5-20260212-019.json
+    Title: Imenovan Odbor za reviziju ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa
+    Original URL: https://ussume.ba/imenovan-odbor-za-reviziju-spd-unsko-sanske-sume-d-o-o-bosanska-krupa/
+  Found new: 3b916ec995f3-20260212-001.json
+    Title: TRODNEVNA EDUKACIJA U BIHAĆU
+    Original URL: https://npuna.com/2026/01/26/trodnevna-edukacija-u-bihacu/
+  Found new: 4e8ccf7347b9-20260212-001.json
+    Title: Politika privatnosti
+    Original URL: https://www.prostornobihac.ba/bs/politika-privatnosti
+  Found new: 4e8ccf7347b9-20260212-002.json
+    Title: Viber broj za prijavu kvarova od strane gradjana: 061/474-527
+    Original URL: tel:0038761474527
+  Found new: 4e8ccf7347b9-20260212-003.json
+    Title: O nama
+    Original URL: https://www.prostornobihac.ba/onama
+  Found new: 4e8ccf7347b9-20260212-004.json
+    Title: Vijesti
+    Original URL: https://www.prostornobihac.ba/vijesti
+  Found new: 4e8ccf7347b9-20260212-005.json
+    Title: Oglasna tabla
+    Original URL: https://www.prostornobihac.ba/dokumenti/2
+  Found new: 4e8ccf7347b9-20260212-006.json
+    Title: Obrasci
+    Original URL: https://www.prostornobihac.ba/dokumenti/3
+  Found new: 4e8ccf7347b9-20260212-007.json
+    Title: Javne nabavke
+    Original URL: https://www.prostornobihac.ba/dokumenti/1
+  Found new: 4e8ccf7347b9-20260212-008.json
+    Title: Projekti
+    Original URL: https://www.prostornobihac.ba/dokumenti/4
+  Found new: 4e8ccf7347b9-20260212-009.json
+    Title: Zakoni i propisi
+    Original URL: https://www.prostornobihac.ba/dokumenti/5
+  Found new: 4e8ccf7347b9-20260212-010.json
+    Title: Kontakt
+    Original URL: https://www.prostornobihac.ba/kontakt
+  Found new: 5ff97b4fe8c8-20260212-001.json
+    Title: OV Velika Kladuša: Odabrani dobitnici najviših priznanja; usvojen Nacrt Regulacionog plana “Novi centar”
+    Original URL: https://www.radiovkladusa.ba/ov-velika-kladusa-odabrani-dobitnici-najvisih-priznanja-usvojen-nacrt-regulacionog-plana-novi-centar/
+  Found new: 5ff97b4fe8c8-20260212-002.json
+    Title: Fikreta Muslić dobitnica “Februarske nagrade”, Tanji Fajon priznanje “Počasni građanin”
+    Original URL: https://www.radiovkladusa.ba/fikreta-muslic-dobitnica-februarske-nagrade-tanji-fajon-priznanje-pocasni-gradjanin/
+  Found new: 5ff97b4fe8c8-20260212-003.json
+    Title: KBV “Tigar” Crvarevac ponio brojna priznanja sa manifestacije najuspješnijih karatista na području USK u 2025.
+    Original URL: https://www.radiovkladusa.ba/kbv-tigar-crverevac-ponio-brojna-priznanja-sa-manifestacije-najuspjesnijih-karatista-na-podrucju-usk-u-2025/
+  Found new: 5ff97b4fe8c8-20260212-004.json
+    Title: Do kraja marta obavezno ažuriranje podataka za ostvarivanje poljoprivrednih poticaja: 500.000 KM predviđeno na općinskom nivou u 2026.
+    Original URL: https://www.radiovkladusa.ba/do-kraja-marta-obavezno-azuriranje-podataka-za-ostvarivanje-poljoprivrednih-poticaja-500-000-km-predvidjeno-na-opcinskom-nivou-u-2026/
+  Found new: 5ff97b4fe8c8-20260212-005.json
+    Title: Historijski uspjeh za BiH: Muzaferija 16. u disciplini Super-G
+    Original URL: https://www.radiovkladusa.ba/historijski-uspjeh-za-bih-muzaferija-16-u-disciplini-super-g/
+  Found new: 5ff97b4fe8c8-20260212-006.json
+    Title: Fikreta Muslić dobitnica “Februarske nagrade”, Tanji Fajon priznanje “Počasni građanin”
+    Original URL: https://www.radiovkladusa.ba/fikreta-muslic-dobitnica-februarske-nagrade-tanji-fajon-priznanje-pocasni-gradjanin/
+  Found new: 5ff97b4fe8c8-20260212-007.json
+    Title: KBV “Tigar” Crvarevac ponio brojna priznanja sa manifestacije najuspješnijih karatista na području USK u 2025.
+    Original URL: https://www.radiovkladusa.ba/kbv-tigar-crverevac-ponio-brojna-priznanja-sa-manifestacije-najuspjesnijih-karatista-na-podrucju-usk-u-2025/
+  Found new: 5ff97b4fe8c8-20260212-008.json
+    Title: Do kraja marta obavezno ažuriranje podataka za ostvarivanje poljoprivrednih poticaja: 500.000 KM predviđeno na općinskom nivou u 2026.
+    Original URL: https://www.radiovkladusa.ba/do-kraja-marta-obavezno-azuriranje-podataka-za-ostvarivanje-poljoprivrednih-poticaja-500-000-km-predvidjeno-na-opcinskom-nivou-u-2026/
+  Found new: 5ff97b4fe8c8-20260212-009.json
+    Title: Historijski uspjeh za BiH: Muzaferija 16. u disciplini Super-G
+    Original URL: https://www.radiovkladusa.ba/historijski-uspjeh-za-bih-muzaferija-16-u-disciplini-super-g/
+  Found new: 5ff97b4fe8c8-20260212-010.json
+    Title: OV Velika Kladuša: Odabrani dobitnici najviših priznanja; usvojen Nacrt Regulacionog plana “Novi centar”
+    Original URL: https://www.radiovkladusa.ba/ov-velika-kladusa-odabrani-dobitnici-najvisih-priznanja-usvojen-nacrt-regulacionog-plana-novi-centar/
+  Found new: 5ff97b4fe8c8-20260212-011.json
+    Title: Fikreta Muslić dobitnica “Februarske nagrade”, Tanji Fajon priznanje “Počasni građanin”
+    Original URL: https://www.radiovkladusa.ba/fikreta-muslic-dobitnica-februarske-nagrade-tanji-fajon-priznanje-pocasni-gradjanin/
+  Found new: 5ff97b4fe8c8-20260212-012.json
+    Title: Do kraja marta obavezno ažuriranje podataka za ostvarivanje poljoprivrednih poticaja: 500.000 KM predviđeno na općinskom nivou u 2026.
+    Original URL: https://www.radiovkladusa.ba/do-kraja-marta-obavezno-azuriranje-podataka-za-ostvarivanje-poljoprivrednih-poticaja-500-000-km-predvidjeno-na-opcinskom-nivou-u-2026/
+  Found new: 5ff97b4fe8c8-20260212-013.json
+    Title: Svjetska banka odobrila 70 miliona eura za modernizaciju cesta u BiH
+    Original URL: https://www.radiovkladusa.ba/svjetska-banka-odobrila-70-miliona-eura-za-modernizaciju-cesta-u-bih/
+  Found new: 5ff97b4fe8c8-20260212-014.json
+    Title: Planeta zabilježila peti najtopliji januar u historiji
+    Original URL: https://www.radiovkladusa.ba/planeta-zabiljezila-peti-najtopliji-januar-u-historiji-2/
+  Found new: 5ff97b4fe8c8-20260212-015.json
+    Title: Nova poskupljenja cigareta u BiH: Objavljene nove maloprodajne cijene za tri distributera
+    Original URL: https://www.radiovkladusa.ba/nova-poskupljenja-cigareta-u-bih-objavljene-nove-maloprodajne-cijene-za-tri-distributera/
+  Found new: 5ff97b4fe8c8-20260212-016.json
+    Title: Meteorolozi objavili detaljnu prognozu do 24. februara: Novi snijeg stiže u BiH
+    Original URL: https://www.radiovkladusa.ba/meteorolozi-objavili-detaljnu-prognozu-do-24-februara-novi-snijeg-stize-u-bih/
+  Found new: 5ff97b4fe8c8-20260212-017.json
+    Title: JU Druga srednja škola Velika Kladuša proslavila 26. rođendan
+    Original URL: https://www.radiovkladusa.ba/ju-druga-srednja-skola-velika-kladusa-proslavila-26-rodjendan/
+  Found new: 5ff97b4fe8c8-20260212-018.json
+    Title: KBV “Tigar” Crvarevac ponio brojna priznanja sa manifestacije najuspješnijih karatista na području USK u 2025.
+    Original URL: https://www.radiovkladusa.ba/kbv-tigar-crverevac-ponio-brojna-priznanja-sa-manifestacije-najuspjesnijih-karatista-na-podrucju-usk-u-2025/
+  Found new: 5ff97b4fe8c8-20260212-019.json
+    Title: Historijski uspjeh za BiH: Muzaferija 16. u disciplini Super-G
+    Original URL: https://www.radiovkladusa.ba/historijski-uspjeh-za-bih-muzaferija-16-u-disciplini-super-g/
+  Found new: 5ff97b4fe8c8-20260212-020.json
+    Title: Iman Ružnić iz KK „Regeneracija“ najbolja karatistkinja USK za 2025.
+    Original URL: https://www.radiovkladusa.ba/iman-ruznic-iz-kk-regeneracija-najbolja-karatistkinja-usk/
+  Found new: 5ff97b4fe8c8-20260212-021.json
+    Title: Servisne informacije, četvrtak, 12. februar 2026.
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-cetvrtak-12-februar-2026/
+  Found new: 5ff97b4fe8c8-20260212-022.json
+    Title: Servisne informacije, srijeda, 11. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-srijeda-11-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-023.json
+    Title: Servisne informacije, utorak, 10. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-utorak-10-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-024.json
+    Title: Servisne informacije, ponedjeljak, 09. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-ponedjeljak-09-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-025.json
+    Title: Servisne informacije, nedjelja, 08. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-nedjelja-08-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-026.json
+    Title: Servisne informacije, subota, 07. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-subota-07-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-027.json
+    Title: Servisne informacije, petak, 06. februar 2026.
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-petak-06-februar-2026/
+  Found new: 5ff97b4fe8c8-20260212-028.json
+    Title: Servisne informacije, četvrtak, 05. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-cetvrtak-05-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-029.json
+    Title: Servisne informacije, srijeda, 04. februar 2026.
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-srijeda-04-februar-2026/
+  Found new: 5ff97b4fe8c8-20260212-030.json
+    Title: Servisne informacije, utorak, 03. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-utorak-03-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-031.json
+    Title: Servisne informacije, ponedjeljak, 02. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-ponedjeljak-02-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-032.json
+    Title: Najavljeni prekidi u elektronapajanju do srijede
+    Original URL: https://www.radiovkladusa.ba/najavljeni-prekidi-u-elektronapajanju-do-srijede/
+  Found new: 5ff97b4fe8c8-20260212-033.json
+    Title: Servisne informacije, nedjelja, 01. februar 2026. godine
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-nedjelja-01-februar-2026-godine/
+  Found new: 5ff97b4fe8c8-20260212-034.json
+    Title: Servisne informacije, subota, 31. januar 2026.
+    Original URL: https://www.radiovkladusa.ba/servisne-informacije-subota-31-januar-2026/
+  Found new: 6d6e8abaabae-20260212-001.json
+    Title: Odnosi s javnošću
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919
+  Found new: 6d6e8abaabae-20260212-002.json
+    Title: Aktuelnosti
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919/6968/6946
+  Found new: 6d6e8abaabae-20260212-003.json
+    Title: Saopćenja za javnost
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919/6968/6947
+  Found new: 6d6e8abaabae-20260212-004.json
+    Title: Vrhovni sud Federacije BiH potvrdio presudu u predmetu Alija Šljivar i drVijest je napisana na jeziku: BosPresudom Vrhovnog suda F BiH broj 01 0 K 016910 24 KŽ 3 od 27.05.2025. godine je odbijena žalba branioca optuženog Šljivar Alije i Kantonalnog tužioca iz Bihaća i potvrđena presuda Kantonalnog suda u Bihaću broj 01 0 K 016910 23 K od 09.05.2024. godine. Presudom Kantonalnog suda u Bihaću je optuženi Šljivar Alija oglašen krivim za krivično djelo Zloupotreba položaja ........07.01.2026.
+    Original URL: /vstvfo/vstvfo/B/1/article/157940
+  Found new: 6d6e8abaabae-20260212-005.json
+    Title: Donesena presuda u predmetu Koljić MehmedalijaVijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 15.12.2025. godine donio presudu broj 01 0 K 020671 25 K kojom je optuženi Koljić Mehmedalija oglašen krivim zbog krivičnog djela Ubistvo iz člana 166. stav 1. Krivičnog zakona Federacije Bosne i Hercegovine (KZ F BiH) za koje mu je utvrđena kazna .......18.12.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/157137
+  Found new: 6d6e8abaabae-20260212-006.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optuženog Mehemeda VukalićaVijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 17.11.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: T01 1 KT 0006736 24 od 18.11.2024.godine, u krivičnom predmetu broj: 01 0 K 020368 24 K protiv optuženog Mehemeda Vukalića, radi krivičnih djela – Ubistvo iz člana 166. stav 1. KZ F BiH na štetu tri lica (H. N., K. N. i M. G.) u sticaju sa krivičnim djelom - Nedozvoljeno držanje oružja ili .....17.11.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/155803
+  Found new: 6d6e8abaabae-20260212-007.json
+    Title: Donesena presuda u predmetu protiv optuženog inicijala A. Z.Vijest je napisana na jeziku: Bosantonalni sud u Bihaću je dana 30.06.2025. godine u krivičnom predmetu broj: 01 0 K 021036 25 K protiv optuženog inicijala A. Z., postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj T01 0 KT 0045462 24 od 12.11.2024. godine, zbog učinjenja 11 (jedanaest) krivičnih djela – Razbojništva iz člana 289. stav (2) u vezi sa stavom (1), u vezi s 11 (jedanaest) krivičnih djela - Protupravno lišenje slobo......03.07.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/150642
+  Found new: 6d6e8abaabae-20260212-008.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optužene inicijala A. D.Vijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 18.06.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: T01 0 KT 0039826 21 od 29.12.2023. godine, u krivičnom predmetu broj: 01 0 K 019751 24 K protiv optužene inicijala A. D., zbog Teškog krivičnog djela protiv sigurnosti javnog..........19.06.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/150234
+  Found new: 6d6e8abaabae-20260212-009.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optuženog Nihada Baljaka i dr.Vijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 02.06.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: KT-13/98 od 05.09.2000. godine i KT-62/99 od 25.12.2020. godine, u krivičnom predmetu broj: 01 0 K 000149 00 protiv optuženih Nihada Baljaka i Tarika Jašarevića zbog osnovane ..........04.06.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/149671
+  Found new: 77d96f21e736-20260212-001.json
+    Title: Oglas
+    Original URL: https://www.uino.gov.ba/portal/bs/oglasi/oglas-21/
+  Found new: 80d3a57fdad4-20260212-001.json
+    Title: JAVNI POZIV ZA PRODAJU RABLJENIH PUTNIČKIH MOTORNIH VOZILA
+    Original URL: https://cesteusk.com/javni-poziv-za-prodaju-rabljenih-putnickih-motornih-vozila/
+  Found new: 80d3a57fdad4-20260212-002.json
+    Title: Rješavanje oborinske odvodnje R-403 u naselju Ćoralići
+    Original URL: https://cesteusk.com/rjesavanje-oborinske-odvodnje-r-403-u-naselju-coralici/
+  Found new: 80d3a57fdad4-20260212-003.json
+    Title: Izgradnja pješačkih staza R-402 STD 7+400 u naselju Bajrići Cazin
+    Original URL: https://cesteusk.com/izgradnja-pjesackih-staza-r-402-std-7400-u-naselju-bajrici-cazin/
+  Found new: 80d3a57fdad4-20260212-004.json
+    Title: Mjestimični popravci kolovozne konstrukcije ceste na R404a Bosanska Krupa
+    Original URL: https://cesteusk.com/mjestimicni-popravci-kolovozne-konstrukcije-ceste-na-r404a-bosanska-krupa/
+  Found new: 80d3a57fdad4-20260212-005.json
+    Title: Sanacija klizišta na regionalnoj cesti R 403b Ć.Križ – Šturlić – Barake Sanacija klizišta
+    Original URL: https://cesteusk.com/sanacija-klizista-na-regionalnoj-cesti-r-403b-c-kriz-sturlic-barake-sanacija-klizista/
+  Found new: 80d3a57fdad4-20260212-006.json
+    Title: Sanacija klizišta regionalna cesta R 403b Ć.Križ – Šturlić – Barake
+    Original URL: https://cesteusk.com/sanacija-klizista-regionalna-cesta-r-403b-c-kriz-sturlic-barake/
+  Found new: 80d3a57fdad4-20260212-007.json
+    Title: Obavijest kandidatima u postupku po javnom oglasu za izbor i imenovanje direktora
+    Original URL: https://cesteusk.com/obavijest-kandidatima-u-postupku-po-javnom-oglasu-za-izbor-i-imenovanje-direktora/
+  Found new: 80d3a57fdad4-20260212-008.json
+    Title: Obavijest kandidatima koji trebaju pristupiti na usmeni intevju za poziciju direktora JU Direkcija regionalnih cesta USK
+    Original URL: https://cesteusk.com/obavijest-kandidatima-koji-trebaju-pristupiti-na-usmeni-intevju-za-poziciju-direktora-ju-direkcija-regionalnih-cesta-usk/
+  Found new: 80d3a57fdad4-20260212-009.json
+    Title: JAVNI POZIV ZA PRODAJU RABLJENIH PUTNIČKIH MOTORNIH VOZILA
+    Original URL: https://cesteusk.com/dokument/javni-poziv-za-prodaju-rabljenih-putnickih-motornih-vozila/
+  Found new: a20f8b27b7b2-20260212-001.json
+    Title: [email protected]
+    Original URL: https://gradcazin.gov.ba/cdn-cgi/l/email-protection#11787f777e517663707572706b787f3f767e673f7370
+  Found new: a60bfdbeda75-20260212-001.json
+    Title: +387 37 222 971
+    Original URL: https://www.zzousk.ba/tel:0038737222971
+  Found new: a60bfdbeda75-20260212-002.json
+    Title: Upravni odbor
+    Original URL: https://www.zzousk.ba/sadrzaj/upravni-odbor/3
+  Found new: a60bfdbeda75-20260212-003.json
+    Title: Poslovnice
+    Original URL: https://www.zzousk.ba/poslovnice
+  Found new: a60bfdbeda75-20260212-004.json
+    Title: Poslovnica Bihać
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bihac/5
+  Found new: a60bfdbeda75-20260212-005.json
+    Title: Poslovnica Cazin
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-cazin/6
+  Found new: a60bfdbeda75-20260212-006.json
+    Title: Poslovnica Bosanska Krupa
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanska-krupa/8
+  Found new: a60bfdbeda75-20260212-007.json
+    Title: Poslovnica Sanski Most
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-sanski-most/7
+  Found new: a60bfdbeda75-20260212-008.json
+    Title: Poslovnica Ključ
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-kljuc/9
+  Found new: a60bfdbeda75-20260212-009.json
+    Title: Poslovnica Bužim
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-buzim/10
+  Found new: a60bfdbeda75-20260212-010.json
+    Title: Poslovnica Velika Kladuša
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-velika-kladusa/12
+  Found new: a60bfdbeda75-20260212-011.json
+    Title: Poslovnica Bosanski Petrovac
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanski-petrovac/11
+  Found new: a60bfdbeda75-20260212-012.json
+    Title: Obavezno osiguranje
+    Original URL: https://www.zzousk.ba/sadrzaj/obavezno-osiguranje/14
+  Found new: a60bfdbeda75-20260212-013.json
+    Title: INO osiguranje
+    Original URL: https://www.zzousk.ba/sadrzaj/ino-osiguranje/15
+  Found new: a60bfdbeda75-20260212-014.json
+    Title: Liječenje van kantona
+    Original URL: https://www.zzousk.ba/sadrzaj/lijecenje-van-kantona/20
+  Found new: a60bfdbeda75-20260212-015.json
+    Title: Banjsko liječenje
+    Original URL: https://www.zzousk.ba/sadrzaj/banjsko-lijecenje/16
+  Found new: ee5814865242-20260212-001.json
+    Title: NAJAVA OBILJEŽAVANJA DANA OPĆINE BUŽIM
+    Original URL: https://opcinabuzim.ba/2026/najava-obiljezavanja-dana-opcine-buzim/
+  Found new: ee5814865242-20260212-002.json
+    Title: Agan Skenderović
+    Original URL: https://opcinabuzim.ba/author/wordpress/
+  Found new: ee5814865242-20260212-003.json
+    Title: JAVNI POZIV ZA POLJOPRIVREDNIKE
+    Original URL: https://opcinabuzim.ba/2026/javni-poziv-za-poljoprivrednike-2/
+  Found new: ee5814865242-20260212-004.json
+    Title: Agan Skenderović
+    Original URL: https://opcinabuzim.ba/author/wordpress/
+  Found new: ee5814865242-20260212-005.json
+    Title: PRIZNANJA ZA 2026 GODINU – OPĆINSKO VIJEĆE BUŽIM PREPOZNALO NAJBOLJE
+    Original URL: https://opcinabuzim.ba/2026/priznanja-za-2026-opcinsko-vijece-buzim-prepoznalo-najbolje/
+  Found new: ee5814865242-20260212-006.json
+    Title: Agan Skenderović
+    Original URL: https://opcinabuzim.ba/author/wordpress/
+  Found new: ee5814865242-20260212-007.json
+    Title: NAČELNIK NANIĆ U POSJETI KOD BENJAMINE KARIĆ
+    Original URL: https://opcinabuzim.ba/2026/nacelnik-nanic-u-posjeti-kod-benjamine-karic/
+  Found new: ee5814865242-20260212-008.json
+    Title: Agan Skenderović
+    Original URL: https://opcinabuzim.ba/author/wordpress/
+  Found new: ee5814865242-20260212-009.json
+    Title: Budžet - Javne nabavke
+    Original URL: https://opcinabuzim.ba/category/budzet/
+  Found new: ee5814865242-20260212-010.json
+    Title: JAVNE NABAVKE 2026
+    Original URL: https://opcinabuzim.ba/2026/javne-nabavke-2026/
+2026-02-12 21:31:39 | Before: 0 | After: 109 | New: 109 | Files: 05a383f704d5-20260212-001.json 05a383f704d5-20260212-002.json 05a383f704d5-20260212-003.json 05a383f704d5-20260212-004.json 05a383f704d5-20260212-005.json 05a383f704d5-20260212-006.json 05a383f704d5-20260212-007.json 05a383f704d5-20260212-008.json 05a383f704d5-20260212-009.json 05a383f704d5-20260212-010.json 05a383f704d5-20260212-011.json 05a383f704d5-20260212-012.json 05a383f704d5-20260212-013.json 05a383f704d5-20260212-014.json 05a383f704d5-20260212-015.json 05a383f704d5-20260212-016.json 05a383f704d5-20260212-017.json 05a383f704d5-20260212-018.json 05a383f704d5-20260212-019.json 3b916ec995f3-20260212-001.json 4e8ccf7347b9-20260212-001.json 4e8ccf7347b9-20260212-002.json 4e8ccf7347b9-20260212-003.json 4e8ccf7347b9-20260212-004.json 4e8ccf7347b9-20260212-005.json 4e8ccf7347b9-20260212-006.json 4e8ccf7347b9-20260212-007.json 4e8ccf7347b9-20260212-008.json 4e8ccf7347b9-20260212-009.json 4e8ccf7347b9-20260212-010.json 5ff97b4fe8c8-20260212-001.json 5ff97b4fe8c8-20260212-002.json 5ff97b4fe8c8-20260212-003.json 5ff97b4fe8c8-20260212-004.json 5ff97b4fe8c8-20260212-005.json 5ff97b4fe8c8-20260212-006.json 5ff97b4fe8c8-20260212-007.json 5ff97b4fe8c8-20260212-008.json 5ff97b4fe8c8-20260212-009.json 5ff97b4fe8c8-20260212-010.json 5ff97b4fe8c8-20260212-011.json 5ff97b4fe8c8-20260212-012.json 5ff97b4fe8c8-20260212-013.json 5ff97b4fe8c8-20260212-014.json 5ff97b4fe8c8-20260212-015.json 5ff97b4fe8c8-20260212-016.json 5ff97b4fe8c8-20260212-017.json 5ff97b4fe8c8-20260212-018.json 5ff97b4fe8c8-20260212-019.json 5ff97b4fe8c8-20260212-020.json 5ff97b4fe8c8-20260212-021.json 5ff97b4fe8c8-20260212-022.json 5ff97b4fe8c8-20260212-023.json 5ff97b4fe8c8-20260212-024.json 5ff97b4fe8c8-20260212-025.json 5ff97b4fe8c8-20260212-026.json 5ff97b4fe8c8-20260212-027.json 5ff97b4fe8c8-20260212-028.json 5ff97b4fe8c8-20260212-029.json 5ff97b4fe8c8-20260212-030.json 5ff97b4fe8c8-20260212-031.json 5ff97b4fe8c8-20260212-032.json 5ff97b4fe8c8-20260212-033.json 5ff97b4fe8c8-20260212-034.json 6d6e8abaabae-20260212-001.json 6d6e8abaabae-20260212-002.json 6d6e8abaabae-20260212-003.json 6d6e8abaabae-20260212-004.json 6d6e8abaabae-20260212-005.json 6d6e8abaabae-20260212-006.json 6d6e8abaabae-20260212-007.json 6d6e8abaabae-20260212-008.json 6d6e8abaabae-20260212-009.json 77d96f21e736-20260212-001.json 80d3a57fdad4-20260212-001.json 80d3a57fdad4-20260212-002.json 80d3a57fdad4-20260212-003.json 80d3a57fdad4-20260212-004.json 80d3a57fdad4-20260212-005.json 80d3a57fdad4-20260212-006.json 80d3a57fdad4-20260212-007.json 80d3a57fdad4-20260212-008.json 80d3a57fdad4-20260212-009.json a20f8b27b7b2-20260212-001.json a60bfdbeda75-20260212-001.json a60bfdbeda75-20260212-002.json a60bfdbeda75-20260212-003.json a60bfdbeda75-20260212-004.json a60bfdbeda75-20260212-005.json a60bfdbeda75-20260212-006.json a60bfdbeda75-20260212-007.json a60bfdbeda75-20260212-008.json a60bfdbeda75-20260212-009.json a60bfdbeda75-20260212-010.json a60bfdbeda75-20260212-011.json a60bfdbeda75-20260212-012.json a60bfdbeda75-20260212-013.json a60bfdbeda75-20260212-014.json a60bfdbeda75-20260212-015.json ee5814865242-20260212-001.json ee5814865242-20260212-002.json ee5814865242-20260212-003.json ee5814865242-20260212-004.json ee5814865242-20260212-005.json ee5814865242-20260212-006.json ee5814865242-20260212-007.json ee5814865242-20260212-008.json ee5814865242-20260212-009.json ee5814865242-20260212-010.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-12 21:49:16
+============================================================
+
+📊 JSON files before: 60
+
+[0;34m▶ Running: vladausk.py[0m
+============================================================
+🚀 VLADA USK News Scraper - REFINED
+============================================================
+Script: vladausk.py
+Script hash: 8277faf88052
+Target: https://vladausk.ba/v4/vrsta/kategorija/4
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Fetching category page: https://vladausk.ba/v4/vrsta/kategorija/4
+Found 33 h3 elements, filtering for news...
+  Processing: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Processing: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Processing: Javni oglas za izbor i imenovanje članova ......
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Javni poziv i Odluka o nabavci usluga restorana ......
+  Processing: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Processing: Tehnička ispravka javnog oglasa za prijem ......
+  Processing: Javni poziv za prijavu kandidata za članove ......
+  Processing: Javni oglas - Viši referent za tehničke poslove...
+  Processing: Javni poziv za prikupljanje ponuda za zakup ......
+  Processing: Obavještenja iz Vlade...
+  Processing: Obavještenja iz ministarstava...
+
+Found 12 valid news articles
+
+Processing 12 news articles...
+
+Article 1: Javni poziv za dostavljanje ponude usluge restorana i posluž...
+  Date: 2026-02-06
+  Content length: 73 chars
+  Content hash: 23c4ea4431dd
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za dostavljanje ponuda usluge stručnog usavršava...
+  Date: 2026-02-06
+  Content length: 63 chars
+  Content hash: 8a36ff424bbe
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas za izbor i imenovanje članova ......
+  Date: 2026-02-04
+  Content length: 45 chars
+  Content hash: 3d8191208380
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2026-02-03
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga restorana ......
+  Date: 2026-01-29
+  Content length: 51 chars
+  Content hash: aca600591a06
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv i Odluka o nabavci usluga stručnog usavršavanja ...
+  Date: 2026-01-29
+  Content length: 75 chars
+  Content hash: 2b80bc2a6884
+  ⚠️  Duplicate content detected
+
+Article 1: Tehnička ispravka javnog oglasa za prijem ......
+  Date: 2026-01-28
+  Content length: 45 chars
+  Content hash: c387287f0c40
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prijavu kandidata za članove ......
+  Date: 2026-01-22
+  Content length: 47 chars
+  Content hash: dd6f73643956
+  ⚠️  Duplicate content detected
+
+Article 1: Javni oglas - Viši referent za tehničke poslove...
+  Date: 2026-01-15
+  Content length: 47 chars
+  Content hash: f6c1ee39bc51
+  ⚠️  Duplicate content detected
+
+Article 1: Javni poziv za prikupljanje ponuda za zakup ......
+  Date: 2025-12-29
+  Content length: 47 chars
+  Content hash: e29e6f3f6ac3
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz Vlade...
+  Date: 2026-02-12
+  Content length: 21 chars
+  Content hash: c8895511a0f1
+  ⚠️  Duplicate content detected
+
+Article 1: Obavještenja iz ministarstava...
+  Date: 2026-02-12
+  Content length: 29 chars
+  Content hash: 54ea12342703
+  ⚠️  Duplicate content detected
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: kbbihac.py[0m
+============================================================
+🚀 KB Bihać News Scraper
+============================================================
+Script: kbbihac.py
+Script hash: b9db21b77e7b
+Target: https://www.kbbihac.ba/novosti
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kbbihac.py (hash: b9db21b77e7b)
+Time: 2026-02-12 21:49:19.025908
+============================================================
+Looking for news links on: https://www.kbbihac.ba/novosti
+Found pagination, checking for more pages...
+Found 1 unique news links
+
+Processing 1 links...
+
+[1/1] Checking: https://www.kbbihac.ba/novosti
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: kcbihac.py[0m
+============================================================
+🚀 KC Bihać News Scraper
+============================================================
+Script: kcbihac.py
+Script hash: 4a8d788ff48a
+Target: https://kcbihac.ba/novosti.php
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: kcbihac.py (hash: 4a8d788ff48a)
+Time: 2026-02-12 21:49:20.417229
+============================================================
+Error scraping news links: HTTPSConnectionPool(host='kcbihac.ba', port=443): Read timed out. (read timeout=15)
+No news links found!
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (19s)[0m
+
+[0;34m▶ Running: rtvusk.py[0m
+============================================================
+🚀 RTV USK News Scraper - FIXED
+============================================================
+Script: rtvusk.py
+Script hash: 15d516b03539
+Target: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Scraping RTV USK: https://www.rtvusk.ba/kategorija/kanton-krajina/2
+Found 28 h2 elements
+  Found: O podršci i mjerama Zavoda FBiH: Danas u Bihaću pr...
+  Found: U Bihaću održana druga redovna izvještajna sjednic...
+  Found: Održana redovna sjednica Vlade USK: Usvojene odluk...
+  Found: Sjajna Bosna savladala Reggianu i s prvog mjesta i...
+  Found: Ključ: Uz učešće državnog ministra Elmedina Konako...
+  Found: Žene u praksi: Naučnice, profesorice i angažirane ...
+  Found: Konaković u Biljanima: 'Težina ovog zločina ogleda...
+  Found: Unapređenje sistema upravljanja otpadom tema sasta...
+  Found: Sjećanje na prve branioce BiH: Godišnjica Patriots...
+  Found: Obilježena 35. godišnjica osnivanja Patriotske lig...
+  Found: Macron ima novu viziju Evrope: Njemačka i Italija ...
+  Found: U Bihaću je danas održana 7. sjednica Vlade Unsko-...
+  Found: Skuplji život, ista primanja: Građani pod sve veći...
+  Found: Sutra u našoj zemlji veći dio dana pretežno oblačn...
+  Found: Izdvojeno iz TV Dnevnika – gost: Almir Šahmanija...
+  Found: Poslijepodne uz RTV USK – gosti: Emir Gonilović, D...
+  Found: Godišnjica trajnih uspomena: Živi svjedoci i učesn...
+  Found: BIHAĆ: Tri osobe uhapšene zbog razbojništva nad br...
+  Found: Pozitivna priča OŠ 'Gornje Prekounje - Ripač': Nas...
+  Found: Sindikat SŠO i Ministarstvo obrazovanja potpisali ...
+  Found: Humanitarni bazar u Bihaću za liječenje 22-godišnj...
+  Found: Zaštita potrošača: Usklađivanja pravne regulative ...
+  Found: Danas se u Bosni i Hercegovini očekuje umjereno do...
+  Found: Ministrica Pozder: Izrada planske dokumentacije i ...
+  Found: Sutra pretežno sunčano na području Hercegovine, ju...
+  Found: Novi saziv postao stari, na redu 'još noviji': Nar...
+  Found: U nedjelju ponovni prijevremeni izbori za predsjed...
+Total article links found: 27
+
+Processing 15 articles...
+
+[1/15] Checking: https://www.rtvusk.ba/clanak/o-podrsci-i-mjerama-zavoda-fbih-danas-u-bihacu-prezentirani-programi-mjera-za-zaposljavanje-u-tekucoj-godini/12810
+  ⏩ Already processed
+
+[2/15] Checking: https://www.rtvusk.ba/clanak/u-bihacu-odrzana-druga-redovna-izvjestajna-sjednica-skupstine-udruzenja-distroficara-usk-a/12808
+  ⏩ Already processed
+
+[3/15] Checking: https://www.rtvusk.ba/clanak/odrzana-redovna-sjednica-vlade-usk-usvojene-odluke-kojim-se-osigurava-redovno-funkcioniranje-ustanova-iz-vise-resora/12806
+  ⏩ Already processed
+
+[4/15] Checking: https://www.rtvusk.ba/clanak/sjajna-bosna-savladala-reggianu-i-s-prvog-mjesta-ide-u-cetvrtfinale-evropa-kupa/12787
+  ⏩ Already processed
+
+[5/15] Checking: https://www.rtvusk.ba/clanak/kljuc-uz-ucesce-drzavnog-ministra-elmedina-konakovica-sinoc-odrzana-tribina-stranke-nip-bih/12778
+  ⏩ Already processed
+
+[6/15] Checking: https://www.rtvusk.ba/clanak/zene-u-praksi-naucnice-profesorice-i-angazirane-zene-u-istrazivackim-projektima-s-prostora-usk-a-sirom-su-svijeta/12777
+  ⏩ Already processed
+
+[7/15] Checking: https://www.rtvusk.ba/clanak/konakovic-u-biljanima-tezina-ovog-zlocina-ogleda-se-u-cinjenici-da-su-ga-pocinile-komsije/12775
+  ⏩ Already processed
+
+[8/15] Checking: https://www.rtvusk.ba/clanak/unapredenje-sistema-upravljanja-otpadom-tema-sastanka-u-sanskom-mostu/12764
+  ⏩ Already processed
+
+[9/15] Checking: https://www.rtvusk.ba/clanak/sjecanje-na-prve-branioce-bih-godisnjica-patriotske-lige/12746
+  ⏩ Already processed
+
+[10/15] Checking: https://www.rtvusk.ba/clanak/obiljezena-35-godisnjica-osnivanja-patriotske-lige-u-bihacu/12741
+  ⏩ Already processed
+
+[11/15] Checking: https://www.rtvusk.ba/clanak/macron-ima-novu-viziju-evrope-njemacka-i-italija-su-protiv/12732
+  ⏩ Already processed
+
+[12/15] Checking: https://www.rtvusk.ba/clanak/u-bihacu-je-danas-odrzana-7-sjednica-vlade-unsko-sanskog-kantona/12722
+  ⏩ Already processed
+
+[13/15] Checking: https://www.rtvusk.ba/clanak/skuplji-zivot-ista-primanja-gradani-pod-sve-vecim-pritiskom/12721
+  ⏩ Already processed
+
+[14/15] Checking: https://www.rtvusk.ba/clanak/sutra-u-nasoj-zemlji-veci-dio-dana-pretezno-oblacno-vrijeme-sa-kisom-vecinom-prije-podne/12813
+  ⏩ Already processed
+
+[15/15] Checking: https://www.rtvusk.ba/clanak/izdvojeno-iz-tv-dnevnika-gost-almir-sahmanija/12812
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: radiobihac.py[0m
+============================================================
+🚀 Radio Bihać News Scraper
+============================================================
+Script: radiobihac.py
+Script hash: 77de09e61a43
+Target: https://www.radiobihac.com
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: radiobihac.py (hash: 77de09e61a43)
+Time: 2026-02-12 21:49:40.675872
+============================================================
+Scraping Radio Bihać: https://www.radiobihac.com
+Looking for news articles...
+  Found: OBAVIJESTI, NAJAVE...
+  Found: 12.02.2026 - Elvedina Muzaferija 16. u disciplini Super-G na...
+  Found: 12.02.2026 - 📣 NOVA KORT VIKEND AKCIJA JE PRED NAMA !!! 📣...
+  Found: 12.02.2026 - Gradonačelnik Sedić ponovo u posjeti bihaćkim f...
+  Found: 12.02.2026 - Prezentirana iskustva i primjeri dobre prakse i...
+  Found: 12.02.2026 - U Muftijstvu bihaćkom potpisan protokol o surad...
+  Found: 12.02.2026 - Reprezentacija BiH danas će saznati protivnike ...
+  Found: EMISIJE - Radio Bihać...
+  Found: EKO KULT Svakog drugog petka od 13:05 sati.Urednik i voditel...
+  Found: MUZIKA NA ŠILTETIMA Svakog ponedjeljka i srijede.Urednik i v...
+  Found: VOLI SVOJE, PODRŽI DOMAĆE! Svakog petka od 12:05.Urednica i ...
+  Found: ZA MARKU VIŠE Svakog drugog utorka od 13:05.Urednik i vodite...
+  Found: SCENA Svake druge srijede od 12:05 sati.Urednik i voditelj e...
+  Found: AKTUALNO U kategoriji "Aktualno" nalaze se prilozi, reportaž...
+  Found: STOKUĆA MAHALUŠA Svakog ponedjeljka i petka od 10:30.Autor i...
+  Found: KONTRAPUNKT U novom terminu, svakog drugog četvrtka od 17.00...
+  Found: FAIR PLAY Svakog ponedjeljka od 13.05 sati.Urednik i voditel...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: 2026-02-09 09:02:11 Isplata invalidnina za januar u Federaci...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: ...
+  Found: Mali aljaški malamut do suza nasmijao svoju vlasnicu...
+  Found: Noj jurio bicikliste, oni "umirali" od smijeha...
+  Found: Prijatelji se ne ostavljaju u nevolji...
+  Found: Spust niz Lovćen koji ledi krv u žilama...
+  Found: Stojadin sigurno juri kroz snijeg...
+  Found: Najnoviji model američke kompanije BostonDynamics...
+  Found: Obavijesti i najave...
+  Found: Udomljavanje napuštenih životinja...
+  Found: IZMJENA JAVNOG POZIVA ZA DODJELU KUĆICA - WINTER 2025...
+  Found: Radio Televizija Bihać 2017...
+Found 47 date stamps on page
+Total unique article links: 48
+
+Processing 10 article pages...
+
+[1/10] Checking: http://www.radiobihac.com/kategorija/obavijesti/17
+  ⏩ Already processed
+
+[2/10] Checking: https://www.radiobihac.com/vijest/elvedina-muzaferija-16-u-disciplini-super-g-na-zoi/15311
+  ⏩ Already processed
+
+[3/10] Checking: https://www.radiobihac.com/vijest/nova-kort-vikend-akcija-je-pred-nama/15310
+  ⏩ Already processed
+
+[4/10] Checking: https://www.radiobihac.com/vijest/gradonacelnik-sedic-ponovo-u-posjeti-bihackim-firmama/15309
+  ⏩ Already processed
+
+[5/10] Checking: https://www.radiobihac.com/vijest/prezentirana-iskustva-i-primjeri-dobre-prakse-iz-prve-faze-drr-programa/15307
+  ⏩ Already processed
+
+[6/10] Checking: https://www.radiobihac.com/vijest/u-muftijstvu-bihackom-potpisan-protokol-o-suradnji-u-projektu-obnove-dzamije-fethija/15306
+  ⏩ Already processed
+
+[7/10] Checking: https://www.radiobihac.com/vijest/reprezentacija-bih-danas-ce-saznati-protivnike-u-uefa-ligi-nacija/15305
+  ⏩ Already processed
+
+[8/10] Checking: https://www.radiobihac.com/emisije
+  ⏩ Already processed
+
+[9/10] Checking: https://www.radiobihac.com/emisija/eko-kult/22
+  ⏩ Already processed
+
+[10/10] Checking: https://www.radiobihac.com/emisija/muzika-na-siltetima/24
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New posts created: 0
+
+ℹ️  No new posts found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vodovod-bihac.py[0m
+============================================================
+🚰 Vodovod Bihać Utility Announcement Scraper
+============================================================
+Script: vodovod-bihac.py
+Script hash: 820244bade12
+Target: https://www.vodovod-bihac.ba/
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: vodovod-bihac.py (hash: 820244bade12)
+Time: 2026-02-12 21:49:42.360353
+============================================================
+Scraping Vodovod Bihać: https://www.vodovod-bihac.ba/
+Looking for utility announcements...
+  Found announcement: AKTUELNOSTI...
+  Found announcement: Obavijest o kvaliteti vode...
+  Found announcement: Više informacija...
+Total announcement links: 3
+
+Processing 3 announcement pages...
+
+[1/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/aktuelnosti/1
+  ⏩ Already processed
+
+[2/3] Checking: https://www.vodovod-bihac.ba/bs/kategorija/obavijest-o-kvaliteti-vode/2
+  ⏩ Already processed
+
+[3/3] Checking: https://www.vodovod-bihac.ba/bs/clanak/obavijest-o-kvaliteti-vode-na-dan-cetvrtak-12-februara-2026-godine/603
+  ⏩ Already processed
+
+============================================================
+Scraping completed!
+New announcements posted: 0
+
+ℹ️  No new announcements found.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usnkrajina.py[0m
+📁 Loaded state: 36 URLs, 36 hashes
+============================================================
+📰 USN KRAJINA NEWS SCRAPER
+============================================================
+Script: usnkrajina.py
+Script hash: 666ab78f5b46
+Target: https://usnkrajina.com.ba
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: usnkrajina_state.json
+Time: 2026-02-12 21:49:43.337862
+============================================================
+Scraping USN Krajina: https://usnkrajina.com.ba
+Looking for news articles...
+  🌐 Fetching: https://usnkrajina.com.ba
+  🔍 Looking for article links...
+  ✅ Found 15 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/vijesti/
+  🌐 Fetching: https://usnkrajina.com.ba/vijesti/
+  🔍 Looking for article links...
+  ✅ Found 12 articles using strategy
+
+📂 Checking section: https://usnkrajina.com.ba/aktuelnosti/
+  🌐 Fetching: https://usnkrajina.com.ba/aktuelnosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/aktuelnosti/
+
+📂 Checking section: https://usnkrajina.com.ba/category/novosti/
+  🌐 Fetching: https://usnkrajina.com.ba/category/novosti/
+  ❌ Error fetching: 404 Client Error: Not Found for url: https://usnkrajina.com.ba/category/novosti/
+
+📂 Checking section: https://usnkrajina.com.ba/blog/
+  🌐 Fetching: https://usnkrajina.com.ba/blog/
+  🔍 Looking for article links...
+  ✅ Found 4 articles using strategy
+
+📊 Found 30 total articles
+📊 New articles to process: 0
+✅ No new articles found.
+
+💾 State saved to usnkrajina_state.json
+  [0;32m✓ Completed successfully (8s)[0m
+
+[0;34m▶ Running: bihac-org.py[0m
+📁 Loaded state: 4 URLs, 4 hashes
+============================================================
+🏛️  BIHAC.ORG NEWS SCRAPER
+============================================================
+Script: bihac-org.py
+Script hash: bdd511b72044
+Target: https://www.bihac.org
+Output directory: /home/bihac-danas/web-scraper/facebook_ready_posts
+State file: bihac_org_state.json
+Time: 2026-02-12 21:49:50.758156
+============================================================
+Scraping Bihać.org categories...
+
+📂 Category: Gradska Uprava
+   URL: https://www.bihac.org/obavijesti
+  Found 4 articles
+  New articles: 0
+
+📂 Category: Javni Pozivi
+   URL: https://www.bihac.org/javni-pozivi
+  Found 0 articles
+  New articles: 0
+
+✅ No new articles found.
+
+💾 State saved to bihac_org_state.json
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: bihamk-rss.py[0m
+============================================================
+🚗 BIHAMK Traffic RSS Import Feeder
+============================================================
+Script:          bihamk-rss.py
+Script hash:     852ea23249f5
+Feed URL:        https://bihamk.ba/spi/stanje-na-cesti-u-bih/rss
+Output directory:/home/bihac-danas/web-scraper/facebook_ready_posts
+============================================================
+Script: bihamk-rss.py (hash: 852ea23249f5)
+Time:   2026-02-12 21:49:52.963392
+Feed:   BIHAMK Traffic Updates
+============================================================
+Found 1 traffic updates.
+
+[1/1] Processing traffic update...
+  Title: Stanje na cesti u BiH...
+  Date:  2026-02-12
+  Hash:  b2c85616b001
+  ⏩ Already processed (URL)
+
+============================================================
+Import completed.
+New traffic posts created: 0
+
+ℹ️  No new traffic posts created.
+✅ Check the 'facebook_ready_posts' directory for JSON files.
+============================================================
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: prostornobihac.py[0m
+2026-02-12 21:49:53,880 - prostornobihac - INFO - Scraping vijesti: https://www.prostornobihac.ba/vijesti
+2026-02-12 21:49:54,859 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-001.json
+2026-02-12 21:49:55,860 - prostornobihac - INFO - Scraping dokumenti: https://www.prostornobihac.ba/dokumenti/2
+2026-02-12 21:49:55,976 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-002.json
+2026-02-12 21:49:55,978 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-003.json
+2026-02-12 21:49:55,979 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-004.json
+2026-02-12 21:49:55,980 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-005.json
+2026-02-12 21:49:55,981 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-006.json
+2026-02-12 21:49:55,981 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-007.json
+2026-02-12 21:49:55,984 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-008.json
+2026-02-12 21:49:55,985 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-009.json
+2026-02-12 21:49:55,987 - prostornobihac - INFO - Saved: 4e8ccf7347b9-20260212-010.json
+2026-02-12 21:49:56,988 - prostornobihac - INFO - Scraped 10 articles from Prostorno Bihać
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: grad-cazin.py[0m
+2026-02-12 21:49:57,766 - gradcazin - INFO - Scraping https://gradcazin.gov.ba/novosti
+2026-02-12 21:49:58,157 - gradcazin - INFO - Saved: a20f8b27b7b2-20260212-001.json
+2026-02-12 21:49:58,159 - gradcazin - INFO - Scraped 1 articles from Grad Cazin
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: opcina-buzim.py[0m
+2026-02-12 21:49:58,815 - opcinabuzim - INFO - Scraping https://opcinabuzim.ba/
+2026-02-12 21:49:59,935 - opcinabuzim - INFO - Saved: ee5814865242-20260212-001.json
+2026-02-12 21:49:59,937 - opcinabuzim - INFO - Saved: ee5814865242-20260212-002.json
+2026-02-12 21:49:59,938 - opcinabuzim - INFO - Saved: ee5814865242-20260212-003.json
+2026-02-12 21:49:59,939 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,939 - opcinabuzim - INFO - Saved: ee5814865242-20260212-004.json
+2026-02-12 21:49:59,939 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,940 - opcinabuzim - INFO - Saved: ee5814865242-20260212-005.json
+2026-02-12 21:49:59,942 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,944 - opcinabuzim - INFO - Saved: ee5814865242-20260212-006.json
+2026-02-12 21:49:59,946 - opcinabuzim - INFO - Saved: ee5814865242-20260212-007.json
+2026-02-12 21:49:59,946 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,947 - opcinabuzim - INFO - Saved: ee5814865242-20260212-008.json
+2026-02-12 21:49:59,948 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,948 - opcinabuzim - INFO - Duplicate skipped: Agan Skenderović...
+2026-02-12 21:49:59,949 - opcinabuzim - INFO - Scraped 8 articles from Općina Bužim
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: sanski-most.py[0m
+2026-02-12 21:50:00,578 - sanskimost - INFO - Scraping https://sanskimost.gov.ba/index.php/obavijesti
+2026-02-12 21:50:01,344 - sanskimost - INFO - Scraped 0 articles from Općina Sanski Most
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crt_ba.py[0m
+2026-02-12 21:50:03,459 - crt_ba - INFO - Scraping https://crt.ba/
+2026-02-12 21:50:07,525 - crt_ba - INFO - Scraping https://crt.ba/category/aktuelnosti/
+2026-02-12 21:50:07,562 - crt_ba - ERROR - Error scraping https://crt.ba/category/aktuelnosti/: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-02-12 21:50:07,566 - crt_ba - INFO - Scraped 0 articles from CRT Cazin
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: pufbih.py[0m
+2026-02-12 21:50:09,426 - pufbih - INFO - Scraping https://www.pufbih.ba/objave/list
+2026-02-12 21:50:09,728 - pufbih - INFO - Scraped 0 articles from PU FBIH
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: uino.py[0m
+2026-02-12 21:50:11,685 - uino - INFO - Scraping https://www.uino.gov.ba/portal/bs/novosti/
+2026-02-12 21:50:13,303 - uino - INFO - Scraping https://www.uino.gov.ba/portal/bs/oglasi/
+2026-02-12 21:50:13,546 - uino - INFO - Saved: 77d96f21e736-20260212-001.json
+2026-02-12 21:50:14,560 - uino - INFO - Scraped 1 articles from UINO BiH
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: ussume.py[0m
+2026-02-12 21:50:15,181 - ussume - INFO - Scraping https://ussume.ba/category/novosti/
+2026-02-12 21:50:15,541 - ussume - INFO - Saved: 05a383f704d5-20260212-001.json
+2026-02-12 21:50:15,546 - ussume - INFO - Duplicate skipped:  Unapređenje saradnje ŠPD “Unsko – sanske šume” sa...
+2026-02-12 21:50:15,554 - ussume - INFO - Saved: 05a383f704d5-20260212-002.json
+2026-02-12 21:50:15,559 - ussume - INFO - Duplicate skipped:  Javni poziv...
+2026-02-12 21:50:15,565 - ussume - INFO - Saved: 05a383f704d5-20260212-003.json
+2026-02-12 21:50:15,569 - ussume - INFO - Duplicate skipped:  Širimo znanje i svijest o zaštiti životne sredine...
+2026-02-12 21:50:15,576 - ussume - INFO - Saved: 05a383f704d5-20260212-004.json
+2026-02-12 21:50:15,581 - ussume - INFO - Duplicate skipped:  Javni oglas za prijem pripravnika...
+2026-02-12 21:50:15,587 - ussume - INFO - Saved: 05a383f704d5-20260212-005.json
+2026-02-12 21:50:15,595 - ussume - INFO - Duplicate skipped:  JAVNI OGLAS za prijem u radni odnos na neodređeno...
+2026-02-12 21:50:15,600 - ussume - INFO - Duplicate skipped:  JAVNI OGLAS za prijem u radni odnos na neodređeno...
+2026-02-12 21:50:15,605 - ussume - INFO - Duplicate skipped:  JAVNI OGLAS za prijem u radni odnos na neodređeno...
+2026-02-12 21:50:15,610 - ussume - INFO - Duplicate skipped:  JAVNI OGLAS za prijem u radni odnos na neodređeno...
+2026-02-12 21:50:15,616 - ussume - INFO - Duplicate skipped:  JAVNI OGLAS za prijem u radni odnos na neodređeno...
+2026-02-12 21:50:15,621 - ussume - INFO - Saved: 05a383f704d5-20260212-006.json
+2026-02-12 21:50:15,627 - ussume - INFO - Duplicate skipped:  Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Kr...
+2026-02-12 21:50:15,632 - ussume - INFO - Saved: 05a383f704d5-20260212-007.json
+2026-02-12 21:50:15,639 - ussume - INFO - Duplicate skipped:  Suad Behić ispraćen u penziju...
+2026-02-12 21:50:15,644 - ussume - INFO - Saved: 05a383f704d5-20260212-008.json
+2026-02-12 21:50:16,645 - ussume - INFO - Scraping https://ussume.ba/licitacije/
+2026-02-12 21:50:17,828 - ussume - INFO - Scraped 8 articles from US Šume
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: zzousk.py[0m
+2026-02-12 21:50:18,458 - zzousk - INFO - Scraping https://www.zzousk.ba/novosti
+2026-02-12 21:50:19,216 - zzousk - INFO - Saved: a60bfdbeda75-20260212-001.json
+2026-02-12 21:50:19,219 - zzousk - INFO - Saved: a60bfdbeda75-20260212-002.json
+2026-02-12 21:50:19,221 - zzousk - INFO - Saved: a60bfdbeda75-20260212-003.json
+2026-02-12 21:50:19,224 - zzousk - INFO - Saved: a60bfdbeda75-20260212-004.json
+2026-02-12 21:50:19,224 - zzousk - INFO - Saved: a60bfdbeda75-20260212-005.json
+2026-02-12 21:50:19,229 - zzousk - INFO - Saved: a60bfdbeda75-20260212-006.json
+2026-02-12 21:50:19,230 - zzousk - INFO - Saved: a60bfdbeda75-20260212-007.json
+2026-02-12 21:50:19,233 - zzousk - INFO - Saved: a60bfdbeda75-20260212-008.json
+2026-02-12 21:50:19,235 - zzousk - INFO - Saved: a60bfdbeda75-20260212-009.json
+2026-02-12 21:50:19,236 - zzousk - INFO - Saved: a60bfdbeda75-20260212-010.json
+2026-02-12 21:50:19,238 - zzousk - INFO - Saved: a60bfdbeda75-20260212-011.json
+2026-02-12 21:50:19,241 - zzousk - INFO - Saved: a60bfdbeda75-20260212-012.json
+2026-02-12 21:50:19,242 - zzousk - INFO - Saved: a60bfdbeda75-20260212-013.json
+2026-02-12 21:50:19,245 - zzousk - INFO - Saved: a60bfdbeda75-20260212-014.json
+2026-02-12 21:50:19,249 - zzousk - INFO - Saved: a60bfdbeda75-20260212-015.json
+2026-02-12 21:50:20,250 - zzousk - INFO - Scraping https://www.zzousk.ba/dokumenti/9
+2026-02-12 21:50:21,424 - zzousk - INFO - Scraping https://www.zzousk.ba/dokumenti/11
+2026-02-12 21:50:22,542 - zzousk - INFO - Scraped 15 articles from ZZO USK
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: cesteusk.py[0m
+2026-02-12 21:50:23,258 - cesteusk - INFO - Scraping https://cesteusk.com/
+2026-02-12 21:50:23,695 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-001.json
+2026-02-12 21:50:23,699 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-002.json
+2026-02-12 21:50:23,704 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-003.json
+2026-02-12 21:50:23,708 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-004.json
+2026-02-12 21:50:23,711 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-005.json
+2026-02-12 21:50:23,715 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-006.json
+2026-02-12 21:50:24,718 - cesteusk - INFO - Scraping https://cesteusk.com/kategorija/konkursi/
+2026-02-12 21:50:24,921 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-007.json
+2026-02-12 21:50:24,934 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-008.json
+2026-02-12 21:50:25,934 - cesteusk - INFO - Scraping https://cesteusk.com/javne-nabavke/
+2026-02-12 21:50:26,620 - cesteusk - INFO - Saved: 80d3a57fdad4-20260212-009.json
+2026-02-12 21:50:27,622 - cesteusk - INFO - Scraped 9 articles from Ceste USK
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: pravosudje.py[0m
+2026-02-12 21:50:28,944 - pravosudje - INFO - Scraping https://pravosudje.ba/vstvfo/B/1/kategorije-vijesti/6919/6968/6947
+2026-02-12 21:50:30,515 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-001.json
+2026-02-12 21:50:30,523 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-002.json
+2026-02-12 21:50:30,529 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-003.json
+2026-02-12 21:50:30,536 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-004.json
+2026-02-12 21:50:30,542 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-005.json
+2026-02-12 21:50:30,543 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-006.json
+2026-02-12 21:50:30,551 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-007.json
+2026-02-12 21:50:30,553 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-008.json
+2026-02-12 21:50:30,560 - pravosudje - INFO - Saved: 6d6e8abaabae-20260212-009.json
+2026-02-12 21:50:31,563 - pravosudje - INFO - Scraping https://pravosudje.ba/vstvfo/B/1/kategorije-vijesti/6919/6968/6946
+2026-02-12 21:50:33,226 - pravosudje - INFO - Scraping https://opsud-bihac.pravosudje.ba/vstvfo/B/17/grupe-vijesti/305
+2026-02-12 21:50:35,175 - pravosudje - INFO - Scraping https://opsud-bihac.pravosudje.ba/vstvfo/B/17/kategorije-vijesti/4196/4205/118576
+2026-02-12 21:50:36,891 - pravosudje - INFO - Scraped 9 articles from Pravosudje BiH
+  [0;32m✓ Completed successfully (9s)[0m
+
+[0;34m▶ Running: npuna.py[0m
+2026-02-12 21:50:37,533 - npuna - INFO - Scraping https://npuna.com/blog/
+2026-02-12 21:50:39,789 - npuna - INFO - Saved: 3b916ec995f3-20260212-001.json
+2026-02-12 21:50:40,792 - npuna - INFO - Scraping https://npuna.com/smjestajni-kapaciteti/
+2026-02-12 21:50:44,001 - npuna - INFO - Scraped 1 articles from NP Una
+  [0;32m✓ Completed successfully (8s)[0m
+
+[0;34m▶ Running: fena_rss.py[0m
+============================================================
+FENA RSS Scraper - FENA
+============================================================
+Loaded 25 previously scraped articles
+
+Fetching FENA RSS feed: https://fena.ba/rss
+Total entries in feed: 100
+
+Found relevant: Bihać jača saradnju s lokalnim privrednicima: Fokus na nova ...
+  ⊘ Skipped (already scraped)
+Found relevant: Vlada USK nastavlja podršku mladim sportašicama...
+  ⊘ Skipped (already scraped)
+Found relevant: Türkiye to fund restoration of Fethija Mosque in Bihać...
+  ⊘ Skipped (already scraped)
+Found relevant: Završen upis ogrjeva za penzionere u USK, u toku usaglašavan...
+  ⊘ Skipped (already scraped)
+Found relevant: Obrazovanje i socijalna zaštita u fokusu budžeta USK...
+  ⊘ Skipped (already scraped)
+Found relevant: Počinju pripreme za obnovu Fethija džamije, projekat finansi...
+  ⊘ Skipped (already scraped)
+Found relevant: U Srebreniku počinje manifestacija 'Dani povelje 2026'...
+  ⊘ Skipped (already scraped)
+Found relevant: PIO RS mijenja način isplate penzija nakon brojnih zloupotre...
+  ⊘ Skipped (already scraped)
+
+============================================================
+✅ Scraping completed
+   New articles: 0
+   Total tracked: 25
+============================================================
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 60
+  JSON files after:  62
+  [0;32mNew files created: 2[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 05a383f704d5-20260212-001.json
+    Title: Unapređenje saradnje ŠPD “Unsko – sanske šume” sa interesnim grupama
+    Original URL: https://ussume.ba/unapredjenje-saradnje-spd-unsko-sanske-sume-sa-interesnim-grupama/
+  Found new: 05a383f704d5-20260212-002.json
+    Title: Javni poziv
+    Original URL: https://ussume.ba/javni-poziv-2/
+  Found new: 05a383f704d5-20260212-003.json
+    Title: Širimo znanje i svijest o zaštiti životne sredine!
+    Original URL: https://ussume.ba/sirimo-znanje-i-svijest-o-zastiti-zivotne-sredine/
+  Found new: 05a383f704d5-20260212-004.json
+    Title: Javni oglas za prijem pripravnika
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-pripravnika/
+  Found new: 05a383f704d5-20260212-005.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-7/
+  Found new: 05a383f704d5-20260212-006.json
+    Title: Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa donijela važne odluke na današnjoj sjednici
+    Original URL: https://ussume.ba/uprava-spd-unsko-sanske-sume-d-o-o-bosanska-krupa-donijela-vazne-odluke-na-danasnjoj-sjednici/
+  Found new: 05a383f704d5-20260212-007.json
+    Title: Suad Behić ispraćen u penziju
+    Original URL: https://ussume.ba/suad-behic-ispracen-u-penziju/
+  Found new: 05a383f704d5-20260212-008.json
+    Title: Imenovan Odbor za reviziju ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa
+    Original URL: https://ussume.ba/imenovan-odbor-za-reviziju-spd-unsko-sanske-sume-d-o-o-bosanska-krupa/
+  Found new: 3b916ec995f3-20260212-001.json
+    Title: TRODNEVNA EDUKACIJA U BIHAĆU
+    Original URL: https://npuna.com/2026/01/26/trodnevna-edukacija-u-bihacu/
+  Found new: 4e8ccf7347b9-20260212-001.json
+    Title: Politika privatnosti
+    Original URL: https://www.prostornobihac.ba/bs/politika-privatnosti
+  Found new: 4e8ccf7347b9-20260212-002.json
+    Title: Viber broj za prijavu kvarova od strane gradjana: 061/474-527
+    Original URL: tel:0038761474527
+  Found new: 4e8ccf7347b9-20260212-003.json
+    Title: O nama
+    Original URL: https://www.prostornobihac.ba/onama
+  Found new: 4e8ccf7347b9-20260212-004.json
+    Title: Vijesti
+    Original URL: https://www.prostornobihac.ba/vijesti
+  Found new: 4e8ccf7347b9-20260212-005.json
+    Title: Oglasna tabla
+    Original URL: https://www.prostornobihac.ba/dokumenti/2
+  Found new: 4e8ccf7347b9-20260212-006.json
+    Title: Obrasci
+    Original URL: https://www.prostornobihac.ba/dokumenti/3
+  Found new: 4e8ccf7347b9-20260212-007.json
+    Title: Javne nabavke
+    Original URL: https://www.prostornobihac.ba/dokumenti/1
+  Found new: 4e8ccf7347b9-20260212-008.json
+    Title: Projekti
+    Original URL: https://www.prostornobihac.ba/dokumenti/4
+  Found new: 4e8ccf7347b9-20260212-009.json
+    Title: Zakoni i propisi
+    Original URL: https://www.prostornobihac.ba/dokumenti/5
+  Found new: 4e8ccf7347b9-20260212-010.json
+    Title: Kontakt
+    Original URL: https://www.prostornobihac.ba/kontakt
+  Found new: 6d6e8abaabae-20260212-001.json
+    Title: Odnosi s javnošću
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919
+  Found new: 6d6e8abaabae-20260212-002.json
+    Title: Aktuelnosti
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919/6968/6946
+  Found new: 6d6e8abaabae-20260212-003.json
+    Title: Saopćenja za javnost
+    Original URL: /vstvfo/B/1/kategorije-vijesti/6919/6968/6947
+  Found new: 6d6e8abaabae-20260212-004.json
+    Title: Vrhovni sud Federacije BiH potvrdio presudu u predmetu Alija Šljivar i drVijest je napisana na jeziku: BosPresudom Vrhovnog suda F BiH broj 01 0 K 016910 24 KŽ 3 od 27.05.2025. godine je odbijena žalba branioca optuženog Šljivar Alije i Kantonalnog tužioca iz Bihaća i potvrđena presuda Kantonalnog suda u Bihaću broj 01 0 K 016910 23 K od 09.05.2024. godine. Presudom Kantonalnog suda u Bihaću je optuženi Šljivar Alija oglašen krivim za krivično djelo Zloupotreba položaja ........07.01.2026.
+    Original URL: /vstvfo/vstvfo/B/1/article/157940
+  Found new: 6d6e8abaabae-20260212-005.json
+    Title: Donesena presuda u predmetu Koljić MehmedalijaVijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 15.12.2025. godine donio presudu broj 01 0 K 020671 25 K kojom je optuženi Koljić Mehmedalija oglašen krivim zbog krivičnog djela Ubistvo iz člana 166. stav 1. Krivičnog zakona Federacije Bosne i Hercegovine (KZ F BiH) za koje mu je utvrđena kazna .......18.12.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/157137
+  Found new: 6d6e8abaabae-20260212-006.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optuženog Mehemeda VukalićaVijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 17.11.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: T01 1 KT 0006736 24 od 18.11.2024.godine, u krivičnom predmetu broj: 01 0 K 020368 24 K protiv optuženog Mehemeda Vukalića, radi krivičnih djela – Ubistvo iz člana 166. stav 1. KZ F BiH na štetu tri lica (H. N., K. N. i M. G.) u sticaju sa krivičnim djelom - Nedozvoljeno držanje oružja ili .....17.11.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/155803
+  Found new: 6d6e8abaabae-20260212-007.json
+    Title: Donesena presuda u predmetu protiv optuženog inicijala A. Z.Vijest je napisana na jeziku: Bosantonalni sud u Bihaću je dana 30.06.2025. godine u krivičnom predmetu broj: 01 0 K 021036 25 K protiv optuženog inicijala A. Z., postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj T01 0 KT 0045462 24 od 12.11.2024. godine, zbog učinjenja 11 (jedanaest) krivičnih djela – Razbojništva iz člana 289. stav (2) u vezi sa stavom (1), u vezi s 11 (jedanaest) krivičnih djela - Protupravno lišenje slobo......03.07.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/150642
+  Found new: 6d6e8abaabae-20260212-008.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optužene inicijala A. D.Vijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 18.06.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: T01 0 KT 0039826 21 od 29.12.2023. godine, u krivičnom predmetu broj: 01 0 K 019751 24 K protiv optužene inicijala A. D., zbog Teškog krivičnog djela protiv sigurnosti javnog..........19.06.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/150234
+  Found new: 6d6e8abaabae-20260212-009.json
+    Title: Sud donio i javno objavio presudu u krivičnom predmetu protiv optuženog Nihada Baljaka i dr.Vijest je napisana na jeziku: BosKantonalni sud u Bihaću je dana 02.06.2025. godine, postupajući po optužnici Kantonalnog tužilaštva USK Bihać broj: KT-13/98 od 05.09.2000. godine i KT-62/99 od 25.12.2020. godine, u krivičnom predmetu broj: 01 0 K 000149 00 protiv optuženih Nihada Baljaka i Tarika Jašarevića zbog osnovane ..........04.06.2025.
+    Original URL: /vstvfo/vstvfo/B/1/article/149671
+  Found new: 77d96f21e736-20260212-001.json
+    Title: Oglas
+    Original URL: https://www.uino.gov.ba/portal/bs/oglasi/oglas-21/
+  Found new: 80d3a57fdad4-20260212-001.json
+    Title: JAVNI POZIV ZA PRODAJU RABLJENIH PUTNIČKIH MOTORNIH VOZILA
+    Original URL: https://cesteusk.com/javni-poziv-za-prodaju-rabljenih-putnickih-motornih-vozila/
+  Found new: 80d3a57fdad4-20260212-002.json
+    Title: Rješavanje oborinske odvodnje R-403 u naselju Ćoralići
+    Original URL: https://cesteusk.com/rjesavanje-oborinske-odvodnje-r-403-u-naselju-coralici/
+  Found new: 80d3a57fdad4-20260212-003.json
+    Title: Izgradnja pješačkih staza R-402 STD 7+400 u naselju Bajrići Cazin
+    Original URL: https://cesteusk.com/izgradnja-pjesackih-staza-r-402-std-7400-u-naselju-bajrici-cazin/
+  Found new: 80d3a57fdad4-20260212-004.json
+    Title: Mjestimični popravci kolovozne konstrukcije ceste na R404a Bosanska Krupa
+    Original URL: https://cesteusk.com/mjestimicni-popravci-kolovozne-konstrukcije-ceste-na-r404a-bosanska-krupa/
+  Found new: 80d3a57fdad4-20260212-005.json
+    Title: Sanacija klizišta na regionalnoj cesti R 403b Ć.Križ – Šturlić – Barake Sanacija klizišta
+    Original URL: https://cesteusk.com/sanacija-klizista-na-regionalnoj-cesti-r-403b-c-kriz-sturlic-barake-sanacija-klizista/
+  Found new: 80d3a57fdad4-20260212-006.json
+    Title: Sanacija klizišta regionalna cesta R 403b Ć.Križ – Šturlić – Barake
+    Original URL: https://cesteusk.com/sanacija-klizista-regionalna-cesta-r-403b-c-kriz-sturlic-barake/
+  Found new: 80d3a57fdad4-20260212-007.json
+    Title: Obavijest kandidatima u postupku po javnom oglasu za izbor i imenovanje direktora
+    Original URL: https://cesteusk.com/obavijest-kandidatima-u-postupku-po-javnom-oglasu-za-izbor-i-imenovanje-direktora/
+  Found new: 80d3a57fdad4-20260212-008.json
+    Title: Obavijest kandidatima koji trebaju pristupiti na usmeni intevju za poziciju direktora JU Direkcija regionalnih cesta USK
+    Original URL: https://cesteusk.com/obavijest-kandidatima-koji-trebaju-pristupiti-na-usmeni-intevju-za-poziciju-direktora-ju-direkcija-regionalnih-cesta-usk/
+  Found new: 80d3a57fdad4-20260212-009.json
+    Title: JAVNI POZIV ZA PRODAJU RABLJENIH PUTNIČKIH MOTORNIH VOZILA
+    Original URL: https://cesteusk.com/dokument/javni-poziv-za-prodaju-rabljenih-putnickih-motornih-vozila/
+  Found new: a20f8b27b7b2-20260212-001.json
+    Title: [email protected]
+    Original URL: https://gradcazin.gov.ba/cdn-cgi/l/email-protection#c7aea9a1a887a0b5a6a3a4a6bdaea9e9a0a8b1e9a5a6
+  Found new: a60bfdbeda75-20260212-001.json
+    Title: +387 37 222 971
+    Original URL: https://www.zzousk.ba/tel:0038737222971
+  Found new: a60bfdbeda75-20260212-002.json
+    Title: Upravni odbor
+    Original URL: https://www.zzousk.ba/sadrzaj/upravni-odbor/3
+  Found new: a60bfdbeda75-20260212-003.json
+    Title: Poslovnice
+    Original URL: https://www.zzousk.ba/poslovnice
+  Found new: a60bfdbeda75-20260212-004.json
+    Title: Poslovnica Bihać
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bihac/5
+  Found new: a60bfdbeda75-20260212-005.json
+    Title: Poslovnica Cazin
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-cazin/6
+  Found new: a60bfdbeda75-20260212-006.json
+    Title: Poslovnica Bosanska Krupa
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanska-krupa/8
+  Found new: a60bfdbeda75-20260212-007.json
+    Title: Poslovnica Sanski Most
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-sanski-most/7
+  Found new: a60bfdbeda75-20260212-008.json
+    Title: Poslovnica Ključ
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-kljuc/9
+  Found new: a60bfdbeda75-20260212-009.json
+    Title: Poslovnica Bužim
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-buzim/10
+  Found new: a60bfdbeda75-20260212-010.json
+    Title: Poslovnica Velika Kladuša
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-velika-kladusa/12
+  Found new: a60bfdbeda75-20260212-011.json
+    Title: Poslovnica Bosanski Petrovac
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanski-petrovac/11
+  Found new: a60bfdbeda75-20260212-012.json
+    Title: Obavezno osiguranje
+    Original URL: https://www.zzousk.ba/sadrzaj/obavezno-osiguranje/14
+  Found new: a60bfdbeda75-20260212-013.json
+    Title: INO osiguranje
+    Original URL: https://www.zzousk.ba/sadrzaj/ino-osiguranje/15
+  Found new: a60bfdbeda75-20260212-014.json
+    Title: Liječenje van kantona
+    Original URL: https://www.zzousk.ba/sadrzaj/lijecenje-van-kantona/20
+  Found new: a60bfdbeda75-20260212-015.json
+    Title: Banjsko liječenje
+    Original URL: https://www.zzousk.ba/sadrzaj/banjsko-lijecenje/16
+  Found new: ee5814865242-20260212-001.json
+    Title: NAJAVA OBILJEŽAVANJA DANA OPĆINE BUŽIM
+    Original URL: https://opcinabuzim.ba/2026/najava-obiljezavanja-dana-opcine-buzim/
+  Found new: ee5814865242-20260212-002.json
+    Title: Agan Skenderović
+    Original URL: https://opcinabuzim.ba/author/wordpress/
+  Found new: ee5814865242-20260212-003.json
+    Title: JAVNI POZIV ZA POLJOPRIVREDNIKE
+    Original URL: https://opcinabuzim.ba/2026/javni-poziv-za-poljoprivrednike-2/
+  Found new: ee5814865242-20260212-004.json
+    Title: PRIZNANJA ZA 2026 GODINU – OPĆINSKO VIJEĆE BUŽIM PREPOZNALO NAJBOLJE
+    Original URL: https://opcinabuzim.ba/2026/priznanja-za-2026-opcinsko-vijece-buzim-prepoznalo-najbolje/
+  Found new: ee5814865242-20260212-005.json
+    Title: NAČELNIK NANIĆ U POSJETI KOD BENJAMINE KARIĆ
+    Original URL: https://opcinabuzim.ba/2026/nacelnik-nanic-u-posjeti-kod-benjamine-karic/
+  Found new: ee5814865242-20260212-006.json
+    Title: Budžet - Javne nabavke
+    Original URL: https://opcinabuzim.ba/category/budzet/
+  Found new: ee5814865242-20260212-007.json
+    Title: JAVNE NABAVKE 2026
+    Original URL: https://opcinabuzim.ba/2026/javne-nabavke-2026/
+  Found new: ee5814865242-20260212-008.json
+    Title: OBAVIJEST POLJOPRIVREDNIM PROIZVOĐAČIMA
+    Original URL: https://opcinabuzim.ba/2026/obavijest-poljoprivrednim-proizvodjacima-13/
+2026-02-12 21:49:16 | Before: 60 | After: 62 | New: 2 | Files: 05a383f704d5-20260212-001.json 05a383f704d5-20260212-002.json 05a383f704d5-20260212-003.json 05a383f704d5-20260212-004.json 05a383f704d5-20260212-005.json 05a383f704d5-20260212-006.json 05a383f704d5-20260212-007.json 05a383f704d5-20260212-008.json 3b916ec995f3-20260212-001.json 4e8ccf7347b9-20260212-001.json 4e8ccf7347b9-20260212-002.json 4e8ccf7347b9-20260212-003.json 4e8ccf7347b9-20260212-004.json 4e8ccf7347b9-20260212-005.json 4e8ccf7347b9-20260212-006.json 4e8ccf7347b9-20260212-007.json 4e8ccf7347b9-20260212-008.json 4e8ccf7347b9-20260212-009.json 4e8ccf7347b9-20260212-010.json 6d6e8abaabae-20260212-001.json 6d6e8abaabae-20260212-002.json 6d6e8abaabae-20260212-003.json 6d6e8abaabae-20260212-004.json 6d6e8abaabae-20260212-005.json 6d6e8abaabae-20260212-006.json 6d6e8abaabae-20260212-007.json 6d6e8abaabae-20260212-008.json 6d6e8abaabae-20260212-009.json 77d96f21e736-20260212-001.json 80d3a57fdad4-20260212-001.json 80d3a57fdad4-20260212-002.json 80d3a57fdad4-20260212-003.json 80d3a57fdad4-20260212-004.json 80d3a57fdad4-20260212-005.json 80d3a57fdad4-20260212-006.json 80d3a57fdad4-20260212-007.json 80d3a57fdad4-20260212-008.json 80d3a57fdad4-20260212-009.json a20f8b27b7b2-20260212-001.json a60bfdbeda75-20260212-001.json a60bfdbeda75-20260212-002.json a60bfdbeda75-20260212-003.json a60bfdbeda75-20260212-004.json a60bfdbeda75-20260212-005.json a60bfdbeda75-20260212-006.json a60bfdbeda75-20260212-007.json a60bfdbeda75-20260212-008.json a60bfdbeda75-20260212-009.json a60bfdbeda75-20260212-010.json a60bfdbeda75-20260212-011.json a60bfdbeda75-20260212-012.json a60bfdbeda75-20260212-013.json a60bfdbeda75-20260212-014.json a60bfdbeda75-20260212-015.json ee5814865242-20260212-001.json ee5814865242-20260212-002.json ee5814865242-20260212-003.json ee5814865242-20260212-004.json ee5814865242-20260212-005.json ee5814865242-20260212-006.json ee5814865242-20260212-007.json ee5814865242-20260212-008.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m

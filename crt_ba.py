@@ -15,6 +15,8 @@ import os
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger('crt_ba')
 
+STATE_FILE = "crt_ba_state.json"
+
 class CRTBaScraper:
     def __init__(self):
         self.source_name = "CRT Cazin"
@@ -25,6 +27,9 @@ class CRTBaScraper:
         # Generate script name hash for filenames
         script_name = os.path.basename(sys.argv[0])
         self.script_hash = hashlib.md5(script_name.encode()).hexdigest()[:12]
+        
+        # Load scraped content hashes
+        self.scraped_hashes = self.load_scraped_data()
         
         self.session = requests.Session()
         self.session.headers.update({
@@ -46,6 +51,27 @@ class CRTBaScraper:
         if not text:
             return ""
         return ' '.join(text.strip().split())
+    
+    def load_scraped_data(self):
+        """Load previously scraped content hashes"""
+        if os.path.exists(STATE_FILE):
+            try:
+                with open(STATE_FILE, 'r') as f:
+                    data = json.load(f)
+                    return set(data.get('scraped_hashes', []))
+            except:
+                return set()
+        return set()
+    
+    def save_scraped_data(self):
+        """Save scraped content hashes"""
+        state = {
+            'scraped_hashes': list(self.scraped_hashes),
+            'last_run': datetime.now().isoformat(),
+            'script_name': os.path.basename(sys.argv[0])
+        }
+        with open(STATE_FILE, 'w') as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
     
     def scrape(self):
         articles = []
@@ -155,6 +181,12 @@ class CRTBaScraper:
         try:
             article['id'] = self.generate_id(article['url'])
             article['content_hash'] = self.generate_content_hash(article['content'])
+            
+            # Check for duplicate
+            if article['content_hash'] in self.scraped_hashes:
+                logger.info(f"Duplicate skipped: {article['title'][:50]}...")
+                return False
+            
             article['scraped_at'] = datetime.now().isoformat()
             article['source'] = self.script_hash
             article['source_name'] = self.source_name
@@ -172,6 +204,9 @@ class CRTBaScraper:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(article, f, ensure_ascii=False, indent=2)
             
+            # Add to scraped hashes
+            self.scraped_hashes.add(article['content_hash'])
+            
             logger.info(f"Saved: {filename}")
             return True
         except Exception as e:
@@ -181,6 +216,7 @@ class CRTBaScraper:
 def main():
     scraper = CRTBaScraper()
     scraper.scrape()
+    scraper.save_scraped_data()
 
 if __name__ == "__main__":
     main()

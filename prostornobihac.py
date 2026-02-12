@@ -19,6 +19,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger('prostornobihac')
 
+STATE_FILE = "prostornobihac_state.json"
+
 class ProstornoBihacScraper:
     def __init__(self):
         self.source_name = "Prostorno Bihać"
@@ -29,6 +31,9 @@ class ProstornoBihacScraper:
         # Generate script name hash for filenames
         script_name = os.path.basename(sys.argv[0])
         self.script_hash = hashlib.md5(script_name.encode()).hexdigest()[:12]
+        
+        # Load scraped content hashes
+        self.scraped_hashes = self.load_scraped_data()
         
         self.session = requests.Session()
         self.session.headers.update({
@@ -53,6 +58,27 @@ class ProstornoBihacScraper:
         if not text:
             return ""
         return ' '.join(text.strip().split())
+    
+    def load_scraped_data(self):
+        """Load previously scraped content hashes"""
+        if os.path.exists(STATE_FILE):
+            try:
+                with open(STATE_FILE, 'r') as f:
+                    data = json.load(f)
+                    return set(data.get('scraped_hashes', []))
+            except:
+                return set()
+        return set()
+    
+    def save_scraped_data(self):
+        """Save scraped content hashes"""
+        state = {
+            'scraped_hashes': list(self.scraped_hashes),
+            'last_run': datetime.now().isoformat(),
+            'script_name': os.path.basename(sys.argv[0])
+        }
+        with open(STATE_FILE, 'w') as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
     
     def extract_article_vijesti(self, article_elem, base_url):
         """Extract article from vijesti page"""
@@ -246,6 +272,12 @@ class ProstornoBihacScraper:
             # Add required fields
             article['id'] = self.generate_id(article['url'])
             article['content_hash'] = self.generate_content_hash(article['content'])
+            
+            # Check for duplicate
+            if article['content_hash'] in self.scraped_hashes:
+                logger.info(f"Duplicate skipped: {article['title'][:50]}...")
+                return False
+            
             article['scraped_at'] = datetime.now().isoformat()
             article['source'] = self.script_hash
             article['source_name'] = self.source_name
@@ -283,6 +315,9 @@ class ProstornoBihacScraper:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(article, f, ensure_ascii=False, indent=2)
             
+            # Add to scraped hashes
+            self.scraped_hashes.add(article['content_hash'])
+            
             logger.info(f"Saved: {filename}")
             return True
             
@@ -293,6 +328,7 @@ class ProstornoBihacScraper:
 def main():
     scraper = ProstornoBihacScraper()
     scraper.scrape()
+    scraper.save_scraped_data()
 
 if __name__ == "__main__":
     main()
