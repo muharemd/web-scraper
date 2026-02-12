@@ -52,3 +52,6 @@ dashboard_users.json
 *_access.log
 *_activity.log
 *failed_logins.log
+
+# Generated Facebook posts (output files)
+facebook_ready_posts/*.json

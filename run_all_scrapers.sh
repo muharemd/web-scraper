@@ -20,6 +20,22 @@ SCRAPERS=(
     "bihac-org.py"
     #"klix_feed.py"
     "bihamk-rss.py"
+    "prostornobihac.py"
+    "grad-cazin.py"
+    "opcina-buzim.py"
+    "sanski-most.py"
+    "crt_ba.py"
+    "pufbih.py"
+    "uino.py"
+    "ussume.py"
+    "zzousk.py"
+    "cesteusk.py"
+    "antikorupcijausk.py"
+    "pravosudje.py"
+    "radiovkladusa.py"
+    "sanartv.py"
+    "npuna.py"
+    #"oslobodjenje_feed.py"
 )
 
 EMAILS=("hare.de@gmail.com" "danasbihac@gmail.com")
