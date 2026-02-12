@@ -69,8 +69,13 @@ BIHAC_KEYWORDS = {
 # Exclude keywords (articles to skip)
 EXCLUDE_KEYWORDS = {
     'beograd', 'sarajevo', 'zagreb', 'beč', 'bec', 'berlin',
-    'njemačka', 'njemacka', 'amerika', 'sjedinjene',
+    'njemačka', 'njemacka', 'njemac', 'njemce',
+    'amerika', 'sjedinjene', 'americki', 'americkog',
     'rusija', 'ukrajina', 'kina', 'japan',
+    'ruski', 'ruskoj', 'ruskom', 'ruska', 'ruske', 'ruskog',
+    'ukrajinski', 'ukrajinskog', 'ukrajinsk', 'ukrajinac',
+    'kineski', 'kineskog', 'japanski', 'japanskog',
+    'nato', 'eu', 'europsk', 'brisel',
 }
 
 def ensure_dirs():
@@ -134,7 +139,19 @@ def is_relevant(title, summary="", categories=None):
     
     normalized_text = normalize_text(full_text)
     
-    # Check exclude keywords first
+    # Check exclude keywords first - using substring match for international topics
+    exclude_patterns = [
+        'rusk', 'rusij', 'ukrajin', 'kines', 'japan', 'njemac', 'amerik',
+        'beograd', 'sarajev', 'zagreb', 'berlin', 'brisel', 'bec', 'moskv', 'kijev',
+        'belgorod', 'donbas', 'kirim', 'kremlj', 'putin', 'zelenski',
+        'nato', 'evropsk', 'eu ', 'washington', 'london', 'pariz',
+    ]
+    
+    for pattern in exclude_patterns:
+        if pattern in normalized_text:
+            return False
+    
+    # Also check exact exclude keywords
     for keyword in EXCLUDE_KEYWORDS:
         if keyword.lower() in normalized_text:
             return False
@@ -239,8 +256,10 @@ def detect_region(text):
         return 'Bosanska Krupa'
     elif 'ključ' in text_lower:
         return 'Ključ'
-    else:
+    elif 'usk' in text_lower or 'unsko-sanski' in text_lower or 'una-sana' in text_lower:
         return 'Unsko-sanski kanton'
+    else:
+        return None  # No specific region detected
 
 def format_for_facebook(entry, article_number):
     """Format article data for Facebook posting"""
@@ -285,7 +304,7 @@ def format_for_facebook(entry, article_number):
         date = parse_date(published)
         
         # Determine region/city for better context
-        region = detect_region(f"{title} {summary}")
+        region = detect_region(f"{title} {content}")
         
         # Build content with source attribution
         full_content = f"{title}\n\n"

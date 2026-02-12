@@ -7,6 +7,7 @@ import traceback
 import hashlib
 import secrets
 import bcrypt
+import requests
 from datetime import datetime
 from functools import wraps
 from flask import Flask, render_template, jsonify, redirect, url_for, request, session
@@ -76,6 +77,97 @@ def get_client_ip():
     if ip and len(ip) < 50:  # Basic sanity check
         return ip
     return "0.0.0.0"
+
+# ===== DEEPSEEK API INTEGRATION =====
+def load_deepseek_api_key():
+    """Load DeepSeek API key from config file"""
+    config_file = "/home/bihac-danas/web-scraper/.deepseek_config"
+    try:
+        with open(config_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                # Handle both "export DEEPSEEK_API_KEY=" and "DEEPSEEK_API_KEY=" formats
+                if 'DEEPSEEK_API_KEY=' in line:
+                    # Extract the value after the = sign
+                    value = line.split('DEEPSEEK_API_KEY=', 1)[1].strip()
+                    # Remove quotes if present
+                    return value.strip('"').strip("'")
+    except Exception as e:
+        print(f"ERROR loading API key: {e}")
+    return None
+
+def rewrite_single_title(filename):
+    """Rewrite title for a single article using DeepSeek API"""
+    filepath = os.path.join(JSON_DIR, filename)
+    
+    try:
+        # Load article
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Check if already rewritten
+        if 'title_rewritten' in data and data['title_rewritten']:
+            return {'success': False, 'error': 'Title already rewritten'}
+        
+        # Get API key
+        api_key = load_deepseek_api_key()
+        if not api_key:
+            return {'success': False, 'error': 'API key not found'}
+        
+        # Extract title and content
+        title = data.get('title', '')
+        content = data.get('content', '')
+        
+        # Call DeepSeek API
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {api_key}'
+        }
+        
+        payload = {
+            'model': 'deepseek-chat',
+            'messages': [
+                {
+                    'role': 'system',
+                    'content': 'Rewrite news titles to be short, catchy, and accurate and please offer only one possibility. All in Bosnian or Croatian language.'
+                },
+                {
+                    'role': 'user',
+                    'content': f'Rewrite this title using the article content:\nTitle: {title}\nContent: {content}'
+                }
+            ]
+        }
+        
+        response = requests.post(
+            'https://api.deepseek.com/v1/chat/completions',
+            headers=headers,
+            json=payload,
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            return {'success': False, 'error': f'API error: {response.status_code}'}
+        
+        result = response.json()
+        rewritten_title = result.get('choices', [{}])[0].get('message', {}).get('content', '')
+        
+        if not rewritten_title:
+            return {'success': False, 'error': 'No rewritten title received from API'}
+        
+        # Update JSON file
+        data['title_rewritten'] = rewritten_title.strip()
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        
+        return {
+            'success': True,
+            'original': title,
+            'rewritten': rewritten_title.strip()
+        }
+        
+    except Exception as e:
+        return {'success': False, 'error': str(e)}
 
 # ===== USER MANAGEMENT =====
 def load_users():
@@ -585,6 +677,30 @@ def view_logs():
 def refresh():
     """Refresh page"""
     return redirect(url_for('index'))
+
+@app.route('/rewrite-title/<filename>', methods=['POST'])
+@login_required
+def rewrite_title_single(filename):
+    """Rewrite title for a single article"""
+    client_ip = get_client_ip()
+    username = session.get('username', 'Unknown')
+    
+    log_activity(client_ip, username, "REWRITE_SINGLE_TITLE", f"File: {filename}")
+    
+    result = rewrite_single_title(filename)
+    
+    if result['success']:
+        return jsonify({
+            'status': 'success',
+            'message': 'Title rewritten successfully',
+            'original': result['original'],
+            'rewritten': result['rewritten']
+        })
+    else:
+        return jsonify({
+            'status': 'error',
+            'message': result['error']
+        }), 400
 
 @app.route('/run-rewrite-titles', methods=['POST'])
 @login_required

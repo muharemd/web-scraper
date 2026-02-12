@@ -575,6 +575,12 @@
                             📤 Post to Facebook
                         </a>
                         {% endif %}
+                        {% if not article.title_rewritten %}
+                        <button class="btn" style="background: #9f7aea; color: white;" 
+                                onclick="rewriteSingleTitle('{{ article.filename|e }}', this)">
+                            ✍️ Rewrite Title
+                        </button>
+                        {% endif %}
                         <a href="{{ article.url }}" target="_blank" class="btn" style="background: #e2e8f0; color: #4a5568;">
                             🔗 View Source
                         </a>
@@ -807,6 +813,47 @@
                 closeModal();
             }
         });
+
+        // Rewrite single article title
+        function rewriteSingleTitle(filename, button) {
+            if (!confirm('Rewrite this article title using DeepSeek API?\\n\\nThis will cost API credits.')) {
+                return;
+            }
+
+            // Disable button and show loading state
+            const originalText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '⏳ Rewriting...';
+            button.style.opacity = '0.6';
+
+            fetch('/rewrite-title/' + filename, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('✅ Title rewritten successfully!\\n\\nOriginal: ' + data.original + '\\n\\nNew: ' + data.rewritten);
+                    // Reload page to show updated title
+                    window.location.reload();
+                } else {
+                    alert('❌ Error: ' + data.message);
+                    // Re-enable button on error
+                    button.disabled = false;
+                    button.innerHTML = originalText;
+                    button.style.opacity = '1';
+                }
+            })
+            .catch(error => {
+                alert('❌ Error: ' + error.message);
+                // Re-enable button on error
+                button.disabled = false;
+                button.innerHTML = originalText;
+                button.style.opacity = '1';
+            });
+        }
 
         // Confirm before posting all
         document.querySelectorAll('.btn-success').forEach(btn => {
