@@ -103,6 +103,7 @@
             font-style: italic;
         }
 
+        /* Tablet and Mobile Styles */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -112,9 +113,39 @@
                 padding: 1rem;
             }
 
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .log-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .btn {
+                width: 100%;
+                min-height: 44px;
+                padding: 1rem 1.5rem;
+            }
+
             .log-content {
                 font-size: 10px;
                 max-height: 300px;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .log-section h2 {
+                font-size: 1.1rem;
+            }
+
+            .log-content {
+                font-size: 9px;
+                max-height: 250px;
             }
         }
     </style>

@@ -149,17 +149,70 @@
             margin-top: 0.25rem;
         }
 
+        /* Tablet Styles */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            .login-card {
+                border-radius: 10px;
+            }
+
+            .login-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .login-header p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Small Mobile Styles */
         @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+            }
+
             .login-card {
                 border-radius: 8px;
+                box-shadow: none;
+                border: 1px solid #e9ecef;
             }
             
             .login-header {
                 padding: 1.5rem;
             }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-header p {
+                font-size: 0.9rem;
+            }
             
             .login-form {
                 padding: 1.5rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-input {
+                padding: 0.875rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .btn-login {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .error-message {
+                font-size: 0.9rem;
+                padding: 0.875rem;
             }
         }
     </style>

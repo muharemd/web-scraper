@@ -117,6 +117,7 @@
             color: #742a2a;
         }
 
+        /* Tablet and Mobile Styles */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -126,9 +127,31 @@
                 padding: 1rem;
             }
 
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .btn {
+                width: 100%;
+                min-height: 44px;
+                padding: 1rem 1.5rem;
+            }
+
             .output-content {
                 font-size: 11px;
                 max-height: 400px;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .output-content {
+                font-size: 10px;
+                max-height: 300px;
             }
         }
     </style>
