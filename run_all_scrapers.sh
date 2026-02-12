@@ -35,6 +35,7 @@ SCRAPERS=(
     "radiovkladusa.py"
     "sanartv.py"
     "npuna.py"
+    "fena_rss.py"
     #"oslobodjenje_feed.py"
 )
 
