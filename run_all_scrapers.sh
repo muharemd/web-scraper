@@ -28,7 +28,7 @@ SCRAPERS=(
     "pufbih.py"
     "uino.py"
     "ussume.py"
-    "zzousk.py"
+    #"zzousk.py"
     "cesteusk.py"
     #"antikorupcijausk.py"
     #"pravosudje.py"

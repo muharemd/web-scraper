@@ -1,17 +1,17 @@
 {
   "scraped_urls": [
-    "https://www.bihac.org/clanak/utvrdivanje-javnog-interesa-za-izgradnju-kruzne-raskrsnice-u-ulici-zrtava-srebrenickog-genocida/207",
+    "https://www.bihac.org/clanak/ponisteni-javni-poziv-za-izbor-konsultanta-za-izradu-studije-opravdanosti-po-modelu-jpp-za-kulturni-centar-bihac/204",
     "https://www.bihac.org/clanak/javni-uvid-na-nacrt-odluke-o-nacinu-drzanja-i-zastiti-pasa-i-macaka-kao-kucnih-ljubimaca-i-napustenih-i-izgubljenih-pasa/208",
     "https://www.bihac.org/clanak/zakljucak-o-davanju-saglasnosti-na-predlozenu-listu-kandidata-koji-su-ostvarili-pravo-na-dodjelu-plastenika-putem-sufinansiranja/202",
-    "https://www.bihac.org/clanak/ponisteni-javni-poziv-za-izbor-konsultanta-za-izradu-studije-opravdanosti-po-modelu-jpp-za-kulturni-centar-bihac/204"
+    "https://www.bihac.org/clanak/utvrdivanje-javnog-interesa-za-izgradnju-kruzne-raskrsnice-u-ulici-zrtava-srebrenickog-genocida/207"
   ],
   "content_hashes": [
     "972344674fcb",
     "435cbad2a419",
-    "8256d7231142",
-    "0dc76cde2a87"
+    "0dc76cde2a87",
+    "8256d7231142"
   ],
-  "last_run": "2026-02-12T21:49:52.532416",
+  "last_run": "2026-02-13T12:00:45.456961",
   "script_name": "bihac-org.py",
   "script_hash": "bdd511b72044"
 }

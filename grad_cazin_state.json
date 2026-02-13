@@ -1,7 +1,10 @@
 {
   "scraped_hashes": [
+    "706831bd68b8",
+    "447369f60b0d",
+    "3da00a6dfda0",
     "50243525d29e"
   ],
-  "last_run": "2026-02-12T21:49:58.159337",
+  "last_run": "2026-02-13T12:00:52.601390",
   "script_name": "grad-cazin.py"
 }
