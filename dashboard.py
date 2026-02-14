@@ -340,7 +340,8 @@ def get_articles():
                     'published': data.get('published', ''),
                     'source_name': source_name,
                     'url': data.get('url', '#'),
-                    'is_new': not bool(data.get('published'))
+                    'is_new': not bool(data.get('published')),
+                    'image_url': data.get('image_url', '')
                 })
                 
             except Exception as e:
@@ -427,16 +428,21 @@ def index():
         except:
             server_ip = request.host.split(':')[0]
         
-        return render_template('index.html',
-                             articles=articles,
-                             total=total,
-                             new_count=new_count,
-                             published_count=published_count,
-                             server_ip=server_ip,
-                             port=8080,
-                             now=datetime.now(),
-                             username=session.get('username', 'Unknown'),
-                             client_ip=get_client_ip())
+        # Prepare posts for dashboard.html
+        posts = []
+        for article in articles:
+            posts.append({
+                'filename': article.get('filename', ''),
+                'title': article.get('title', 'Nema naslova'),
+                'title_rewritten': article.get('title_rewritten', ''),
+                'summary': article.get('content_preview', '')[:120] + '...' if len(article.get('content_preview', '')) > 120 else article.get('content_preview', ''),
+                'image_url': article.get('image_url', ''),
+                'source': article.get('source_name', 'Unknown'),
+                'time': article.get('date', 'Unknown'),
+                'url': article.get('url', '#'),
+                'published': article.get('published', '')
+            })
+        return render_template('dashboard.html', posts=posts, total=total, new_count=new_count, published_count=published_count, server_ip=server_ip, port=8080, now=datetime.now())
             
     except Exception as e:
         print(f"ERROR in index route: {e}")
@@ -459,6 +465,8 @@ def post_article(filename):
     
     if not os.path.exists(filepath):
         log_activity(client_ip, username, "POST_FAILED", f"File not found: {filename}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': 'File not found'}), 404
         return render_template('error.html',
             error_type='error',
             title='File Not Found',
@@ -507,6 +515,8 @@ def delete_article(filename):
     
     if not os.path.exists(filepath):
         log_activity(client_ip, username, "DELETE_FAILED", f"File not found: {filename}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': 'File not found'}), 404
         return render_template('error.html',
             error_type='error',
             title='File Not Found',
@@ -517,9 +527,13 @@ def delete_article(filename):
     try:
         os.remove(filepath)
         log_activity(client_ip, username, "DELETE_SUCCESS", f"File deleted: {filename}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'success', 'message': 'File deleted'})
         return redirect(url_for('index'))
     except Exception as e:
         log_activity(client_ip, username, "DELETE_FAILED", f"File: {filename}, Error: {str(e)}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': str(e)}), 500
         return render_template('error.html',
             error_type='error',
             title='Delete Failed',

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Posting Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* --- Begin merged styles from index.html --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 1.1rem; }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 2rem; background: #f8f9fa; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); border: 1px solid #e9ecef; }
+        .stat-card h3 { font-size: 2.5rem; color: #667eea; margin-bottom: 0.5rem; }
+        .stat-card p { color: #6c757d; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .actions { padding: 1.5rem 2rem; background: white; border-bottom: 1px solid #e9ecef; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-primary:hover { background: #5a67d8; transform: translateY(-2px); }
+        .btn-success { background: #48bb78; color: white; }
+        .btn-success:hover { background: #38a169; transform: translateY(-2px); }
+        .btn-warning { background: #ed8936; color: white; }
+        .btn-warning:hover { background: #dd6b20; transform: translateY(-2px); }
+        .btn-danger { background: #f56565; color: white; }
+        .btn-danger:hover { background: #e53e3e; transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+        .server-info { background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 2rem; font-family: 'Courier New', monospace; font-size: 0.875rem; border: 1px solid #e9ecef; }
+        .footer { text-align: center; padding: 2rem; color: #718096; font-size: 0.875rem; border-top: 1px solid #e9ecef; background: #f8f9fa; }
+        /* --- End merged styles from index.html --- */
+        .card-img-top { object-fit: cover; height: 180px; width: 100%; }
+        .card { min-height: 420px; }
+        .card-title { min-height: 60px; }
+        .card-text { min-height: 60px; }
+        
+        /* Modal styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(3px); align-items: center; justify-content: center; }
+        .modal.active { display: flex !important; }
+        .modal-content { background: white; padding: 0; border-radius: 12px; max-width: 90%; width: 800px; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; }
+        .modal-header { padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { font-size: 1.5rem; margin: 0; }
+        .modal-close { background: rgba(255, 255, 255, 0.2); border: none; color: white; font-size: 1.5rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .modal-close:hover { background: rgba(255, 255, 255, 0.3); }
+        .modal-body { padding: 2rem; overflow-y: auto; flex: 1; background: white; }
+        .article-detail { margin-bottom: 1.5rem; background: white; }
+        .article-detail h3 { color: #667eea; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .article-detail p { color: #4a5568; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word; background: white; }
+        .article-detail pre { background: #f7fafc; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; color: #2d3748; white-space: pre-wrap; word-wrap: break-word; }
+        .article-image { width: 100%; max-width: 100%; height: auto; border-radius: 8px; margin-top: 0.5rem; }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { border-radius: 0; }
+            .header h1 { font-size: 1.75rem; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); padding: 1rem; }
+            .actions { flex-direction: column; padding: 1rem; }
+            .actions .btn { width: 100%; justify-content: center; }
+            .card-img-top { height: 200px; }
+            .modal-content { max-width: 95%; width: 95%; max-height: 95vh; border-radius: 8px; }
+            .modal-header { padding: 1rem; }
+            .modal-header h2 { font-size: 1.2rem; }
+            .modal-body { padding: 1rem; }
+            .article-detail h3 { font-size: 1rem; }
+            .article-detail p { font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .stats-container { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 Facebook Posting Dashboard</h1>
+            <p>Manage and post articles from Bihać scrapers</p>
+        </div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>{{ total if total is defined else 0 }}</h3>
+                <p>Total Articles</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ new_count if new_count is defined else 0 }}</h3>
+                <p>New Articles</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ published_count if published_count is defined else 0 }}</h3>
+                <p>Published</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ posts|length }}</h3>
+                <p>Showing</p>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="/run-scrapers" class="btn btn-warning">🚀 Run All Scrapers</a>
+            <form action="/run-rewrite-titles" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-primary">✍️ Rewrite Titles (DeepSeek)</button>
+            </form>
+            {% if new_count is defined and new_count > 0 %}
+            <a href="/post-all-new" class="btn btn-success" onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">📤 Post All New ({{ new_count }})</a>
+            {% else %}
+            <button class="btn btn-success" disabled>📤 No New Articles</button>
+            {% endif %}
+            <a href="/refresh" class="btn btn-primary">🔄 Refresh</a>
+            <a href="/logout" class="btn btn-danger">🔓 Logout</a>
+        </div>
+        <div class="server-info">
+            <strong>Dashboard URL:</strong> http://{{ server_ip if server_ip is defined else 'localhost' }}:{{ port if port is defined else '8080' }}<br>
+            <strong>Articles Location:</strong> /home/bihac-danas/facebook_ready_posts/<br>
+            <strong>Current Time:</strong> {{ now.strftime('%Y-%m-%d %H:%M:%S') if now is defined else '' }}
+        </div>
+        <div class="mt-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for post in posts %}
+                <div class="col">
+                    <div class="card h-100 p-2 d-flex flex-column justify-content-between">
+                        {% if post.image_url %}
+                        <img src="{{ post.image_url }}" class="card-img-top" alt="Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            {% if post.title_rewritten %}
+                            <div style="font-size: 1rem; color: #667eea; font-weight: 600; margin-top: 0.75rem; padding: 0.5rem; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px;">
+                                ✍️ {{ post.title_rewritten }}
+                            </div>
+                            {% endif %}
+                            <div class="mb-2 mt-2">
+                                <span class="badge bg-secondary">{{ post.source }}</span>
+                                <span class="badge bg-light text-dark">{{ post.time }}</span>
+                                <span class="badge {{ 'bg-success' if not post.published else 'bg-secondary' }}">{{ '🆕 New' if not post.published else '✅ Published' }}</span>
+                            </div>
+                            <div class="card-text" style="color: #4a5568; margin-bottom: 1rem; white-space: pre-wrap; font-size: 0.95rem;">
+                                {{ post.summary }}
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 d-flex flex-wrap gap-2">
+                            {% if not post.published %}
+                            <a href="/post/{{ post.filename }}" class="btn btn-primary btn-sm" onclick="return confirm('Post this to Facebook?')">
+                                📤 Post to Facebook
+                            </a>
+                            {% endif %}
+                            {% if not post.title_rewritten %}
+                            <button class="btn btn-secondary btn-sm" onclick="rewriteSingleTitle('{{ post.filename|e }}', this)">
+                                ✍️ Rewrite Title
+                            </button>
+                            {% endif %}
+                            <a href="{{ post.url }}" target="_blank" class="btn btn-light btn-sm">
+                                🔗 View Source
+                            </a>
+                            <button class="btn btn-light btn-sm" onclick="showDetails('{{ post.filename|e }}')">
+                                👁️ Preview
+                            </button>
+                            <a href="/delete/{{ post.filename }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this article?\n\nTitle: {{ post.title }}\n\nThis action cannot be undone!')">
+                                🗑️ Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="footer">
+            <p>Bihac Scrapers System • {{ now.strftime('%Y-%m-%d %H:%M') if now is defined else '' }}</p>
+            <p>Server: http://{{ server_ip if server_ip is defined else 'localhost' }}:{{ port if port is defined else '8080' }} • Webhook: https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb</p>
+        </div>
+    </div>
+
+    <!-- Article Preview Modal -->
+    <div id="articleModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>👁️ Article Preview</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p style="text-align: center; color: #a0aec0;">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Show article details
+    function showDetails(filename) {
+        const modal = document.getElementById('articleModal');
+        const modalBody = document.getElementById('modalBody');
+        modal.classList.add('active');
+        modalBody.innerHTML = '<p style="text-align: center; color: #a0aec0;">Loading...</p>';
+        fetch('/get-article/' + filename)
+            .then(response => response.json())
+            .then(data => {
+                let html = '';
+                if (data.title) html += '<div class="article-detail"><h3>📝 Title</h3><p>' + data.title + '</p></div>';
+                if (data.content) html += '<div class="article-detail"><h3>📄 Content</h3><p>' + data.content + '</p></div>';
+                if (data.url) html += '<div class="article-detail"><h3>🔗 Source URL</h3><p><a href="' + data.url + '" target="_blank">' + data.url + '</a></p></div>';
+                if (data.source) html += '<div class="article-detail"><h3>📰 Source</h3><p>' + data.source + '</p></div>';
+                if (data.image_url) html += '<div class="article-detail"><h3>🖼️ Image</h3><img src="' + data.image_url + '" class="article-image" onerror="this.style.display=\'none\'"></div>';
+                if (data.scraped_at) html += '<div class="article-detail"><h3>⏰ Scraped At</h3><p>' + data.scraped_at + '</p></div>';
+                if (data.published) html += '<div class="article-detail"><h3>✅ Published At</h3><p>' + data.published + '</p></div>';
+                html += '<div class="article-detail"><h3>📋 Raw JSON</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>';
+                modalBody.innerHTML = html;
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div style="text-align: center; color: #e53e3e;"><h3>❌ Error</h3><p>' + error.message + '</p></div>';
+            });
+    }
+    function closeModal() {
+        document.getElementById('articleModal').classList.remove('active');
+    }
+    document.getElementById('articleModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // Rewrite single article title
+    function rewriteSingleTitle(filename, button) {
+        if (!confirm('Rewrite this article title using DeepSeek API?\n\nThis will cost API credits.')) return;
+        const originalText = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = '⏳ Rewriting...';
+        button.style.opacity = '0.6';
+        fetch('/rewrite-title/' + filename, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('✅ Title rewritten successfully!\n\nOriginal: ' + data.original + '\n\nNew: ' + data.rewritten);
+                window.location.reload();
+            } else {
+                alert('❌ Error: ' + data.message);
+                button.disabled = false;
+                button.innerHTML = originalText;
+                button.style.opacity = '1';
+            }
+        })
+        .catch(error => {
+            alert('❌ Error: ' + error.message);
+            button.disabled = false;
+            button.innerHTML = originalText;
+            button.style.opacity = '1';
+        });
+    }
+    </script>
+</body>
+</html>

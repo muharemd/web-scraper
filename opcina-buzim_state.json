@@ -1,14 +1,14 @@
 {
   "scraped_hashes": [
     "aa4a78460f7c",
-    "1b8d434a2e74",
-    "f094f166b31c",
-    "c153d7ff0cc1",
-    "496f54441221",
-    "02a1cad0fbaf",
     "081d0cdaa103",
-    "bfb42ddc5b13"
+    "496f54441221",
+    "c153d7ff0cc1",
+    "1b8d434a2e74",
+    "bfb42ddc5b13",
+    "f094f166b31c",
+    "02a1cad0fbaf"
   ],
-  "last_run": "2026-02-13T12:00:54.186876",
+  "last_run": "2026-02-14T20:00:48.714394",
   "script_name": "opcina-buzim.py"
 }

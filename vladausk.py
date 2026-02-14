@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-VLADA USK News Scraper - REFINED VERSION
-Extracts only actual news from category page
+VLADA USK News Scraper - RSS-like logic
+Scans vladausk.ba/v4/ page and extracts actual news articles with images
 """
 
 import requests
@@ -16,7 +16,8 @@ import time
 import sys
 
 # Configuration
-BASE_URL = "https://vladausk.ba/v4/vrsta/kategorija/4"
+BASE_URL = "https://vladausk.ba/v4/"
+NOVOSTI_URL = "https://vladausk.ba/v4/vrsta/novosti"
 OUTPUT_DIR = "facebook_ready_posts"
 STATE_FILE = "vladausk_state.json"
 HEADERS = {
@@ -59,142 +60,115 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def is_valid_news_title(title):
-    """Check if a title is likely to be a news article (not navigation)"""
-    title_lower = title.lower()
-    
-    # Skip navigation/menu items
-    skip_keywords = [
-        'kontakt', 'adresa', 'telefon', 'e-mail', 'email',
-        'web mail', 'glasnik', 'budžet', 'strategija',
-        'geografski', 'sistem', 'gis', 'kalendar',
-        'preuzimanja', 'rasprave', 'nabavke', 'konkursi',
-        'ministarstva', 'kantonalne', 'uprave', 'organizacije',
-        'ured', 'borba', 'korupcija'
-    ]
-    
-    for keyword in skip_keywords:
-        if keyword in title_lower:
-            return False
-    
-    # Check for news-like patterns
-    news_patterns = [
-        r'javn[iy]\s+(poziv|oglas|natječaj|konkurs)',
-        r'tehničk[oa]\s+ispravk[oa]',
-        r'konačn[ae]\s+(list[ae]|rang-list[ae])',
-        r'nabavk[ae]\s+uslug[ae]',
-        r'prijav[ae]\s+kandidat[ae]',
-        r'prijem\s+namještenik[ae]',
-        r'zakup\s+',
-        r'program\s+',
-        r'projekt[aei]\s+',
-        r'referent\s+za',
-        r'usavršavanj[ae]\s+za\s+\d{4}'
-    ]
-    
-    for pattern in news_patterns:
-        if re.search(pattern, title_lower):
-            return True
-    
-    # Also accept titles with dates in them (like "za 2026. godinu")
-    if re.search(r'\d{4}\.', title):
-        return True
-    
-    # Titles should be reasonably long (not single words)
-    return len(title) > 20
+def extract_image_from_article(soup):
+    """Extract image URL from article HTML"""
+    # Try to find image in common locations
+    img = soup.find('img', src=re.compile(r'vladausk\.ba.*\.(jpg|jpeg|png|gif)'))
+    if img and img.get('src'):
+        img_url = img['src']
+        if not img_url.startswith('http'):
+            img_url = urljoin(BASE_URL, img_url)
+        return img_url
+    return None
 
-def extract_news_from_category():
-    """Extract only actual news articles from category page"""
+def extract_date_from_text(text):
+    """Extract date from text in DD.MM.YYYY format"""
+    match = re.search(r'(\d{2})\.(\d{2})\.(\d{4})', text)
+    if match:
+        day, month, year = match.groups()
+        return f"{year}-{month}-{day}"
+    return datetime.now().strftime("%Y-%m-%d")
+
+def extract_news_from_page(url, page_name=""):
+    """Extract actual news articles from vladausk.ba page using RSS-like logic"""
     try:
-        print(f"Fetching category page: {BASE_URL}")
-        response = requests.get(BASE_URL, headers=HEADERS, timeout=15)
+        print(f"Fetching {page_name}: {url}")
+        response = requests.get(url, headers=HEADERS, timeout=15)
         response.raise_for_status()
         
         soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Find all h3 elements (these seem to contain news titles)
-        all_h3 = soup.find_all('h3')
-        
         news_items = []
         
-        print(f"Found {len(all_h3)} h3 elements, filtering for news...")
+        # Look for article links that point to actual news (/novost/...)
+        # This is similar to how RSS.app identifies actual news vs navigation
+        article_links = soup.find_all('a', href=re.compile(r'/novost/[^/]+/\d+'))
         
-        for h3 in all_h3:
-            title = clean_text(h3.get_text())
+        print(f"Found {len(article_links)} potential article links")
+        
+        seen_urls = set()
+        
+        for link in article_links:
+            article_url = link.get('href')
+            if not article_url:
+                continue
+                
+            # Make absolute URL
+            if not article_url.startswith('http'):
+                article_url = urljoin(BASE_URL, article_url)
             
-            # Skip if not a valid news title
-            if not is_valid_news_title(title):
+            # Skip duplicates
+            if article_url in seen_urls:
+                continue
+            seen_urls.add(article_url)
+            
+            # Extract title from link or nearby heading
+            title = clean_text(link.get_text())
+            
+            # If title is too short, look for h3 or h2 nearby
+            if len(title) < 20:
+                parent = link.find_parent(['div', 'article', 'li'])
+                if parent:
+                    heading = parent.find(['h3', 'h2', 'h4'])
+                    if heading:
+                        title = clean_text(heading.get_text())
+            
+            # Skip if still no good title
+            if len(title) < 20 or title.lower() == 'vlada usk':
                 continue
             
             print(f"  Processing: {title[:60]}...")
             
-            # Try to find date - look for "Datum:" pattern near the h3
+            # Extract description/content from nearby div
+            description = ""
+            parent = link.find_parent(['div', 'article'])
+            if parent:
+                # Look for paragraph or div with content
+                content_elem = parent.find(['p', 'div'], class_=lambda x: x and 'content' in str(x).lower())
+                if not content_elem:
+                    content_elem = parent.find('p')
+                if content_elem:
+                    description = clean_text(content_elem.get_text())
+            
+            # Extract image
+            image_url = None
+            if parent:
+                img = parent.find('img', src=re.compile(r'\.(jpg|jpeg|png|gif)'))
+                if img and img.get('src'):
+                    image_url = img['src']
+                    if not image_url.startswith('http'):
+                        image_url = urljoin(BASE_URL, image_url)
+            
+            # Extract date from parent container
             date = datetime.now().strftime("%Y-%m-%d")
-            
-            # Strategy 1: Look for sibling with "Datum:"
-            next_elem = h3
-            for _ in range(5):  # Check next few elements
-                next_elem = next_elem.find_next_sibling()
-                if not next_elem:
-                    break
-                
-                text = clean_text(next_elem.get_text())
-                if 'datum:' in text.lower():
-                    # Extract date in format DD.MM.YYYY
-                    match = re.search(r'(\d{2}\.\d{2}\.\d{4})', text)
-                    if match:
-                        day, month, year = match.group(1).split('.')
-                        date = f"{year}-{month}-{day}"
-                    break
-            
-            # Strategy 2: Look in parent container
-            if date == datetime.now().strftime("%Y-%m-%d"):
-                parent = h3.find_parent(['div', 'li', 'article'])
-                if parent:
-                    parent_text = clean_text(parent.get_text())
-                    match = re.search(r'(\d{2}\.\d{2}\.\d{4})', parent_text)
-                    if match:
-                        day, month, year = match.group(1).split('.')
-                        date = f"{year}-{month}-{day}"
-            
-            # Extract content - look for the next paragraph(s)
-            content_parts = []
-            
-            # Start from h3 and collect next siblings until next h3 or empty
-            current = h3.find_next_sibling()
-            while current and current.name != 'h3':
-                if current.name in ['p', 'div']:
-                    text = clean_text(current.get_text())
-                    # Skip very short texts and date lines
-                    if (len(text) > 30 and 
-                        'datum:' not in text.lower() and
-                        not text.startswith('Objavljeno')):
-                        content_parts.append(text)
-                current = current.find_next_sibling()
-            
-            content = ' '.join(content_parts) if content_parts else ""
-            
-            # If no content found, use title as content
-            if not content or len(content) < 50:
-                content = title
-            
-            # Create a unique URL
-            title_hash = hashlib.md5(title.encode()).hexdigest()[:8]
-            pseudo_url = f"{BASE_URL}#article_{title_hash}"
+            if parent:
+                parent_text = parent.get_text()
+                date = extract_date_from_text(parent_text)
             
             news_items.append({
                 'title': title,
-                'content': content,
+                'content': description if description else title,
                 'date': date,
-                'url': pseudo_url,
-                'original_url': BASE_URL
+                'url': article_url,
+                'image_url': image_url
             })
         
-        print(f"\nFound {len(news_items)} valid news articles")
+        print(f"\nFound {len(news_items)} valid news articles from {page_name}")
         return news_items
         
     except Exception as e:
-        print(f"Error extracting news: {e}")
+        print(f"Error extracting news from {page_name}: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 def format_for_facebook(news_item):
@@ -205,8 +179,8 @@ def format_for_facebook(news_item):
     # Generate content hash
     content_hash = generate_content_hash(news_item['content'])
     
-    # Format content - include date in the post
-    fb_content = f"Datum: {news_item['date']}\n\n"
+    # Format content
+    fb_content = f"{news_item['title']}\n\n"
     
     if len(news_item['content']) > 700:
         fb_content += news_item['content'][:700] + "..."
@@ -222,14 +196,18 @@ def format_for_facebook(news_item):
         "id": post_id,
         "content": fb_content,
         "url": news_item['url'],
-        "original_url": news_item['original_url'],
         "scheduled_publish_time": None,
         "published": "",
         "source": SCRIPT_NAME_HASH,
-        "source_name": "Vlada USK",        "content_hash": content_hash,
+        "source_name": "Vlada USK",
+        "content_hash": content_hash,
         "scraped_at": datetime.now().isoformat(),
         "date": news_item['date']
     }
+    
+    # Add image if available
+    if news_item.get('image_url'):
+        fb_post['image_url'] = news_item['image_url']
     
     return fb_post, post_id, content_hash
 
@@ -238,18 +216,34 @@ def scrape_latest_news():
     scraped_hashes = load_scraped_data()
     new_posts = []
     
-    # Extract news from category page
-    news_items = extract_news_from_category()
+    # Extract news from both main page and novosti page (RSS-like logic)
+    all_news_items = []
     
-    if not news_items:
+    # Scrape main page
+    main_items = extract_news_from_page(BASE_URL, "main page")
+    all_news_items.extend(main_items)
+    
+    # Scrape novosti page
+    novosti_items = extract_news_from_page(NOVOSTI_URL, "novosti page")
+    all_news_items.extend(novosti_items)
+    
+    if not all_news_items:
         print("No news articles found!")
         return []
     
-    print(f"\nProcessing {len(news_items)} news articles...")
+    # Remove duplicates based on URL
+    seen_urls = set()
+    unique_items = []
+    for item in all_news_items:
+        if item['url'] not in seen_urls:
+            seen_urls.add(item['url'])
+            unique_items.append(item)
+    
+    print(f"\nProcessing {len(unique_items)} unique news articles...")
     
     counter = 1
     
-    for news_item in news_items:
+    for news_item in unique_items:
         print(f"\nArticle {counter}: {news_item['title'][:60]}...")
         print(f"  Date: {news_item['date']}")
         print(f"  Content length: {len(news_item['content'])} chars")
@@ -300,11 +294,12 @@ def scrape_latest_news():
 
 def main():
     print("=" * 60)
-    print("🚀 VLADA USK News Scraper - REFINED")
+    print("🚀 VLADA USK News Scraper - RSS-like Logic")
     print("=" * 60)
     print(f"Script: {SCRIPT_NAME}")
     print(f"Script hash: {SCRIPT_NAME_HASH}")
-    print(f"Target: {BASE_URL}")
+    print(f"Target 1: {BASE_URL}")
+    print(f"Target 2: {NOVOSTI_URL}")
     print(f"Output directory: {os.path.abspath(OUTPUT_DIR)}")
     print("=" * 60)
     
