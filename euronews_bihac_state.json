@@ -1,0 +1,32 @@
+{
+  "scraped_urls": [
+    "https://euronews.ba/bosna-i-hercegovina/aktuelno/51348/poskok-preuzeo-predmet-donja-jablanica-bit-ce-apsolutni-prioritet",
+    "https://euronews.ba/bosna-i-hercegovina/biznis",
+    "https://euronews.ba/bosna-i-hercegovina/aktuelno",
+    "https://euronews.ba/bosna-i-hercegovina/politika/51343/stranka-za-bih-da-li-je-neko-u-vladi-ks-imao-namjeru-formirati-gras-2",
+    "https://euronews.ba/bosna-i-hercegovina/politika",
+    "https://euronews.ba/sport/fudbal",
+    "https://euronews.ba/sport/fudbal/51342/fk-sarajevo-cestitao-zrinjskom-na-remiju-sa-crystal-palaceom",
+    "https://euronews.ba/bosna-i-hercegovina/aktuelno/51347/stanivukovic-dajte-da-sjednemo-i-vidimo-tri-varijante-sindikat-ono-sto-je-potpisano-nije-ispostovano",
+    "https://euronews.ba/bosna-i-hercegovina/aktuelno/51338/prodavali-majice-sa-ustaskim-motivima-sipa-im-upala-u-kucu",
+    "https://euronews.ba/bosna-i-hercegovina/politika/51344/pandurevic-nastavlja-se-isporuka-mazuta-za-vogoscu-pokrecemo-smjene-u-bags-u",
+    "https://euronews.ba/bosna-i-hercegovina/politika/51351/kristo-trazi-jedinstven-stav-balkana-prema-eu-zbog-autoprevoznika",
+    "https://euronews.ba/bosna-i-hercegovina/biznis/51349/dodik-prosjecna-plata-u-rs-bi-do-kraja-godine-mogla-biti-2500-km"
+  ],
+  "content_hashes": [
+    "71de1770e13a",
+    "18cdb294ac58",
+    "8da32f5e65e7",
+    "8daca49fdfee",
+    "86d533232fd8",
+    "07e6720de83a",
+    "669550053f94",
+    "e0d8e6fd4eb3",
+    "bc2b95023d6d",
+    "a1209c138f93",
+    "fa5de85e1b23",
+    "523b7fee963e"
+  ],
+  "last_run": "2026-02-27T08:32:03.909750",
+  "script_name": "euronews_bihac.py"
+}

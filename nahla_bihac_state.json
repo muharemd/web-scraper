@@ -1,0 +1,36 @@
+{
+  "scraped_urls": [
+    "https://bihac.nahla.ba/kursevi/izdavanje-certifikata-o-poznavanju-rada-na-racunaru/",
+    "https://bihac.nahla.ba/kursevi/obuka-za-gerontolosku-asistenticu/",
+    "https://bihac.nahla.ba/kursevi/pokloni-znanje/",
+    "https://bihac.nahla.ba/sport-i-rekreacija/",
+    "https://bihac.nahla.ba/drustvena-istrazivanja",
+    "https://bihac.nahla.ba/postani-clanica-nahle/",
+    "https://bihac.nahla.ba/kursevi/izdavanje-certifikata-o-poznavanju-engleskog-jezika/",
+    "https://bihac.nahla.ba/programi-za-djecu-i-mlade/",
+    "https://bihac.nahla.ba/poslovna-podrska/",
+    "https://bihac.nahla.ba/nahlin-zimski-teen-kamp-2026/",
+    "http://bihac.nahla.ba/biblioteka/index.php",
+    "https://nahla.ba/nahlin-program-stipendiranja/",
+    "https://bihac.nahla.ba/savjetovanje/",
+    "https://bihac.nahla.ba/edukacija/"
+  ],
+  "content_hashes": [
+    "9804371f19c3",
+    "143884995217",
+    "c618afdb9544",
+    "e0e6c66817cc",
+    "f9c519d37757",
+    "4c75ff644428",
+    "8d68153525f4",
+    "639eb95b2943",
+    "84b748e749a2",
+    "009faa995242",
+    "a792ca4fbfba",
+    "87c0fb181edd",
+    "9dc9b02bbc1a",
+    "61007ba87d34"
+  ],
+  "last_run": "2026-02-27T08:31:17.560918",
+  "script_name": "nahla_bihac.py"
+}

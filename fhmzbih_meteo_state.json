@@ -1,0 +1,32 @@
+{
+  "scraped_urls": [
+    "https://www.fhmzbih.gov.ba/latinica/METEO/trodnevna.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaGL.php",
+    "https://www.fhmzbih.gov.ba/latinica/index.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBR.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaKO.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaDR.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBJ.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaGO.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognoza.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaJA.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaKL.php",
+    "https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBU.php"
+  ],
+  "content_hashes": [
+    "ff09c7e8bec4",
+    "ae5a0f8b0065",
+    "d65d3e6aba0f",
+    "29ab6250f660",
+    "84deb690a22b",
+    "36925029f595",
+    "cc41ea6680b3",
+    "97a1a2eb0589",
+    "98c32f53becc",
+    "4d0351be5ec8",
+    "066cb07617de",
+    "6c5c329e873e"
+  ],
+  "last_run": "2026-02-27T08:30:54.864162",
+  "script_name": "fhmzbih_meteo.py"
+}

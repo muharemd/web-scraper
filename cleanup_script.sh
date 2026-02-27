@@ -14,32 +14,49 @@ find /home/bihac-danas/web-scraper -name "*.py~" -delete 2>/dev/null
 find /home/bihac-danas/web-scraper -name "*.py.bak" -delete 2>/dev/null
 echo "   ✓ Python cache cleaned"
 
-# 2. Clean log files (keep last 7 days)
+# 2. Clean log files (keep recent entries)
 echo "2. Rotating log files..."
-LOG_FILES=(
+
+# Large activity logs - keep last 5000 lines
+LARGE_LOGS=(
     "/home/bihac-danas/web-scraper/scraper_log.txt"
     "/home/bihac-danas/web-scraper/scraper_cron.log"
-    "/home/bihac-danas/web-scraper/dashboard.log"
-    "/home/bihac-danas/web-scraper/email_sent.log"
+    "/home/bihac-danas/web-scraper/dashboard_access.log"
+    "/home/bihac-danas/web-scraper/dashboard_activity.log"
 )
 
-for log_file in "${LOG_FILES[@]}"; do
+for log_file in "${LARGE_LOGS[@]}"; do
     if [ -f "$log_file" ]; then
-        # Keep last 1000 lines of each log
+        # Keep last 5000 lines for large logs
+        tail -5000 "$log_file" > "${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
+        echo "   ✓ Rotated: $(basename "$log_file")"
+    fi
+done
+
+# Small logs - keep last 1000 lines
+SMALL_LOGS=(
+    "/home/bihac-danas/web-scraper/dashboard.log"
+    "/home/bihac-danas/web-scraper/email_sent.log"
+    "/home/bihac-danas/web-scraper/failed_logins.log"
+)
+
+for log_file in "${SMALL_LOGS[@]}"; do
+    if [ -f "$log_file" ]; then
+        # Keep last 1000 lines for small logs
         tail -1000 "$log_file" > "${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
         echo "   ✓ Rotated: $(basename "$log_file")"
     fi
 done
 
-# 3. Clean old JSON files (keep last 30 days)
+# 3. Clean old JSON files (keep last 1 day)
 echo "3. Cleaning old JSON files..."
 JSON_DIR="/home/bihac-danas/web-scraper/facebook_ready_posts"
 if [ -d "$JSON_DIR" ]; then
     # Count before cleanup
     COUNT_BEFORE=$(find "$JSON_DIR" -name "*.json" | wc -l)
 
-    # Remove JSON files older than 10 days
-    find "$JSON_DIR" -name "*.json" -mtime +10 -delete 2>/dev/null
+    # Remove JSON files older than 1 day
+    find "$JSON_DIR" -name "*.json" -mtime +1 -delete 2>/dev/null
 
     # Count after cleanup
     COUNT_AFTER=$(find "$JSON_DIR" -name "*.json" | wc -l)
@@ -67,19 +84,13 @@ echo "6. Cleaning browser cache..."
 find /home/bihac-danas/web-scraper -type d -name ".cache" -exec rm -rf {} + 2>/dev/null
 echo "   ✓ Browser cache cleaned"
 
-# 7. Clean downloaded HTML files
-echo "7. Cleaning downloaded HTML files..."
-find /home/bihac-danas/web-scraper -name "*.html" -mtime +1 -delete 2>/dev/null
-find /home/bihac-danas/web-scraper -name "*.htm" -mtime +1 -delete 2>/dev/null
-echo "   ✓ Old HTML files cleaned"
-
-# 8. Check disk space
-echo "8. Checking disk space..."
+# 7. Check disk space
+echo "7. Checking disk space..."
 echo "   Current disk usage:"
 df -h /home/bihac-danas/web-scraper | tail -1
 
-# 9. List largest files
-echo "9. Largest files in /home/bihac-danas/web-scraper:"
+# 8. List largest files
+echo "8. Largest files in /home/bihac-danas/web-scraper:"
 LARGE_FILES=$(find /home/bihac-danas/web-scraper -type f -size +10M -exec ls -lh {} + 2>/dev/null | head -10)
 if [ -n "$LARGE_FILES" ]; then
     echo "$LARGE_FILES"
@@ -87,8 +98,8 @@ else
     echo "   No files larger than 10MB found"
 fi
 
-# 10. Clean empty directories
-echo "10. Cleaning empty directories..."
+# 9. Clean empty directories
+echo "9. Cleaning empty directories..."
 find /home/bihac-danas/web-scraper -type d -empty -delete 2>/dev/null
 echo "   ✓ Empty directories removed"
 

@@ -1,0 +1,32 @@
+{
+  "scraped_urls": [
+    "https://rotary-bihac.ba/bs/onama.php?id=2",
+    "https://rotary-bihac.ba/bs/vijest.php?id=255",
+    "https://rotary-bihac.ba/bs/projekti.php",
+    "https://rotary-bihac.ba/bs/onama.php?id=3",
+    "https://rotary-bihac.ba/bs/onama.php?id=1",
+    "https://rotary-bihac.ba/bs/onama.php?id=4",
+    "https://rotary-bihac.ba/bs/clanovi.php",
+    "https://rotary-bihac.ba/bs/onama.php?id=5",
+    "https://rotary-bihac.ba/bs/galerija.php",
+    "https://rotary-bihac.ba/bs/index.php",
+    "https://rotary-bihac.ba/bs/vijest.php?id=254",
+    "https://rotary-bihac.ba/bs/arhiva.php"
+  ],
+  "content_hashes": [
+    "e9a32a78016a",
+    "d715dfa16561",
+    "b51d968443f1",
+    "3d59cef4a0ee",
+    "ded3b9a4fa12",
+    "97dbdf85a6f8",
+    "918819cadffd",
+    "d4ee1d867de7",
+    "767ee9a945cd",
+    "076ae57482b2",
+    "983172af98e7",
+    "2d2d868143e9"
+  ],
+  "last_run": "2026-02-27T08:30:58.190981",
+  "script_name": "rotary_bihac.py"
+}

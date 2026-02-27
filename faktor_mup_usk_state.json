@@ -1,0 +1,32 @@
+{
+  "scraped_urls": [
+    "https://faktor.ba/cs-magazin",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/bosanska-krupa-u-saobracajnoj-nezgodi-lakse-pvrijedena-jedna-osoba/227915",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/sudar-cetiri-vozila-na-putu-bosanski-petrovac-bihac-vise-povrijedenih-medu-njima-i-djeca/227978",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/policija-usk-na-gp-izacic-zaplijenila-dva-kilograma-kokaina/235955",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/vlada-usk-imenovala-novog-vrsioca-duznosti-direktora-uprave-policije/241644",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/tijelo-22-godisnjeg-mladica-pronadeno-u-porodicnoj-kuci-u-velikoj-kladusi/242516",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/tri-osobe-uhapsene-zbog-razbojnistva-na-stetu-kurirske-sluzbe-u-bihacu/244108",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/granicna-policija-i-mup-usk-proveli-akciju-otkrivanja-organiziranih-kriminalnih-grupa/239702",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/epilog-divljanja-vozaca-kod-velike-kladuse-dvije-osobe-uhapsene-medu-njima-maloljetnik-dvije-povrijedene/235961",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/u-bihacu-sin-nozem-nasrnuo-na-majku-i-nanio-joj-povrede/231161",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/hapsenje-u-cazinu-tiktoker-sanel-patak-pao-zbog-droge/234879",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/dodikov-kadar-za-nacelnika-bosanskog-petrovca-ide-na-mjesto-sefa-u-upravi-policije-mup-a-usk/238115"
+  ],
+  "content_hashes": [
+    "8fe22c23064b",
+    "946de6e46ced",
+    "cc652042ecac",
+    "4e90c5749e2b",
+    "53e495277f45",
+    "58436d05797f",
+    "16b1ec7e6edf",
+    "db1c89e6f43a",
+    "97cd56f704e2",
+    "67d678968802",
+    "7a0d3755a794",
+    "4097b4f3169d"
+  ],
+  "last_run": "2026-02-27T08:31:05.941749",
+  "script_name": "faktor_mup_usk.py"
+}

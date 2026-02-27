@@ -110,6 +110,15 @@
             <a href="/refresh" class="btn btn-primary">🔄 Refresh</a>
             <a href="/logout" class="btn btn-danger">🔓 Logout</a>
         </div>
+        <div style="padding: 1rem 2rem; border-bottom: 1px solid #e9ecef; background: #fafbff;">
+            <h5 style="margin: 0 0 0.75rem 0; color: #4a5568;">➕ Custom URL Scrape (MVP)</h5>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <input id="customUrl" type="text" placeholder="https://example.com/news" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
+                <input id="customFilter" type="text" placeholder="What to scrape (keywords, comma separated)" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
+                <button id="customScrapeBtn" class="btn btn-primary" onclick="runCustomScrape()">🧪 Scrape URL</button>
+            </div>
+            <div id="customScrapeStatus" style="margin-top: 0.6rem; color: #4a5568; font-size: 0.95rem;"></div>
+        </div>
         <div class="server-info">
             <strong>Dashboard URL:</strong> http://{{ server_ip if server_ip is defined else 'localhost' }}:{{ port if port is defined else '8080' }}<br>
             <strong>Articles Location:</strong> /home/bihac-danas/facebook_ready_posts/<br>
@@ -247,6 +256,55 @@
             button.disabled = false;
             button.innerHTML = originalText;
             button.style.opacity = '1';
+        });
+    }
+
+    function runCustomScrape() {
+        const urlInput = document.getElementById('customUrl');
+        const filterInput = document.getElementById('customFilter');
+        const status = document.getElementById('customScrapeStatus');
+        const btn = document.getElementById('customScrapeBtn');
+
+        const url = (urlInput.value || '').trim();
+        const filter = (filterInput.value || '').trim();
+
+        if (!url) {
+            status.style.color = '#c53030';
+            status.textContent = 'Please enter a URL.';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = '⏳ Scraping...';
+        status.style.color = '#4a5568';
+        status.textContent = 'Running custom scrape...';
+
+        fetch('/api/custom-scrape', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url, filter })
+        })
+        .then(async (response) => {
+            const data = await response.json();
+            if (!response.ok || data.status !== 'success') {
+                throw new Error(data.message || 'Custom scrape failed');
+            }
+            return data;
+        })
+        .then((data) => {
+            status.style.color = '#2f855a';
+            status.textContent = data.message;
+            if (data.created_count > 0) {
+                setTimeout(() => window.location.reload(), 900);
+            }
+        })
+        .catch((error) => {
+            status.style.color = '#c53030';
+            status.textContent = 'Error: ' + error.message;
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.textContent = '🧪 Scrape URL';
         });
     }
     </script>

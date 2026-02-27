@@ -8,9 +8,13 @@ import hashlib
 import secrets
 import bcrypt
 import requests
+import re
+import warnings
 from datetime import datetime
 from functools import wraps
+from urllib.parse import urljoin, urlparse
 from flask import Flask, render_template, jsonify, redirect, url_for, request, session
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
 print(f"DEBUG: Starting dashboard.py with Python: {sys.executable}")
 
@@ -27,6 +31,9 @@ app.config['SESSION_COOKIE_DOMAIN'] = None
 JSON_DIR = "/home/bihac-danas/web-scraper/facebook_ready_posts"
 WEBHOOK_URL = "https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb"
 USERS_FILE = "/home/bihac-danas/web-scraper/dashboard_users.json"
+CUSTOM_SCRAPE_STATE_FILE = "/home/bihac-danas/web-scraper/custom_dashboard_scrape_state.json"
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 # ===== SECURITY LOGGING =====
 ACCESS_LOG = "/home/bihac-danas/web-scraper/dashboard_access.log"
@@ -374,6 +381,285 @@ def run_curl_command(json_file_path):
         }
     except Exception as e:
         return {'success': False, 'error': str(e)}
+
+
+def _clean_text(text):
+    if not text:
+        return ""
+    return re.sub(r"\s+", " ", str(text).replace("\r", " ").replace("\n", " ")).strip()
+
+
+def _content_hash(text):
+    normalized = " ".join(text.split()).lower()
+    return hashlib.md5(normalized.encode()).hexdigest()[:12]
+
+
+def _normalize_text(text):
+    value = _clean_text(text).lower()
+    return (
+        value.replace("ć", "c")
+        .replace("č", "c")
+        .replace("š", "s")
+        .replace("ž", "z")
+        .replace("đ", "dj")
+    )
+
+
+def _load_custom_state():
+    if os.path.exists(CUSTOM_SCRAPE_STATE_FILE):
+        try:
+            with open(CUSTOM_SCRAPE_STATE_FILE, "r", encoding="utf-8") as handle:
+                return json.load(handle)
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_custom_state(state):
+    with open(CUSTOM_SCRAPE_STATE_FILE, "w", encoding="utf-8") as handle:
+        json.dump(state, handle, indent=2, ensure_ascii=False)
+
+
+def _next_output_filename(source_hash):
+    date_part = datetime.now().strftime("%Y%m%d")
+    existing = [
+        name
+        for name in os.listdir(JSON_DIR)
+        if name.startswith(f"{source_hash}-{date_part}-") and name.endswith(".json")
+    ]
+    next_num = len(existing) + 1
+    return f"{source_hash}-{date_part}-{next_num:03d}.json"
+
+
+def _extract_article_links(listing_url, html):
+    soup = BeautifulSoup(html, "html.parser")
+    base_domain = urlparse(listing_url).netloc.lower().replace("www.", "")
+    links = []
+    selectors = [
+        "article a[href]",
+        "h1 a[href], h2 a[href], h3 a[href]",
+        ".post a[href], .news a[href], .entry a[href], .item a[href], tr a[href]",
+        "a[href]",
+    ]
+
+    for selector in selectors:
+        for anchor in soup.select(selector):
+            href = anchor.get("href")
+            if not href or href.startswith(("#", "javascript:", "mailto:")):
+                continue
+            full_url = urljoin(listing_url, href)
+            listing_normalized = f"{urlparse(listing_url).scheme}://{urlparse(listing_url).netloc}{urlparse(listing_url).path}".rstrip("/")
+            full_normalized = f"{urlparse(full_url).scheme}://{urlparse(full_url).netloc}{urlparse(full_url).path}".rstrip("/")
+            if full_normalized == listing_normalized:
+                continue
+            full_domain = urlparse(full_url).netloc.lower().replace("www.", "")
+            if full_domain and base_domain and full_domain != base_domain:
+                continue
+            lowered = full_url.lower()
+            if any(x in lowered for x in ["/feed", "/rss", ".xml", "wp-admin", "logout", "login"]):
+                continue
+            if any(lowered.endswith(ext) for ext in [".jpg", ".jpeg", ".png", ".gif", ".pdf", ".zip", ".doc", ".docx"]):
+                continue
+            if full_url not in links:
+                links.append(full_url)
+            if len(links) >= 20:
+                return links
+    return links
+
+
+def _is_low_quality_article(article):
+    title = _normalize_text(article.get("title", ""))
+    content = _clean_text(article.get("content", ""))
+
+    blocked_titles = {
+        "home",
+        "naslovna",
+        "pocetna",
+        "početna",
+    }
+    if title in blocked_titles:
+        return True
+    if len(title) < 6:
+        return True
+    if len(content) < 120:
+        return True
+    return False
+
+
+def _extract_title_content(url, html):
+    soup = BeautifulSoup(html, "html.parser")
+
+    title = "Bez naslova"
+    for selector in ["h1", "meta[property='og:title']", "title"]:
+        if selector.startswith("meta"):
+            elem = soup.select_one(selector)
+            if elem and elem.get("content"):
+                candidate = _clean_text(elem.get("content"))
+                if len(candidate) > 4:
+                    title = candidate
+                    break
+        else:
+            elem = soup.select_one(selector)
+            if elem:
+                candidate = _clean_text(elem.get_text(" "))
+                if len(candidate) > 4:
+                    title = candidate
+                    break
+
+    content = ""
+    for selector in ["article", ".entry-content", ".post-content", ".article-content", "main", "#content", ".content"]:
+        elem = soup.select_one(selector)
+        if elem:
+            for trash in elem.select("script, style, iframe, nav, footer, header, aside"):
+                trash.decompose()
+            candidate = _clean_text(elem.get_text(" "))
+            if len(candidate) >= 120:
+                content = candidate
+                break
+
+    if not content:
+        paragraphs = [_clean_text(p.get_text(" ")) for p in soup.select("p")[:25]]
+        paragraphs = [p for p in paragraphs if len(p) > 35]
+        content = _clean_text(" ".join(paragraphs))
+
+    image_url = ""
+    for selector in ["meta[property='og:image']", "meta[name='twitter:image']", "article img[src]", "main img[src]", "img[src]"]:
+        if selector.startswith("meta"):
+            meta = soup.select_one(selector)
+            if meta and meta.get("content"):
+                image_url = urljoin(url, meta.get("content"))
+                break
+        else:
+            img = soup.select_one(selector)
+            if img and img.get("src"):
+                image_url = urljoin(url, img.get("src"))
+                break
+
+    return {
+        "title": title,
+        "content": content if content else title,
+        "url": url,
+        "image_url": image_url,
+    }
+
+
+def _matches_filter(article, filter_terms):
+    if not filter_terms:
+        return True
+    haystack = _normalize_text(f"{article.get('title','')} {article.get('content','')} {article.get('url','')}")
+    return any(term in haystack for term in filter_terms)
+
+
+@app.route('/api/custom-scrape', methods=['POST'])
+@login_required
+def custom_scrape():
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+
+    payload = request.get_json(silent=True) or {}
+    target_url = _clean_text(payload.get('url', ''))
+    filter_text = _clean_text(payload.get('filter', ''))
+
+    if not target_url:
+        return jsonify({'status': 'error', 'message': 'URL is required'}), 400
+    if not target_url.startswith(('http://', 'https://')):
+        return jsonify({'status': 'error', 'message': 'URL must start with http:// or https://'}), 400
+
+    filter_terms = [_normalize_text(term) for term in re.split(r'[,\n]+', filter_text) if _clean_text(term)]
+    source_domain = urlparse(target_url).netloc.replace('www.', '')
+    source_name = f"Custom {source_domain}" if source_domain else "Custom Source"
+    source_hash = hashlib.md5(f"custom:{target_url}:{'|'.join(filter_terms)}".encode()).hexdigest()[:12]
+    state_key = hashlib.md5(f"{target_url}|{'|'.join(filter_terms)}".encode()).hexdigest()
+
+    state = _load_custom_state()
+    entry = state.get(state_key, {"scraped_urls": [], "content_hashes": []})
+    scraped_urls = set(entry.get("scraped_urls", []))
+    content_hashes = set(entry.get("content_hashes", []))
+
+    log_activity(client_ip, username, "CUSTOM_SCRAPE_ATTEMPT", f"URL: {target_url} | Filter: {filter_text}")
+
+    session_http = requests.Session()
+    session_http.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    })
+
+    try:
+        listing_resp = session_http.get(target_url, timeout=25)
+        listing_resp.raise_for_status()
+        links = _extract_article_links(target_url, listing_resp.text)
+        if not links:
+            links = [target_url]
+
+        created_files = []
+        for link in links[:20]:
+            if link in scraped_urls:
+                continue
+
+            try:
+                article_resp = session_http.get(link, timeout=25)
+                article_resp.raise_for_status()
+            except Exception:
+                continue
+
+            article = _extract_title_content(link, article_resp.text)
+            if _is_low_quality_article(article):
+                scraped_urls.add(link)
+                continue
+            if not _matches_filter(article, filter_terms):
+                scraped_urls.add(link)
+                continue
+
+            content = f"{article['content'][:900]}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {article['url']}"
+            c_hash = _content_hash(content)
+            if c_hash in content_hashes:
+                scraped_urls.add(link)
+                continue
+
+            output = {
+                "title": article["title"],
+                "id": hashlib.md5(article["url"].encode()).hexdigest()[:8],
+                "content": content,
+                "url": article["url"],
+                "scheduled_publish_time": None,
+                "published": "",
+                "source": source_hash,
+                "source_name": source_name,
+                "content_hash": c_hash,
+                "scraped_at": datetime.now().isoformat(),
+                "date": datetime.now().strftime("%Y-%m-%d"),
+            }
+            if article.get("image_url"):
+                output["image_url"] = article["image_url"]
+
+            filename = _next_output_filename(source_hash)
+            filepath = os.path.join(JSON_DIR, filename)
+            with open(filepath, 'w', encoding='utf-8') as handle:
+                json.dump(output, handle, ensure_ascii=False, indent=2)
+
+            scraped_urls.add(link)
+            content_hashes.add(c_hash)
+            created_files.append(filename)
+
+        state[state_key] = {
+            "target_url": target_url,
+            "filter": filter_text,
+            "scraped_urls": list(scraped_urls),
+            "content_hashes": list(content_hashes),
+            "last_run": datetime.now().isoformat(),
+        }
+        _save_custom_state(state)
+
+        log_activity(client_ip, username, "CUSTOM_SCRAPE_SUCCESS", f"Created: {len(created_files)}")
+        return jsonify({
+            'status': 'success',
+            'message': f'Custom scrape finished. Created {len(created_files)} JSON files.',
+            'created_count': len(created_files),
+            'created_files': created_files,
+        })
+    except Exception as exc:
+        log_activity(client_ip, username, "CUSTOM_SCRAPE_FAILED", str(exc))
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
 
 @app.route('/health')
 def health():

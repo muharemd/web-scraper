@@ -1,0 +1,18 @@
+{
+  "scraped_urls": [
+    "https://www.klix.ba/sport/kosarka/durant-zelim-igrati-za-reprezentaciju-amerike-na-olimpijskim-igrama-2028-u-los-angelesu/260224031",
+    "https://www.klix.ba/vijesti/bih/muskarcu-koji-se-s-tri-prsta-fotografisao-kod-masovne-grobnice-poostrena-kazna-na-pola-godine-zatvora/260224152",
+    "https://www.klix.ba/sport/ostali-sportovi/mnk-bubamara-trazi-da-se-identifikuju-i-kazne-huligani-koji-su-napali-njihove-navijace-u-banjoj-luci/260226012",
+    "https://www.klix.ba/vijesti/svijet/americka-obalska-straza-uklonila-kukasti-krst-iz-centra-za-obuku-i-pokrenula-istragu/260224010",
+    "https://www.klix.ba/sport/ostali-sportovi/bubamara-cazin-na-divljastvo-navijaca-borca-odgovorila-plasmanom-u-polufinale-kupa-bih/260225183"
+  ],
+  "content_hashes": [
+    "8719d67221de",
+    "da4ff0b090ab",
+    "c360d29c504a",
+    "3a7faad6ccab",
+    "e3fced0b9ade"
+  ],
+  "last_run": "2026-02-27T08:32:04.437003",
+  "script_name": "klix_tag_bihac.py"
+}

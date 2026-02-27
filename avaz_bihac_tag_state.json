@@ -1,0 +1,14 @@
+{
+  "scraped_urls": [
+    "https://avaz.ba/vijesti/globus/1025048/tusk-pedofilija-je-zlocin-protiv-covjecnosti-za-odgovorne-nema-milosti",
+    "https://avaz.ba/vijesti/kultura/1025282/kamera-kao-svjedok-vremena-objektiv-koji-pamti-grad-zivotna-prica-hasana-arnautovica",
+    "https://avaz.ba/vijesti/biznis/1025129/zavrsen-idejni-projekat-brze-ceste-bihac-cazin-velika-kladusa-granica-rh-46-kilometara-nove-razvojne-kicme-krajine"
+  ],
+  "content_hashes": [
+    "6688c75d5cd0",
+    "1721c97de2a5",
+    "19b1bb376d41"
+  ],
+  "last_run": "2026-02-27T08:30:58.705573",
+  "script_name": "avaz_bihac_tag.py"
+}

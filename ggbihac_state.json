@@ -1,0 +1,30 @@
+{
+  "scraped_urls": [
+    "https://ggbihac.com/portfolio/mehmed-klepo-2020-2024/",
+    "https://ggbihac.com/fotomonografija/",
+    "https://ggbihac.com/portfolio/enver-krupic-2/",
+    "https://ggbihac.com/portfolio/izlozba-radova-sa-21-likovne-kolonije-admir-ljescanin-duga/",
+    "https://ggbihac.com/portfolio/razgovori-sa-sustinama-igor-reljic/",
+    "https://ggbihac.com/izlozbe/",
+    "https://ggbihac.com/galerija-enver-krupic/",
+    "https://ggbihac.com/portfolio/voda-renata-papista/",
+    "https://ggbihac.com/2026/02/09/natjecaj-ekoart/",
+    "https://ggbihac.com/monografija/",
+    "https://ggbihac.com/kiparski-simpozij/",
+    "https://ggbihac.com/bihacit/"
+  ],
+  "content_hashes": [
+    "8e8884883143",
+    "5fd624ad171e",
+    "8ad059090059",
+    "a147b2a5d1bc",
+    "d15c43845cf3",
+    "1480a76ae785",
+    "7c173103da37",
+    "87becf2be8c4",
+    "3768c4e996fe",
+    "59e428ac98a0"
+  ],
+  "last_run": "2026-02-27T08:30:49.753348",
+  "script_name": "ggbihac.py"
+}

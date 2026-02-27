@@ -1,0 +1,32 @@
+{
+  "scraped_urls": [
+    "https://www.visitbihac.com/bs/grad",
+    "https://www.visitbihac.com/bs/putujte-planski",
+    "https://www.visitbihac.com/bs/dozivi/umjetnost-i-kultura/31",
+    "https://www.visitbihac.com/bs/smjestaj",
+    "https://www.visitbihac.com/bs/okolica",
+    "https://www.visitbihac.com/bs/onama",
+    "https://www.visitbihac.com/bs/virtualna-setnja-gradom",
+    "https://www.visitbihac.com/bs/tim",
+    "https://www.visitbihac.com/bs/dozivi/aktivnosti-na-rijeci-uni/19",
+    "https://www.visitbihac.com/bs/dozivi/cisti-adrenalin-i-priroda/24",
+    "https://www.visitbihac.com/bs/nacionalni-park-una",
+    "https://www.visitbihac.com/bs/clanak/mjesta-za-kupanje-u-bihacu/5"
+  ],
+  "content_hashes": [
+    "ab6069c5f84c",
+    "4acb77c1408e",
+    "679866bcb173",
+    "3f2f838ac366",
+    "459c8219cd00",
+    "a7c73f0e9ccf",
+    "0e1d4baa131c",
+    "b6bcefc9fbb8",
+    "767e481ba7fe",
+    "249a4041398d",
+    "a8c2b07b19d7",
+    "8396ad185c47"
+  ],
+  "last_run": "2026-02-27T08:30:55.946884",
+  "script_name": "visitbihac.py"
+}

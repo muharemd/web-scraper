@@ -1,0 +1,33 @@
+{
+  "scraped_urls": [
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/zajednicka-setnja-ulicama-bihaca-imam-svestenik-i-fratar-salju-poruku-mira-pred-ramazan/245565",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/obiljezena-31-godisnjica-pogibije-zlatnog-ljiljana-jasmina-kulenovica-havarije/241867",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/u-narodnoj-kuhinji-merhameta-u-bihacu-priprema-se-vise-od-300-obroka-dnevno/244404",
+    "https://faktor.ba/bosna-i-hercegovina/crna-hronika/tri-osobe-uhapsene-zbog-razbojnistva-na-stetu-kurirske-sluzbe-u-bihacu/244108",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/bihac-proslavlja-766-rodendan-gradanima-posluzena-rodendanska-torta/246331",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/nema-vise-dvije-km-po-kvadratu-u-bihacu-ukidaju-privilegije-politickim-strankama-pri-zakupu-gradskih-prostora/245961",
+    "https://faktor.ba/cs-magazin",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/bihac-zajednickom-akcijom-arbih-i-hvo-a-prije-31-godinu-odbranjeno-vedro-polje/242203",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/uz-podsku-vlade-republike-turske-pocinje-restauracija-dzamije-fethija-u-bihacu/244884",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/ramazanski-vozic-okupio-najmlade-biscane-u-svecanom-defileu-kroz-grad/245574",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/bihac-krece-u-zavrsetak-komemorativnog-objekta-zapocetog-u-periodu-jugoslavije/243721",
+    "https://faktor.ba/ekonomija/ekonomija/bihac-korak-blize-aerodromu-gradevinska-dozvola-u-martu/241908",
+    "https://faktor.ba/bosna-i-hercegovina/aktuelno/vijecnik-adnan-lipovaca-uputio-inicijativu-za-nabavku-pet-ct-aparata-da-pacijenti-ne-putuju-u-sarajevo/245557"
+  ],
+  "content_hashes": [
+    "bed974fe6fd4",
+    "d8c1b7ebb662",
+    "98430a3730e7",
+    "03b241d54737",
+    "5fa9b274e737",
+    "cb8a46d6a384",
+    "1057d0532a91",
+    "485c01fa872e",
+    "eebeee10baf6",
+    "3a142612532e",
+    "2172d00c9636",
+    "62a05b4ad8a0"
+  ],
+  "last_run": "2026-02-27T08:31:06.767077",
+  "script_name": "faktor_bihac.py"
+}
