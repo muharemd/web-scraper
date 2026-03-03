@@ -108,6 +108,46 @@ def _fetch_detail(oglas_id, session):
     return {}
 
 
+def _compose_title(row, detail):
+    headline = _clean_text(row.get("title")) or "N/A"
+    company = _clean_text(row.get("company")) or "N/A"
+    opis_poslova = _clean_text(detail.get("opis_poslova")) or "N/A"
+
+    return (
+        f"Naslov: {headline}\n"
+        f"Firma: {company}\n"
+        f"Opis poslova: {opis_poslova}"
+    )
+
+
+def _document_links(detail):
+    links = []
+
+    attachment = _clean_text(detail.get("prilog"))
+    if attachment and attachment.lower() != "null":
+        links.append(urljoin(BASE_URL, f"/public/storage/uploads/oglasiprilog/{attachment}"))
+
+    images_raw = detail.get("slike")
+    if images_raw:
+        try:
+            parsed = json.loads(images_raw) if isinstance(images_raw, str) else images_raw
+            if isinstance(parsed, list):
+                for name in parsed:
+                    filename = _clean_text(name)
+                    if filename:
+                        links.append(urljoin(BASE_URL, f"/public/storage/uploads/oglasiprilog/{filename}"))
+        except Exception:
+            pass
+
+    deduped = []
+    seen = set()
+    for link in links:
+        if link not in seen:
+            seen.add(link)
+            deduped.append(link)
+    return deduped
+
+
 def _compose_content(row, detail):
     lines = []
     lines.append(f"Naslov: {row['title']}")
@@ -126,6 +166,9 @@ def _compose_content(row, detail):
         lines.append("")
         lines.append(f"Potrebna dokumentacija: {_clean_text(detail.get('potrebna_dokumentacija'))}")
 
+    if detail.get("datum_objave"):
+        lines.append(f"Objavljen: {_clean_text(detail.get('datum_objave'))}")
+
     if detail.get("prijava_email"):
         lines.append(f"Email za prijavu: {_clean_text(detail.get('prijava_email'))}")
     if detail.get("telefon"):
@@ -137,16 +180,36 @@ def _compose_content(row, detail):
     if external_link:
         lines.append(f"Link: {external_link}")
 
-    attachment = _clean_text(detail.get("prilog"))
-    if attachment and attachment.lower() != "null":
-        attachment_url = urljoin(BASE_URL, f"/public/storage/uploads/oglasiprilog/{attachment}")
-        lines.append(f"Prilog: {attachment_url}")
+    doc_links = _document_links(detail)
+    if doc_links:
+        lines.append("")
+        lines.append("Dokumenti:")
+        for idx, link in enumerate(doc_links, start=1):
+            lines.append(f"{idx}. {link}")
 
     content = "\n".join(line for line in lines if line is not None)
     return f"{content}\n\n📰 Izvor: {SOURCE_NAME}\n🔗 Pročitaj više: {BASE_URL}/oglasi"
 
 
+def _public_source_url(detail):
+    external_link = _clean_text(detail.get("link"))
+    if external_link and external_link.startswith(("http://", "https://")):
+        return external_link
+
+    attachment = _clean_text(detail.get("prilog"))
+    if attachment and attachment.lower() != "null":
+        return urljoin(BASE_URL, f"/public/storage/uploads/oglasiprilog/{attachment}")
+
+    return LISTING_URL
+
+
 def _image_from_detail(detail):
+    doc_links = _document_links(detail)
+    for link in doc_links:
+        lowered = link.lower()
+        if lowered.endswith((".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif")):
+            return link
+
     profile_image = _clean_text(detail.get("profile_image"))
     if profile_image and profile_image.lower() != "null":
         return urljoin(BASE_URL, f"/public/storage/profile_images/{profile_image}")
@@ -185,10 +248,11 @@ def run():
 
         date_value = _clean_text(detail.get("datum_objave")) or datetime.now().strftime("%Y-%m-%d")
         payload = {
-            "title": row["title"],
+            "title": _compose_title(row, detail),
             "id": hashlib.md5(detail_api_url.encode()).hexdigest()[:8],
             "content": content,
-            "url": detail_api_url,
+            "url": _public_source_url(detail),
+            "raw_url": detail_api_url,
             "scheduled_publish_time": None,
             "published": "",
             "source": script_hash,
@@ -201,6 +265,10 @@ def run():
         image_url = _image_from_detail(detail)
         if image_url:
             payload["image_url"] = image_url
+
+        all_doc_links = _document_links(detail)
+        if all_doc_links:
+            payload["image_urls"] = all_doc_links
 
         date_part = datetime.now().strftime("%Y%m%d")
         existing = [

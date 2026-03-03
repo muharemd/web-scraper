@@ -49,6 +49,7 @@ dist/
 *.config
 .env
 dashboard_users.json
+*state.json
 *_access.log
 *_activity.log
 *failed_logins.log

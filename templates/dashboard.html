@@ -116,6 +116,7 @@
                 <input id="customUrl" type="text" placeholder="https://example.com/news" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
                 <input id="customFilter" type="text" placeholder="What to scrape (keywords, comma separated)" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
                 <button id="customScrapeBtn" class="btn btn-primary" onclick="runCustomScrape()">🧪 Scrape URL</button>
+                <button id="customResetBtn" class="btn btn-danger" onclick="resetCustomScrapeState()">♻️ Reset Custom State</button>
             </div>
             <div id="customScrapeStatus" style="margin-top: 0.6rem; color: #4a5568; font-size: 0.95rem;"></div>
         </div>
@@ -143,6 +144,9 @@
                                 <span class="badge bg-secondary">{{ post.source }}</span>
                                 <span class="badge bg-light text-dark">{{ post.time }}</span>
                                 <span class="badge {{ 'bg-success' if not post.published else 'bg-secondary' }}">{{ '🆕 New' if not post.published else '✅ Published' }}</span>
+                                {% if post.published and post.published_target %}
+                                <span class="badge bg-info text-dark">🎯 {{ post.published_target }}</span>
+                                {% endif %}
                             </div>
                             <div class="card-text" style="color: #4a5568; margin-bottom: 1rem; white-space: pre-wrap; font-size: 0.95rem;">
                                 {{ post.summary }}
@@ -150,8 +154,11 @@
                         </div>
                         <div class="card-footer bg-white border-0 d-flex flex-wrap gap-2">
                             {% if not post.published %}
-                            <a href="/post/{{ post.filename }}" class="btn btn-primary btn-sm" onclick="return confirm('Post this to Facebook?')">
-                                📤 Post to Facebook
+                            <a href="/post/{{ post.filename }}?target=bihac_danas" class="btn btn-primary btn-sm" onclick="return confirm('Post this article to Bihać Danas page?')">
+                                📤 Post Bihać Danas
+                            </a>
+                            <a href="/post/{{ post.filename }}?target=konkursi" class="btn btn-warning btn-sm" onclick="return confirm('Post this article to Konkursi page?')">
+                                📤 Post Konkursi
                             </a>
                             {% endif %}
                             {% if not post.title_rewritten %}
@@ -305,6 +312,44 @@
         .finally(() => {
             btn.disabled = false;
             btn.textContent = '🧪 Scrape URL';
+        });
+    }
+
+    function resetCustomScrapeState() {
+        const status = document.getElementById('customScrapeStatus');
+        const btn = document.getElementById('customResetBtn');
+
+        if (!confirm('Reset custom scrape state?\n\nThis only clears custom deduplication history. It does NOT delete JSON files.')) {
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = '⏳ Resetting...';
+        status.style.color = '#4a5568';
+        status.textContent = 'Resetting custom scrape state...';
+
+        fetch('/api/custom-scrape-reset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(async (response) => {
+            const data = await response.json();
+            if (!response.ok || data.status !== 'success') {
+                throw new Error(data.message || 'Reset failed');
+            }
+            return data;
+        })
+        .then((data) => {
+            status.style.color = '#2f855a';
+            status.textContent = data.message;
+        })
+        .catch((error) => {
+            status.style.color = '#c53030';
+            status.textContent = 'Error: ' + error.message;
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.textContent = '♻️ Reset Custom State';
         });
     }
     </script>

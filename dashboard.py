@@ -30,6 +30,7 @@ app.config['SESSION_COOKIE_DOMAIN'] = None
 # ===== CONFIGURATION =====
 JSON_DIR = "/home/bihac-danas/web-scraper/facebook_ready_posts"
 WEBHOOK_URL = "https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb"
+WEBHOOK_URL_KONKURSI = os.getenv("WEBHOOK_URL_KONKURSI", "https://hook.eu1.make.com/m910901wp49ecauhcdf2fkn18t49jubt")
 USERS_FILE = "/home/bihac-danas/web-scraper/dashboard_users.json"
 CUSTOM_SCRAPE_STATE_FILE = "/home/bihac-danas/web-scraper/custom_dashboard_scrape_state.json"
 
@@ -345,6 +346,7 @@ def get_articles():
                     'content_preview': content_preview,
                     'date': data.get('date', 'Unknown'),
                     'published': data.get('published', ''),
+                    'published_target': data.get('published_target', ''),
                     'source_name': source_name,
                     'url': data.get('url', '#'),
                     'is_new': not bool(data.get('published')),
@@ -363,12 +365,29 @@ def get_articles():
 
 def run_curl_command(json_file_path):
     """Run curl command to post to Facebook"""
+    return run_curl_command_for_target(json_file_path, "bihac_danas")
+
+
+def get_webhook_for_target(target):
+    if target == "bihac_danas":
+        return WEBHOOK_URL
+    if target == "konkursi":
+        return WEBHOOK_URL_KONKURSI
+    return None
+
+
+def run_curl_command_for_target(json_file_path, target="bihac_danas"):
+    """Run curl command to post to selected Facebook page target"""
     try:
+        webhook_url = get_webhook_for_target(target)
+        if not webhook_url:
+            return {'success': False, 'error': f'Unknown target: {target}'}
+
         cmd = [
             'curl', '-X', 'POST',
             '-H', 'Content-Type: application/json',
             '-d', f'@{json_file_path}',
-            WEBHOOK_URL,
+            webhook_url,
             '--max-time', '30'
         ]
         
@@ -661,6 +680,26 @@ def custom_scrape():
         log_activity(client_ip, username, "CUSTOM_SCRAPE_FAILED", str(exc))
         return jsonify({'status': 'error', 'message': str(exc)}), 500
 
+
+@app.route('/api/custom-scrape-reset', methods=['POST'])
+@login_required
+def custom_scrape_reset():
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+
+    try:
+        if os.path.exists(CUSTOM_SCRAPE_STATE_FILE):
+            os.remove(CUSTOM_SCRAPE_STATE_FILE)
+
+        log_activity(client_ip, username, "CUSTOM_SCRAPE_STATE_RESET", "State file cleared")
+        return jsonify({
+            'status': 'success',
+            'message': 'Custom scrape state reset successfully.'
+        })
+    except Exception as exc:
+        log_activity(client_ip, username, "CUSTOM_SCRAPE_STATE_RESET_FAILED", str(exc))
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
 @app.route('/health')
 def health():
     """Health check endpoint"""
@@ -726,7 +765,8 @@ def index():
                 'source': article.get('source_name', 'Unknown'),
                 'time': article.get('date', 'Unknown'),
                 'url': article.get('url', '#'),
-                'published': article.get('published', '')
+                'published': article.get('published', ''),
+                'published_target': article.get('published_target', '')
             })
         return render_template('dashboard.html', posts=posts, total=total, new_count=new_count, published_count=published_count, server_ip=server_ip, port=8080, now=datetime.now())
             
@@ -746,6 +786,9 @@ def post_article(filename):
     """Post a single article to Facebook with logging"""
     client_ip = get_client_ip()
     username = session.get('username', 'UNKNOWN')
+    target = (request.args.get('target') or 'bihac_danas').strip().lower()
+    if target not in ('bihac_danas', 'konkursi'):
+        target = 'bihac_danas'
     
     filepath = os.path.join(JSON_DIR, filename)
     
@@ -760,27 +803,28 @@ def post_article(filename):
             details={'File': filename}
         ), 404
     
-    log_activity(client_ip, username, "POST_ATTEMPT", f"File: {filename}")
+    log_activity(client_ip, username, "POST_ATTEMPT", f"File: {filename}, Target: {target}")
     
-    result = run_curl_command(filepath)
+    result = run_curl_command_for_target(filepath, target)
     
     if result.get('success'):
         try:
             with open(filepath, 'r') as f:
                 data = json.load(f)
             data['published'] = datetime.now().isoformat()
+            data['published_target'] = target
             with open(filepath, 'w') as f:
                 json.dump(data, f, indent=2)
         except Exception as e:
             print(f"ERROR updating published status: {e}")
         
         log_activity(client_ip, username, "POST_SUCCESS", 
-                    f"File: {filename}")
+                    f"File: {filename}, Target: {target}")
         
         return redirect(url_for('index'))
     else:
         log_activity(client_ip, username, "POST_FAILED", 
-                    f"File: {filename}, Error: {result.get('stderr', result.get('error', 'Unknown'))[:200]}")
+                    f"File: {filename}, Target: {target}, Error: {result.get('stderr', result.get('error', 'Unknown'))[:200]}")
         
         return render_template('error.html',
             error_type='error',
