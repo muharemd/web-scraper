@@ -1,1481 +1,3 @@
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.avaz.ba/rss
-Fetched entries: 10
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: haber_usk.py[0m
-============================================================
-🗂️  Haber USK SCRAPER
-============================================================
-Source URL: https://www.haber.ba/unsko-sanski-kanton
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: crna_hronika_bihac.py[0m
-============================================================
-🗂️  Crna Hronika Bihać SCRAPER
-============================================================
-Source URL: https://crna-hronika.info/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: raport_bihac.py[0m
-============================================================
-🗂️  Raport Bihać SCRAPER
-============================================================
-Source URL: https://raport.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: indexhr_bihac.py[0m
-============================================================
-🗂️  Index.hr Bihać SCRAPER
-============================================================
-Source URL: https://www.index.hr/tag/96912/bihac.aspx
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: n1info_grad_bihac.py[0m
-============================================================
-🗂️  N1 Grad Bihać SCRAPER
-============================================================
-Source URL: https://n1info.ba/tag/grad-bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: biznisinfo_bihac.py[0m
-============================================================
-🗂️  BiznisInfo Bihać SCRAPER
-============================================================
-Source URL: https://www.biznisinfo.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_mup_usk.py[0m
-============================================================
-🗂️  Faktor MUP USK SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/mup-usk/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: faktor_bihac.py[0m
-============================================================
-🗂️  Faktor Bihać SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
-============================================================
-🗂️  Oslobođenje Bihać SCRAPER
-============================================================
-Source URL: https://www.oslobodjenje.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: bljesak_bihac.py[0m
-============================================================
-🗂️  Bljesak Bihać SCRAPER
-============================================================
-Source URL: https://bljesak.info/tagovi/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: mondo_bihac.py[0m
-============================================================
-🗂️  Mondo Bihać SCRAPER
-============================================================
-Source URL: https://mondo.ba/tag229/Bihac/1
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: stav_bihac.py[0m
-============================================================
-🗂️  Stav Bihać SCRAPER
-============================================================
-Source URL: https://stav.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vecernji_bihac.py[0m
-============================================================
-🗂️  Večernji Bihać SCRAPER
-============================================================
-Source URL: https://www.vecernji.ba/tag/bihac-40019
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: visitbih_tag_bihac.py[0m
-============================================================
-🗂️  VisitBiH Bihać SCRAPER
-============================================================
-Source URL: https://visitbih.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: nahla_bihac.py[0m
-============================================================
-🗂️  Nahla Bihać SCRAPER
-============================================================
-Source URL: https://bihac.nahla.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fokus_bihac.py[0m
-============================================================
-📰 Fokus Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.fokus.ba/tag/bihac/feed
-Fetched entries: 20
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (5s)[0m
-
-[0;34m▶ Running: vijesti_ba_bihac.py[0m
-============================================================
-🗂️  Vijesti.ba Bihać SCRAPER
-============================================================
-Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
-  💾 Saved: 4a9b9ce7107c-20260225-001.json | U Mostaru danas 18 stepeni, sutra u BiH sunčano vrijeme uz umjerenu ob
-✅ Finished. New posts saved: 1
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: euronews_bihac.py[0m
-============================================================
-🗂️  Euronews Bihać SCRAPER
-============================================================
-Source URL: https://euronews.ba/tema/3479/bihac
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7cd25854e270>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7cd2582aa300>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (40s)[0m
-
-[0;34m▶ Running: klix_tag_bihac.py[0m
-============================================================
-📰 Klix Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: klix_tag_grad_bihac.py[0m
-============================================================
-📰 Klix Grad Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;32m📊 RESUME:[0m
-  JSON files before: 1
-  JSON files after:  2
-  [0;32mNew files created: 1[0m
-
-[0;34m🔍 Looking for new JSON files...[0m
-  Found new: 4a9b9ce7107c-20260225-001.json
-    Title: U Mostaru danas 18 stepeni, sutra u BiH sunčano vrijeme uz umjerenu oblačnost
-    Original URL: https://www.vijesti.ba/clanak/743739/u-mostaru-danas-18-stepeni-sutra-u-bih-suncano-vrijeme-uz-umjerenu-oblacnost
-2026-02-25 16:30:02 | Before: 1 | After: 2 | New: 1 | Files: 4a9b9ce7107c-20260225-001.json | Failed: 0 scrapers
-
-[1;33m📧 Sending email notifications...[0m
-  Dashboard URL: http://31.31.74.183:8080
-  Trying to send with 'mutt'...
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to hare.de@gmail.com with mutt
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to danasbihac@gmail.com with mutt
-  [0;32m✓ Email notification sent successfully[0m
-
-[0;32m============================================================[0m
-[0;32m✅ ALL SCRAPERS COMPLETED[0m
-[0;32m============================================================[0m
-============================================================
-🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-25 18:43:41
-============================================================
-
-📊 JSON files before: 2
-
-[0;34m▶ Running: cinestar_bihac.py[0m
-============================================================
-🗂️  CineStar Bihać SCRAPER
-============================================================
-Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: ggbihac.py[0m
-============================================================
-🗂️  GGBihać SCRAPER
-============================================================
-Source URL: https://ggbihac.com
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7a6c09c37710>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7a6c09872630>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (40s)[0m
-
-[0;34m▶ Running: unbi.py[0m
-============================================================
-🗂️  UNBI SCRAPER
-============================================================
-Source URL: https://unbi.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: fzs_unbi.py[0m
-============================================================
-🗂️  FZS UNBI SCRAPER
-============================================================
-Source URL: https://fzs.unbi.ba/
-  ⚠️ No listing links found, using source page as fallback
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vrtic_bihac.py[0m
-============================================================
-🗂️  Vrtić Bihać SCRAPER
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.avaz.ba/rss
-Fetched entries: 10
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: haber_usk.py[0m
-============================================================
-🗂️  Haber USK SCRAPER
-============================================================
-Source URL: https://www.haber.ba/unsko-sanski-kanton
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: crna_hronika_bihac.py[0m
-============================================================
-🗂️  Crna Hronika Bihać SCRAPER
-============================================================
-Source URL: https://crna-hronika.info/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: raport_bihac.py[0m
-============================================================
-🗂️  Raport Bihać SCRAPER
-============================================================
-Source URL: https://raport.ba/tag/bihac
-  💾 Saved: fad4b87d54cc-20260225-001.json | Svaki dan 100 iftara: Bihaćki Merhamet osigurava 3.000 obroka za socij
-✅ Finished. New posts saved: 1
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: indexhr_bihac.py[0m
-============================================================
-🗂️  Index.hr Bihać SCRAPER
-============================================================
-Source URL: https://www.index.hr/tag/96912/bihac.aspx
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: n1info_grad_bihac.py[0m
-============================================================
-🗂️  N1 Grad Bihać SCRAPER
-============================================================
-Source URL: https://n1info.ba/tag/grad-bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: biznisinfo_bihac.py[0m
-============================================================
-🗂️  BiznisInfo Bihać SCRAPER
-============================================================
-Source URL: https://www.biznisinfo.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_mup_usk.py[0m
-============================================================
-🗂️  Faktor MUP USK SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/mup-usk/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_bihac.py[0m
-============================================================
-🗂️  Faktor Bihać SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
-============================================================
-🗂️  Oslobođenje Bihać SCRAPER
-============================================================
-Source URL: https://www.oslobodjenje.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: bljesak_bihac.py[0m
-============================================================
-🗂️  Bljesak Bihać SCRAPER
-============================================================
-Source URL: https://bljesak.info/tagovi/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: mondo_bihac.py[0m
-============================================================
-🗂️  Mondo Bihać SCRAPER
-============================================================
-Source URL: https://mondo.ba/tag229/Bihac/1
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: stav_bihac.py[0m
-============================================================
-🗂️  Stav Bihać SCRAPER
-============================================================
-Source URL: https://stav.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: vecernji_bihac.py[0m
-============================================================
-🗂️  Večernji Bihać SCRAPER
-============================================================
-Source URL: https://www.vecernji.ba/tag/bihac-40019
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbih_tag_bihac.py[0m
-============================================================
-🗂️  VisitBiH Bihać SCRAPER
-============================================================
-Source URL: https://visitbih.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: nahla_bihac.py[0m
-============================================================
-🗂️  Nahla Bihać SCRAPER
-============================================================
-Source URL: https://bihac.nahla.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fokus_bihac.py[0m
-============================================================
-📰 Fokus Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.fokus.ba/tag/bihac/feed
-Fetched entries: 20
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (5s)[0m
-
-[0;34m▶ Running: vijesti_ba_bihac.py[0m
-============================================================
-🗂️  Vijesti.ba Bihać SCRAPER
-============================================================
-Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: euronews_bihac.py[0m
-============================================================
-🗂️  Euronews Bihać SCRAPER
-============================================================
-Source URL: https://euronews.ba/tema/3479/bihac
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x796cc819ae70>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x796cc8136630>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (40s)[0m
-
-[0;34m▶ Running: klix_tag_bihac.py[0m
-============================================================
-📰 Klix Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: klix_tag_grad_bihac.py[0m
-============================================================
-📰 Klix Grad Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;32m📊 RESUME:[0m
-  JSON files before: 2
-  JSON files after:  3
-  [0;32mNew files created: 1[0m
-
-[0;34m🔍 Looking for new JSON files...[0m
-  Found new: fad4b87d54cc-20260225-001.json
-    Title: Svaki dan 100 iftara: Bihaćki Merhamet osigurava 3.000 obroka za socijalno ugrožene i penzionere
-    Original URL: https://raport.ba/svaki-dan-100-iftara-bihacki-merhamet-osigurava-3-000-obroka-za-socijalno-ugrozene-i-penzionere
-2026-02-25 18:43:41 | Before: 2 | After: 3 | New: 1 | Files: fad4b87d54cc-20260225-001.json | Failed: 0 scrapers
-
-[1;33m📧 Sending email notifications...[0m
-  Dashboard URL: http://31.31.74.183:8080
-  Trying to send with 'mutt'...
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to hare.de@gmail.com with mutt
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to danasbihac@gmail.com with mutt
-  [0;32m✓ Email notification sent successfully[0m
-
-[0;32m============================================================[0m
-[0;32m✅ ALL SCRAPERS COMPLETED[0m
-[0;32m============================================================[0m
-============================================================
-🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-25 20:30:01
-============================================================
-
-📊 JSON files before: 3
-
-[0;34m▶ Running: cinestar_bihac.py[0m
-============================================================
-🗂️  CineStar Bihać SCRAPER
-============================================================
-Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
-  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (6s)[0m
-
-[0;34m▶ Running: ggbihac.py[0m
-============================================================
-🗂️  GGBihać SCRAPER
-============================================================
-Source URL: https://ggbihac.com
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x750fa053a6f0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x750fa0336450>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (42s)[0m
-
-[0;34m▶ Running: unbi.py[0m
-============================================================
-🗂️  UNBI SCRAPER
-============================================================
-Source URL: https://unbi.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: fzs_unbi.py[0m
-============================================================
-🗂️  FZS UNBI SCRAPER
-============================================================
-Source URL: https://fzs.unbi.ba/
-  ⚠️ No listing links found, using source page as fallback
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vrtic_bihac.py[0m
-============================================================
-🗂️  Vrtić Bihać SCRAPER
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.avaz.ba/rss
-Fetched entries: 10
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: haber_usk.py[0m
-============================================================
-🗂️  Haber USK SCRAPER
-============================================================
-Source URL: https://www.haber.ba/unsko-sanski-kanton
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: crna_hronika_bihac.py[0m
-============================================================
-🗂️  Crna Hronika Bihać SCRAPER
-============================================================
-Source URL: https://crna-hronika.info/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: raport_bihac.py[0m
-============================================================
-🗂️  Raport Bihać SCRAPER
-============================================================
-Source URL: https://raport.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: indexhr_bihac.py[0m
-============================================================
-🗂️  Index.hr Bihać SCRAPER
-============================================================
-Source URL: https://www.index.hr/tag/96912/bihac.aspx
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: n1info_grad_bihac.py[0m
-============================================================
-🗂️  N1 Grad Bihać SCRAPER
-============================================================
-Source URL: https://n1info.ba/tag/grad-bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: biznisinfo_bihac.py[0m
-============================================================
-🗂️  BiznisInfo Bihać SCRAPER
-============================================================
-Source URL: https://www.biznisinfo.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_mup_usk.py[0m
-============================================================
-🗂️  Faktor MUP USK SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/mup-usk/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_bihac.py[0m
-============================================================
-🗂️  Faktor Bihać SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
-============================================================
-🗂️  Oslobođenje Bihać SCRAPER
-============================================================
-Source URL: https://www.oslobodjenje.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: bljesak_bihac.py[0m
-============================================================
-🗂️  Bljesak Bihać SCRAPER
-============================================================
-Source URL: https://bljesak.info/tagovi/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (7s)[0m
-
-[0;34m▶ Running: mondo_bihac.py[0m
-============================================================
-🗂️  Mondo Bihać SCRAPER
-============================================================
-Source URL: https://mondo.ba/tag229/Bihac/1
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: stav_bihac.py[0m
-============================================================
-🗂️  Stav Bihać SCRAPER
-============================================================
-Source URL: https://stav.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: vecernji_bihac.py[0m
-============================================================
-🗂️  Večernji Bihać SCRAPER
-============================================================
-Source URL: https://www.vecernji.ba/tag/bihac-40019
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbih_tag_bihac.py[0m
-============================================================
-🗂️  VisitBiH Bihać SCRAPER
-============================================================
-Source URL: https://visitbih.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: nahla_bihac.py[0m
-============================================================
-🗂️  Nahla Bihać SCRAPER
-============================================================
-Source URL: https://bihac.nahla.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fokus_bihac.py[0m
-============================================================
-📰 Fokus Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.fokus.ba/tag/bihac/feed
-Fetched entries: 20
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (5s)[0m
-
-[0;34m▶ Running: vijesti_ba_bihac.py[0m
-============================================================
-🗂️  Vijesti.ba Bihać SCRAPER
-============================================================
-Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
-  💾 Saved: 4a9b9ce7107c-20260225-002.json | RVI paraplegičari mogu računati na stalnu podršku Ministarstva boraca 
-✅ Finished. New posts saved: 1
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: euronews_bihac.py[0m
-============================================================
-🗂️  Euronews Bihać SCRAPER
-============================================================
-Source URL: https://euronews.ba/tema/3479/bihac
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7679f05e27b0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7679f05e2a50>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (41s)[0m
-
-[0;34m▶ Running: klix_tag_bihac.py[0m
-============================================================
-📰 Klix Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: klix_tag_grad_bihac.py[0m
-============================================================
-📰 Klix Grad Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;32m📊 RESUME:[0m
-  JSON files before: 3
-  JSON files after:  4
-  [0;32mNew files created: 1[0m
-
-[0;34m🔍 Looking for new JSON files...[0m
-  Found new: 4a9b9ce7107c-20260225-002.json
-    Title: RVI paraplegičari mogu računati na stalnu podršku Ministarstva boraca USK
-    Original URL: https://www.vijesti.ba/clanak/743835/rvi-paraplegicari-mogu-racunati-na-stalnu-podrsku-ministarstva-boraca-usk
-2026-02-25 20:30:01 | Before: 3 | After: 4 | New: 1 | Files: 4a9b9ce7107c-20260225-002.json | Failed: 0 scrapers
-
-[1;33m📧 Sending email notifications...[0m
-  Dashboard URL: http://31.31.74.183:8080
-  Trying to send with 'mutt'...
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to hare.de@gmail.com with mutt
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to danasbihac@gmail.com with mutt
-  [0;32m✓ Email notification sent successfully[0m
-
-[0;32m============================================================[0m
-[0;32m✅ ALL SCRAPERS COMPLETED[0m
-[0;32m============================================================[0m
-============================================================
-🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-26 00:30:01
-============================================================
-
-📊 JSON files before: 4
-
-[0;34m▶ Running: cinestar_bihac.py[0m
-============================================================
-🗂️  CineStar Bihać SCRAPER
-============================================================
-Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
-  💾 Saved: 8b18ef15f889-20260226-001.json | Solo u Italiji
-  💾 Saved: 8b18ef15f889-20260226-002.json | EPiC - Elvis Presley in Concert
-✅ Finished. New posts saved: 2
-  [0;32m✓ Completed successfully (9s)[0m
-
-[0;34m▶ Running: ggbihac.py[0m
-============================================================
-🗂️  GGBihać SCRAPER
-============================================================
-Source URL: https://ggbihac.com
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x735ac0a8a030>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x735ac07ea150>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (42s)[0m
-
-[0;34m▶ Running: unbi.py[0m
-============================================================
-🗂️  UNBI SCRAPER
-============================================================
-Source URL: https://unbi.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: fzs_unbi.py[0m
-============================================================
-🗂️  FZS UNBI SCRAPER
-============================================================
-Source URL: https://fzs.unbi.ba/
-  ⚠️ No listing links found, using source page as fallback
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vrtic_bihac.py[0m
-============================================================
-🗂️  Vrtić Bihać SCRAPER
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.avaz.ba/rss
-Fetched entries: 10
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: haber_usk.py[0m
-============================================================
-🗂️  Haber USK SCRAPER
-============================================================
-Source URL: https://www.haber.ba/unsko-sanski-kanton
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: crna_hronika_bihac.py[0m
-============================================================
-🗂️  Crna Hronika Bihać SCRAPER
-============================================================
-Source URL: https://crna-hronika.info/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: raport_bihac.py[0m
-============================================================
-🗂️  Raport Bihać SCRAPER
-============================================================
-Source URL: https://raport.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: indexhr_bihac.py[0m
-============================================================
-🗂️  Index.hr Bihać SCRAPER
-============================================================
-Source URL: https://www.index.hr/tag/96912/bihac.aspx
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: n1info_grad_bihac.py[0m
-============================================================
-🗂️  N1 Grad Bihać SCRAPER
-============================================================
-Source URL: https://n1info.ba/tag/grad-bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: biznisinfo_bihac.py[0m
-============================================================
-🗂️  BiznisInfo Bihać SCRAPER
-============================================================
-Source URL: https://www.biznisinfo.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: faktor_mup_usk.py[0m
-============================================================
-🗂️  Faktor MUP USK SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/mup-usk/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_bihac.py[0m
-============================================================
-🗂️  Faktor Bihać SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
-============================================================
-🗂️  Oslobođenje Bihać SCRAPER
-============================================================
-Source URL: https://www.oslobodjenje.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: bljesak_bihac.py[0m
-============================================================
-🗂️  Bljesak Bihać SCRAPER
-============================================================
-Source URL: https://bljesak.info/tagovi/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: mondo_bihac.py[0m
-============================================================
-🗂️  Mondo Bihać SCRAPER
-============================================================
-Source URL: https://mondo.ba/tag229/Bihac/1
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (17s)[0m
-
-[0;34m▶ Running: stav_bihac.py[0m
-============================================================
-🗂️  Stav Bihać SCRAPER
-============================================================
-Source URL: https://stav.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vecernji_bihac.py[0m
-============================================================
-🗂️  Večernji Bihać SCRAPER
-============================================================
-Source URL: https://www.vecernji.ba/tag/bihac-40019
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: visitbih_tag_bihac.py[0m
-============================================================
-🗂️  VisitBiH Bihać SCRAPER
-============================================================
-Source URL: https://visitbih.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: nahla_bihac.py[0m
-============================================================
-🗂️  Nahla Bihać SCRAPER
-============================================================
-Source URL: https://bihac.nahla.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fokus_bihac.py[0m
-============================================================
-📰 Fokus Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.fokus.ba/tag/bihac/feed
-Fetched entries: 20
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (5s)[0m
-
-[0;34m▶ Running: vijesti_ba_bihac.py[0m
-============================================================
-🗂️  Vijesti.ba Bihać SCRAPER
-============================================================
-Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
-  💾 Saved: 4a9b9ce7107c-20260226-001.json | Najmlađe generacije Bihaća na svečanim prijemima u povodu Dana grada
-✅ Finished. New posts saved: 1
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: euronews_bihac.py[0m
-============================================================
-🗂️  Euronews Bihać SCRAPER
-============================================================
-Source URL: https://euronews.ba/tema/3479/bihac
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x77c9545793d0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x77c954572450>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (41s)[0m
-
-[0;34m▶ Running: klix_tag_bihac.py[0m
-============================================================
-📰 Klix Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-  💾 Saved: 49c7f30f12de-20260226-001.json | Bubamara Cazin na divljaštvo navijača Borca odgovorila plasmanom u pol
-✅ Finished. New Bihać-related posts saved: 1
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: klix_tag_grad_bihac.py[0m
-============================================================
-📰 Klix Grad Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-  💾 Saved: 5bf22cea6c3c-20260226-001.json | Bubamara Cazin na divljaštvo navijača Borca odgovorila plasmanom u pol
-✅ Finished. New Bihać-related posts saved: 1
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;32m📊 RESUME:[0m
-  JSON files before: 4
-  JSON files after:  9
-  [0;32mNew files created: 5[0m
-
-[0;34m🔍 Looking for new JSON files...[0m
-  Found new: 49c7f30f12de-20260226-001.json
-    Title: Bubamara Cazin na divljaštvo navijača Borca odgovorila plasmanom u polufinale Kupa BiH
-    Original URL: https://www.klix.ba/sport/ostali-sportovi/bubamara-cazin-na-divljastvo-navijaca-borca-odgovorila-plasmanom-u-polufinale-kupa-bih/260225183
-  Found new: 4a9b9ce7107c-20260226-001.json
-    Title: Najmlađe generacije Bihaća na svečanim prijemima u povodu Dana grada
-    Original URL: https://www.vijesti.ba/clanak/743828/najmladje-generacije-bihaca-na-svecanim-prijemima-u-povodu-dana-grada
-  Found new: 5bf22cea6c3c-20260226-001.json
-    Title: Bubamara Cazin na divljaštvo navijača Borca odgovorila plasmanom u polufinale Kupa BiH
-    Original URL: https://www.klix.ba/sport/ostali-sportovi/bubamara-cazin-na-divljastvo-navijaca-borca-odgovorila-plasmanom-u-polufinale-kupa-bih/260225183
-  Found new: 8b18ef15f889-20260226-001.json
-    Title: Solo u Italiji
-    Original URL: https://cinestarcinemas.ba/bihac-bingo-centar/solo-u-italiji/6246
-  Found new: 8b18ef15f889-20260226-002.json
-    Title: EPiC - Elvis Presley in Concert
-    Original URL: https://cinestarcinemas.ba/bihac-bingo-centar/epic-elvis-presley-in-concert/6289
-2026-02-26 00:30:01 | Before: 4 | After: 9 | New: 5 | Files: 49c7f30f12de-20260226-001.json 4a9b9ce7107c-20260226-001.json 5bf22cea6c3c-20260226-001.json 8b18ef15f889-20260226-001.json 8b18ef15f889-20260226-002.json | Failed: 0 scrapers
-
-[1;33m📧 Sending email notifications...[0m
-  Dashboard URL: http://31.31.74.183:8080
-  Trying to send with 'mutt'...
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to hare.de@gmail.com with mutt
-Authenticating (PLAIN)...
-Closing connection to imap.gmail.com...
-  ✓ Email sent to danasbihac@gmail.com with mutt
-  [0;32m✓ Email notification sent successfully[0m
-
-[0;32m============================================================[0m
-[0;32m✅ ALL SCRAPERS COMPLETED[0m
-[0;32m============================================================[0m
-============================================================
-🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-26 04:30:01
-============================================================
-
-📊 JSON files before: 9
-
-[0;34m▶ Running: cinestar_bihac.py[0m
-============================================================
-🗂️  CineStar Bihać SCRAPER
-============================================================
-Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (9s)[0m
-
-[0;34m▶ Running: ggbihac.py[0m
-============================================================
-🗂️  GGBihać SCRAPER
-============================================================
-Source URL: https://ggbihac.com
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7f5ed8fd9820>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7f5ed8c32240>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (42s)[0m
-
-[0;34m▶ Running: unbi.py[0m
-============================================================
-🗂️  UNBI SCRAPER
-============================================================
-Source URL: https://unbi.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fzs_unbi.py[0m
-============================================================
-🗂️  FZS UNBI SCRAPER
-============================================================
-Source URL: https://fzs.unbi.ba/
-  ⚠️ No listing links found, using source page as fallback
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: vrtic_bihac.py[0m
-============================================================
-🗂️  Vrtić Bihać SCRAPER
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.avaz.ba/rss
-Fetched entries: 10
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: haber_usk.py[0m
-============================================================
-🗂️  Haber USK SCRAPER
-============================================================
-Source URL: https://www.haber.ba/unsko-sanski-kanton
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: crna_hronika_bihac.py[0m
-============================================================
-🗂️  Crna Hronika Bihać SCRAPER
-============================================================
-Source URL: https://crna-hronika.info/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: raport_bihac.py[0m
-============================================================
-🗂️  Raport Bihać SCRAPER
-============================================================
-Source URL: https://raport.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: indexhr_bihac.py[0m
-============================================================
-🗂️  Index.hr Bihać SCRAPER
-============================================================
-Source URL: https://www.index.hr/tag/96912/bihac.aspx
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: n1info_grad_bihac.py[0m
-============================================================
-🗂️  N1 Grad Bihać SCRAPER
-============================================================
-Source URL: https://n1info.ba/tag/grad-bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: biznisinfo_bihac.py[0m
-============================================================
-🗂️  BiznisInfo Bihać SCRAPER
-============================================================
-Source URL: https://www.biznisinfo.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_mup_usk.py[0m
-============================================================
-🗂️  Faktor MUP USK SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/mup-usk/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: faktor_bihac.py[0m
-============================================================
-🗂️  Faktor Bihać SCRAPER
-============================================================
-Source URL: https://faktor.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
-============================================================
-🗂️  Oslobođenje Bihać SCRAPER
-============================================================
-Source URL: https://www.oslobodjenje.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: bljesak_bihac.py[0m
-============================================================
-🗂️  Bljesak Bihać SCRAPER
-============================================================
-Source URL: https://bljesak.info/tagovi/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: mondo_bihac.py[0m
-============================================================
-🗂️  Mondo Bihać SCRAPER
-============================================================
-Source URL: https://mondo.ba/tag229/Bihac/1
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: stav_bihac.py[0m
-============================================================
-🗂️  Stav Bihać SCRAPER
-============================================================
-Source URL: https://stav.ba/tag/bihac
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: vecernji_bihac.py[0m
-============================================================
-🗂️  Večernji Bihać SCRAPER
-============================================================
-Source URL: https://www.vecernji.ba/tag/bihac-40019
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbih_tag_bihac.py[0m
-============================================================
-🗂️  VisitBiH Bihać SCRAPER
-============================================================
-Source URL: https://visitbih.ba/tag/bihac/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: nahla_bihac.py[0m
-============================================================
-🗂️  Nahla Bihać SCRAPER
-============================================================
-Source URL: https://bihac.nahla.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fokus_bihac.py[0m
-============================================================
-📰 Fokus Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.fokus.ba/tag/bihac/feed
-Fetched entries: 20
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (4s)[0m
-
-[0;34m▶ Running: vijesti_ba_bihac.py[0m
-============================================================
-🗂️  Vijesti.ba Bihać SCRAPER
-============================================================
-Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: euronews_bihac.py[0m
-============================================================
-🗂️  Euronews Bihać SCRAPER
-============================================================
-Source URL: https://euronews.ba/tema/3479/bihac
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7e358c09ddf0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7e358c09e630>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (41s)[0m
-
-[0;34m▶ Running: klix_tag_bihac.py[0m
-============================================================
-📰 Klix Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: klix_tag_grad_bihac.py[0m
-============================================================
-📰 Klix Grad Bihać RSS SCRAPER
-============================================================
-Feed URL: https://www.klix.ba/rss
-Fetched entries: 30
-✅ Finished. New Bihać-related posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;32m📊 RESUME:[0m
-  JSON files before: 9
-  JSON files after:  9
-  [0;32mNew files created: 0[0m
-
-[0;34m🔍 Looking for new JSON files...[0m
-2026-02-26 04:30:01 | Before: 9 | After: 9 | New: 0 | Files:  | Failed: 0 scrapers
-
-[1;33mℹ️  No new articles found, skipping email[0m
-
-[0;32m============================================================[0m
-[0;32m✅ ALL SCRAPERS COMPLETED[0m
-[0;32m============================================================[0m
-============================================================
-🚀 BIHAC SCRAPERS MASTER RUN - 2026-02-26 08:30:01
-============================================================
-
-📊 JSON files before: 9
-
-[0;34m▶ Running: cinestar_bihac.py[0m
-============================================================
-🗂️  CineStar Bihać SCRAPER
-============================================================
-Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (6s)[0m
-
-[0;34m▶ Running: ggbihac.py[0m
-============================================================
-🗂️  GGBihać SCRAPER
-============================================================
-Source URL: https://ggbihac.com
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7971e69ffec0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7971e56ce0f0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (42s)[0m
-
-[0;34m▶ Running: unbi.py[0m
-============================================================
-🗂️  UNBI SCRAPER
-============================================================
-Source URL: https://unbi.ba/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fzs_unbi.py[0m
-============================================================
-🗂️  FZS UNBI SCRAPER
-============================================================
-Source URL: https://fzs.unbi.ba/
-  ⚠️ No listing links found, using source page as fallback
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (0s)[0m
-
-[0;34m▶ Running: vrtic_bihac.py[0m
-============================================================
-🗂️  Vrtić Bihać SCRAPER
-============================================================
-Source URL: https://vrtic-bihac.ba/novosti/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (2s)[0m
-
-[0;34m▶ Running: fhmzbih_meteo.py[0m
-============================================================
-🗂️  FHMZ BiH Meteo SCRAPER
-============================================================
-Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: visitbihac.py[0m
-============================================================
-🗂️  Visit Bihać SCRAPER
-============================================================
-Source URL: https://www.visitbihac.com/
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: snusk.py[0m
-============================================================
-🗂️  SNU SK SCRAPER
-============================================================
-Source URL: https://snusk.ba/ns-usk/
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-  ⚠️ No listing links found, using source page as fallback
-  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: rotary_bihac.py[0m
-============================================================
-🗂️  Rotary Bihać SCRAPER
-============================================================
-Source URL: https://rotary-bihac.ba/bs/vijesti.php
-✅ Finished. New posts saved: 0
-  [0;32m✓ Completed successfully (1s)[0m
-
-[0;34m▶ Running: avaz_bihac_tag.py[0m
-============================================================
-📰 Avaz Bihać RSS SCRAPER
-============================================================
 Feed URL: https://www.avaz.ba/rss
 Fetched entries: 10
 ✅ Finished. New Bihać-related posts saved: 0
@@ -5813,6 +4335,1592 @@ Fetched entries: 30
 2026-02-28 12:30:01 | Before: 10 | After: 10 | New: 0 | Files:  | Failed: 0 scrapers
 
 [1;33mℹ️  No new articles found, skipping email[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-03 20:30:01
+============================================================
+
+📊 JSON files before: 51
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
+  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
+  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
+  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (9s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x717ac4a26600>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x717ac493a6c0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (42s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+  💾 Saved: 232350d399bb-20260303-002.json | JAVNI KONKURS ZA PRIJEM U RADNI ODNOS
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+  💾 Saved: fad4b87d54cc-20260303-002.json | Određen pritvor muškarcu osumnjičenom za nasilje nad djetetom
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+  💾 Saved: 41d69910793b-20260303-002.json | Sud u Bihaću odredio pritvor 25-godišnjaku osumnjičenom za nasilje nad
+  ⏭️ Skipping low-quality item: Obilježavanje Dana nezavisnosti u brojnim bh. gradovima
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+  💾 Saved: f501a7c53dca-20260303-002.json | Bihać: Određen pritvor 25-godišnjaku koji je zlostavljao dijete svoje 
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+  💾 Saved: 9c2dcd066f84-20260303-002.json | Kako se SPC-u u Bosni i Hercegovini isplatilo "ulizivanje": Promovišeš
+  💾 Saved: 9c2dcd066f84-20260303-003.json | Džamija Fethija u Bihaću: Arhitektonski raritet koji svjedoči o susret
+✅ Finished. New posts saved: 2
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+  ⏭️ Skipping non-region item: Federalna
+  ⏭️ Skipping non-region item: Federalna
+  ⏭️ Skipping non-region item: Federalna
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+  💾 Saved: 4a9b9ce7107c-20260303-005.json | Sud u Bihaću odredio pritvor 25-godišnjaku osumnjičenom za nasilje nad
+  💾 Saved: 4a9b9ce7107c-20260303-006.json | Crna hronika
+  💾 Saved: 4a9b9ce7107c-20260303-007.json | U Mostaru i Zenici danas 19 stepeni, sutra u BiH sunčano uz porast nao
+  💾 Saved: 4a9b9ce7107c-20260303-008.json | Predstavljena knjiga "Vrisak ostanka" Refike Dedić: Ostati u domovini 
+  💾 Saved: 4a9b9ce7107c-20260303-009.json | Pretežno oblačno vrijeme s maglom po kotlinama, na Bjelašnici -2 stepe
+  💾 Saved: 4a9b9ce7107c-20260303-010.json | Tradicionalni iftar BZK Bihać kao poruka zajedništva i kontinuiteta
+  💾 Saved: 4a9b9ce7107c-20260303-011.json | I Bišćani obilježili Dan nezavisnosti defileom kroz grad
+  💾 Saved: 4a9b9ce7107c-20260303-012.json | Dan nezavisnosti u Bihaću: Trajna obaveza da čuvamo suverenitet i jedi
+  💾 Saved: 4a9b9ce7107c-20260303-013.json | U FBiH do ponoći zabranjen prijevoz eksplozivnih materija
+✅ Finished. New posts saved: 9
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x71d934ffe030>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x71d934ffe2a0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (41s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 51
+  JSON files after:  66
+  [0;32mNew files created: 15[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 232350d399bb-20260303-002.json
+    Title: Naslov: JAVNI KONKURS ZA PRIJEM U RADNI ODNOS Firma: JP ''Veterinarska stanica'' d.o.o. Bihać Opis poslova: 1. Doktor veterinarske medicine 2. Veterinarski tehničar
+    Original URL: https://www.facebook.com/photo/?fbid=1341427784680132&set=pcb.1341427971346780
+  Found new: 41d69910793b-20260303-002.json
+    Title: Sud u Bihaću odredio pritvor 25-godišnjaku osumnjičenom za nasilje nad djetetom vanbračne partnerice
+    Original URL: https://faktor.ba/bosna-i-hercegovina/crna-hronika/sud-u-bihacu-odredio-pritvor-25-godisnjaku-osumnjicenom-za-nasilje-nad-djetetom-vanbracne-partnerice/246818
+  Found new: 4a9b9ce7107c-20260303-005.json
+    Title: Sud u Bihaću odredio pritvor 25-godišnjaku osumnjičenom za nasilje nad djetetom
+    Original URL: https://www.vijesti.ba/clanak/744817/sud-u-bihacu-odredio-pritvor-25-godisnjaku-osumnjicenom-za-nasilje-nad-djetetom
+  Found new: 4a9b9ce7107c-20260303-006.json
+    Title: Crna hronika
+    Original URL: https://www.vijesti.ba/kategorija/crna-hronika
+  Found new: 4a9b9ce7107c-20260303-007.json
+    Title: U Mostaru i Zenici danas 19 stepeni, sutra u BiH sunčano uz porast naoblake poslijepodne
+    Original URL: https://www.vijesti.ba/clanak/744803/u-mostaru-i-zenici-danas-19-stepeni-sutra-u-bih-suncano-uz-porast-naoblake-poslijepodne
+  Found new: 4a9b9ce7107c-20260303-008.json
+    Title: Predstavljena knjiga "Vrisak ostanka" Refike Dedić: Ostati u domovini ili otići?
+    Original URL: https://www.vijesti.ba/clanak/744774/predstavljena-knjiga-vrisak-ostanka-refike-dedic-ostati-u-domovini-ili-otici
+  Found new: 4a9b9ce7107c-20260303-009.json
+    Title: Pretežno oblačno vrijeme s maglom po kotlinama, na Bjelašnici -2 stepena
+    Original URL: https://www.vijesti.ba/clanak/744688/pretezno-oblacno-vrijeme-s-maglom-po-kotlinama-na-bjelasnici-2-stepena
+  Found new: 4a9b9ce7107c-20260303-010.json
+    Title: Tradicionalni iftar BZK Bihać kao poruka zajedništva i kontinuiteta
+    Original URL: https://www.vijesti.ba/clanak/744645/tradicionalni-iftar-bzk-bihac-kao-poruka-zajednistva-i-kontinuiteta
+  Found new: 4a9b9ce7107c-20260303-011.json
+    Title: I Bišćani obilježili Dan nezavisnosti defileom kroz grad
+    Original URL: https://www.vijesti.ba/clanak/744483/i-biscani-obiljezili-dan-nezavisnosti-defileom-kroz-grad
+  Found new: 4a9b9ce7107c-20260303-012.json
+    Title: Dan nezavisnosti u Bihaću: Trajna obaveza da čuvamo suverenitet i jedinstvo
+    Original URL: https://www.vijesti.ba/clanak/744432/dan-nezavisnosti-u-bihacu-trajna-obaveza-da-cuvamo-suverenitet-i-jedinstvo
+  Found new: 4a9b9ce7107c-20260303-013.json
+    Title: U FBiH do ponoći zabranjen prijevoz eksplozivnih materija
+    Original URL: https://www.vijesti.ba/clanak/744389/saobracaj-u-bih-se-odvija-bez-vecih-smetnji
+  Found new: 9c2dcd066f84-20260303-002.json
+    Title: Kako se SPC-u u Bosni i Hercegovini isplatilo "ulizivanje": Promovišeš Vučića u "novomučenika" i dobiješ dva miliona KM
+    Original URL: https://stav.ba/vijest/kako-se-spc-u-u-bosni-i-hercegovini-isplatilo-ulizivanje-promovises-vucica-u-novomucenika-i-dobijes-dva-miliona-km/39035
+  Found new: 9c2dcd066f84-20260303-003.json
+    Title: Džamija Fethija u Bihaću: Arhitektonski raritet koji svjedoči o susretu civilizacija kroz više od šest stoljeća
+    Original URL: https://stav.ba/vijest/dzamija-fethija-u-bihacu-arhitektonski-raritet-koji-svjedoci-o-susretu-civilizacija-kroz-vise-od-sest-stoljeca/39012
+  Found new: f501a7c53dca-20260303-002.json
+    Title: Bihać: Određen pritvor 25-godišnjaku koji je zlostavljao dijete svoje partnerice
+    Original URL: https://mondo.ba/Info/Crna-hronika/a1453584/odredjen-pritvor-25-godisnjaku-koji-je-zlostavljao-dijete-svoje-partnerice.html
+  Found new: fad4b87d54cc-20260303-002.json
+    Title: Određen pritvor muškarcu osumnjičenom za nasilje nad djetetom
+    Original URL: https://raport.ba/odreden-pritvor-muskarcu-osumnjicenom-za-nasilje-nad-djetetom
+2026-03-03 20:30:01 | Before: 51 | After: 66 | New: 15 | Files: 232350d399bb-20260303-002.json 41d69910793b-20260303-002.json 4a9b9ce7107c-20260303-005.json 4a9b9ce7107c-20260303-006.json 4a9b9ce7107c-20260303-007.json 4a9b9ce7107c-20260303-008.json 4a9b9ce7107c-20260303-009.json 4a9b9ce7107c-20260303-010.json 4a9b9ce7107c-20260303-011.json 4a9b9ce7107c-20260303-012.json 4a9b9ce7107c-20260303-013.json 9c2dcd066f84-20260303-002.json 9c2dcd066f84-20260303-003.json f501a7c53dca-20260303-002.json fad4b87d54cc-20260303-002.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-04 00:30:02
+============================================================
+
+📊 JSON files before: 47
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7709b3f72030>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7709b3f72330>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (42s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+  ⏭️ Skipping non-region item: Federalna
+  ⏭️ Skipping non-region item: Trump: Američka mornarica pratit će tankere kroz Hormuški tjesnac
+  ⏭️ Skipping non-region item: Vijesti u 22, 03.03.2026.
+  ⏭️ Skipping non-region item: Federalna
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x76b2a89b6300>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x76b2a89fe480>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (41s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 47
+  JSON files after:  47
+  [0;32mNew files created: 0[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+2026-03-04 00:30:02 | Before: 47 | After: 47 | New: 0 | Files:  | Failed: 0 scrapers
+
+[1;33mℹ️  No new articles found, skipping email[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-04 04:30:01
+============================================================
+
+📊 JSON files before: 38
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (9s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x72fdbc2d9cd0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x72fdbc2d9f10>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (43s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x724b38b71ac0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x724b38b724b0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (41s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 38
+  JSON files after:  38
+  [0;32mNew files created: 0[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+2026-03-04 04:30:01 | Before: 38 | After: 38 | New: 0 | Files:  | Failed: 0 scrapers
+
+[1;33mℹ️  No new articles found, skipping email[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-04 08:30:01
+============================================================
+
+📊 JSON files before: 38
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x780e4cfd1a30>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x780e4cfd24b0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (43s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+  💾 Saved: 232350d399bb-20260304-001.json | JAVNI OGLAS ZA PRIJEM U RADNI ODNOS
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+  ⏭️ Skipping low-quality item: Krajem godine počinje gradnja prve dionice brze ceste Bihać - Cazin - 
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+  💾 Saved: 4a9b9ce7107c-20260304-001.json | U BiH danas pretežno sunčano, krajem dana promjena vremena
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7e3d72be5ca0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7e3d72be6600>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (40s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+  ⏭️ Skipping non-region item: Vatrogasci u BiH već u problemu: U USK zabilježeno više od 50 požara u
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 38
+  JSON files after:  40
+  [0;32mNew files created: 2[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 232350d399bb-20260304-001.json
+    Title: Naslov: JAVNI OGLAS ZA PRIJEM U RADNI ODNOS Firma: JKP ''Vodovod i kanalizacija'' d.o.o. Sanski Most Opis poslova: 1. Šef službe za pravne i kadrovske poslove
+    Original URL: https://www.facebook.com/photo/?fbid=1342218791267698&set=pcb.1342219014601009
+  Found new: 4a9b9ce7107c-20260304-001.json
+    Title: U BiH danas pretežno sunčano, krajem dana promjena vremena
+    Original URL: https://www.vijesti.ba/clanak/744925/u-bih-danas-pretezno-suncano-krajem-dana-promjena-vremena
+2026-03-04 08:30:01 | Before: 38 | After: 40 | New: 2 | Files: 232350d399bb-20260304-001.json 4a9b9ce7107c-20260304-001.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-04 12:30:01
+============================================================
+
+📊 JSON files before: 40
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7a92a87da120>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x7a92a87da360>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (43s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+  💾 Saved: 31c2cb477ba0-20260304-001.json | UNBI | Sadržaj
+  💾 Saved: 31c2cb477ba0-20260304-002.json | UNBI | Sadržaj
+✅ Finished. New posts saved: 2
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+  💾 Saved: 27a630d18d1a-20260304-001.json | Unsko-sanski kanton jača digitalnu i zelenu ekonomiju
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+  ⏭️ Skipping non-region item: Federalna
+  ⏭️ Skipping non-region item: Impressum
+  ⏭️ Skipping non-region item: Marketing
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x76ea037d9fa0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x76ea037da7b0>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (40s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+  ⏭️ Skipping non-region item: / Bosna i Hercegovina
+  ⏭️ Skipping non-region item: / Regija
+  ⏭️ Skipping non-region item: / Svijet
+  💾 Saved: 911e8afe9a50-20260304-001.json | / Crna hronika
+  ⏭️ Skipping non-region item: / Lokalne teme
+  ⏭️ Skipping non-region item: / Euphoria
+  ⏭️ Skipping non-region item: / Ekonomija
+  ⏭️ Skipping non-region item: / Kompanije
+  💾 Saved: 911e8afe9a50-20260304-002.json | Prije nekoliko dana na neki bolji svijet otišao je i advokat Rajko Dan
+  ⏭️ Skipping non-region item: Organizacija Eko Akcija oglasila se danas, 4
+  ⏭️ Skipping non-region item: / Kultura
+✅ Finished. New posts saved: 2
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 40
+  JSON files after:  45
+  [0;32mNew files created: 5[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 27a630d18d1a-20260304-001.json
+    Title: Unsko-sanski kanton jača digitalnu i zelenu ekonomiju
+    Original URL: https://visitbih.ba/unsko-sanski-kanton-jaca-digitalnu-i-zelenu-ekonomiju/
+  Found new: 31c2cb477ba0-20260304-001.json
+    Title: UNBI | Sadržaj
+    Original URL: https://www.unbi.ba/sadrzaj/akreditacija/7
+  Found new: 31c2cb477ba0-20260304-002.json
+    Title: UNBI | Sadržaj
+    Original URL: https://www.unbi.ba/sadrzaj/ravnopravnost-spolova/40
+  Found new: 911e8afe9a50-20260304-001.json
+    Title: / Crna hronika
+    Original URL: https://radiosarajevo.ba/vijesti/crna-hronika
+  Found new: 911e8afe9a50-20260304-002.json
+    Title: Prije nekoliko dana na neki bolji svijet otišao je i advokat Rajko Danilović
+    Original URL: https://radiosarajevo.ba/metromahala/lica
+2026-03-04 12:30:01 | Before: 40 | After: 45 | New: 5 | Files: 27a630d18d1a-20260304-001.json 31c2cb477ba0-20260304-001.json 31c2cb477ba0-20260304-002.json 911e8afe9a50-20260304-001.json 911e8afe9a50-20260304-002.json | Failed: 0 scrapers
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
 
 [0;32m============================================================[0m
 [0;32m✅ ALL SCRAPERS COMPLETED[0m

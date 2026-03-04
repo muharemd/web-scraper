@@ -3,3 +3,4 @@ from single_source_scraper import run_single_source
 
 if __name__ == "__main__":
     run_single_source("https://snusk.ba/ns-usk/", "SNU SK", "snusk_state.json")
+    run_single_source("https://ussume.ba/category/novosti/", "USSUME USK", "snusk_state.json")
