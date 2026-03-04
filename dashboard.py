@@ -1070,7 +1070,8 @@ if __name__ == '__main__':
     print(f"{'='*50}")
     print(f"JSON Directory: {JSON_DIR}")
     print(f"Users File: {USERS_FILE}")
-    print(f"Server: http://31.31.74.183:8080")
+    # print(f"Server HTTP:  http://31.31.74.183:8080")
+    print(f"Server HTTPS: https://31.31.74.183:8443")
     print(f"{'='*50}")
     print("🔐 Login with credentials from manage_users.sh")
     print(f"{'='*50}\n")
@@ -1078,6 +1079,27 @@ if __name__ == '__main__':
     # Create directories
     os.makedirs(JSON_DIR, exist_ok=True)
     
-    # Run the app
-    app.run(host='0.0.0.0', port=8080, debug=False)
+    # Check if SSL certificates exist
+    cert_path = '/home/bihac-danas/web-scraper/certs/cert.pem'
+    key_path = '/home/bihac-danas/web-scraper/certs/key.pem'
+    
+    if os.path.exists(cert_path) and os.path.exists(key_path):
+        # Run with HTTPS only (HTTP port 8080 disabled - uncomment below to re-enable)
+        print("🔒 Starting with HTTPS (8443) only...")
+        # import threading
+        from werkzeug.serving import run_simple
+        
+        # # Run HTTP in background thread (DISABLED - uncomment to re-enable)
+        # def run_http():
+        #     app.run(host='0.0.0.0', port=8080, debug=False, use_reloader=False)
+        # 
+        # http_thread = threading.Thread(target=run_http, daemon=True)
+        # http_thread.start()
+        
+        # Run HTTPS in main thread
+        run_simple('0.0.0.0', 8443, app, ssl_context=(cert_path, key_path), use_reloader=False, use_debugger=False)
+    else:
+        # Fallback to HTTP only
+        print("⚠️ SSL certificates not found, running HTTP only on port 8080")
+        app.run(host='0.0.0.0', port=8080, debug=False)
     

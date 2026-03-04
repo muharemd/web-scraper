@@ -5922,3 +5922,986 @@ Closing connection to imap.gmail.com...
 [0;32m============================================================[0m
 [0;32m✅ ALL SCRAPERS COMPLETED[0m
 [0;32m============================================================[0m
+============================================================
+🚀 BIHAC SCRAPERS MASTER RUN - 2026-03-04 16:30:02
+============================================================
+
+📊 JSON files before: 3
+
+[0;34m▶ Running: cinestar_bihac.py[0m
+============================================================
+🗂️  CineStar Bihać SCRAPER
+============================================================
+Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
+  💾 Saved: 8b18ef15f889-20260304-001.json | Kontaminacija Pretprodaja
+  ⏭️ Skipping low-quality item: Kupovina ulaznice | CineStar
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (8s)[0m
+
+[0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x79dfb853a6f0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ggbihac.com', port=443) at 0x79dfb83361b0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (43s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vrtic_bihac.py[0m
+============================================================
+🗂️  Vrtić Bihać SCRAPER
+============================================================
+Source URL: https://vrtic-bihac.ba/novosti/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: fhmzbih_meteo.py[0m
+============================================================
+🗂️  FHMZ BiH Meteo SCRAPER
+============================================================
+Source URL: https://www.fhmzbih.gov.ba/latinica/METEO/prognozaBI.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: usk_szz_oglasi.py[0m
+============================================================
+🗂️  SZZ USK Oglasi SCRAPER
+============================================================
+Source URL: https://usk-szz.ba/oglasi
+Found oglasi: 10
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: visitbihac.py[0m
+============================================================
+🗂️  Visit Bihać SCRAPER
+============================================================
+Source URL: https://www.visitbihac.com/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: snusk.py[0m
+============================================================
+🗂️  SNU SK SCRAPER
+============================================================
+Source URL: https://snusk.ba/ns-usk/
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://snusk.ba/ns-usk/ | HTTPSConnectionPool(host='snusk.ba', port=443): Max retries exceeded with url: /ns-usk/ (Caused by NameResolutionError("HTTPSConnection(host='snusk.ba', port=443): Failed to resolve 'snusk.ba' ([Errno -2] Name or service not known)"))
+✅ Finished. New posts saved: 0
+============================================================
+🗂️  USSUME USK SCRAPER
+============================================================
+Source URL: https://ussume.ba/category/novosti/
+  💾 Saved: 294150dbc341-20260304-001.json | Hasib kličić ispraćen u zasluženu penziju
+  💾 Saved: 294150dbc341-20260304-002.json | Obavijest o sastanku sa interesnim grupam
+  💾 Saved: 294150dbc341-20260304-003.json | Unapređenje saradnje ŠPD “Unsko – sanske šume” sa interesnim grupama
+  💾 Saved: 294150dbc341-20260304-004.json | Javni poziv
+  💾 Saved: 294150dbc341-20260304-005.json | Širimo znanje i svijest o zaštiti životne sredine!
+  💾 Saved: 294150dbc341-20260304-006.json | Javni oglas za prijem pripravnika
+  💾 Saved: 294150dbc341-20260304-007.json | JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+  💾 Saved: 294150dbc341-20260304-008.json | JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+  💾 Saved: 294150dbc341-20260304-009.json | JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+  💾 Saved: 294150dbc341-20260304-010.json | Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa donijela važne od
+  💾 Saved: 294150dbc341-20260304-011.json | - ŠPD Unsko-sanske šume d.o.o.
+  💾 Saved: 294150dbc341-20260304-012.json | Puni naziv našeg poduzeća je ŠUMSKO PRIVREDNO DRUŠTVO «Unsko – sanske 
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (19s)[0m
+
+[0;34m▶ Running: rotary_bihac.py[0m
+============================================================
+🗂️  Rotary Bihać SCRAPER
+============================================================
+Source URL: https://rotary-bihac.ba/bs/vijesti.php
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: avaz_bihac_tag.py[0m
+============================================================
+📰 Avaz Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.avaz.ba/rss
+Fetched entries: 10
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: haber_usk.py[0m
+============================================================
+🗂️  Haber USK SCRAPER
+============================================================
+Source URL: https://www.haber.ba/unsko-sanski-kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: crna_hronika_bihac.py[0m
+============================================================
+🗂️  Crna Hronika Bihać SCRAPER
+============================================================
+Source URL: https://crna-hronika.info/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: raport_bihac.py[0m
+============================================================
+🗂️  Raport Bihać SCRAPER
+============================================================
+Source URL: https://raport.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: indexhr_bihac.py[0m
+============================================================
+🗂️  Index.hr Bihać SCRAPER
+============================================================
+Source URL: https://www.index.hr/tag/96912/bihac.aspx
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: n1info_grad_bihac.py[0m
+============================================================
+🗂️  N1 Grad Bihać SCRAPER
+============================================================
+Source URL: https://n1info.ba/tag/grad-bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: biznisinfo_bihac.py[0m
+============================================================
+🗂️  BiznisInfo Bihać SCRAPER
+============================================================
+Source URL: https://www.biznisinfo.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: faktor_mup_usk.py[0m
+============================================================
+🗂️  Faktor MUP USK SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/mup-usk/
+✅ Finished. New posts saved: 0
+============================================================
+🗂️  MUP USK Konkursi SCRAPER
+============================================================
+Source URL: https://mupusk.gov.ba/category/konkursi/
+  💾 Saved: f2bf616510e2-20260304-001.json | Javni oglas za prijem namještenika na neodređeno vrijeme u Upravi poli
+  💾 Saved: f2bf616510e2-20260304-002.json | JAVNI OGLAS za prijem namještenika na određeno vrijeme u Ministarstvo 
+  💾 Saved: f2bf616510e2-20260304-003.json | Postani policajac, budi dio MUP-a
+  💾 Saved: f2bf616510e2-20260304-004.json | JAVNI KONKURS za popunu radnih mjesta državnih službenika u Ministarst
+  💾 Saved: f2bf616510e2-20260304-005.json | Prijem namještenika na neodređeno vrijeme u Ministarstvo unutrašnjih p
+  💾 Saved: f2bf616510e2-20260304-006.json | JAVNI OGLAS
+  💾 Saved: f2bf616510e2-20260304-007.json | Čestitka povodom Dana nezavisnosti Bosne i Hercegovine
+  💾 Saved: f2bf616510e2-20260304-008.json | Obilježavanje Dana nezavisnosti Bosne i Hercegovine
+  💾 Saved: f2bf616510e2-20260304-009.json | Kategorija: Novosti
+  💾 Saved: f2bf616510e2-20260304-010.json | Kategorija: Obavijesti
+  💾 Saved: f2bf616510e2-20260304-011.json | Kategorija: Bilten
+  💾 Saved: f2bf616510e2-20260304-012.json | Odluke Uprava policije
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (38s)[0m
+
+[0;34m▶ Running: faktor_bihac.py[0m
+============================================================
+🗂️  Faktor Bihać SCRAPER
+============================================================
+Source URL: https://faktor.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: oslobodjenje_bihac_tag.py[0m
+============================================================
+🗂️  Oslobođenje Bihać SCRAPER
+============================================================
+Source URL: https://www.oslobodjenje.ba/tag/bihac/
+  💾 Saved: be21791a9415-20260304-001.json | BihaÄ ukinuo privilegije strankama: Kraj jeftinog zakupa gradskih pro
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: bljesak_bihac.py[0m
+============================================================
+🗂️  Bljesak Bihać SCRAPER
+============================================================
+Source URL: https://bljesak.info/tagovi/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: mondo_bihac.py[0m
+============================================================
+🗂️  Mondo Bihać SCRAPER
+============================================================
+Source URL: https://mondo.ba/tag229/Bihac/1
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: stav_bihac.py[0m
+============================================================
+🗂️  Stav Bihać SCRAPER
+============================================================
+Source URL: https://stav.ba/tag/bihac
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vecernji_bihac.py[0m
+============================================================
+🗂️  Večernji Bihać SCRAPER
+============================================================
+Source URL: https://www.vecernji.ba/tag/bihac-40019
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: visitbih_tag_bihac.py[0m
+============================================================
+🗂️  VisitBiH Bihać SCRAPER
+============================================================
+Source URL: https://visitbih.ba/tag/bihac/
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: nahla_bihac.py[0m
+============================================================
+🗂️  Nahla Bihać SCRAPER
+============================================================
+Source URL: https://bihac.nahla.ba/
+  💾 Saved: 7dfd29ce3919-20260304-001.json | Javni poziv za prijave na Obuku za šivenje
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: federalna_bihac.py[0m
+============================================================
+🗂️  Federalna Bihać SCRAPER
+============================================================
+Source URL: https://federalna.ba/search?q=Biha%C4%87&page=1
+  ⏭️ Skipping non-region item: Federalna
+  ⏭️ Skipping non-region item: Federalna
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (7s)[0m
+
+[0;34m▶ Running: fokus_bihac.py[0m
+============================================================
+📰 Fokus Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.fokus.ba/tag/bihac/feed
+Fetched entries: 20
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (4s)[0m
+
+[0;34m▶ Running: vijesti_ba_bihac.py[0m
+============================================================
+🗂️  Vijesti.ba Bihać SCRAPER
+============================================================
+Source URL: https://www.vijesti.ba/pretraga?keyword=biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: euronews_bihac.py[0m
+============================================================
+🗂️  Euronews Bihać SCRAPER
+============================================================
+Source URL: https://euronews.ba/tema/3479/bihac
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7730bfe8a510>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://euronews.ba/tema/3479/bihac | HTTPSConnectionPool(host='euronews.ba', port=443): Max retries exceeded with url: /tema/3479/bihac (Caused by ConnectTimeoutError(<HTTPSConnection(host='euronews.ba', port=443) at 0x7730bfe8a840>, 'Connection to euronews.ba timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (41s)[0m
+
+[0;34m▶ Running: klix_tag_bihac.py[0m
+============================================================
+📰 Klix Bihać RSS SCRAPER
+============================================================
+Feed URL: https://www.klix.ba/rss
+Fetched entries: 30
+✅ Finished. New Bihać-related posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: radiosarajevo_bihac.py[0m
+============================================================
+🗂️  Radio Sarajevo SCRAPER
+============================================================
+Source URL: https://radiosarajevo.ba/pretraga?keywords=Biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: bihacorg.py[0m
+============================================================
+🗂️  Grad Bihać - Obavijesti SCRAPER
+============================================================
+Source URL: https://www.bihac.org/obavijesti
+✅ Finished. New posts saved: 0
+============================================================
+🗂️  Grad Bihać - Javni Pozivi SCRAPER
+============================================================
+Source URL: https://www.bihac.org/javni-pozivi
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: mojposao.py[0m
+============================================================
+🗂️  MojPosao - Unsko-sanski kanton SCRAPER
+============================================================
+Source URL: https://www.mojposao.ba/pretraga-poslova?locations=Biha%C4%87&locations=Cazin&locations=Velika+Kladu%C5%A1a&locations=Bosanska+Krupa&locations=Bu%C5%BEim&locations=Klju%C4%8D&locations=Sanski+Most&locations=Bosanski+Petrovac
+  ❌ Fetch failed: https://www.mojposao.ba/pretraga-poslova?locations=Biha%C4%87&locations=Cazin&locations=Velika+Kladu%C5%A1a&locations=Bosanska+Krupa&locations=Bu%C5%BEim&locations=Klju%C4%8D&locations=Sanski+Most&locations=Bosanski+Petrovac | HTTPSConnectionPool(host='www.mojposao.ba', port=443): Max retries exceeded with url: /pretraga-poslova?locations=Biha%C4%87&locations=Cazin&locations=Velika+Kladu%C5%A1a&locations=Bosanska+Krupa&locations=Bu%C5%BEim&locations=Klju%C4%8D&locations=Sanski+Most&locations=Bosanski+Petrovac (Caused by NewConnectionError("HTTPSConnection(host='www.mojposao.ba', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable"))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://www.mojposao.ba/pretraga-poslova?locations=Biha%C4%87&locations=Cazin&locations=Velika+Kladu%C5%A1a&locations=Bosanska+Krupa&locations=Bu%C5%BEim&locations=Klju%C4%8D&locations=Sanski+Most&locations=Bosanski+Petrovac | HTTPSConnectionPool(host='www.mojposao.ba', port=443): Max retries exceeded with url: /pretraga-poslova?locations=Biha%C4%87&locations=Cazin&locations=Velika+Kladu%C5%A1a&locations=Bosanska+Krupa&locations=Bu%C5%BEim&locations=Klju%C4%8D&locations=Sanski+Most&locations=Bosanski+Petrovac (Caused by NewConnectionError("HTTPSConnection(host='www.mojposao.ba', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable"))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (161s)[0m
+
+[0;34m▶ Running: boljiposao.py[0m
+============================================================
+🗂️  Bolji Posao - Unsko-sanski kanton SCRAPER
+============================================================
+Source URL: https://www.boljiposao.com/poslovi/zupanija/unsko-sanski-kanton/
+  ⏭️ Skipping non-region item: Vijesti
+  ⏭️ Skipping non-region item: Karijera
+  ⏭️ Skipping non-region item: Salary calculator
+  ⏭️ Skipping non-region item: Job browsing - BoljiPosao.com
+  ⏭️ Skipping non-region item: New jobs
+  ⏭️ Skipping non-region item: Ads with visible salary
+  ⏭️ Skipping non-region item: Administrativna zanimanja
+  ⏭️ Skipping non-region item: Arhitektura, dizajn i umjetnost
+  ⏭️ Skipping non-region item: Državna služba i uprava
+  💾 Saved: 3e8968502fa0-20260304-001.json | Ekonomija - finansije - osiguranje
+  ⏭️ Skipping non-region item: Elektrotehnika i strojarstvo
+  ⏭️ Skipping non-region item: Farmacija, biotehnologija i hemija
+✅ Finished. New posts saved: 1
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;34m▶ Running: jooble_ba.py[0m
+============================================================
+🗂️  Jooble - Unsko-sanski kanton SCRAPER
+============================================================
+Source URL: https://ba.jooble.org/SearchResult?rgns=Unsko-sanski%20kanton
+  ❌ Fetch failed: https://ba.jooble.org/SearchResult?rgns=Unsko-sanski%20kanton | 403 Client Error: Forbidden for url: https://ba.jooble.org/SearchResult?rgns=Unsko-sanski%20kanton
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ba.jooble.org/SearchResult?rgns=Unsko-sanski%20kanton | 403 Client Error: Forbidden for url: https://ba.jooble.org/SearchResult?rgns=Unsko-sanski%20kanton
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: agencijaspektar.py[0m
+============================================================
+🗂️  Agencija Spektar - Unsko SCRAPER
+============================================================
+Source URL: https://www.agencijaspektar.com/pretraga?q=&l=unsko
+  ⚠️ No listing links found, using source page as fallback
+  ⏭️ Skipping non-region item: Agencija Spektar | Posredovanje pri zapoÅ¡ljavanju
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: careerjet.py[0m
+============================================================
+🗂️  Careerjet - Unsko-sanski kanton SCRAPER
+============================================================
+Source URL: https://www.careerjet.ba/posao/Unsko-sanski-kanton
+  ⚠️ No listing links found, using source page as fallback
+  ⏭️ Skipping non-region item: O ovoj stranici
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: vladausk.py[0m
+============================================================
+🗂️  Vlada USK - Konkursi SCRAPER
+============================================================
+Source URL: https://vladausk.ba/v4/novost/konkursi-za-popunu-upraznjenih-radnih-mjesta/672
+  💾 Saved: 8277faf88052-20260304-001.json | Mustafa Ružnić, premijer Unsko- sanskog kantona prisustvovao je svečan
+  💾 Saved: 8277faf88052-20260304-002.json | Poštovani gospodine Schmidt, obraćam vam se kao premijer Vlade Unsko-s
+  💾 Saved: 8277faf88052-20260304-003.json | Na danas održanoj sjednici, članovi Vlade Unsko - sanskog kantona, na 
+  💾 Saved: 8277faf88052-20260304-004.json | Preuzmi dokument
+  💾 Saved: 8277faf88052-20260304-005.json | OBAVIJEST O PROVOĐENJU POJAČANE KONTROLE UČESNIKA U SAOBRAĆAJU U cilju
+  💾 Saved: 8277faf88052-20260304-006.json | Preuzmi dokument
+  💾 Saved: 8277faf88052-20260304-007.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bos
+  💾 Saved: 8277faf88052-20260304-008.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji BiH
+  💾 Saved: 8277faf88052-20260304-009.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bos
+  💾 Saved: 8277faf88052-20260304-010.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bos
+  💾 Saved: 8277faf88052-20260304-011.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bos
+  💾 Saved: 8277faf88052-20260304-012.json | Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bos
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (13s)[0m
+
+[0;34m▶ Running: zzousk.py[0m
+============================================================
+🗂️  ZZO USK - Konkursi SCRAPER
+============================================================
+Source URL: https://www.zzousk.ba/dokumenti/11
+  💾 Saved: a60bfdbeda75-20260304-001.json | O Zavodu
+  💾 Saved: a60bfdbeda75-20260304-002.json | Direktor
+  💾 Saved: a60bfdbeda75-20260304-003.json | Upravni odbor
+  💾 Saved: a60bfdbeda75-20260304-004.json | Poslovnice
+  💾 Saved: a60bfdbeda75-20260304-005.json | Poslovnica Bihać
+  💾 Saved: a60bfdbeda75-20260304-006.json | Poslovnica Cazin
+  💾 Saved: a60bfdbeda75-20260304-007.json | Poslovnica Bosanska Krupa
+  💾 Saved: a60bfdbeda75-20260304-008.json | Poslovnica Sanski Most
+  💾 Saved: a60bfdbeda75-20260304-009.json | Poslovnica Ključ
+  💾 Saved: a60bfdbeda75-20260304-010.json | Poslovnica Bužim
+  💾 Saved: a60bfdbeda75-20260304-011.json | Poslovnica Velika Kladuša
+  💾 Saved: a60bfdbeda75-20260304-012.json | Poslovnica Bosanski Petrovac
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: pravosudje_fbih.py[0m
+============================================================
+🗂️  Sudovi - Konkursi SCRAPER
+============================================================
+Source URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/kategorije-vijesti/111175/111126/11851
+  💾 Saved: ac6cc34214de-20260304-001.json | Javni oglas za popunu radnog mjesta namještenika u Sudskoj policiji u 
+  💾 Saved: ac6cc34214de-20260304-002.json | Javni konkurs za prijem kandidata - kadeta radi obuke i prijema u radn
+  💾 Saved: ac6cc34214de-20260304-003.json | Lista pitanja koja će biti korištena prilikom izrade testa općeg znanj
+  💾 Saved: ac6cc34214de-20260304-004.json | Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u 
+  💾 Saved: ac6cc34214de-20260304-005.json | Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u 
+  💾 Saved: ac6cc34214de-20260304-006.json | Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u 
+  💾 Saved: ac6cc34214de-20260304-007.json | Sudska policija u Federaciji Bosne i Hercegovine
+  💾 Saved: ac6cc34214de-20260304-008.json | Sudska policija u Federaciji Bosne i Hercegovine
+  ⏭️ Skipping low-quality item: Sudska policija u Federaciji Bosne i Hercegovine
+  💾 Saved: ac6cc34214de-20260304-009.json | Osnivanje i historijat Sudske policije Federacije Bosne i Hercegovine
+  💾 Saved: ac6cc34214de-20260304-010.json | Zakon o sudskoj policiji u Federaciji Bosne i Hercegovine („Službene n
+  💾 Saved: ac6cc34214de-20260304-011.json | Sudska policija u Federaciji Bosne i Hercegovine
+✅ Finished. New posts saved: 11
+  [0;32m✓ Completed successfully (12s)[0m
+
+[0;34m▶ Running: kt_bihac_pravosudje.py[0m
+============================================================
+🗂️  KT Bihać - Konkursi SCRAPER
+============================================================
+Source URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/kategorije-vijesti/9845/9853/9821
+  💾 Saved: 9d6242671bb1-20260304-001.json | Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme
+  💾 Saved: 9d6242671bb1-20260304-002.json | Obavijest kandidatima o polaganju pismenog ispita
+  💾 Saved: 9d6242671bb1-20260304-003.json | Javni oglas za prijem državnog službenika a u radni odnos na određeno 
+  💾 Saved: 9d6242671bb1-20260304-004.json | Javni oglas za prijem namještenika u radni odnos na određeno vrijeme u
+  💾 Saved: 9d6242671bb1-20260304-005.json | Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme
+  💾 Saved: 9d6242671bb1-20260304-006.json | Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme
+  💾 Saved: 9d6242671bb1-20260304-007.json | Kantonalno tužilaštvo Unsko-sanskog kantona
+  💾 Saved: 9d6242671bb1-20260304-008.json | Kantonalno tužilaštvo Unsko-sanskog kantona
+  ⏭️ Skipping low-quality item: Kantonalno tužilaštvo Unsko-sanskog kantona
+  💾 Saved: 9d6242671bb1-20260304-009.json | Nadležnost Tužilaštva
+  💾 Saved: 9d6242671bb1-20260304-010.json | Kantonalno tužilaštvo Unsko-sanskog kantona
+  💾 Saved: 9d6242671bb1-20260304-011.json | Kantonalno tužilaštvo Unsko-sanskog kantona
+✅ Finished. New posts saved: 11
+  [0;32m✓ Completed successfully (10s)[0m
+
+[0;34m▶ Running: ekonkurs.py[0m
+============================================================
+🗂️  E-Konkursi AFSB SCRAPER
+============================================================
+Source URL: https://ekonkurs.adsfbih.gov.ba/
+  💾 Saved: 659e8178b7a0-20260304-001.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-002.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-003.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-004.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-005.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-006.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-007.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-008.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-009.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-010.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-011.json | eKonkurs
+  💾 Saved: 659e8178b7a0-20260304-012.json | eKonkurs
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (9s)[0m
+
+[0;34m▶ Running: fzzz.py[0m
+============================================================
+🗂️  FZZZ - Konkursi SCRAPER
+============================================================
+Source URL: https://fzzz.ba/
+  ⏭️ Skipping low-quality item: Tražim poslodavca 2025 (poslodavci)
+  ⏭️ Skipping low-quality item: Politika kolačića
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: ads_gov.py[0m
+============================================================
+🗂️  ADS - Slobodna radna mjesta SCRAPER
+============================================================
+Source URL: https://www.ads.gov.ba/bs-latn-ba/open-vacancies?page=1&rows=9&searchByStatus=Open
+  ⚠️ No listing links found, using source page as fallback
+  ⏭️ Skipping low-quality item: Bez naslova
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: epbih.py[0m
+============================================================
+🗂️  EPBIH - Ljudski resursi SCRAPER
+============================================================
+Source URL: https://www.epbih.ba/stranica/ljudski-resursi
+  ❌ Fetch failed: https://www.epbih.ba/stranica/ljudski-resursi | HTTPSConnectionPool(host='www.epbih.ba', port=443): Max retries exceeded with url: /stranica/ljudski-resursi (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://www.epbih.ba/stranica/ljudski-resursi | HTTPSConnectionPool(host='www.epbih.ba', port=443): Max retries exceeded with url: /stranica/ljudski-resursi (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (1s)[0m
+
+[0;34m▶ Running: konkursi_ads.py[0m
+============================================================
+🗂️  Konkursi ADS SCRAPER
+============================================================
+Source URL: https://konkursi.ads.gov.ba/
+  💾 Saved: 5193499388d8-20260304-001.json | Agencija za državnu službu BiH Агенција за државну службу Civil servic
+  💾 Saved: 5193499388d8-20260304-002.json | Registracija
+  💾 Saved: 5193499388d8-20260304-003.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-004.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-005.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-006.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-007.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-008.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-009.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-010.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-011.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+  💾 Saved: 5193499388d8-20260304-012.json | The Report Viewer Web Control HTTP Handler has not been registered in 
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (10s)[0m
+
+[0;34m▶ Running: bhtelecom.py[0m
+============================================================
+🗂️  BH Telecom - Javni oglasi SCRAPER
+============================================================
+Source URL: https://www.bhtelecom.ba/category/javni-oglasi-za-posao/
+  💾 Saved: 6fc27a7411d5-20260304-001.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-002.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-003.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-004.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-005.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-006.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-007.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-008.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-009.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-010.json | J A V N I O G L A S
+  💾 Saved: 6fc27a7411d5-20260304-011.json | JAVNI OGLAS
+  💾 Saved: 6fc27a7411d5-20260304-012.json | JAVNI OGLAS
+✅ Finished. New posts saved: 12
+  [0;32m✓ Completed successfully (17s)[0m
+
+[0;34m▶ Running: posao_klix.py[0m
+============================================================
+🗂️  Klix Posao - Bihać SCRAPER
+============================================================
+Source URL: https://posao.klix.ba/oglasi?q=Biha%C4%87
+  ❌ Fetch failed: https://posao.klix.ba/oglasi?q=Biha%C4%87 | 403 Client Error: Forbidden for url: https://posao.klix.ba/oglasi?q=Biha%C4%87
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://posao.klix.ba/oglasi?q=Biha%C4%87 | 403 Client Error: Forbidden for url: https://posao.klix.ba/oglasi?q=Biha%C4%87
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (0s)[0m
+
+[0;34m▶ Running: fmrsp.py[0m
+============================================================
+🗂️  FMRSP - Obavijesti SCRAPER
+============================================================
+Source URL: https://fmrsp.gov.ba/obavijest
+  ⏭️ Skipping low-quality item: Novosti
+✅ Finished. New posts saved: 0
+  [0;32m✓ Completed successfully (3s)[0m
+
+[0;34m▶ Running: fmf.py[0m
+============================================================
+🗂️  FMF - Konkursi SCRAPER
+============================================================
+Source URL: https://www.fmf.gov.ba/Content/Read/konkursi
+  💾 Saved: 8e23a1bdacbd-20260304-001.json | Ministar
+  💾 Saved: 8e23a1bdacbd-20260304-002.json | Organizacijske jedinice
+  ⏭️ Skipping low-quality item: Organigram
+  💾 Saved: 8e23a1bdacbd-20260304-003.json | Plan rada
+  💾 Saved: 8e23a1bdacbd-20260304-004.json | Bankovni računi i ID broj
+  💾 Saved: 8e23a1bdacbd-20260304-005.json | Ispiši Podijeli Zakon o porezu na dohodak Zakon Zakon o porezu na doho
+  ⏭️ Skipping low-quality item: Strategije
+  💾 Saved: 8e23a1bdacbd-20260304-006.json | Zakon o budžetima
+  💾 Saved: 8e23a1bdacbd-20260304-007.json | Ispiši Podijeli Budžet DOB Dokument okvirnog budžeta 2026-2028
+  💾 Saved: 8e23a1bdacbd-20260304-008.json | Ispiši Podijeli Budžet za 2026
+  💾 Saved: 8e23a1bdacbd-20260304-009.json | Smjernice ekonomske i fiskalne politike
+  💾 Saved: 8e23a1bdacbd-20260304-010.json | Budžet za građane
+✅ Finished. New posts saved: 10
+  [0;32m✓ Completed successfully (6s)[0m
+
+[0;32m📊 RESUME:[0m
+  JSON files before: 3
+  JSON files after:  123
+  [0;32mNew files created: 120[0m
+
+[0;34m🔍 Looking for new JSON files...[0m
+  Found new: 294150dbc341-20260304-001.json
+    Title: Hasib kličić ispraćen u zasluženu penziju
+    Original URL: https://ussume.ba/hasib-klicic-ispracen-u-zasluzenu-penziju/
+  Found new: 294150dbc341-20260304-002.json
+    Title: Obavijest o sastanku sa interesnim grupam
+    Original URL: https://ussume.ba/obavijest-o-sastanku-sa-interesnim-grupam/
+  Found new: 294150dbc341-20260304-003.json
+    Title: Unapređenje saradnje ŠPD “Unsko – sanske šume” sa interesnim grupama
+    Original URL: https://ussume.ba/unapredjenje-saradnje-spd-unsko-sanske-sume-sa-interesnim-grupama/
+  Found new: 294150dbc341-20260304-004.json
+    Title: Javni poziv
+    Original URL: https://ussume.ba/javni-poziv-2/
+  Found new: 294150dbc341-20260304-005.json
+    Title: Širimo znanje i svijest o zaštiti životne sredine!
+    Original URL: https://ussume.ba/sirimo-znanje-i-svijest-o-zastiti-zivotne-sredine/
+  Found new: 294150dbc341-20260304-006.json
+    Title: Javni oglas za prijem pripravnika
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-pripravnika/
+  Found new: 294150dbc341-20260304-007.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-7/
+  Found new: 294150dbc341-20260304-008.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-6/
+  Found new: 294150dbc341-20260304-009.json
+    Title: JAVNI OGLAS za prijem u radni odnos na neodređeno vrijeme
+    Original URL: https://ussume.ba/javni-oglas-za-prijem-u-radni-odnos-na-neodredjeno-vrijeme-5/
+  Found new: 294150dbc341-20260304-010.json
+    Title: Uprava ŠPD „Unsko-sanske šume“ d.o.o. Bosanska Krupa donijela važne odluke na današnjoj sjednici
+    Original URL: https://ussume.ba/uprava-spd-unsko-sanske-sume-d-o-o-bosanska-krupa-donijela-vazne-odluke-na-danasnjoj-sjednici/
+  Found new: 294150dbc341-20260304-011.json
+    Title: - ŠPD Unsko-sanske šume d.o.o.
+    Original URL: https://ussume.ba/category/javni-oglasi/
+  Found new: 294150dbc341-20260304-012.json
+    Title: Puni naziv našeg poduzeća je ŠUMSKO PRIVREDNO DRUŠTVO «Unsko – sanske šume» d
+    Original URL: https://ussume.ba/o-nama/
+  Found new: 3e8968502fa0-20260304-001.json
+    Title: Ekonomija - finansije - osiguranje
+    Original URL: https://www.boljiposao.com/djelatnosti/ekonomija-finansije-osiguranje/
+  Found new: 5193499388d8-20260304-001.json
+    Title: Agencija za državnu službu BiH Агенција за државну службу Civil service agency of B&H
+    Original URL: https://konkursi.ads.gov.ba/Profil/LogOn
+  Found new: 5193499388d8-20260304-002.json
+    Title: Registracija
+    Original URL: https://konkursi.ads.gov.ba/Profil/SignUp
+  Found new: 5193499388d8-20260304-003.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj kandidata po ispitima
+  Found new: 5193499388d8-20260304-004.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj konkursa po tipu konkursa
+  Found new: 5193499388d8-20260304-005.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj oglasenih radnih mjesta po kategoriji sluzbenog zvanja
+  Found new: 5193499388d8-20260304-006.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj prijava kandidata po kategoriji sluzbenog zvanja
+  Found new: 5193499388d8-20260304-007.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj prijava kandidata po oglasenim radnim mjestima
+  Found new: 5193499388d8-20260304-008.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Broj prijava kandidata po pozicijama
+  Found new: 5193499388d8-20260304-009.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Otvoreni podaci o konkursnim procedurama
+  Found new: 5193499388d8-20260304-010.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Spolna struktura imenovanih
+  Found new: 5193499388d8-20260304-011.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Spolna struktura postavljenih
+  Found new: 5193499388d8-20260304-012.json
+    Title: The Report Viewer Web Control HTTP Handler has not been registered in the application's web
+    Original URL: https://konkursi.ads.gov.ba/Reporting/WebForm1.aspx?ReportURL=/ADS/PublicReports/Starosna struktura imenovanih
+  Found new: 659e8178b7a0-20260304-001.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Stranica/14
+  Found new: 659e8178b7a0-20260304-002.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Stranica/53
+  Found new: 659e8178b7a0-20260304-003.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Stranica/56
+  Found new: 659e8178b7a0-20260304-004.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Stranica/1056
+  Found new: 659e8178b7a0-20260304-005.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/89
+  Found new: 659e8178b7a0-20260304-006.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/91
+  Found new: 659e8178b7a0-20260304-007.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/86
+  Found new: 659e8178b7a0-20260304-008.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/80
+  Found new: 659e8178b7a0-20260304-009.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/75
+  Found new: 659e8178b7a0-20260304-010.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/72
+  Found new: 659e8178b7a0-20260304-011.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/69
+  Found new: 659e8178b7a0-20260304-012.json
+    Title: eKonkurs
+    Original URL: https://ekonkurs.adsfbih.gov.ba/BS/Home/Obavjestenje/68
+  Found new: 6fc27a7411d5-20260304-001.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/02/javni-oglas-137/
+  Found new: 6fc27a7411d5-20260304-002.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/02/javni-oglas-136/
+  Found new: 6fc27a7411d5-20260304-003.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/02/javni-oglas-135/
+  Found new: 6fc27a7411d5-20260304-004.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/02/javni-oglas-134/
+  Found new: 6fc27a7411d5-20260304-005.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/01/javni-oglas-133/
+  Found new: 6fc27a7411d5-20260304-006.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/01/javni-oglas-132/
+  Found new: 6fc27a7411d5-20260304-007.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/01/javni-oglas-130/
+  Found new: 6fc27a7411d5-20260304-008.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/01/javni-oglas-131/
+  Found new: 6fc27a7411d5-20260304-009.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2026/01/javni-oglas-129/
+  Found new: 6fc27a7411d5-20260304-010.json
+    Title: J A V N I O G L A S
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2025/12/j-a-v-n-i-o-g-l-a-s-128/
+  Found new: 6fc27a7411d5-20260304-011.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2025/11/javni-oglas-128/
+  Found new: 6fc27a7411d5-20260304-012.json
+    Title: JAVNI OGLAS
+    Original URL: https://www.bhtelecom.ba/javni-oglasi-za-posao/2025/10/javni-oglas-127/
+  Found new: 7dfd29ce3919-20260304-001.json
+    Title: Javni poziv za prijave na Obuku za šivenje
+    Original URL: https://bihac.nahla.ba/kursevi/javni-poziv-za-prijave-na-obuku-za-sivenje/
+  Found new: 8277faf88052-20260304-001.json
+    Title: Mustafa Ružnić, premijer Unsko- sanskog kantona prisustvovao je svečanom prijemu,
+    Original URL: http://vladausk.ba/v4/vrsta/aktuelnosti/1
+  Found new: 8277faf88052-20260304-002.json
+    Title: Poštovani gospodine Schmidt, obraćam vam se kao premijer Vlade Unsko-sanskog ... Preuzmi dokument
+    Original URL: http://vladausk.ba/v4/vrsta/vladaob/7
+  Found new: 8277faf88052-20260304-003.json
+    Title: Na danas održanoj sjednici, članovi Vlade Unsko - sanskog kantona, na prijedlog
+    Original URL: http://vladausk.ba/v4/vrsta/kategorija/9
+  Found new: 8277faf88052-20260304-004.json
+    Title: Preuzmi dokument
+    Original URL: http://vladausk.ba/v4/vrsta/kategorija/4
+  Found new: 8277faf88052-20260304-005.json
+    Title: OBAVIJEST O PROVOĐENJU POJAČANE KONTROLE UČESNIKA U SAOBRAĆAJU U cilju
+    Original URL: http://vladausk.ba/v4/vrsta/minob/6
+  Found new: 8277faf88052-20260304-006.json
+    Title: Preuzmi dokument
+    Original URL: http://vladausk.ba/v4/vrsta/kategorija/26
+  Found new: 8277faf88052-20260304-007.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bosne i Hercegovine
+    Original URL: http://vladausk.ba/v4/vrsta/kategorija/27
+  Found new: 8277faf88052-20260304-008.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji BiH ("Sl. ... Preudmi dokument
+    Original URL: http://vladausk.ba/v4/vrsta/kategorija/28
+  Found new: 8277faf88052-20260304-009.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bosne i Hercegovine
+    Original URL: https://vladausk.ba/v4/vrsta/kategorija/31
+  Found new: 8277faf88052-20260304-010.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bosne i Hercegovine
+    Original URL: https://vladausk.ba/v4/vrsta/kategorija/29
+  Found new: 8277faf88052-20260304-011.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bosne i Hercegovine
+    Original URL: https://vladausk.ba/v4/vrsta/kategorija/33
+  Found new: 8277faf88052-20260304-012.json
+    Title: Zakonom o razvojnom planiranju i upravljanju razvojem u Federaciji Bosne i Hercegovine
+    Original URL: https://vladausk.ba/v4/vrsta/kategorija/32
+  Found new: 8b18ef15f889-20260304-001.json
+    Title: Kontaminacija Pretprodaja
+    Original URL: https://cinestarcinemas.ba/bihac-bingo-centar/kontaminacija/6257
+  Found new: 8e23a1bdacbd-20260304-001.json
+    Title: Ministar
+    Original URL: https://www.fmf.gov.ba/Content/Read/o-ministru
+  Found new: 8e23a1bdacbd-20260304-002.json
+    Title: Organizacijske jedinice
+    Original URL: https://www.fmf.gov.ba/Content/Read/organizacijske-jedinice
+  Found new: 8e23a1bdacbd-20260304-003.json
+    Title: Plan rada
+    Original URL: https://www.fmf.gov.ba/Content/Read/plan-rada
+  Found new: 8e23a1bdacbd-20260304-004.json
+    Title: Bankovni računi i ID broj
+    Original URL: https://www.fmf.gov.ba/Content/Read/racun-id-broj
+  Found new: 8e23a1bdacbd-20260304-005.json
+    Title: Ispiši Podijeli Zakon o porezu na dohodak Zakon Zakon o porezu na dohodak Pravilnici
+    Original URL: https://www.fmf.gov.ba/Content/Read/zakoni
+  Found new: 8e23a1bdacbd-20260304-006.json
+    Title: Zakon o budžetima
+    Original URL: https://www.fmf.gov.ba/Content/Read/zakon-o-buzetima
+  Found new: 8e23a1bdacbd-20260304-007.json
+    Title: Ispiši Podijeli Budžet DOB Dokument okvirnog budžeta 2026-2028
+    Original URL: https://www.fmf.gov.ba/Content/Read/dob
+  Found new: 8e23a1bdacbd-20260304-008.json
+    Title: Ispiši Podijeli Budžet za 2026
+    Original URL: https://www.fmf.gov.ba/Content/Read/o-budzetu
+  Found new: 8e23a1bdacbd-20260304-009.json
+    Title: Smjernice ekonomske i fiskalne politike
+    Original URL: https://www.fmf.gov.ba/Content/Read/smjernice-ekonomske-fiskalne-politike
+  Found new: 8e23a1bdacbd-20260304-010.json
+    Title: Budžet za građane
+    Original URL: https://www.fmf.gov.ba/Content/Read/BudzetZaGradane
+  Found new: 9d6242671bb1-20260304-001.json
+    Title: Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme u Kantonalno tužilaštvo Unsko-
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/156918
+  Found new: 9d6242671bb1-20260304-002.json
+    Title: Obavijest kandidatima o polaganju pismenog ispita
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/153622
+  Found new: 9d6242671bb1-20260304-003.json
+    Title: Javni oglas za prijem državnog službenika a u radni odnos na određeno vrijeme u Kantonalno tužilaštvo Unsko - sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/152957
+  Found new: 9d6242671bb1-20260304-004.json
+    Title: Javni oglas za prijem namještenika u radni odnos na određeno vrijeme u Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/152950
+  Found new: 9d6242671bb1-20260304-005.json
+    Title: Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme u Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/152901
+  Found new: 9d6242671bb1-20260304-006.json
+    Title: Javni oglas za prijem namještenika u radni odnos na neodređeno vrijeme u Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/article/150184
+  Found new: 9d6242671bb1-20260304-007.json
+    Title: Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98
+  Found new: 9d6242671bb1-20260304-008.json
+    Title: Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/napredna-pretraga
+  Found new: 9d6242671bb1-20260304-009.json
+    Title: Nadležnost Tužilaštva
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/kategorije-vijesti/9845
+  Found new: 9d6242671bb1-20260304-010.json
+    Title: Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/kategorije-vijesti/9846
+  Found new: 9d6242671bb1-20260304-011.json
+    Title: Kantonalno tužilaštvo Unsko-sanskog kantona
+    Original URL: https://kt-bihac.pravosudje.ba/vstvfo/B/98/kategorije-vijesti/9841
+  Found new: a60bfdbeda75-20260304-001.json
+    Title: O Zavodu
+    Original URL: https://www.zzousk.ba/sadrzaj/o-zavodu/1
+  Found new: a60bfdbeda75-20260304-002.json
+    Title: Direktor
+    Original URL: https://www.zzousk.ba/sadrzaj/direktor/2
+  Found new: a60bfdbeda75-20260304-003.json
+    Title: Upravni odbor
+    Original URL: https://www.zzousk.ba/sadrzaj/upravni-odbor/3
+  Found new: a60bfdbeda75-20260304-004.json
+    Title: Poslovnice
+    Original URL: https://www.zzousk.ba/poslovnice
+  Found new: a60bfdbeda75-20260304-005.json
+    Title: Poslovnica Bihać
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bihac/5
+  Found new: a60bfdbeda75-20260304-006.json
+    Title: Poslovnica Cazin
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-cazin/6
+  Found new: a60bfdbeda75-20260304-007.json
+    Title: Poslovnica Bosanska Krupa
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanska-krupa/8
+  Found new: a60bfdbeda75-20260304-008.json
+    Title: Poslovnica Sanski Most
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-sanski-most/7
+  Found new: a60bfdbeda75-20260304-009.json
+    Title: Poslovnica Ključ
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-kljuc/9
+  Found new: a60bfdbeda75-20260304-010.json
+    Title: Poslovnica Bužim
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-buzim/10
+  Found new: a60bfdbeda75-20260304-011.json
+    Title: Poslovnica Velika Kladuša
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-velika-kladusa/12
+  Found new: a60bfdbeda75-20260304-012.json
+    Title: Poslovnica Bosanski Petrovac
+    Original URL: https://www.zzousk.ba/sadrzaj/poslovnica-bosanski-petrovac/11
+  Found new: ac6cc34214de-20260304-001.json
+    Title: Javni oglas za popunu radnog mjesta namještenika u Sudskoj policiji u Federaciji BiH
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/160155
+  Found new: ac6cc34214de-20260304-002.json
+    Title: Javni konkurs za prijem kandidata - kadeta radi obuke i prijema u radni odnos u Sudsku policiju u Federaciji Bosne i Hercegovine
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/159953
+  Found new: ac6cc34214de-20260304-003.json
+    Title: Lista pitanja koja će biti korištena prilikom izrade testa općeg znanja
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/159990
+  Found new: ac6cc34214de-20260304-004.json
+    Title: Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u Federaciji BiH
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/142950
+  Found new: ac6cc34214de-20260304-005.json
+    Title: Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u Federaciji BiH
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/139061
+  Found new: ac6cc34214de-20260304-006.json
+    Title: Javni oglas za popunu radnih mjesta namještenika u Sudskoj policiji u Federaciji BiH
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/article/133528
+  Found new: ac6cc34214de-20260304-007.json
+    Title: Sudska policija u Federaciji Bosne i Hercegovine
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257
+  Found new: ac6cc34214de-20260304-008.json
+    Title: Sudska policija u Federaciji Bosne i Hercegovine
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/napredna-pretraga
+  Found new: ac6cc34214de-20260304-009.json
+    Title: Osnivanje i historijat Sudske policije Federacije Bosne i Hercegovine
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/kategorije-vijesti/111114
+  Found new: ac6cc34214de-20260304-010.json
+    Title: Zakon o sudskoj policiji u Federaciji Bosne i Hercegovine („Službene novine Federacije BiH“, broj 77/20)
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/kategorije-vijesti/111115
+  Found new: ac6cc34214de-20260304-011.json
+    Title: Sudska policija u Federaciji Bosne i Hercegovine
+    Original URL: https://sudpol-fbih.pravosudje.ba/vstvfo/B/257/kategorije-vijesti/111175
+  Found new: be21791a9415-20260304-001.json
+    Title: BihaÄ ukinuo privilegije strankama: Kraj jeftinog zakupa gradskih prostora
+    Original URL: https://www.oslobodjenje.ba/vijesti/bih/bihac-ukinuo-privilegije-strankama-kraj-jeftinog-zakupa-gradskih-prostora-1116424/
+  Found new: f2bf616510e2-20260304-001.json
+    Title: Javni oglas za prijem namještenika na neodređeno vrijeme u Upravi policije Ministarstva unutrašnjih poslova Unsko-sanskog kantona
+    Original URL: https://mupusk.gov.ba/2026/02/25/javni-oglas-za-prijem-namjestenika-na-neodredjeno-vrijeme-u-upravi-policije-ministarstva-unutrasnjih-poslova-unsko-sanskog-kantona/
+  Found new: f2bf616510e2-20260304-002.json
+    Title: JAVNI OGLAS za prijem namještenika na određeno vrijeme u Ministarstvo unutrašnjih poslova Unsko-sanskog kantona
+    Original URL: https://mupusk.gov.ba/2026/02/19/javni-oglas-za-prijem-namjestenika-na-odredjeno-vrijeme-u-ministarstvo-unutrasnjih-poslova-unsko-sanskog-kantona/
+  Found new: f2bf616510e2-20260304-003.json
+    Title: Postani policajac, budi dio MUP-a
+    Original URL: https://mupusk.gov.ba/2026/02/11/postani-policajac-budi-dio-mup-a/
+  Found new: f2bf616510e2-20260304-004.json
+    Title: JAVNI KONKURS za popunu radnih mjesta državnih službenika u Ministarstvu unutrašnjih poslova Unsko – sanskog kantona
+    Original URL: https://mupusk.gov.ba/2026/01/08/javni-konkurs-za-popunu-radnih-mjesta-drzavnih-sluzbenika-u-ministarstvu-unutrasnjih-poslova-unsko-sanskog-kantona/
+  Found new: f2bf616510e2-20260304-005.json
+    Title: Prijem namještenika na neodređeno vrijeme u Ministarstvo unutrašnjih poslova
+    Original URL: https://mupusk.gov.ba/2025/12/15/prijem-namjestenika-na-neodredeno-vrijeme-u-ministarstvo-unutrasnjih-poslova/
+  Found new: f2bf616510e2-20260304-006.json
+    Title: JAVNI OGLAS
+    Original URL: https://mupusk.gov.ba/2025/12/11/javni-oglas/
+  Found new: f2bf616510e2-20260304-007.json
+    Title: Čestitka povodom Dana nezavisnosti Bosne i Hercegovine
+    Original URL: https://mupusk.gov.ba/2026/03/01/cestitka-povodom-dana-nezavisnosti-bosne-i-hercegovine/
+  Found new: f2bf616510e2-20260304-008.json
+    Title: Obilježavanje Dana nezavisnosti Bosne i Hercegovine
+    Original URL: https://mupusk.gov.ba/2026/02/27/obiljezavanje-dana-nezavisnosti-bosne-i-hercegovine/
+  Found new: f2bf616510e2-20260304-009.json
+    Title: Kategorija: Novosti
+    Original URL: https://mupusk.gov.ba/category/novosti/
+  Found new: f2bf616510e2-20260304-010.json
+    Title: Kategorija: Obavijesti
+    Original URL: https://mupusk.gov.ba/category/obavijesti/
+  Found new: f2bf616510e2-20260304-011.json
+    Title: Kategorija: Bilten
+    Original URL: https://mupusk.gov.ba/category/bilten/
+  Found new: f2bf616510e2-20260304-012.json
+    Title: Odluke Uprava policije
+    Original URL: https://mupusk.gov.ba/odluke/
+
+[1;33m📧 Sending email notifications...[0m
+  Dashboard URL: http://31.31.74.183:8080
+  Trying to send with 'mutt'...
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to hare.de@gmail.com with mutt
+Authenticating (PLAIN)...
+Closing connection to imap.gmail.com...
+  ✓ Email sent to danasbihac@gmail.com with mutt
+  [0;32m✓ Email notification sent successfully[0m
+
+[0;32m============================================================[0m
+[0;32m✅ ALL SCRAPERS COMPLETED[0m
+[0;32m============================================================[0m
