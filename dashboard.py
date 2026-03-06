@@ -27,10 +27,42 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.config['SESSION_COOKIE_SECURE'] = False
 app.config['SESSION_COOKIE_DOMAIN'] = None
 
+# ===== MAKE.COM WEBHOOKS =====
+def load_make_webhooks():
+    """Load Make.com webhook URLs from .make_tokens file"""
+    config_file = "/home/bihac-danas/web-scraper/.make_tokens"
+    webhooks = {
+        'webhook_url': None,
+        'webhook_url_konkursi': None
+    }
+    try:
+        with open(config_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith('#') or not line:
+                    continue
+                if 'WEBHOOK_URL=' in line:
+                    # Extract the value after the = sign
+                    value = line.split('WEBHOOK_URL=', 1)[1].strip()
+                    # Remove quotes if present
+                    value = value.strip('"').strip("'")
+                    # Don't confuse WEBHOOK_URL_KONKURSI with WEBHOOK_URL
+                    if 'KONKURSI' in line:
+                        webhooks['webhook_url_konkursi'] = value
+                    else:
+                        webhooks['webhook_url'] = value
+    except Exception as e:
+        print(f"ERROR loading Make webhooks: {e}")
+    return webhooks
+
 # ===== CONFIGURATION =====
 JSON_DIR = "/home/bihac-danas/web-scraper/facebook_ready_posts"
-WEBHOOK_URL = "https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb"
-WEBHOOK_URL_KONKURSI = os.getenv("WEBHOOK_URL_KONKURSI", "https://hook.eu1.make.com/m910901wp49ecauhcdf2fkn18t49jubt")
+
+# Load Make.com webhooks from .make_tokens file
+_make_webhooks = load_make_webhooks()
+WEBHOOK_URL = _make_webhooks.get('webhook_url')
+WEBHOOK_URL_KONKURSI = _make_webhooks.get('webhook_url_konkursi')
+
 USERS_FILE = "/home/bihac-danas/web-scraper/dashboard_users.json"
 CUSTOM_SCRAPE_STATE_FILE = "/home/bihac-danas/web-scraper/custom_dashboard_scrape_state.json"
 

@@ -46,6 +46,7 @@ dist/
 
 # API keys and sensitive configuration
 .deepseek_config
+.make_tokens
 *.config
 .env
 dashboard_users.json
@@ -53,6 +54,18 @@ dashboard_users.json
 *_access.log
 *_activity.log
 *failed_logins.log
+
+# Log files
+*.log
+*.log.*
+scraper_log.txt
+scraper_cron.log
+dashboard.log
+dashboard_access.log
+dashboard_activity.log
+email_sent.log
+failed_logins.log
+cleanup.log
 
 # Generated Facebook posts (output files)
 facebook_ready_posts/*.json
