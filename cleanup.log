@@ -537,3 +537,39 @@ To automate cleanup, add to crontab:
 
 This will run cleanup daily at 2 AM
 ==============================================
+🧹 Starting cleanup of Bihać Scrapers System...
+==============================================
+1. Cleaning Python temporary files...
+   ✓ Python cache cleaned
+2. Rotating log files...
+   ✓ Rotated: scraper_log.txt
+   ✓ Rotated: scraper_cron.log
+   ✓ Rotated: dashboard_access.log
+   ✓ Rotated: dashboard_activity.log
+   ✓ Rotated: dashboard.log
+   ✓ Rotated: email_sent.log
+   ✓ Rotated: failed_logins.log
+3. Cleaning old JSON files...
+   ✓ Removed 0 old JSON files (kept 10)
+4. Cleaning backup files...
+   ✓ Old backup files cleaned
+5. Cleaning temporary email files...
+   ✓ Temporary email files cleaned
+6. Cleaning browser cache...
+   ✓ Browser cache cleaned
+7. Checking disk space...
+   Current disk usage:
+/dev/mapper/ubuntu--vg-ubuntu--lv   14G   12G  1.3G  91% /
+8. Largest files in /home/bihac-danas/web-scraper:
+   No files larger than 10MB found
+9. Cleaning empty directories...
+   ✓ Empty directories removed
+
+==============================================
+✅ Cleanup completed!
+
+To automate cleanup, add to crontab:
+0 2 * * * /home/bihac-danas/web-scraper/cleanup_script.sh >> /home/bihac-danas/web-scraper/cleanup.log 2>&1
+
+This will run cleanup daily at 2 AM
+==============================================
