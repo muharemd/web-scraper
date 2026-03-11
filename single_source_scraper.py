@@ -42,14 +42,26 @@ def _load_state(state_file):
     if os.path.exists(state_file):
         with open(state_file, "r", encoding="utf-8") as file:
             data = json.load(file)
-            return set(data.get("scraped_urls", [])), set(data.get("content_hashes", []))
-    return set(), set()
+            scraped_urls = set(data.get("scraped_urls", []))
+            content_hashes = set(data.get("content_hashes", []))
+            # Backward compatible with old state files that do not have URL-level hashes.
+            raw_url_content_hashes = data.get("url_content_hashes", {})
+            if not isinstance(raw_url_content_hashes, dict):
+                raw_url_content_hashes = {}
+            url_content_hashes = {
+                str(url): str(content_hash)
+                for url, content_hash in raw_url_content_hashes.items()
+                if url and content_hash
+            }
+            return scraped_urls, content_hashes, url_content_hashes
+    return set(), set(), {}
 
 
-def _save_state(state_file, scraped_urls, content_hashes):
+def _save_state(state_file, scraped_urls, content_hashes, url_content_hashes):
     state = {
         "scraped_urls": list(scraped_urls),
         "content_hashes": list(content_hashes),
+        "url_content_hashes": url_content_hashes,
         "last_run": datetime.now().isoformat(),
         "script_name": os.path.basename(sys.argv[0]),
     }
@@ -244,7 +256,7 @@ def _extract_content(soup):
         elem = soup.select_one(selector)
         if not elem:
             continue
-        for trash in elem.select("script, style, iframe, nav, footer, header, aside"):
+        for trash in elem.select("script, style, iframe, nav, footer, header, aside, .entry-meta, .post-meta, .author, .byline, .meta, .entry-footer, .post-footer, .comment, .comments, .share, .social-share"):
             trash.decompose()
         text = _clean_text(elem.get_text(" "))
         if len(text) >= 140:
@@ -390,8 +402,9 @@ def _next_filename(script_hash):
 def run_single_source(target_url, source_name, state_file, region_terms=None):
     script_name = os.path.basename(sys.argv[0])
     script_hash = hashlib.md5(script_name.encode()).hexdigest()[:12]
-    scraped_urls, content_hashes = _load_state(state_file)
+    scraped_urls, content_hashes, url_content_hashes = _load_state(state_file)
     new_saved = 0
+    updated_saved = 0
 
     session = requests.Session()
     session.headers.update(HEADERS)
@@ -407,8 +420,7 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
         links = [target_url]
 
     for link in links:
-        if link in scraped_urls:
-            continue
+        seen_before = link in scraped_urls
 
         article = _extract_article(link, source_name, session)
         if not article:
@@ -424,8 +436,14 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
 
         fb_content = f"{article['content'][:MAX_CONTENT_LEN]}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {article['url']}"
         content_hash = _generate_content_hash(fb_content)
-        if content_hash in content_hashes:
+        previous_hash = url_content_hashes.get(link)
+
+        if seen_before and previous_hash == content_hash:
+            continue
+
+        if content_hash in content_hashes and previous_hash != content_hash:
             scraped_urls.add(link)
+            url_content_hashes[link] = content_hash
             continue
 
         payload = {
@@ -451,9 +469,15 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
 
         scraped_urls.add(link)
         content_hashes.add(content_hash)
-        new_saved += 1
-        print(f"  💾 Saved: {filename} | {article['title'][:70]}")
+        url_content_hashes[link] = content_hash
+
+        if seen_before:
+            updated_saved += 1
+            print(f"  ♻️ Updated: {filename} | {article['title'][:70]}")
+        else:
+            new_saved += 1
+            print(f"  💾 Saved: {filename} | {article['title'][:70]}")
         time.sleep(0.2)
 
-    _save_state(state_file, scraped_urls, content_hashes)
-    print(f"✅ Finished. New posts saved: {new_saved}")
+    _save_state(state_file, scraped_urls, content_hashes, url_content_hashes)
+    print(f"✅ Finished. New posts saved: {new_saved} | Updated posts saved: {updated_saved}")

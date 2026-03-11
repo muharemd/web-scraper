@@ -43,14 +43,25 @@ def _load_state(path):
                 for url in data.get("scraped_urls", [])
                 if isinstance(url, str) and "/eidoglasGetData/" in url
             }
-            return valid_urls, set(data.get("content_hashes", []))
-    return set(), set()
+            content_hashes = set(data.get("content_hashes", []))
+            # Backward compatible with old state files that do not have URL-level hashes.
+            raw_url_content_hashes = data.get("url_content_hashes", {})
+            if not isinstance(raw_url_content_hashes, dict):
+                raw_url_content_hashes = {}
+            url_content_hashes = {
+                str(url): str(content_hash)
+                for url, content_hash in raw_url_content_hashes.items()
+                if isinstance(url, str) and "/eidoglasGetData/" in url and content_hash
+            }
+            return valid_urls, content_hashes, url_content_hashes
+    return set(), set(), {}
 
 
-def _save_state(path, scraped_urls, content_hashes):
+def _save_state(path, scraped_urls, content_hashes, url_content_hashes):
     state = {
         "scraped_urls": list(scraped_urls),
         "content_hashes": list(content_hashes),
+        "url_content_hashes": url_content_hashes,
         "last_run": datetime.now().isoformat(),
         "script_name": os.path.basename(sys.argv[0]),
     }
@@ -219,7 +230,7 @@ def _image_from_detail(detail):
 def run():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     script_hash = hashlib.md5(os.path.basename(sys.argv[0]).encode()).hexdigest()[:12]
-    scraped_urls, content_hashes = _load_state(STATE_FILE)
+    scraped_urls, content_hashes, url_content_hashes = _load_state(STATE_FILE)
 
     session = requests.Session()
     session.headers.update(HEADERS)
@@ -234,16 +245,22 @@ def run():
     print(f"Found oglasi: {len(rows)}")
 
     new_saved = 0
+    updated_saved = 0
     for row in rows:
         detail_api_url = f"{BASE_URL}/eidoglasGetData/{row['id']}"
-        if detail_api_url in scraped_urls:
-            continue
+        seen_before = detail_api_url in scraped_urls
 
         detail = _fetch_detail(row["id"], session)
         content = _compose_content(row, detail)
         content_hash = _generate_content_hash(content)
-        if content_hash in content_hashes:
+        previous_hash = url_content_hashes.get(detail_api_url)
+
+        if seen_before and previous_hash == content_hash:
+            continue
+
+        if content_hash in content_hashes and previous_hash != content_hash:
             scraped_urls.add(detail_api_url)
+            url_content_hashes[detail_api_url] = content_hash
             continue
 
         date_value = _clean_text(detail.get("datum_objave")) or datetime.now().strftime("%Y-%m-%d")
@@ -284,11 +301,17 @@ def run():
 
         scraped_urls.add(detail_api_url)
         content_hashes.add(content_hash)
-        new_saved += 1
-        print(f"  💾 Saved: {filename} | {row['title'][:70]}")
+        url_content_hashes[detail_api_url] = content_hash
 
-    _save_state(STATE_FILE, scraped_urls, content_hashes)
-    print(f"✅ Finished. New posts saved: {new_saved}")
+        if seen_before:
+            updated_saved += 1
+            print(f"  ♻️ Updated: {filename} | {row['title'][:70]}")
+        else:
+            new_saved += 1
+            print(f"  💾 Saved: {filename} | {row['title'][:70]}")
+
+    _save_state(STATE_FILE, scraped_urls, content_hashes, url_content_hashes)
+    print(f"✅ Finished. New posts saved: {new_saved} | Updated posts saved: {updated_saved}")
 
 
 if __name__ == "__main__":

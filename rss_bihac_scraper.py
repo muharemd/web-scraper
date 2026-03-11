@@ -58,14 +58,26 @@ def _load_state(state_file):
     if os.path.exists(state_file):
         with open(state_file, "r", encoding="utf-8") as file:
             data = json.load(file)
-            return set(data.get("scraped_urls", [])), set(data.get("content_hashes", []))
-    return set(), set()
+            scraped_urls = set(data.get("scraped_urls", []))
+            content_hashes = set(data.get("content_hashes", []))
+            # Backward compatible with old state files that do not have URL-level hashes.
+            raw_url_content_hashes = data.get("url_content_hashes", {})
+            if not isinstance(raw_url_content_hashes, dict):
+                raw_url_content_hashes = {}
+            url_content_hashes = {
+                str(url): str(content_hash)
+                for url, content_hash in raw_url_content_hashes.items()
+                if url and content_hash
+            }
+            return scraped_urls, content_hashes, url_content_hashes
+    return set(), set(), {}
 
 
-def _save_state(state_file, scraped_urls, content_hashes):
+def _save_state(state_file, scraped_urls, content_hashes, url_content_hashes):
     state = {
         "scraped_urls": list(scraped_urls),
         "content_hashes": list(content_hashes),
+        "url_content_hashes": url_content_hashes,
         "last_run": datetime.now().isoformat(),
         "script_name": os.path.basename(sys.argv[0]),
     }
@@ -154,7 +166,7 @@ def _entry_image(entry):
 def run_rss_source(feed_url, source_name, state_file):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     script_hash = hashlib.md5(os.path.basename(sys.argv[0]).encode()).hexdigest()[:12]
-    scraped_urls, content_hashes = _load_state(state_file)
+    scraped_urls, content_hashes, url_content_hashes = _load_state(state_file)
 
     print("=" * 60)
     print(f"📰 {source_name} RSS SCRAPER")
@@ -166,8 +178,17 @@ def run_rss_source(feed_url, source_name, state_file):
     print(f"Fetched entries: {len(entries)}")
 
     new_saved = 0
-    sequence = 1
+    updated_saved = 0
     date_part = datetime.now().strftime("%Y%m%d")
+    prefix = f"{script_hash}-{date_part}-"
+    existing = []
+    for filename in os.listdir(OUTPUT_DIR):
+        if filename.startswith(prefix) and filename.endswith(".json"):
+            try:
+                existing.append(int(filename.replace(prefix, "").replace(".json", "")))
+            except Exception:
+                continue
+    sequence = max(existing) + 1 if existing else 1
 
     for entry in entries:
         title = _clean_text(getattr(entry, "title", ""))
@@ -175,17 +196,25 @@ def run_rss_source(feed_url, source_name, state_file):
         summary = _clean_text(getattr(entry, "summary", "") or getattr(entry, "description", ""))
         categories = [tag.get("term", "") for tag in getattr(entry, "tags", []) if isinstance(tag, dict)]
 
-        if not url or url in scraped_urls:
+        if not url:
             continue
         if not _is_bihac_related(title, summary, categories):
             continue
+
+        seen_before = url in scraped_urls
 
         body = summary if summary else title
         body = body[:MAX_CONTENT_LEN] + ("..." if len(body) > MAX_CONTENT_LEN else "")
         content = f"{body}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {url}"
         content_hash = _generate_content_hash(content)
-        if content_hash in content_hashes:
+        previous_hash = url_content_hashes.get(url)
+
+        if seen_before and previous_hash == content_hash:
+            continue
+
+        if content_hash in content_hashes and previous_hash != content_hash:
             scraped_urls.add(url)
+            url_content_hashes[url] = content_hash
             continue
 
         payload = {
@@ -214,8 +243,13 @@ def run_rss_source(feed_url, source_name, state_file):
 
         scraped_urls.add(url)
         content_hashes.add(content_hash)
-        new_saved += 1
-        print(f"  💾 Saved: {filename} | {title[:70]}")
+        url_content_hashes[url] = content_hash
+        if seen_before:
+            updated_saved += 1
+            print(f"  ♻️ Updated: {filename} | {title[:70]}")
+        else:
+            new_saved += 1
+            print(f"  💾 Saved: {filename} | {title[:70]}")
 
-    _save_state(state_file, scraped_urls, content_hashes)
-    print(f"✅ Finished. New Bihać-related posts saved: {new_saved}")
+    _save_state(state_file, scraped_urls, content_hashes, url_content_hashes)
+    print(f"✅ Finished. New Bihać-related posts saved: {new_saved} | Updated posts saved: {updated_saved}")
