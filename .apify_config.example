@@ -1,0 +1,29 @@
+# Copy to .apify_config and fill with your values.
+# This file is intentionally local-only and should NOT be committed.
+
+# Required (only this is mandatory)
+APIFY_TOKEN="replace-with-apify-token"
+
+# Optional actor/task override.
+# If both are empty, importer uses actor: apify~facebook-posts-scraper
+# APIFY_TASK_ID="replace-with-task-id"
+# APIFY_ACTOR_ID="apify~facebook-posts-scraper"
+
+# Optional API settings
+APIFY_API_BASE="https://api.apify.com/v2"
+APIFY_WAIT_FOR_FINISH="240"
+APIFY_POLL_INTERVAL="5"
+
+# Input mapping / defaults for facebook-posts-scraper
+APIFY_URL_FIELD="startUrls"
+APIFY_URL_OBJECTS="true"
+APIFY_MAX_ITEMS="10"
+APIFY_MAX_ITEMS_FIELD="maxItems"
+APIFY_INCLUDE_POSTS="true"
+APIFY_INCLUDE_IMAGES="true"
+
+# Optional: load extra input payload from file and inject URLs into it
+# APIFY_STATIC_INPUT_FILE="/home/bihac-danas/web-scraper/apify_input_template.json"
+
+# Optional: limit number of fetched dataset items
+# APIFY_FETCH_LIMIT="100"

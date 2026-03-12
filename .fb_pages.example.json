@@ -1,0 +1,12 @@
+{
+  "pages": [
+    {
+      "id": "example1",
+      "name": "Example Facebook Page",
+      "url": "https://www.facebook.com/example",
+      "enabled": true,
+      "created_at": "2026-03-11T00:00:00"
+    }
+  ],
+  "updated_at": "2026-03-11T00:00:00"
+}

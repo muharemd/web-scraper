@@ -80,6 +80,9 @@ def _is_article_candidate(link_url, listing_url):
         return False
     if any(token in lowered for token in ["/rss", "/feed", ".xml", "rss="]):
         return False
+    # Skip taxonomy/archive pagination links and keep post URLs only.
+    if any(token in lowered for token in ["/category/", "/tag/", "/author/", "/page/"]):
+        return False
     if any(lowered.endswith(ext) for ext in [".jpg", ".jpeg", ".png", ".gif", ".svg", ".pdf", ".zip", ".doc", ".docx", ".mp4"]):
         return False
     if any(token in lowered for token in ["/kontakt", "/contact", "/about", "/author", "/login", "/wp-admin", "/cdn-cgi/"]):
@@ -92,7 +95,7 @@ def _is_article_candidate(link_url, listing_url):
         return False
 
     positive_tokens = [
-        "vijest", "vijesti", "novost", "novosti", "clanak", "article", "tema", "tag", "kategorija", "category",
+        "vijest", "vijesti", "novost", "novosti", "clanak", "article", "tema",
         "politika", "sport", "kultura", "magazin", "bihac", "usk", "grad-bihac"
     ]
     if any(token in lowered for token in positive_tokens):
@@ -151,7 +154,47 @@ def _fetch_html(url, session):
     try:
         response = session.get(url, timeout=20)
         response.raise_for_status()
-        return response.text
+        raw_bytes = response.content
+        if not raw_bytes:
+            return None
+
+        encodings = []
+
+        # Prefer charset from page metadata when available.
+        meta_match = re.search(br"charset\s*=\s*['\"]?([a-zA-Z0-9._-]+)", raw_bytes[:8192], flags=re.IGNORECASE)
+        if meta_match:
+            try:
+                meta_encoding = meta_match.group(1).decode("ascii", errors="ignore").strip()
+                if meta_encoding:
+                    encodings.append(meta_encoding)
+            except Exception:
+                pass
+
+        apparent = (response.apparent_encoding or "").strip()
+        if apparent:
+            encodings.append(apparent)
+
+        declared = (response.encoding or "").strip()
+        # requests often defaults to ISO-8859-1 when charset is missing.
+        if declared and declared.lower() not in {"iso-8859-1", "latin-1", "us-ascii", "ascii"}:
+            encodings.append(declared)
+
+        encodings.extend(["utf-8", "cp1250", "iso-8859-2", declared])
+
+        tried = set()
+        for encoding in encodings:
+            if not encoding:
+                continue
+            key = encoding.lower()
+            if key in tried:
+                continue
+            tried.add(key)
+            try:
+                return raw_bytes.decode(encoding)
+            except Exception:
+                continue
+
+        return raw_bytes.decode("utf-8", errors="replace")
     except Exception as exc:
         print(f"  ❌ Fetch failed: {url} | {exc}")
         return None
@@ -301,6 +344,38 @@ def _extract_date(soup):
 
 
 def _extract_image(soup, page_url):
+    def _first_src_from_srcset(srcset_value):
+        if not srcset_value:
+            return None
+        first = srcset_value.split(",", 1)[0].strip()
+        if not first:
+            return None
+        return first.split(" ", 1)[0].strip() or None
+
+    def _img_candidate_url(img_tag):
+        for attr in ["data-src", "data-lazy-src", "data-original", "data-image", "src"]:
+            value = img_tag.get(attr)
+            if value:
+                return value
+
+        srcset_candidate = _first_src_from_srcset(img_tag.get("data-srcset") or img_tag.get("srcset"))
+        if srcset_candidate:
+            return srcset_candidate
+        return None
+
+    def _looks_like_logo_or_ad(candidate_url, img_tag=None):
+        lowered = (candidate_url or "").lower()
+        if any(token in lowered for token in ["logo", "banner", "advert", "gravatar", "avatar", "v10.png", "/ads/", "adservice"]):
+            return True
+
+        if img_tag is not None:
+            meta_text = " ".join(img_tag.get("class", []))
+            meta_text = f"{meta_text} {img_tag.get('alt', '')} {img_tag.get('title', '')}".lower()
+            if any(token in meta_text for token in ["logo", "banner", "advert", "avatar"]):
+                return True
+
+        return False
+
     def is_valid_image(url):
         if not url:
             return False
@@ -318,7 +393,7 @@ def _extract_image(soup, page_url):
             "noscript=1",
             "spacer.gif",
             "blank.gif",
-            "logo",
+            "gravatar.com/avatar",
         ]
         if any(pattern in lowered for pattern in blocked_patterns):
             return False
@@ -339,21 +414,43 @@ def _extract_image(soup, page_url):
         "meta[property='og:image:url']",
         "meta[name='twitter:image']",
         "meta[name='twitter:image:src']",
+        "link[rel='image_src']",
     ]
 
     for selector in candidate_selectors:
         meta_img = soup.select_one(selector)
-        if meta_img and meta_img.get("content"):
-            candidate = urljoin(page_url, meta_img.get("content"))
+        if not meta_img:
+            continue
+        raw_candidate = meta_img.get("content") or meta_img.get("href")
+        if raw_candidate:
+            candidate = urljoin(page_url, raw_candidate)
+            if _looks_like_logo_or_ad(candidate):
+                continue
             if is_valid_image(candidate):
                 return candidate
 
-    for selector in ["article img[src]", "main img[src]", ".content img[src]", "img[src]"]:
+    image_selectors = [
+        "img.wp-post-image",
+        ".post-thumbnail img",
+        ".td-post-featured-image img",
+        ".tdb_single_featured_image img",
+        "article img",
+        ".entry-content img",
+        ".post-content img",
+        ".td-post-content img",
+        "main img",
+        ".content img",
+        "img",
+    ]
+
+    for selector in image_selectors:
         for img in soup.select(selector):
-            src = img.get("src")
+            src = _img_candidate_url(img)
             if not src:
                 continue
             candidate = urljoin(page_url, src)
+            if _looks_like_logo_or_ad(candidate, img):
+                continue
             if is_valid_image(candidate):
                 return candidate
 

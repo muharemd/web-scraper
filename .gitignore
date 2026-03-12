@@ -47,6 +47,10 @@ dist/
 # API keys and sensitive configuration
 .deepseek_config
 .make_tokens
+.apify_config
+.wp_config
+.fb_pages.json
+.fb_pages_preconfigured.json
 *.config
 .env
 dashboard_users.json

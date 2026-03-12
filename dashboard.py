@@ -56,22 +56,92 @@ def load_make_webhooks():
     return webhooks
 
 # ===== CONFIGURATION =====
-JSON_DIR = "/home/bihac-danas/web-scraper/facebook_ready_posts"
+BASE_DIR = "/home/bihac-danas/web-scraper"
+JSON_DIR = os.path.join(BASE_DIR, "facebook_ready_posts")
+FB_PAGES_FILE = os.path.join(BASE_DIR, ".fb_pages.json")
+FB_PAGES_PRECONFIGURED_FILE = os.path.join(BASE_DIR, ".fb_pages_preconfigured.json")
+APIFY_SCRAPE_SCRIPT = os.path.join(BASE_DIR, "run_apify_facebook_scrape.sh")
+WORDPRESS_PUBLISH_SCRIPT = os.path.join(BASE_DIR, "post_to_wp.sh")
+APIFY_RESULT_PREFIX = "__APIFY_RESULT__"
+WP_RESULT_PREFIX = "__WP_RESULT__"
+
+WP_CATEGORIES = [
+    {"id": 28, "name": "Aktuelno", "parent": 0},
+    {"id": 20, "name": "Business", "parent": 0},
+    {"id": 40, "name": "Elektrodistribucija", "parent": 31},
+    {"id": 19, "name": "Foods", "parent": 4},
+    {"id": 17, "name": "Games", "parent": 4},
+    {"id": 31, "name": "Javni Servisi", "parent": 0},
+    {"id": 38, "name": "Komunalno", "parent": 31},
+    {"id": 22, "name": "Life Style", "parent": 0},
+    {"id": 35, "name": "Najave", "parent": 0},
+    {"id": 42, "name": "Obrazovanje", "parent": 31},
+    {"id": 36, "name": "Odmor u Bihaću", "parent": 0},
+    {"id": 44, "name": "Policija / MUP", "parent": 31},
+    {"id": 33, "name": "Posao", "parent": 0},
+    {"id": 41, "name": "Pošta", "parent": 31},
+    {"id": 32, "name": "Servisi Za Svaki Dan", "parent": 0},
+    {"id": 34, "name": "Službene Objave", "parent": 0},
+    {"id": 43, "name": "Socijalna zaštita", "parent": 31},
+    {"id": 30, "name": "Sport", "parent": 0},
+    {"id": 21, "name": "Tech", "parent": 0},
+    {"id": 13, "name": "Travel", "parent": 4},
+    {"id": 1, "name": "Uncategorized", "parent": 0},
+    {"id": 45, "name": "Vatrogasci", "parent": 31},
+    {"id": 29, "name": "Vijesti BiH i Regija", "parent": 0},
+    {"id": 26, "name": "Vijesti Bihać", "parent": 0},
+    {"id": 27, "name": "Vijesti USK", "parent": 0},
+    {"id": 39, "name": "Vodovod", "parent": 31},
+    {"id": 4, "name": "World", "parent": 0},
+    {"id": 37, "name": "Zdravstvo", "parent": 31},
+]
+WP_CATEGORY_IDS = {str(cat["id"]) for cat in WP_CATEGORIES}
+_WP_CATEGORY_NAME_BY_ID = {cat["id"]: cat["name"] for cat in WP_CATEGORIES}
+WP_CATEGORY_OPTIONS = []
+for cat in WP_CATEGORIES:
+    parent_id = cat.get("parent", 0)
+    parent_name = _WP_CATEGORY_NAME_BY_ID.get(parent_id, "") if parent_id else ""
+    label = f"{parent_name} / {cat['name']}" if parent_name else cat["name"]
+    WP_CATEGORY_OPTIONS.append({
+        "id": str(cat["id"]),
+        "name": cat["name"],
+        "parent": parent_id,
+        "label": label,
+    })
+
+
+def load_wp_default_category():
+    default_category = "36"
+    config_file = os.path.join(BASE_DIR, ".wp_config")
+    try:
+        with open(config_file, "r", encoding="utf-8") as handle:
+            for raw_line in handle:
+                line = raw_line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "WP_DEFAULT_CATEGORY=" not in line:
+                    continue
+                value = line.split("WP_DEFAULT_CATEGORY=", 1)[1].strip().strip('"').strip("'")
+                if value.isdigit():
+                    return value
+    except Exception:
+        pass
+    return default_category
 
 # Load Make.com webhooks from .make_tokens file
 _make_webhooks = load_make_webhooks()
 WEBHOOK_URL = _make_webhooks.get('webhook_url')
 WEBHOOK_URL_KONKURSI = _make_webhooks.get('webhook_url_konkursi')
 
-USERS_FILE = "/home/bihac-danas/web-scraper/dashboard_users.json"
-CUSTOM_SCRAPE_STATE_FILE = "/home/bihac-danas/web-scraper/custom_dashboard_scrape_state.json"
+USERS_FILE = os.path.join(BASE_DIR, "dashboard_users.json")
+CUSTOM_SCRAPE_STATE_FILE = os.path.join(BASE_DIR, "custom_dashboard_scrape_state.json")
 
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 # ===== SECURITY LOGGING =====
-ACCESS_LOG = "/home/bihac-danas/web-scraper/dashboard_access.log"
-ACTIVITY_LOG = "/home/bihac-danas/web-scraper/dashboard_activity.log"
-FAILED_LOGIN_LOG = "/home/bihac-danas/web-scraper/failed_logins.log"
+ACCESS_LOG = os.path.join(BASE_DIR, "dashboard_access.log")
+ACTIVITY_LOG = os.path.join(BASE_DIR, "dashboard_activity.log")
+FAILED_LOGIN_LOG = os.path.join(BASE_DIR, "failed_logins.log")
 
 def log_access(ip, username, action, details="", status="SUCCESS"):
     """Log user access attempts"""
@@ -321,8 +391,8 @@ def logout():
     return redirect(url_for('login'))
 
 # ===== DASHBOARD FUNCTIONALITY =====
-def get_articles():
-    """Get all articles from JSON files"""
+def get_articles(offset=0, limit=50):
+    """Get articles from JSON files with pagination (offset/limit)"""
     articles = []
     
     if not os.path.exists(JSON_DIR):
@@ -333,7 +403,8 @@ def get_articles():
         files = [f for f in os.listdir(JSON_DIR) if f.endswith('.json')]
         files.sort(key=lambda x: os.path.getmtime(os.path.join(JSON_DIR, x)), reverse=True)
         
-        for filename in files[:50]:
+        page_files = files[offset:(offset + limit)] if limit else files[offset:]
+        for filename in page_files:
             filepath = os.path.join(JSON_DIR, filename)
             
             try:
@@ -382,7 +453,11 @@ def get_articles():
                     'source_name': source_name,
                     'url': data.get('url', '#'),
                     'is_new': not bool(data.get('published')),
-                    'image_url': data.get('image_url', '')
+                    'image_url': data.get('image_url', ''),
+                    'wp_published': data.get('wp_published', ''),
+                    'wp_url': data.get('wp_url', ''),
+                    'wp_post_id': data.get('wp_post_id', ''),
+                    'wp_category': data.get('wp_category', ''),
                 })
                 
             except Exception as e:
@@ -469,6 +544,143 @@ def _load_custom_state():
 def _save_custom_state(state):
     with open(CUSTOM_SCRAPE_STATE_FILE, "w", encoding="utf-8") as handle:
         json.dump(state, handle, indent=2, ensure_ascii=False)
+
+
+def _extract_tagged_json(prefix, text):
+    """Parse one JSON payload from a tagged stdout line."""
+    for line in (text or "").splitlines():
+        if line.startswith(prefix):
+            raw_json = line[len(prefix):].strip()
+            try:
+                return json.loads(raw_json)
+            except Exception:
+                return None
+    return None
+
+
+def _default_fb_pages_payload():
+    return {
+        "pages": [],
+        "manual_pages": [],
+        "preconfigured_pages": [],
+        "updated_at": datetime.now().isoformat(),
+    }
+
+
+def _normalize_page_url(url):
+    return _clean_text(url).rstrip("/").lower()
+
+
+def _stable_page_id(name, url, source_file):
+    seed = f"{source_file}|{_clean_text(name)}|{_normalize_page_url(url)}"
+    return hashlib.md5(seed.encode()).hexdigest()[:16]
+
+
+def _load_pages_from_file(path, source_file):
+    if not os.path.exists(path):
+        return []
+
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
+            data = json.load(handle)
+            pages = data.get("pages") if isinstance(data, dict) else None
+            if not isinstance(pages, list):
+                return []
+
+            cleaned = []
+            for page in pages:
+                if not isinstance(page, dict):
+                    continue
+                name = _clean_text(page.get("name", ""))
+                url = _clean_text(page.get("url", ""))
+                if not name or not url:
+                    continue
+
+                cleaned.append({
+                    "id": page.get("id") or _stable_page_id(name, url, source_file),
+                    "name": name,
+                    "url": url,
+                    "enabled": bool(page.get("enabled", True)),
+                    "created_at": page.get("created_at") or datetime.now().isoformat(),
+                    "source_file": source_file,
+                })
+            return cleaned
+    except Exception:
+        return []
+
+
+def _merge_fb_pages(preconfigured_pages, manual_pages):
+    merged = {}
+
+    for page in preconfigured_pages:
+        key = _normalize_page_url(page.get("url", ""))
+        if not key:
+            continue
+        merged[key] = page
+
+    # Manual pages override same URLs from preconfigured file.
+    for page in manual_pages:
+        key = _normalize_page_url(page.get("url", ""))
+        if not key:
+            continue
+        merged[key] = page
+
+    return list(merged.values())
+
+
+def _load_fb_pages_config():
+    manual_pages = _load_pages_from_file(FB_PAGES_FILE, "manual")
+    preconfigured_pages = _load_pages_from_file(FB_PAGES_PRECONFIGURED_FILE, "preconfigured")
+    pages = _merge_fb_pages(preconfigured_pages, manual_pages)
+
+    return {
+        "pages": pages,
+        "manual_pages": manual_pages,
+        "preconfigured_pages": preconfigured_pages,
+        "updated_at": datetime.now().isoformat(),
+    }
+
+
+def _save_fb_pages_config(payload):
+    cleaned_pages = []
+    for page in payload.get("pages", []):
+        if not isinstance(page, dict):
+            continue
+
+        name = _clean_text(page.get("name", ""))
+        url = _clean_text(page.get("url", ""))
+        if not name or not url:
+            continue
+
+        source_file = page.get("source_file", "manual")
+        if source_file == "preconfigured":
+            continue
+
+        cleaned_pages.append({
+            "id": page.get("id") or _stable_page_id(name, url, "manual"),
+            "name": name,
+            "url": url,
+            "enabled": bool(page.get("enabled", True)),
+            "created_at": page.get("created_at") or datetime.now().isoformat(),
+        })
+
+    data = {
+        "pages": cleaned_pages,
+        "updated_at": datetime.now().isoformat(),
+    }
+
+    with open(FB_PAGES_FILE, "w", encoding="utf-8") as handle:
+        json.dump(data, handle, ensure_ascii=False, indent=2)
+
+    return data
+
+
+def _is_valid_http_url(url):
+    return isinstance(url, str) and url.startswith(("http://", "https://"))
+
+
+def _get_fb_pages():
+    return _load_fb_pages_config().get("pages", [])
 
 
 def _next_output_filename(source_hash):
@@ -732,6 +944,178 @@ def custom_scrape_reset():
         log_activity(client_ip, username, "CUSTOM_SCRAPE_STATE_RESET_FAILED", str(exc))
         return jsonify({'status': 'error', 'message': str(exc)}), 500
 
+
+@app.route('/api/facebook-pages', methods=['GET'])
+@login_required
+def get_facebook_pages():
+    pages = _get_fb_pages()
+    return jsonify({
+        'status': 'success',
+        'pages': pages,
+    })
+
+
+@app.route('/api/facebook-pages', methods=['POST'])
+@login_required
+def add_facebook_page():
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    payload = request.get_json(silent=True) or {}
+
+    name = _clean_text(payload.get('name', ''))
+    url = _clean_text(payload.get('url', ''))
+    enabled = bool(payload.get('enabled', True))
+
+    if not name:
+        return jsonify({'status': 'error', 'message': 'Page name is required'}), 400
+    if not _is_valid_http_url(url):
+        return jsonify({'status': 'error', 'message': 'URL must start with http:// or https://'}), 400
+
+    config = _load_fb_pages_config()
+    pages = config.get('pages', [])
+    manual_pages = config.get('manual_pages', [])
+    normalized_urls = {(_clean_text(p.get('url', '')).rstrip('/')).lower() for p in pages}
+    if url.rstrip('/').lower() in normalized_urls:
+        return jsonify({'status': 'error', 'message': 'This page URL is already in the list'}), 409
+
+    new_page = {
+        'id': secrets.token_hex(8),
+        'name': name,
+        'url': url,
+        'enabled': enabled,
+        'created_at': datetime.now().isoformat(),
+        'source_file': 'manual',
+    }
+    manual_pages.append(new_page)
+    _save_fb_pages_config({'pages': manual_pages})
+
+    log_activity(client_ip, username, 'FB_PAGE_ADDED', f"{name} | {url}")
+    return jsonify({
+        'status': 'success',
+        'message': 'Facebook page source added.',
+        'page': new_page,
+    })
+
+
+@app.route('/api/facebook-pages/<page_id>/toggle', methods=['POST'])
+@login_required
+def toggle_facebook_page(page_id):
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    payload = request.get_json(silent=True) or {}
+
+    config = _load_fb_pages_config()
+    pages = config.get('pages', [])
+    target_page = next((p for p in pages if p.get('id') == page_id), None)
+    if not target_page:
+        return jsonify({'status': 'error', 'message': 'Page not found'}), 404
+
+    if target_page.get('source_file') == 'preconfigured':
+        return jsonify({
+            'status': 'error',
+            'message': 'This is a preconfigured page. Edit .fb_pages_preconfigured.json to change it.'
+        }), 400
+
+    manual_pages = config.get('manual_pages', [])
+    manual_target = next((p for p in manual_pages if p.get('id') == page_id), None)
+    if not manual_target:
+        return jsonify({'status': 'error', 'message': 'Manual page not found'}), 404
+
+    if 'enabled' in payload:
+        manual_target['enabled'] = bool(payload.get('enabled'))
+    else:
+        manual_target['enabled'] = not bool(manual_target.get('enabled', True))
+
+    _save_fb_pages_config({'pages': manual_pages})
+    log_activity(client_ip, username, 'FB_PAGE_TOGGLED', f"{manual_target.get('name', '')} -> {manual_target.get('enabled')}")
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Facebook page updated.',
+        'page': manual_target,
+    })
+
+
+@app.route('/api/facebook-pages/<page_id>', methods=['DELETE'])
+@login_required
+def delete_facebook_page(page_id):
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+
+    config = _load_fb_pages_config()
+    pages = config.get('pages', [])
+    target_page = next((p for p in pages if p.get('id') == page_id), None)
+    if not target_page:
+        return jsonify({'status': 'error', 'message': 'Page not found'}), 404
+
+    if target_page.get('source_file') == 'preconfigured':
+        return jsonify({
+            'status': 'error',
+            'message': 'This is a preconfigured page. Edit .fb_pages_preconfigured.json to remove it.'
+        }), 400
+
+    manual_pages = config.get('manual_pages', [])
+    manual_pages = [p for p in manual_pages if p.get('id') != page_id]
+    _save_fb_pages_config({'pages': manual_pages})
+    log_activity(client_ip, username, 'FB_PAGE_DELETED', f"{target_page.get('name', '')}")
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Facebook page removed.',
+    })
+
+
+@app.route('/api/run-apify-scrape', methods=['POST'])
+@login_required
+def run_apify_scrape():
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    log_activity(client_ip, username, 'APIFY_SCRAPE_ATTEMPT')
+
+    if not os.path.exists(APIFY_SCRAPE_SCRIPT):
+        message = f'Apify scrape script not found: {APIFY_SCRAPE_SCRIPT}'
+        log_activity(client_ip, username, 'APIFY_SCRAPE_FAILED', message)
+        return jsonify({'status': 'error', 'message': message}), 500
+
+    try:
+        result = subprocess.run(
+            ['/bin/bash', APIFY_SCRAPE_SCRIPT],
+            capture_output=True,
+            text=True,
+            timeout=900,
+            cwd=BASE_DIR,
+        )
+    except Exception as exc:
+        log_activity(client_ip, username, 'APIFY_SCRAPE_FAILED', str(exc))
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
+    parsed = _extract_tagged_json(APIFY_RESULT_PREFIX, result.stdout)
+    combined_output = (result.stdout or '')
+    if result.stderr:
+        combined_output = f"{combined_output}\n{result.stderr}"
+    combined_output = combined_output.strip()
+
+    if result.returncode != 0:
+        log_activity(client_ip, username, 'APIFY_SCRAPE_FAILED', f"Exit code: {result.returncode}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Apify scrape failed. Check output for details.',
+            'output': combined_output[-5000:],
+            'returncode': result.returncode,
+        }), 500
+
+    created_count = int((parsed or {}).get('created_count', 0))
+    created_files = (parsed or {}).get('created_files', [])
+    log_activity(client_ip, username, 'APIFY_SCRAPE_SUCCESS', f"Created: {created_count}")
+
+    return jsonify({
+        'status': 'success',
+        'message': f'Apify scrape finished. Created {created_count} JSON files.',
+        'created_count': created_count,
+        'created_files': created_files,
+        'output': combined_output[-5000:],
+    })
+
 @app.route('/health')
 def health():
     """Health check endpoint"""
@@ -750,7 +1134,14 @@ def health():
 def index():
     """Main dashboard page"""
     try:
-        articles = get_articles()
+        per_page = 50
+        try:
+            page = max(1, int(request.args.get('page', 1)))
+        except (ValueError, TypeError):
+            page = 1
+        offset = (page - 1) * per_page
+
+        articles = get_articles(offset=offset, limit=per_page)
         
         # Count all files correctly
         if os.path.exists(JSON_DIR):
@@ -798,9 +1189,29 @@ def index():
                 'time': article.get('date', 'Unknown'),
                 'url': article.get('url', '#'),
                 'published': article.get('published', ''),
-                'published_target': article.get('published_target', '')
+                'published_target': article.get('published_target', ''),
+                'wp_published': article.get('wp_published', ''),
+                'wp_url': article.get('wp_url', ''),
+                'wp_post_id': article.get('wp_post_id', ''),
+                'wp_category': article.get('wp_category', ''),
             })
-        return render_template('dashboard.html', posts=posts, total=total, new_count=new_count, published_count=published_count, server_ip=server_ip, port=8080, now=datetime.now())
+        wp_default_category = load_wp_default_category()
+        total_pages = max(1, (total + per_page - 1) // per_page)
+        return render_template(
+            'dashboard.html',
+            posts=posts,
+            total=total,
+            new_count=new_count,
+            published_count=published_count,
+            server_ip=server_ip,
+            port=8080,
+            now=datetime.now(),
+            wp_categories=WP_CATEGORY_OPTIONS,
+            wp_default_category=wp_default_category,
+            page=page,
+            total_pages=total_pages,
+            per_page=per_page,
+        )
             
     except Exception as e:
         print(f"ERROR in index route: {e}")
@@ -866,6 +1277,193 @@ def post_article(filename):
             error=result.get('stderr', result.get('error', 'Unknown'))
         )
 
+
+@app.route('/publish-wp/<filename>', methods=['POST'])
+@login_required
+def publish_wordpress_article(filename):
+    """Publish one JSON article to WordPress using post_to_wp.sh"""
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    filepath = os.path.join(JSON_DIR, filename)
+
+    payload = request.get_json(silent=True) if request.is_json else {}
+    selected_wp_category = _clean_text(request.form.get('wp_category', ''))
+    if not selected_wp_category and isinstance(payload, dict):
+        selected_wp_category = _clean_text(str(payload.get('wp_category', '')))
+    if selected_wp_category and not selected_wp_category.isdigit():
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': 'WordPress category must be numeric.'}), 400
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='Invalid WordPress Category',
+            message='WordPress category must be numeric.',
+            details={'File': filename, 'Category': selected_wp_category},
+        ), 400
+    if selected_wp_category and selected_wp_category not in WP_CATEGORY_IDS:
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': 'Selected category is not in the dashboard list.'}), 400
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='Invalid WordPress Category',
+            message='Selected category is not in the dashboard list.',
+            details={'File': filename, 'Category': selected_wp_category},
+        ), 400
+
+    if not os.path.exists(filepath):
+        log_activity(client_ip, username, "WP_PUBLISH_FAILED", f"File not found: {filename}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': 'File not found'}), 404
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='File Not Found',
+            message='The requested article file could not be found.',
+            details={'File': filename}
+        ), 404
+
+    if not os.path.exists(WORDPRESS_PUBLISH_SCRIPT):
+        msg = f'WordPress script not found: {WORDPRESS_PUBLISH_SCRIPT}'
+        log_activity(client_ip, username, "WP_PUBLISH_FAILED", msg)
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': msg}), 500
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='WordPress Script Missing',
+            message='WordPress publish script was not found.',
+            error=msg,
+        ), 500
+
+    log_activity(client_ip, username, "WP_PUBLISH_ATTEMPT", f"File: {filename}, Category: {selected_wp_category or 'default'}")
+
+    command = ['/bin/bash', WORDPRESS_PUBLISH_SCRIPT, filepath]
+    if selected_wp_category:
+        command.append(selected_wp_category)
+
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=300,
+            cwd=BASE_DIR,
+        )
+    except Exception as exc:
+        log_activity(client_ip, username, "WP_PUBLISH_FAILED", str(exc))
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({'status': 'error', 'message': str(exc)}), 500
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='WordPress Publish Error',
+            message='An exception occurred while publishing to WordPress.',
+            details={'File': filename},
+            error=str(exc),
+        ), 500
+
+    combined_output = (result.stdout or '')
+    if result.stderr:
+        combined_output = f"{combined_output}\n{result.stderr}"
+    parsed = _extract_tagged_json(WP_RESULT_PREFIX, result.stdout)
+
+    if result.returncode != 0:
+        log_activity(client_ip, username, "WP_PUBLISH_FAILED", f"File: {filename}, Exit code: {result.returncode}")
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+            return jsonify({
+                'status': 'error',
+                'message': 'WordPress publish failed.',
+                'output': combined_output[-5000:],
+                'returncode': result.returncode,
+            }), 500
+        return render_template(
+            'error.html',
+            error_type='error',
+            title='WordPress Publish Failed',
+            message='An error occurred while publishing the article to WordPress.',
+            details={'File': filename},
+            error=combined_output[-5000:],
+        ), 500
+
+    try:
+        with open(filepath, 'r', encoding='utf-8') as handle:
+            data = json.load(handle)
+
+        data['wp_published'] = datetime.now().isoformat()
+        if selected_wp_category:
+            data['wp_category'] = int(selected_wp_category)
+        if parsed:
+            if parsed.get('post_id'):
+                data['wp_post_id'] = str(parsed.get('post_id'))
+            if parsed.get('link'):
+                data['wp_url'] = parsed.get('link')
+
+        with open(filepath, 'w', encoding='utf-8') as handle:
+            json.dump(data, handle, ensure_ascii=False, indent=2)
+    except Exception as exc:
+        log_activity(client_ip, username, "WP_PUBLISH_METADATA_FAILED", f"{filename}: {exc}")
+
+    log_activity(client_ip, username, "WP_PUBLISH_SUCCESS", f"File: {filename}, Category: {selected_wp_category or 'default'}")
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.is_json:
+        return jsonify({
+            'status': 'success',
+            'message': 'Published to WordPress.',
+            'result': parsed or {},
+            'wp_category': selected_wp_category or None,
+            'output': combined_output[-2000:],
+        })
+
+    return redirect(url_for('index'))
+
+@app.route('/api/delete-multiple', methods=['POST'])
+@login_required
+def delete_multiple_articles():
+    """Bulk delete multiple article JSON files"""
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+
+    payload = request.get_json(silent=True) or {}
+    filenames = payload.get('filenames', [])
+
+    if not isinstance(filenames, list):
+        return jsonify({'status': 'error', 'message': 'filenames must be a list'}), 400
+
+    deleted = []
+    errors = []
+
+    for filename in filenames:
+        # Security: prevent path traversal
+        if not filename or '/' in filename or '\\' in filename or '..' in filename:
+            errors.append({'filename': filename, 'error': 'Invalid filename'})
+            continue
+        if not filename.endswith('.json'):
+            errors.append({'filename': filename, 'error': 'Not a JSON file'})
+            continue
+
+        filepath = os.path.join(JSON_DIR, os.path.basename(filename))
+        if not os.path.exists(filepath):
+            errors.append({'filename': filename, 'error': 'File not found'})
+            continue
+
+        try:
+            os.remove(filepath)
+            deleted.append(filename)
+        except Exception as exc:
+            errors.append({'filename': filename, 'error': str(exc)})
+
+    log_activity(client_ip, username, 'BULK_DELETE',
+                 f'Deleted: {len(deleted)}, Errors: {len(errors)}')
+
+    return jsonify({
+        'status': 'success',
+        'deleted_count': len(deleted),
+        'deleted': deleted,
+        'errors': errors,
+    })
+
+
 @app.route('/delete/<filename>')
 @login_required
 def delete_article(filename):
@@ -927,7 +1525,7 @@ def post_all_new():
     client_ip = get_client_ip()
     username = session.get('username', 'UNKNOWN')
     
-    articles = get_articles()
+    articles = get_articles(limit=None)
     new_articles = [a for a in articles if a.get('is_new')]
     
     log_activity(client_ip, username, "BULK_POST_ATTEMPT", 
@@ -1007,7 +1605,7 @@ def list_articles():
     
     log_activity(client_ip, username, "VIEWED_LIST")
     
-    articles = get_articles()
+    articles = get_articles(limit=None)
     
     return render_template('list.html', articles=articles)
 
@@ -1054,6 +1652,38 @@ def refresh():
     """Refresh page"""
     return redirect(url_for('index'))
 
+@app.route('/facebook')
+@login_required
+def facebook_tools():
+    """Facebook tools page (Apify scrape + pages management)"""
+    client_ip = get_client_ip()
+    username = session.get('username', 'UNKNOWN')
+    log_activity(client_ip, username, 'VIEWED_FACEBOOK_TOOLS')
+
+    try:
+        import socket
+        try:
+            server_ip = socket.gethostbyname(socket.gethostname())
+            if server_ip.startswith('127.'):
+                server_ip = request.host.split(':')[0]
+        except Exception:
+            server_ip = request.host.split(':')[0]
+
+        return render_template(
+            'facebook.html',
+            server_ip=server_ip,
+            port=8080,
+            now=datetime.now(),
+            username=username,
+        )
+    except Exception as exc:
+        return render_template('error.html',
+            error_type='error',
+            title='Facebook Tools Error',
+            message='An error occurred while loading the Facebook tools page.',
+            error=str(exc)
+        ), 500
+
 @app.route('/rewrite-title/<filename>', methods=['POST'])
 @login_required
 def rewrite_title_single(filename):
@@ -1083,7 +1713,13 @@ def rewrite_title_single(filename):
 def run_rewrite_titles():
     """Run the rewrite_titles_deepseek.sh script and show result."""
     try:
-        result = subprocess.run(["/bin/bash", "rewrite_titles_deepseek.sh"], capture_output=True, text=True, timeout=120)
+        result = subprocess.run(
+            ["/bin/bash", os.path.join(BASE_DIR, "rewrite_titles_deepseek.sh")],
+            capture_output=True,
+            text=True,
+            timeout=120,
+            cwd=BASE_DIR,
+        )
         output = result.stdout + "\n" + result.stderr
         status = "success" if result.returncode == 0 else "error"
     except Exception as e:

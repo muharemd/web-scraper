@@ -6,351 +6,441 @@
     <title>Facebook Posting Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* --- Begin merged styles from index.html --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
-        .header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .header p { opacity: 0.9; font-size: 1.1rem; }
-        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 2rem; background: #f8f9fa; }
-        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); border: 1px solid #e9ecef; }
-        .stat-card h3 { font-size: 2.5rem; color: #667eea; margin-bottom: 0.5rem; }
-        .stat-card p { color: #6c757d; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .actions { padding: 1.5rem 2rem; background: white; border-bottom: 1px solid #e9ecef; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.5; color: #333; background-color: #f5f5f5; padding: 16px; }
+        .container-fluid { max-width: 1600px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+        .header h1 { font-size: 1.5rem; margin: 0; }
+        .header p { opacity: 0.9; font-size: 0.95rem; margin: 0; }
+        .stats-container { display: flex; gap: 0.75rem; padding: 0.75rem 1.5rem; background: #f8f9fa; flex-wrap: wrap; border-bottom: 1px solid #e9ecef; }
+        .stat-card { background: white; padding: 0.6rem 1.2rem; border-radius: 8px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e9ecef; min-width: 100px; }
+        .stat-card h3 { font-size: 1.6rem; color: #667eea; margin: 0; line-height: 1.2; }
+        .stat-card p { color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+        .actions { padding: 0.75rem 1.5rem; background: white; border-bottom: 1px solid #e9ecef; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+        .btn { padding: 0.45rem 0.9rem; border: none; border-radius: 5px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; }
         .btn-primary { background: #667eea; color: white; }
-        .btn-primary:hover { background: #5a67d8; transform: translateY(-2px); }
+        .btn-primary:hover { background: #5a67d8; }
         .btn-success { background: #48bb78; color: white; }
-        .btn-success:hover { background: #38a169; transform: translateY(-2px); }
+        .btn-success:hover { background: #38a169; }
         .btn-warning { background: #ed8936; color: white; }
-        .btn-warning:hover { background: #dd6b20; transform: translateY(-2px); }
+        .btn-warning:hover { background: #dd6b20; }
         .btn-danger { background: #f56565; color: white; }
-        .btn-danger:hover { background: #e53e3e; transform: translateY(-2px); }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
-        .server-info { background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 2rem; font-family: 'Courier New', monospace; font-size: 0.875rem; border: 1px solid #e9ecef; }
-        .footer { text-align: center; padding: 2rem; color: #718096; font-size: 0.875rem; border-top: 1px solid #e9ecef; background: #f8f9fa; }
-        /* --- End merged styles from index.html --- */
-        .card-img-top { object-fit: cover; height: 180px; width: 100%; }
-        .card { min-height: 420px; }
-        .card-title { min-height: 60px; }
-        .card-text { min-height: 60px; }
-        
-        /* Modal styles */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(3px); align-items: center; justify-content: center; }
+        .btn-danger:hover { background: #e53e3e; }
+        .btn-secondary { background: #718096; color: white; }
+        .btn-secondary:hover { background: #4a5568; }
+        .btn-facebook { background: #1877f2; color: white; }
+        .btn-facebook:hover { background: #0d5abf; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; padding: 14px; }
+        .article-card { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: white; display: flex; flex-direction: column; position: relative; transition: box-shadow 0.2s; }
+        .article-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+        .article-card.selected { border-color: #667eea; box-shadow: 0 0 0 2px #667eea44; }
+        .card-checkbox { position: absolute; top: 6px; left: 6px; z-index: 10; width: 18px; height: 18px; cursor: pointer; accent-color: #667eea; }
+        .card-img { width: 100%; height: 90px; object-fit: cover; border-bottom: 1px solid #e9ecef; }
+        .card-img-placeholder { width: 100%; height: 40px; background: linear-gradient(135deg, #f0f4ff, #e8eeff); }
+        .card-body { padding: 7px 9px; flex: 1; display: flex; flex-direction: column; }
+        .card-title { font-size: 0.82rem; font-weight: 700; color: #2d3748; line-height: 1.3; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-rewritten { font-size: 0.78rem; color: #667eea; font-weight: 600; margin-bottom: 3px; padding: 3px 5px; background: #f0f4ff; border-left: 2px solid #667eea; border-radius: 3px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-badges { display: flex; flex-wrap: wrap; gap: 2px; margin-bottom: 4px; }
+        .badge-sm { font-size: 0.65rem; padding: 1px 5px; border-radius: 3px; font-weight: 600; }
+        .badge-source { background: #e2e8f0; color: #4a5568; }
+        .badge-new { background: #c6f6d5; color: #276749; }
+        .badge-published { background: #bee3f8; color: #2a69ac; }
+        .badge-wp { background: #d6bcfa; color: #553c9a; }
+        .card-summary { font-size: 0.75rem; color: #718096; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 5px; }
+        .card-footer-btns { padding: 5px 9px 7px; display: flex; flex-wrap: wrap; gap: 3px; border-top: 1px solid #f0f0f0; }
+        .btn-xs { padding: 2px 7px; font-size: 0.7rem; border-radius: 4px; border: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 2px; transition: opacity 0.15s; text-decoration: none; }
+        .btn-xs:hover { opacity: 0.85; }
+        .btn-xs-primary { background: #667eea; color: white; }
+        .btn-xs-success { background: #48bb78; color: white; }
+        .btn-xs-warning { background: #ed8936; color: white; }
+        .btn-xs-danger { background: #f56565; color: white; }
+        .btn-xs-light { background: #edf2f7; color: #4a5568; }
+        .btn-xs-fb { background: #1877f2; color: white; }
+        .btn-xs-kompetitor { background: #dd6b20; color: white; }
+        .wp-form-row { display: flex; gap: 3px; align-items: center; flex-wrap: wrap; width: 100%; margin-top: 2px; }
+        .wp-select { font-size: 0.68rem; padding: 2px 5px; border: 1px solid #cbd5e0; border-radius: 4px; max-width: 130px; min-width: 90px; }
+        .selection-bar { padding: 0.6rem 1.5rem; background: #fafbff; border-bottom: 1px solid #e9ecef; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .selection-info { font-size: 0.88rem; color: #4a5568; font-weight: 600; }
+        .section-panel { padding: 0.9rem 1.5rem; border-bottom: 1px solid #e9ecef; background: #fafbff; }
+        .section-panel h5 { margin: 0 0 0.6rem 0; color: #4a5568; font-size: 0.95rem; font-weight: 700; }
+        .input-sm { padding: 0.45rem 0.65rem; border: 1px solid #cbd5e0; border-radius: 5px; font-size: 0.875rem; }
+        .pagination-bar { display: flex; gap: 0.4rem; align-items: center; justify-content: center; padding: 1rem; flex-wrap: wrap; }
+        .page-btn { padding: 0.3rem 0.7rem; border: 1px solid #cbd5e0; border-radius: 5px; background: white; color: #4a5568; font-size: 0.875rem; cursor: pointer; text-decoration: none; transition: background 0.15s; }
+        .page-btn:hover { background: #f0f4ff; border-color: #667eea; color: #667eea; }
+        .page-btn.active { background: #667eea; color: white; border-color: #667eea; font-weight: 700; }
+        .page-btn.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+        .server-info { background: #f8f9fa; padding: 0.75rem 1.5rem; font-family: 'Courier New', monospace; font-size: 0.8rem; border-top: 1px solid #e9ecef; color: #4a5568; }
+        .footer { text-align: center; padding: 1rem 2rem; color: #718096; font-size: 0.8rem; border-top: 1px solid #e9ecef; background: #f8f9fa; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(3px); align-items: center; justify-content: center; }
         .modal.active { display: flex !important; }
         .modal-content { background: white; padding: 0; border-radius: 12px; max-width: 90%; width: 800px; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; }
-        .modal-header { padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; justify-content: space-between; align-items: center; }
-        .modal-header h2 { font-size: 1.5rem; margin: 0; }
-        .modal-close { background: rgba(255, 255, 255, 0.2); border: none; color: white; font-size: 1.5rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-        .modal-close:hover { background: rgba(255, 255, 255, 0.3); }
-        .modal-body { padding: 2rem; overflow-y: auto; flex: 1; background: white; }
-        .article-detail { margin-bottom: 1.5rem; background: white; }
-        .article-detail h3 { color: #667eea; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .article-detail p { color: #4a5568; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word; background: white; }
-        .article-detail pre { background: #f7fafc; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; color: #2d3748; white-space: pre-wrap; word-wrap: break-word; }
-        .article-image { width: 100%; max-width: 100%; height: auto; border-radius: 8px; margin-top: 0.5rem; }
-        
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .container { border-radius: 0; }
-            .header h1 { font-size: 1.75rem; }
-            .stats-container { grid-template-columns: repeat(2, 1fr); padding: 1rem; }
-            .actions { flex-direction: column; padding: 1rem; }
-            .actions .btn { width: 100%; justify-content: center; }
-            .card-img-top { height: 200px; }
-            .modal-content { max-width: 95%; width: 95%; max-height: 95vh; border-radius: 8px; }
-            .modal-header { padding: 1rem; }
-            .modal-header h2 { font-size: 1.2rem; }
-            .modal-body { padding: 1rem; }
-            .article-detail h3 { font-size: 1rem; }
-            .article-detail p { font-size: 0.9rem; }
-        }
-        @media (max-width: 480px) {
-            .stats-container { grid-template-columns: 1fr; }
-            .header h1 { font-size: 1.5rem; }
+        .modal-header { padding: 1.25rem 1.75rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { font-size: 1.3rem; margin: 0; }
+        .modal-close { background: rgba(255,255,255,0.2); border: none; color: white; font-size: 1.4rem; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .modal-close:hover { background: rgba(255,255,255,0.35); }
+        .modal-body { padding: 1.5rem; overflow-y: auto; flex: 1; }
+        .article-detail { margin-bottom: 1.2rem; }
+        .article-detail h3 { color: #667eea; margin-bottom: 0.3rem; font-size: 1rem; }
+        .article-detail p { color: #4a5568; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; }
+        .article-detail pre { background: #f7fafc; padding: 0.75rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; color: #2d3748; white-space: pre-wrap; word-wrap: break-word; }
+        .article-image { width: 100%; max-width: 100%; height: auto; border-radius: 8px; margin-top: 0.4rem; }
+        @media (max-width: 600px) {
+            body { padding: 6px; }
+            .article-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 7px; padding: 8px; }
+            .header { padding: 1rem; }
+            .header h1 { font-size: 1.2rem; }
+            .stats-container { padding: 0.5rem 1rem; }
+            .actions { padding: 0.5rem 1rem; }
+            .modal-content { max-width: 95%; width: 95%; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📰 Facebook Posting Dashboard</h1>
-            <p>Manage and post articles from Bihać scrapers</p>
+<div class="container-fluid">
+    <div class="header">
+        <div>
+            <h1>&#128240; Facebook Posting Dashboard</h1>
+            <p>Manage and post articles from Biha&#263; scrapers</p>
         </div>
-        <div class="stats-container">
-            <div class="stat-card">
-                <h3>{{ total if total is defined else 0 }}</h3>
-                <p>Total Articles</p>
-            </div>
-            <div class="stat-card">
-                <h3>{{ new_count if new_count is defined else 0 }}</h3>
-                <p>New Articles</p>
-            </div>
-            <div class="stat-card">
-                <h3>{{ published_count if published_count is defined else 0 }}</h3>
-                <p>Published</p>
-            </div>
-            <div class="stat-card">
-                <h3>{{ posts|length }}</h3>
-                <p>Showing</p>
-            </div>
+        <div style="font-size:0.8rem; opacity:0.85;">{{ now.strftime('%Y-%m-%d %H:%M') if now is defined else '' }}</div>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>{{ total if total is defined else 0 }}</h3>
+            <p>Total</p>
         </div>
-        <div class="actions">
-            <a href="/run-scrapers" class="btn btn-warning">🚀 Run All Scrapers</a>
-            <form action="/run-rewrite-titles" method="post" style="display:inline;">
-                <button type="submit" class="btn btn-primary">✍️ Rewrite Titles (DeepSeek)</button>
-            </form>
-            {% if new_count is defined and new_count > 0 %}
-            <a href="/post-all-new" class="btn btn-success" onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">📤 Post All New ({{ new_count }})</a>
+        <div class="stat-card">
+            <h3>{{ new_count if new_count is defined else 0 }}</h3>
+            <p>New</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ published_count if published_count is defined else 0 }}</h3>
+            <p>Published</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ posts|length }}</h3>
+            <p>Showing</p>
+        </div>
+        {% if total_pages is defined and total_pages > 1 %}
+        <div class="stat-card">
+            <h3>{{ page }}/{{ total_pages }}</h3>
+            <p>Page</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="actions">
+        <a href="/run-scrapers" class="btn btn-warning">&#128640; Run Scrapers</a>
+        <form action="/run-rewrite-titles" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-primary">&#10000;&#65039; Rewrite Titles</button>
+        </form>
+        {% if new_count is defined and new_count > 0 %}
+        <a href="/post-all-new" class="btn btn-success" onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">&#128228; Post All New ({{ new_count }})</a>
+        {% else %}
+        <button class="btn btn-success" disabled>&#128228; No New Articles</button>
+        {% endif %}
+        <a href="/facebook" class="btn btn-facebook">&#128216; Facebook Tools</a>
+        <a href="/refresh" class="btn btn-secondary">&#128260; Refresh</a>
+        <a href="/logout" class="btn btn-danger">&#128274; Logout</a>
+    </div>
+
+    <div class="section-panel">
+        <h5>&#10133; Custom URL Scrape</h5>
+        <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center;">
+            <input id="customUrl" type="text" placeholder="https://example.com/news" class="input-sm" style="flex:2; min-width:220px;">
+            <input id="customFilter" type="text" placeholder="Keywords (comma separated)" class="input-sm" style="flex:2; min-width:220px;">
+            <button id="customScrapeBtn" class="btn btn-primary" onclick="runCustomScrape()">&#129514; Scrape URL</button>
+            <button id="customResetBtn" class="btn btn-danger" onclick="resetCustomScrapeState()">&#9851;&#65039; Reset State</button>
+        </div>
+        <div id="customScrapeStatus" style="margin-top:0.4rem; color:#4a5568; font-size:0.9rem;"></div>
+    </div>
+
+    <div class="selection-bar">
+        <button class="btn btn-secondary" onclick="selectAll()">&#9745; Select All</button>
+        <button class="btn btn-secondary" onclick="selectNone()">&#9744; Deselect All</button>
+        <button class="btn btn-danger" id="deleteSelectedBtn" onclick="deleteSelected()" disabled>&#128465; Delete Selected (<span id="selectedCount">0</span>)</button>
+        <span class="selection-info" id="selectionInfo"></span>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+        {% for post in posts %}
+        <div class="article-card" id="card-{{ loop.index }}" data-filename="{{ post.filename|e }}">
+            <input type="checkbox" class="card-checkbox article-select" data-filename="{{ post.filename|e }}"
+                   onchange="onCheckboxChange(this)" title="Select for deletion">
+            {% if post.image_url %}
+            <img src="{{ post.image_url }}" class="card-img" alt="" loading="lazy" onerror="this.style.display='none'">
             {% else %}
-            <button class="btn btn-success" disabled>📤 No New Articles</button>
+            <div class="card-img-placeholder"></div>
             {% endif %}
-            <a href="/refresh" class="btn btn-primary">🔄 Refresh</a>
-            <a href="/logout" class="btn btn-danger">🔓 Logout</a>
-        </div>
-        <div style="padding: 1rem 2rem; border-bottom: 1px solid #e9ecef; background: #fafbff;">
-            <h5 style="margin: 0 0 0.75rem 0; color: #4a5568;">➕ Custom URL Scrape (MVP)</h5>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                <input id="customUrl" type="text" placeholder="https://example.com/news" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
-                <input id="customFilter" type="text" placeholder="What to scrape (keywords, comma separated)" style="flex: 2; min-width: 260px; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e0; border-radius: 6px;">
-                <button id="customScrapeBtn" class="btn btn-primary" onclick="runCustomScrape()">🧪 Scrape URL</button>
-                <button id="customResetBtn" class="btn btn-danger" onclick="resetCustomScrapeState()">♻️ Reset Custom State</button>
-            </div>
-            <div id="customScrapeStatus" style="margin-top: 0.6rem; color: #4a5568; font-size: 0.95rem;"></div>
-        </div>
-        <div class="server-info">
-            <strong>Dashboard URL:</strong> http://{{ server_ip if server_ip is defined else 'localhost' }}:{{ port if port is defined else '8080' }}<br>
-            <strong>Articles Location:</strong> /home/bihac-danas/facebook_ready_posts/<br>
-            <strong>Current Time:</strong> {{ now.strftime('%Y-%m-%d %H:%M:%S') if now is defined else '' }}
-        </div>
-        <div class="mt-4">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                {% for post in posts %}
-                <div class="col">
-                    <div class="card h-100 p-2 d-flex flex-column justify-content-between">
-                        {% if post.image_url %}
-                        <img src="{{ post.image_url }}" class="card-img-top" alt="Image">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ post.title }}</h5>
-                            {% if post.title_rewritten %}
-                            <div style="font-size: 1rem; color: #667eea; font-weight: 600; margin-top: 0.75rem; padding: 0.5rem; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px;">
-                                ✍️ {{ post.title_rewritten }}
-                            </div>
-                            {% endif %}
-                            <div class="mb-2 mt-2">
-                                <span class="badge bg-secondary">{{ post.source }}</span>
-                                <span class="badge bg-light text-dark">{{ post.time }}</span>
-                                <span class="badge {{ 'bg-success' if not post.published else 'bg-secondary' }}">{{ '🆕 New' if not post.published else '✅ Published' }}</span>
-                                {% if post.published and post.published_target %}
-                                <span class="badge bg-info text-dark">🎯 {{ post.published_target }}</span>
-                                {% endif %}
-                            </div>
-                            <div class="card-text" style="color: #4a5568; margin-bottom: 1rem; white-space: pre-wrap; font-size: 0.95rem;">
-                                {{ post.summary }}
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-0 d-flex flex-wrap gap-2">
-                            {% if not post.published %}
-                            <a href="/post/{{ post.filename }}?target=bihac_danas" class="btn btn-primary btn-sm" onclick="return confirm('Post this article to Bihać Danas page?')">
-                                📤 Post Bihać Danas
-                            </a>
-                            <a href="/post/{{ post.filename }}?target=konkursi" class="btn btn-warning btn-sm" onclick="return confirm('Post this article to Konkursi page?')">
-                                📤 Post Konkursi
-                            </a>
-                            {% endif %}
-                            {% if not post.title_rewritten %}
-                            <button class="btn btn-secondary btn-sm" onclick="rewriteSingleTitle('{{ post.filename|e }}', this)">
-                                ✍️ Rewrite Title
-                            </button>
-                            {% endif %}
-                            <a href="{{ post.url }}" target="_blank" class="btn btn-light btn-sm">
-                                🔗 View Source
-                            </a>
-                            <button class="btn btn-light btn-sm" onclick="showDetails('{{ post.filename|e }}')">
-                                👁️ Preview
-                            </button>
-                            <a href="/delete/{{ post.filename }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this article?\n\nTitle: {{ post.title }}\n\nThis action cannot be undone!')">
-                                🗑️ Delete
-                            </a>
-                        </div>
-                    </div>
+            <div class="card-body">
+                <div class="card-title">{{ post.title }}</div>
+                {% if post.title_rewritten %}
+                <div class="card-rewritten">&#10000;&#65039; {{ post.title_rewritten }}</div>
+                {% endif %}
+                <div class="card-badges">
+                    <span class="badge-sm badge-source">{{ post.source }}</span>
+                    {% if not post.published %}
+                    <span class="badge-sm badge-new">&#128226; New</span>
+                    {% else %}
+                    <span class="badge-sm badge-published">&#9989; FB</span>
+                    {% endif %}
+                    {% if post.wp_published %}
+                    <span class="badge-sm badge-wp">&#128221; WP</span>
+                    {% endif %}
+                    {% if post.time and post.time != 'Unknown' %}
+                    <span class="badge-sm" style="background:#e2e8f0;color:#4a5568;">{{ post.time }}</span>
+                    {% endif %}
                 </div>
-                {% endfor %}
+                <div class="card-summary">{{ post.summary }}</div>
+            </div>
+            <div class="card-footer-btns">
+                {% if not post.published %}
+                <a href="/post/{{ post.filename }}?target=bihac_danas" class="btn-xs btn-xs-fb"
+                   onclick="return confirm('Post to Biha\u0107 Danas?')">&#128228; BD</a>
+                <a href="/post/{{ post.filename }}?target=konkursi" class="btn-xs btn-xs-kompetitor"
+                   onclick="return confirm('Post to Konkursi?')">&#128228; K</a>
+                {% endif %}
+                {% if not post.title_rewritten %}
+                <button class="btn-xs btn-xs-light" onclick="rewriteSingleTitle('{{ post.filename|e }}', this)" title="Rewrite title">&#10000;&#65039;</button>
+                {% endif %}
+                <form action="/publish-wp/{{ post.filename }}" method="post" style="display:contents;">
+                    <div class="wp-form-row">
+                        <select name="wp_category" class="wp-select">
+                            {% for cat in wp_categories %}
+                            <option value="{{ cat.id }}" {% if (post.wp_category|string == cat.id|string) or ((not post.wp_category) and (wp_default_category|string == cat.id|string)) %}selected{% endif %}>
+                                {{ cat.label }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        {% if post.wp_published %}
+                        <button type="submit" class="btn-xs btn-xs-success"
+                                onclick="return confirm('Re-publish to WordPress?')" title="Re-publish WP">&#128221;&#8635;</button>
+                        {% else %}
+                        <button type="submit" class="btn-xs btn-xs-success"
+                                onclick="return confirm('Publish to WordPress?')" title="Publish WP">&#128221; WP</button>
+                        {% endif %}
+                    </div>
+                </form>
+                {% if post.wp_url %}
+                <a href="{{ post.wp_url }}" target="_blank" class="btn-xs btn-xs-success" title="View on WP">&#127758;</a>
+                {% endif %}
+                <a href="{{ post.url }}" target="_blank" class="btn-xs btn-xs-light" title="View source">&#128279;</a>
+                <button class="btn-xs btn-xs-light" onclick="showDetails('{{ post.filename|e }}')" title="Preview">&#128065;</button>
+                <a href="/delete/{{ post.filename }}" class="btn-xs btn-xs-danger"
+                   onclick="return confirm('Delete this article?\n\nThis cannot be undone!')" title="Delete">&#128465;</a>
             </div>
         </div>
-        <div class="footer">
-            <p>Bihac Scrapers System • {{ now.strftime('%Y-%m-%d %H:%M') if now is defined else '' }}</p>
+        {% else %}
+        <div style="grid-column: 1/-1; padding: 2rem; text-align: center; color: #a0aec0;">
+            No articles found on this page.
         </div>
+        {% endfor %}
     </div>
 
-    <!-- Article Preview Modal -->
-    <div id="articleModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>👁️ Article Preview</h2>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <p style="text-align: center; color: #a0aec0;">Loading...</p>
-            </div>
+    {% if total_pages is defined and total_pages > 1 %}
+    <div class="pagination-bar">
+        {% if page > 1 %}
+        <a href="/?page={{ page - 1 }}" class="page-btn">&#8249; Prev</a>
+        {% else %}
+        <span class="page-btn disabled">&#8249; Prev</span>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+            <span class="page-btn active">{{ p }}</span>
+            {% elif p <= 3 or p >= total_pages - 2 or (p >= page - 2 and p <= page + 2) %}
+            <a href="/?page={{ p }}" class="page-btn">{{ p }}</a>
+            {% elif p == 4 or p == total_pages - 3 %}
+            <span class="page-btn disabled">&#8230;</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+        <a href="/?page={{ page + 1 }}" class="page-btn">Next &#8250;</a>
+        {% else %}
+        <span class="page-btn disabled">Next &#8250;</span>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="server-info">
+        <strong>Dashboard:</strong> http://{{ server_ip if server_ip is defined else 'localhost' }}:{{ port if port is defined else '8080' }} &nbsp;|&nbsp;
+        <strong>Articles:</strong> /home/bihac-danas/web-scraper/facebook_ready_posts/ &nbsp;|&nbsp;
+        <strong>Time:</strong> {{ now.strftime('%Y-%m-%d %H:%M:%S') if now is defined else '' }}
+    </div>
+    <div class="footer">Bihac Scrapers System &#8226; {{ now.strftime('%Y-%m-%d %H:%M') if now is defined else '' }}</div>
+</div>
+
+<div id="articleModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>&#128065;&#65039; Article Preview</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <p style="text-align:center; color:#a0aec0;">Loading...</p>
         </div>
     </div>
+</div>
 
-    <script>
-    // Show article details
-    function showDetails(filename) {
-        const modal = document.getElementById('articleModal');
-        const modalBody = document.getElementById('modalBody');
-        modal.classList.add('active');
-        modalBody.innerHTML = '<p style="text-align: center; color: #a0aec0;">Loading...</p>';
-        fetch('/get-article/' + filename)
-            .then(response => response.json())
-            .then(data => {
-                let html = '';
-                if (data.title) html += '<div class="article-detail"><h3>📝 Title</h3><p>' + data.title + '</p></div>';
-                if (data.content) html += '<div class="article-detail"><h3>📄 Content</h3><p>' + data.content + '</p></div>';
-                if (data.url) html += '<div class="article-detail"><h3>🔗 Source URL</h3><p><a href="' + data.url + '" target="_blank">' + data.url + '</a></p></div>';
-                if (data.source) html += '<div class="article-detail"><h3>📰 Source</h3><p>' + data.source + '</p></div>';
-                if (data.image_url) html += '<div class="article-detail"><h3>🖼️ Image</h3><img src="' + data.image_url + '" class="article-image" onerror="this.style.display=\'none\'"></div>';
-                if (data.scraped_at) html += '<div class="article-detail"><h3>⏰ Scraped At</h3><p>' + data.scraped_at + '</p></div>';
-                if (data.published) html += '<div class="article-detail"><h3>✅ Published At</h3><p>' + data.published + '</p></div>';
-                html += '<div class="article-detail"><h3>📋 Raw JSON</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>';
-                modalBody.innerHTML = html;
-            })
-            .catch(error => {
-                modalBody.innerHTML = '<div style="text-align: center; color: #e53e3e;"><h3>❌ Error</h3><p>' + error.message + '</p></div>';
-            });
-    }
-    function closeModal() {
-        document.getElementById('articleModal').classList.remove('active');
-    }
-    document.getElementById('articleModal').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeModal();
-    });
-
-    // Rewrite single article title
-    function rewriteSingleTitle(filename, button) {
-        if (!confirm('Rewrite this article title using DeepSeek API?\n\nThis will cost API credits.')) return;
-        const originalText = button.innerHTML;
-        button.disabled = true;
-        button.innerHTML = '⏳ Rewriting...';
-        button.style.opacity = '0.6';
-        fetch('/rewrite-title/' + filename, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
+<script>
+function showDetails(filename) {
+    const modal = document.getElementById('articleModal');
+    const modalBody = document.getElementById('modalBody');
+    modal.classList.add('active');
+    modalBody.innerHTML = '<p style="text-align:center;color:#a0aec0;">Loading...</p>';
+    fetch('/get-article/' + encodeURIComponent(filename))
+        .then(r => r.json())
+        .then(data => {
+            let html = '';
+            if (data.title) html += `<div class="article-detail"><h3>&#128221; Title</h3><p>${escHtml(data.title)}</p></div>`;
+            if (data.title_rewritten) html += `<div class="article-detail"><h3>&#10000;&#65039; Rewritten Title</h3><p>${escHtml(data.title_rewritten)}</p></div>`;
+            if (data.content) html += `<div class="article-detail"><h3>&#128196; Content</h3><p>${escHtml(data.content)}</p></div>`;
+            if (data.url) html += `<div class="article-detail"><h3>&#128279; Source URL</h3><p><a href="${escHtml(data.url)}" target="_blank">${escHtml(data.url)}</a></p></div>`;
+            if (data.source_name) html += `<div class="article-detail"><h3>&#128240; Source</h3><p>${escHtml(data.source_name)}</p></div>`;
+            if (data.image_url) html += `<div class="article-detail"><h3>&#128444;&#65039; Image</h3><img src="${escHtml(data.image_url)}" class="article-image" onerror="this.style.display='none'"></div>`;
+            if (data.scraped_at) html += `<div class="article-detail"><h3>&#9200; Scraped At</h3><p>${escHtml(data.scraped_at)}</p></div>`;
+            if (data.published) html += `<div class="article-detail"><h3>&#9989; FB Published</h3><p>${escHtml(data.published)}</p></div>`;
+            if (data.wp_published) html += `<div class="article-detail"><h3>&#128221; WP Published</h3><p>${escHtml(data.wp_published)}</p></div>`;
+            html += `<div class="article-detail"><h3>&#128203; Raw JSON</h3><pre>${escHtml(JSON.stringify(data, null, 2))}</pre></div>`;
+            modalBody.innerHTML = html;
         })
-        .then(response => response.json())
+        .catch(err => {
+            modalBody.innerHTML = `<div style="text-align:center;color:#e53e3e;"><h3>&#10060; Error</h3><p>${err.message}</p></div>`;
+        });
+}
+function closeModal() { document.getElementById('articleModal').classList.remove('active'); }
+document.getElementById('articleModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+function rewriteSingleTitle(filename, button) {
+    if (!confirm('Rewrite this article title using DeepSeek API?\n\nThis will cost API credits.')) return;
+    const orig = button.innerHTML;
+    button.disabled = true; button.innerHTML = '&#8987;'; button.style.opacity = '0.6';
+    fetch('/rewrite-title/' + encodeURIComponent(filename), { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+        .then(r => r.json())
         .then(data => {
             if (data.status === 'success') {
-                alert('✅ Title rewritten successfully!\n\nOriginal: ' + data.original + '\n\nNew: ' + data.rewritten);
+                alert('Title rewritten!\n\nOriginal: ' + data.original + '\n\nNew: ' + data.rewritten);
                 window.location.reload();
             } else {
-                alert('❌ Error: ' + data.message);
-                button.disabled = false;
-                button.innerHTML = originalText;
-                button.style.opacity = '1';
+                alert('Error: ' + data.message);
+                button.disabled = false; button.innerHTML = orig; button.style.opacity = '1';
             }
         })
-        .catch(error => {
-            alert('❌ Error: ' + error.message);
-            button.disabled = false;
-            button.innerHTML = originalText;
-            button.style.opacity = '1';
+        .catch(err => {
+            alert('Error: ' + err.message);
+            button.disabled = false; button.innerHTML = orig; button.style.opacity = '1';
         });
-    }
+}
 
-    function runCustomScrape() {
-        const urlInput = document.getElementById('customUrl');
-        const filterInput = document.getElementById('customFilter');
-        const status = document.getElementById('customScrapeStatus');
-        const btn = document.getElementById('customScrapeBtn');
+function runCustomScrape() {
+    const url = (document.getElementById('customUrl').value || '').trim();
+    const filter = (document.getElementById('customFilter').value || '').trim();
+    const status = document.getElementById('customScrapeStatus');
+    const btn = document.getElementById('customScrapeBtn');
+    if (!url) { status.style.color = '#c53030'; status.textContent = 'Please enter a URL.'; return; }
+    btn.disabled = true; btn.textContent = 'Scraping...';
+    status.style.color = '#4a5568'; status.textContent = 'Running custom scrape...';
+    fetch('/api/custom-scrape', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url, filter })
+    })
+    .then(async r => { const d = await r.json(); if (!r.ok || d.status !== 'success') throw new Error(d.message || 'Failed'); return d; })
+    .then(d => {
+        status.style.color = '#2f855a'; status.textContent = d.message;
+        if (d.created_count > 0) setTimeout(() => window.location.reload(), 900);
+    })
+    .catch(e => { status.style.color = '#c53030'; status.textContent = 'Error: ' + e.message; })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Scrape URL'; });
+}
 
-        const url = (urlInput.value || '').trim();
-        const filter = (filterInput.value || '').trim();
+function resetCustomScrapeState() {
+    const status = document.getElementById('customScrapeStatus');
+    const btn = document.getElementById('customResetBtn');
+    if (!confirm('Reset custom scrape state?\n\nThis clears deduplication history only, NOT JSON files.')) return;
+    btn.disabled = true; btn.textContent = 'Resetting...';
+    status.style.color = '#4a5568'; status.textContent = 'Resetting...';
+    fetch('/api/custom-scrape-reset', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+    .then(async r => { const d = await r.json(); if (!r.ok || d.status !== 'success') throw new Error(d.message || 'Failed'); return d; })
+    .then(d => { status.style.color = '#2f855a'; status.textContent = d.message; })
+    .catch(e => { status.style.color = '#c53030'; status.textContent = 'Error: ' + e.message; })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Reset State'; });
+}
 
-        if (!url) {
-            status.style.color = '#c53030';
-            status.textContent = 'Please enter a URL.';
-            return;
+function onCheckboxChange(cb) {
+    const card = cb.closest('.article-card');
+    if (cb.checked) card.classList.add('selected');
+    else card.classList.remove('selected');
+    updateSelectionUI();
+}
+
+function updateSelectionUI() {
+    const count = document.querySelectorAll('.article-select:checked').length;
+    document.getElementById('selectedCount').textContent = count;
+    document.getElementById('deleteSelectedBtn').disabled = count === 0;
+    document.getElementById('selectionInfo').textContent = count > 0
+        ? count + ' article' + (count !== 1 ? 's' : '') + ' selected'
+        : '';
+}
+
+function selectAll() {
+    document.querySelectorAll('.article-select').forEach(cb => {
+        cb.checked = true;
+        cb.closest('.article-card').classList.add('selected');
+    });
+    updateSelectionUI();
+}
+
+function selectNone() {
+    document.querySelectorAll('.article-select').forEach(cb => {
+        cb.checked = false;
+        cb.closest('.article-card').classList.remove('selected');
+    });
+    updateSelectionUI();
+}
+
+function deleteSelected() {
+    const checked = Array.from(document.querySelectorAll('.article-select:checked'));
+    if (checked.length === 0) return;
+    const filenames = checked.map(cb => cb.dataset.filename);
+    if (!confirm('Delete ' + filenames.length + ' selected article' + (filenames.length !== 1 ? 's' : '') + '?\n\nThis cannot be undone!')) return;
+    const btn = document.getElementById('deleteSelectedBtn');
+    btn.disabled = true; btn.innerHTML = 'Deleting...';
+    fetch('/api/delete-multiple', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filenames })
+    })
+    .then(async r => { const d = await r.json(); if (!r.ok) throw new Error(d.message || 'Delete failed'); return d; })
+    .then(d => {
+        d.deleted.forEach(function(filename) {
+            const cb = document.querySelector('.article-select[data-filename="' + CSS.escape(filename) + '"]');
+            if (cb) cb.closest('.article-card').remove();
+        });
+        updateSelectionUI();
+        if (d.errors && d.errors.length > 0) {
+            alert('Deleted ' + d.deleted_count + ' articles.\nErrors: ' + d.errors.map(function(e) { return e.filename + ': ' + e.error; }).join('\n'));
         }
+        btn.innerHTML = 'Delete Selected (<span id="selectedCount">0</span>)';
+    })
+    .catch(function(e) {
+        alert('Error: ' + e.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Delete Selected (<span id="selectedCount">' + document.querySelectorAll('.article-select:checked').length + '</span>)';
+    });
+}
 
-        btn.disabled = true;
-        btn.textContent = '⏳ Scraping...';
-        status.style.color = '#4a5568';
-        status.textContent = 'Running custom scrape...';
-
-        fetch('/api/custom-scrape', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url, filter })
-        })
-        .then(async (response) => {
-            const data = await response.json();
-            if (!response.ok || data.status !== 'success') {
-                throw new Error(data.message || 'Custom scrape failed');
-            }
-            return data;
-        })
-        .then((data) => {
-            status.style.color = '#2f855a';
-            status.textContent = data.message;
-            if (data.created_count > 0) {
-                setTimeout(() => window.location.reload(), 900);
-            }
-        })
-        .catch((error) => {
-            status.style.color = '#c53030';
-            status.textContent = 'Error: ' + error.message;
-        })
-        .finally(() => {
-            btn.disabled = false;
-            btn.textContent = '🧪 Scrape URL';
-        });
-    }
-
-    function resetCustomScrapeState() {
-        const status = document.getElementById('customScrapeStatus');
-        const btn = document.getElementById('customResetBtn');
-
-        if (!confirm('Reset custom scrape state?\n\nThis only clears custom deduplication history. It does NOT delete JSON files.')) {
-            return;
-        }
-
-        btn.disabled = true;
-        btn.textContent = '⏳ Resetting...';
-        status.style.color = '#4a5568';
-        status.textContent = 'Resetting custom scrape state...';
-
-        fetch('/api/custom-scrape-reset', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        })
-        .then(async (response) => {
-            const data = await response.json();
-            if (!response.ok || data.status !== 'success') {
-                throw new Error(data.message || 'Reset failed');
-            }
-            return data;
-        })
-        .then((data) => {
-            status.style.color = '#2f855a';
-            status.textContent = data.message;
-        })
-        .catch((error) => {
-            status.style.color = '#c53030';
-            status.textContent = 'Error: ' + error.message;
-        })
-        .finally(() => {
-            btn.disabled = false;
-            btn.textContent = '♻️ Reset Custom State';
-        });
-    }
-    </script>
+function escHtml(v) {
+    return String(v || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+</script>
 </body>
 </html>

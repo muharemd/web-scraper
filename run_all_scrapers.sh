@@ -73,6 +73,8 @@ SCRAPERS=(
     "fmf.py"
 )
 
+FACEBOOK_SCRAPER="/home/bihac-danas/web-scraper/run_apify_facebook_scrape.sh"
+
 EMAILS=("hare.de@gmail.com" "danasbihac@gmail.com")
 LOG_FILE="/home/bihac-danas/web-scraper/scraper_log.txt"
 OUTPUT_DIR="/home/bihac-danas/web-scraper/facebook_ready_posts"
@@ -129,6 +131,25 @@ for scraper in "${SCRAPERS[@]}"; do
         echo -e "  ${RED}✗ Failed with exit code $SCRAPER_EXIT (${DURATION}s)${NC}" | tee -a "$LOG_FILE"
     fi
 done
+
+# Run Facebook / Apify scraper if config exists
+echo -e "\n${BLUE}▶ Running: Facebook Apify scraper${NC}" | tee -a "$LOG_FILE"
+if [ -f "$FACEBOOK_SCRAPER" ] && [ -f "/home/bihac-danas/web-scraper/.apify_config" ]; then
+    FB_START_TIME=$(date +%s)
+    /bin/bash "$FACEBOOK_SCRAPER" 2>&1 | tee -a "$LOG_FILE"
+    FB_EXIT=${PIPESTATUS[0]}
+    FB_DURATION=$(( $(date +%s) - FB_START_TIME ))
+    if [ $FB_EXIT -eq 0 ]; then
+        echo -e "  ${GREEN}✓ Facebook scraper completed successfully (${FB_DURATION}s)${NC}" | tee -a "$LOG_FILE"
+    else
+        FAILED_SCRAPERS+=("run_apify_facebook_scrape.sh")
+        echo -e "  ${RED}✗ Facebook scraper failed with exit code $FB_EXIT (${FB_DURATION}s)${NC}" | tee -a "$LOG_FILE"
+    fi
+elif [ ! -f "/home/bihac-danas/web-scraper/.apify_config" ]; then
+    echo -e "  ${YELLOW}⏭ Skipping Facebook scraper: .apify_config not found${NC}" | tee -a "$LOG_FILE"
+else
+    echo -e "  ${RED}✗ Facebook scraper script not found: $FACEBOOK_SCRAPER${NC}" | tee -a "$LOG_FILE"
+fi
 
 # Count JSON files after running
 COUNT_AFTER=$(find "$OUTPUT_DIR" -name "*.json" 2>/dev/null | wc -l)
