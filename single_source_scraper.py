@@ -16,6 +16,8 @@ from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 OUTPUT_DIR = "facebook_ready_posts"
 MAX_ARTICLES = 12
 MAX_CONTENT_LEN = 900
+FALLBACK_PARAGRAPH_LIMIT = 25
+FALLBACK_PARAGRAPH_MIN_LEN = 40
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -71,7 +73,10 @@ def _save_state(state_file, scraped_urls, content_hashes, url_content_hashes):
 
 def _normalize_url(url):
     parsed = urlparse(url)
-    return f"{parsed.scheme}://{parsed.netloc}{parsed.path}".rstrip("/")
+    normalized = f"{parsed.netloc.lower()}{parsed.path}".rstrip("/")
+    if parsed.query:
+        normalized = f"{normalized}?{parsed.query}"
+    return normalized
 
 
 def _is_article_candidate(link_url, listing_url):
@@ -79,6 +84,8 @@ def _is_article_candidate(link_url, listing_url):
     if "najnovije-vijesti" in lowered:
         return False
     if any(token in lowered for token in ["/rss", "/feed", ".xml", "rss="]):
+        return False
+    if any(token in lowered for token in ["page_id=", "attachment_id=", "paged=", "?m=", "&m="]):
         return False
     # Skip taxonomy/archive pagination links and keep post URLs only.
     if any(token in lowered for token in ["/category/", "/tag/", "/author/", "/page/"]):
@@ -220,6 +227,8 @@ def _extract_listing_links(listing_url, session):
             href = anchor.get("href")
             if not href or href.startswith(("#", "javascript:", "mailto:")):
                 continue
+            if href.lower().startswith("www.") or re.match(r"^[a-z0-9.-]+\.[a-z]{2,}(?:/.*)?$", href, flags=re.IGNORECASE):
+                continue
             full_url = urljoin(listing_url, href)
             full_domain = urlparse(full_url).netloc.lower().replace("www.", "")
 
@@ -293,7 +302,58 @@ def _derive_title_from_content(content):
     return None
 
 
-def _extract_content(soup):
+def _collect_page_paragraph_stats(soup):
+    paragraph_lengths = []
+    for paragraph in soup.select("p"):
+        text = _clean_text(paragraph.get_text(" "))
+        if len(text) >= 20:
+            paragraph_lengths.append(len(text))
+
+    return {
+        "paragraph_count": len(paragraph_lengths),
+        "paragraph_total_length": sum(paragraph_lengths),
+    }
+
+
+def _estimate_content_coverage(content_length, paragraph_count, paragraph_total_length):
+    if content_length <= 0:
+        return None, "empty"
+
+    # Very short pages (or pages without real paragraph tags) are hard to classify.
+    if paragraph_count < 3 or paragraph_total_length < 180:
+        return None, "unknown"
+
+    ratio = min(1.0, content_length / float(paragraph_total_length))
+    if ratio >= 0.75:
+        label = "likely_full"
+    elif ratio >= 0.45:
+        label = "possibly_partial"
+    else:
+        label = "likely_partial"
+
+    return round(ratio, 3), label
+
+
+def _extract_content_with_meta(soup):
+    page_stats = _collect_page_paragraph_stats(soup)
+
+    def _build_meta(content_text, method):
+        content_length = len(content_text)
+        ratio, coverage_label = _estimate_content_coverage(
+            content_length,
+            page_stats["paragraph_count"],
+            page_stats["paragraph_total_length"],
+        )
+        return {
+            "content": content_text,
+            "method": method,
+            "content_length": content_length,
+            "page_paragraph_count": page_stats["paragraph_count"],
+            "page_paragraph_total_length": page_stats["paragraph_total_length"],
+            "coverage_ratio": ratio,
+            "coverage_label": coverage_label,
+        }
+
     selectors = ["article", ".entry-content", ".post-content", ".article-content", ".news-content", "main", "#content", ".content"]
     for selector in selectors:
         elem = soup.select_one(selector)
@@ -303,22 +363,26 @@ def _extract_content(soup):
             trash.decompose()
         text = _clean_text(elem.get_text(" "))
         if len(text) >= 140:
-            return text
+            return _build_meta(text, f"selector:{selector}")
 
     paragraphs = []
-    for paragraph in soup.select("p")[:25]:
+    for paragraph in soup.select("p")[:FALLBACK_PARAGRAPH_LIMIT]:
         txt = _clean_text(paragraph.get_text(" "))
-        if len(txt) >= 40:
+        if len(txt) >= FALLBACK_PARAGRAPH_MIN_LEN:
             paragraphs.append(txt)
     joined = _clean_text(" ".join(paragraphs))
     if joined:
-        return joined
+        return _build_meta(joined, "paragraph_fallback")
 
     meta_desc = soup.select_one("meta[name='description']")
     if meta_desc and meta_desc.get("content"):
-        return _clean_text(meta_desc.get("content"))
+        return _build_meta(_clean_text(meta_desc.get("content")), "meta_description")
 
-    return ""
+    return _build_meta("", "none")
+
+
+def _extract_content(soup):
+    return _extract_content_with_meta(soup)["content"]
 
 
 def _extract_date(soup):
@@ -464,7 +528,15 @@ def _extract_article(url, source_name, session):
 
     soup = BeautifulSoup(html, "html.parser")
     title = _extract_title(soup)
-    content = _extract_content(soup) or title
+    content_meta = _extract_content_with_meta(soup)
+    content = content_meta.get("content") or title
+
+    if not content_meta.get("content"):
+        content_meta["content"] = content
+        content_meta["content_length"] = len(content)
+        content_meta["method"] = "title_fallback"
+        content_meta["coverage_ratio"] = None
+        content_meta["coverage_label"] = "unknown"
 
     if _is_generic_title(title):
         better_title = _derive_title_from_content(content)
@@ -474,6 +546,7 @@ def _extract_article(url, source_name, session):
     return {
         "title": title,
         "content": content,
+        "content_meta": content_meta,
         "url": url,
         "date": _extract_date(soup),
         "image_url": _extract_image(soup, url),
@@ -531,7 +604,14 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
             print(f"  ⏭️ Skipping low-quality item: {article.get('title', '')[:70]}")
             continue
 
-        fb_content = f"{article['content'][:MAX_CONTENT_LEN]}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {article['url']}"
+        content_meta = article.get("content_meta", {})
+        raw_content = _clean_text(article.get("content", ""))
+        full_content_length = len(raw_content)
+        post_content = raw_content[:MAX_CONTENT_LEN]
+        post_content_length = len(post_content)
+        content_truncated_for_facebook = full_content_length > MAX_CONTENT_LEN
+
+        fb_content = f"{post_content}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {article['url']}"
         content_hash = _generate_content_hash(fb_content)
         previous_hash = url_content_hashes.get(link)
 
@@ -553,6 +633,14 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
             "source": script_hash,
             "source_name": source_name,
             "content_hash": content_hash,
+            "content_full_length": full_content_length,
+            "content_post_length": post_content_length,
+            "content_truncated_for_facebook": content_truncated_for_facebook,
+            "content_extraction_method": content_meta.get("method", "unknown"),
+            "content_coverage_label": content_meta.get("coverage_label", "unknown"),
+            "content_coverage_ratio": content_meta.get("coverage_ratio"),
+            "page_paragraph_count": content_meta.get("page_paragraph_count", 0),
+            "page_paragraph_total_length": content_meta.get("page_paragraph_total_length", 0),
             "scraped_at": datetime.now().isoformat(),
             "date": article["date"],
         }
@@ -574,6 +662,16 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
         else:
             new_saved += 1
             print(f"  💾 Saved: {filename} | {article['title'][:70]}")
+
+        coverage_ratio = content_meta.get("coverage_ratio")
+        coverage_ratio_text = f" ({coverage_ratio:.2f})" if coverage_ratio is not None else ""
+        print(
+            "     📏 Content stats: "
+            f"full={full_content_length} "
+            f"post={post_content_length} "
+            f"truncated={'yes' if content_truncated_for_facebook else 'no'} "
+            f"coverage={content_meta.get('coverage_label', 'unknown')}{coverage_ratio_text}"
+        )
         time.sleep(0.2)
 
     _save_state(state_file, scraped_urls, content_hashes, url_content_hashes)

@@ -70,6 +70,9 @@ dashboard_activity.log
 email_sent.log
 failed_logins.log
 cleanup.log
+email_sent.log
+scraper_cron.log
+scraper_log.txt
 
 # Generated Facebook posts (output files)
 facebook_ready_posts/*.json
