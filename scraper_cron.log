@@ -8897,3 +8897,31 @@ Source URL: https://cinestarcinemas.ba/bihac-bingo-centar
   [0;32m✓ Completed successfully (24s)[0m
 
 [0;34m▶ Running: ggbihac.py[0m
+============================================================
+🗂️  GGBihać SCRAPER
+============================================================
+Source URL: https://ggbihac.com
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7dbefb65ac30>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+  ⚠️ No listing links found, using source page as fallback
+  ❌ Fetch failed: https://ggbihac.com | HTTPSConnectionPool(host='ggbihac.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7dbefb31a5a0>, 'Connection to ggbihac.com timed out. (connect timeout=20)'))
+✅ Finished. New posts saved: 0 | Updated posts saved: 0
+  [0;32m✓ Completed successfully (43s)[0m
+
+[0;34m▶ Running: unbi.py[0m
+============================================================
+🗂️  UNBI SCRAPER
+============================================================
+Source URL: https://unbi.ba/
+✅ Finished. New posts saved: 0 | Updated posts saved: 0
+  [0;32m✓ Completed successfully (5s)[0m
+
+[0;34m▶ Running: fzs_unbi.py[0m
+============================================================
+🗂️  FZS UNBI SCRAPER
+============================================================
+Source URL: https://fzs.unbi.ba/
+  ⚠️ No listing links found, using source page as fallback
+✅ Finished. New posts saved: 0 | Updated posts saved: 0
+  [0;32m✓ Completed successfully (2s)[0m
+
+[0;34m▶ Running: vodovod_bihac.py[0m
