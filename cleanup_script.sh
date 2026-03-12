@@ -66,6 +66,27 @@ if [ -d "$JSON_DIR" ]; then
     echo "   ✓ Removed $REMOVED old JSON files (kept $COUNT_AFTER)"
 fi
 
+# 3b. Clean old attachment files/photos (default: keep last 2 days)
+echo "3b. Cleaning old attachment files..."
+ATTACHMENTS_DIR="/home/bihac-danas/web-scraper/facebook_ready_posts/attachments"
+ATTACHMENT_RETENTION_DAYS="${ATTACHMENT_RETENTION_DAYS:-2}"
+if [ -d "$ATTACHMENTS_DIR" ]; then
+    COUNT_ATTACH_BEFORE=$(find "$ATTACHMENTS_DIR" -type f | wc -l)
+
+    # Remove attachment files older than ATTACHMENT_RETENTION_DAYS days.
+    find "$ATTACHMENTS_DIR" -type f -mtime +"$ATTACHMENT_RETENTION_DAYS" -delete 2>/dev/null
+
+    COUNT_ATTACH_AFTER=$(find "$ATTACHMENTS_DIR" -type f | wc -l)
+    REMOVED_ATTACH=$((COUNT_ATTACH_BEFORE - COUNT_ATTACH_AFTER))
+
+    # Clean up empty attachment subdirectories after file deletion.
+    find "$ATTACHMENTS_DIR" -type d -empty -delete 2>/dev/null
+
+    echo "   ✓ Removed $REMOVED_ATTACH old attachment files (kept $COUNT_ATTACH_AFTER, retention ${ATTACHMENT_RETENTION_DAYS} days)"
+else
+    echo "   ✓ No attachments directory found"
+fi
+
 # 4. Clean old backup files (keep last 7 days)
 echo "4. Cleaning backup files..."
 find /home/bihac-danas/web-scraper -name "*.bak" -mtime +7 -delete 2>/dev/null
