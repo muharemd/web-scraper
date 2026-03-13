@@ -60,7 +60,7 @@ SCRAPERS=(
     "careerjet.py"
     "vladausk.py"
     "zzousk.py"
-    "pravosudje_fbih.py"
+    #"pravosudje_fbih.py"
     "kt_bihac_pravosudje.py"
     "ekonkurs.py"
     "fzzz.py"
