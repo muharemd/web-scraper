@@ -130,6 +130,34 @@ def _bool_from_env(name, default=False):
     return value.strip().lower() in {"1", "true", "yes", "y", "on"}
 
 
+def _parse_positive_int(name, value):
+    try:
+        parsed = int(str(value).strip())
+    except ValueError as exc:
+        raise RuntimeError(f"{name} must be an integer") from exc
+    if parsed <= 0:
+        raise RuntimeError(f"{name} must be greater than 0")
+    return parsed
+
+
+def _positive_int_from_env(name, default_value):
+    value = os.environ.get(name, str(default_value)).strip() or str(default_value)
+    return _parse_positive_int(name, value)
+
+
+def _dataset_fetch_limit(input_payload, per_page_limit):
+    fetch_limit = os.environ.get("APIFY_FETCH_LIMIT", "").strip()
+    if fetch_limit:
+        return _parse_positive_int("APIFY_FETCH_LIMIT", fetch_limit)
+
+    url_field = os.environ.get("APIFY_URL_FIELD", "startUrls").strip() or "startUrls"
+    source_values = input_payload.get(url_field, [])
+    source_count = len(source_values) if isinstance(source_values, list) else 0
+    if source_count <= 0:
+        return per_page_limit
+    return source_count * per_page_limit
+
+
 def _first_non_empty(payload, keys):
     for key in keys:
         value = payload.get(key)
@@ -282,6 +310,8 @@ def _image_extension_from_response(url, response):
     return by_type.get(content_type, ".jpg")
 
 
+MEDIA_MAX_BYTES = 20 * 1024 * 1024  # 20 MB per image
+
 def _download_image_attachments(source_hash, item_id, image_urls, session):
     if not image_urls:
         return "", [], []
@@ -305,9 +335,13 @@ def _download_image_attachments(source_hash, item_id, image_urls, session):
                 extension = _image_extension_from_response(image_url, response)
                 filename = f"{index:02d}{extension}"
                 file_path = os.path.join(target_dir, filename)
+                bytes_written = 0
                 with open(file_path, "wb") as handle:
                     for chunk in response.iter_content(chunk_size=8192):
                         if chunk:
+                            bytes_written += len(chunk)
+                            if bytes_written > MEDIA_MAX_BYTES:
+                                raise ValueError(f"Image exceeds {MEDIA_MAX_BYTES // (1024 * 1024)} MB limit")
                             handle.write(chunk)
                 saved_files.append(filename)
         except Exception as exc:
@@ -350,8 +384,26 @@ def _extract_source_name(item, url, page_lookup):
             "sourceName",
         ],
     )
-    if source_name:
+
+    if source_name and source_name.lower() not in {"people", "facebook"}:
         return source_name
+
+    candidate_urls = [
+        _first_non_empty(item, ["inputUrl", "facebookUrl", "pageUrl", "page_url"]),
+        url,
+    ]
+
+    for candidate_url in candidate_urls:
+        normalized_url = (candidate_url or "").rstrip("/").lower()
+        if not normalized_url:
+            continue
+
+        if normalized_url in page_lookup:
+            return page_lookup[normalized_url]["name"]
+
+        for page_url, page_data in page_lookup.items():
+            if normalized_url.startswith(page_url):
+                return page_data["name"]
 
     normalized_url = (url or "").rstrip("/").lower()
     if normalized_url and normalized_url in page_lookup:
@@ -412,21 +464,16 @@ def _build_apify_input(enabled_pages):
     if "includeImages" not in static_input:
         static_input["includeImages"] = _bool_from_env("APIFY_INCLUDE_IMAGES", default=True)
 
-    max_items_value = os.environ.get("APIFY_MAX_ITEMS", "").strip()
-    max_items_field = os.environ.get("APIFY_MAX_ITEMS_FIELD", "maxItems").strip() or "maxItems"
-    if max_items_field and max_items_field not in static_input:
-        if max_items_value:
-            try:
-                static_input[max_items_field] = int(max_items_value)
-            except ValueError as exc:
-                raise RuntimeError("APIFY_MAX_ITEMS must be an integer") from exc
-        else:
-            static_input[max_items_field] = 10
+    max_items = _positive_int_from_env("APIFY_MAX_ITEMS", 2)
+    max_items_field = os.environ.get("APIFY_MAX_ITEMS_FIELD", "maxPosts").strip() or "maxPosts"
+    if max_items_field:
+        # Always enforce the configured limit to avoid expensive unrestricted runs.
+        static_input[max_items_field] = max_items
 
     return static_input
 
 
-def _run_apify(input_payload):
+def _run_apify(input_payload, per_page_limit):
     token = os.environ.get("APIFY_TOKEN", "").strip()
     actor_id = os.environ.get("APIFY_ACTOR_ID", "").strip() or DEFAULT_ACTOR_ID
     task_id = os.environ.get("APIFY_TASK_ID", "").strip()
@@ -442,9 +489,11 @@ def _run_apify(input_payload):
     else:
         run_url = f"{base_url}/acts/{actor_id}/runs"
 
-    run_response = requests.post(
+    apify_session = requests.Session()
+    apify_session.headers.update({"Authorization": f"Bearer {token}"})
+
+    run_response = apify_session.post(
         run_url,
-        params={"token": token},
         json=input_payload,
         timeout=120,
     )
@@ -461,9 +510,8 @@ def _run_apify(input_payload):
         if time.time() > deadline:
             raise RuntimeError(f"Apify run timed out after {wait_for_finish}s")
         time.sleep(max(poll_interval, 1))
-        status_response = requests.get(
+        status_response = apify_session.get(
             f"{base_url}/actor-runs/{run_id}",
-            params={"token": token},
             timeout=60,
         )
         status_response.raise_for_status()
@@ -478,21 +526,15 @@ def _run_apify(input_payload):
         raise RuntimeError("Apify run has no defaultDatasetId")
 
     item_params = {
-        "token": token,
         "clean": "true",
         "format": "json",
         "desc": "true",
     }
 
-    fetch_limit = os.environ.get("APIFY_FETCH_LIMIT", "").strip()
-    if fetch_limit:
-        try:
-            item_params["limit"] = int(fetch_limit)
-        except ValueError as exc:
-            raise RuntimeError("APIFY_FETCH_LIMIT must be an integer") from exc
+    item_params["limit"] = _dataset_fetch_limit(input_payload, per_page_limit)
 
     dataset_url = f"{base_url}/datasets/{dataset_id}/items"
-    items_response = requests.get(dataset_url, params=item_params, timeout=180)
+    items_response = apify_session.get(dataset_url, params=item_params, timeout=180)
     items_response.raise_for_status()
     items = items_response.json()
 
@@ -529,9 +571,10 @@ def main():
         raise RuntimeError("No enabled Facebook pages in .fb_pages.json or .fb_pages_preconfigured.json")
 
     page_lookup = {page["url"].lower(): page for page in enabled_pages}
+    per_page_limit = _positive_int_from_env("APIFY_MAX_ITEMS", 2)
     apify_input = _build_apify_input(enabled_pages)
 
-    run_data = _run_apify(apify_input)
+    run_data = _run_apify(apify_input, per_page_limit)
     items = run_data["items"]
 
     state = _load_json(STATE_FILE, {"seen_urls": [], "seen_hashes": []})
@@ -632,15 +675,14 @@ def main():
             created_files.append(filename)
     finally:
         download_session.close()
-
-    _save_json(
-        STATE_FILE,
-        {
-            "seen_urls": sorted(seen_urls),
-            "seen_hashes": sorted(seen_hashes),
-            "last_run": datetime.now().isoformat(),
-        },
-    )
+        _save_json(
+            STATE_FILE,
+            {
+                "seen_urls": sorted(seen_urls),
+                "seen_hashes": sorted(seen_hashes),
+                "last_run": datetime.now().isoformat(),
+            },
+        )
 
     result_payload = {
         "created_count": len(created_files),

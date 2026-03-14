@@ -81,6 +81,18 @@ def _normalize_url(url):
 
 def _is_article_candidate(link_url, listing_url):
     lowered = link_url.lower()
+    link_domain = urlparse(link_url).netloc.lower().replace("www.", "")
+    path = urlparse(link_url).path.lower()
+
+    # RTV USK article pages are under /clanak/.
+    if link_domain == "rtvusk.ba" and "/clanak/" not in lowered:
+        return False
+    # Radio Sarajevo article pages end with numeric IDs (e.g. /.../629258).
+    if link_domain == "radiosarajevo.ba" and not re.search(r"/\d+/?$", path):
+        return False
+    # Skip death notices from Radio Velika Kladuša
+    if link_domain == "radiovkladusa.ba" and "obavijest-o-smrti" in lowered:
+        return False
     if "najnovije-vijesti" in lowered:
         return False
     if any(token in lowered for token in ["/rss", "/feed", ".xml", "rss="]):
@@ -88,7 +100,7 @@ def _is_article_candidate(link_url, listing_url):
     if any(token in lowered for token in ["page_id=", "attachment_id=", "paged=", "?m=", "&m="]):
         return False
     # Skip taxonomy/archive pagination links and keep post URLs only.
-    if any(token in lowered for token in ["/category/", "/tag/", "/author/", "/page/"]):
+    if any(token in lowered for token in ["/category/", "/kategorija/", "/tag/", "/author/", "/page/", "/komentari"]):
         return False
     if any(lowered.endswith(ext) for ext in [".jpg", ".jpeg", ".png", ".gif", ".svg", ".pdf", ".zip", ".doc", ".docx", ".mp4"]):
         return False
@@ -97,7 +109,6 @@ def _is_article_candidate(link_url, listing_url):
     if _normalize_url(link_url) == _normalize_url(listing_url):
         return False
 
-    path = urlparse(link_url).path.lower()
     if len(path.strip("/")) < 6:
         return False
 
@@ -106,36 +117,44 @@ def _is_article_candidate(link_url, listing_url):
         "politika", "sport", "kultura", "magazin", "bihac", "usk", "grad-bihac"
     ]
     if any(token in lowered for token in positive_tokens):
-        return True
+        segments = [s for s in path.strip("/").split("/") if s]
+        has_slug = any(s.count("-") >= 2 and len(s) >= 12 for s in segments)
+        if len(segments) >= 3 or has_slug:
+            return True
 
-    return path.count("/") >= 2
+    return len([s for s in path.strip("/").split("/") if s]) >= 3
 
 
 def _is_low_quality_article(article):
-    title = _clean_text(article.get("title", "")).lower()
-    content = _clean_text(article.get("content", ""))
-
-    blocked_titles = {
-        "haber.ba",
-        "vijesti",
-        "novosti",
-        "naslovna",
-        "home",
-        "početna",
-        "pocetna",
-    }
-
-    if title in blocked_titles:
-        return True
-    if title.startswith("najnovije vijesti"):
-        return True
-    if "haber.ba" in title:
-        return True
-    if len(title) < 8:
-        return True
-    if len(content) < 80:
-        return True
-    return False
+    # COMMENTED OUT: Low-quality filtering disabled
+    # To re-enable filtering, uncomment the code below
+    # 
+    # title = _clean_text(article.get("title", "")).lower()
+    # content = _clean_text(article.get("content", ""))
+    # 
+    # blocked_titles = {
+    #     "haber.ba",
+    #     "vijesti",
+    #     "novosti",
+    #     "naslovna",
+    #     "home",
+    #     "početna",
+    #     "pocetna",
+    # }
+    # 
+    # if title in blocked_titles:
+    #     return True
+    # if title.startswith("najnovije vijesti"):
+    #     return True
+    # if "haber.ba" in title:
+    #     return True
+    # if len(title) < 8:
+    #     return True
+    # if len(content) < 80:
+    #     return True
+    # return False
+    
+    return False  # Always return False (no filtering)
 
 
 def _is_region_related(article, region_terms):
@@ -429,13 +448,24 @@ def _extract_image(soup, page_url):
 
     def _looks_like_logo_or_ad(candidate_url, img_tag=None):
         lowered = (candidate_url or "").lower()
-        if any(token in lowered for token in ["logo", "banner", "advert", "gravatar", "avatar", "v10.png", "/ads/", "adservice"]):
+        if any(token in lowered for token in [
+            "logo",
+            "banner",
+            "advert",
+            "gravatar",
+            "avatar",
+            "icon_",
+            "/images/icon",
+            "v10.png",
+            "/ads/",
+            "adservice",
+        ]):
             return True
 
         if img_tag is not None:
             meta_text = " ".join(img_tag.get("class", []))
             meta_text = f"{meta_text} {img_tag.get('alt', '')} {img_tag.get('title', '')}".lower()
-            if any(token in meta_text for token in ["logo", "banner", "advert", "avatar"]):
+            if any(token in meta_text for token in ["logo", "banner", "advert", "avatar", "icon"]):
                 return True
 
         return False
@@ -457,12 +487,17 @@ def _extract_image(soup, page_url):
             "noscript=1",
             "spacer.gif",
             "blank.gif",
+            "/none.jpg",
             "gravatar.com/avatar",
         ]
         if any(pattern in lowered for pattern in blocked_patterns):
             return False
 
-        if any(lowered.endswith(ext) for ext in [".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]):
+        img_exts = [".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]
+        if any(lowered.endswith(ext) for ext in img_exts):
+            return True
+        url_path = urlparse(url).path.lower()
+        if any(url_path.endswith(ext) for ext in img_exts):
             return True
 
         good_markers = [

@@ -23,4 +23,25 @@ if [ -z "${APIFY_TOKEN:-}" ]; then
 fi
 
 cd "$BASE_DIR"
-"$PYTHON_BIN" "$BASE_DIR/apify_facebook_import.py"
+
+sanitize_apify_output() {
+    # Redact token query values when forwarding API error output to logs.
+    sed -E 's/(token=)[^&[:space:]]+/\1***REDACTED***/g'
+}
+
+if APIFY_OUTPUT=$("$PYTHON_BIN" "$BASE_DIR/apify_facebook_import.py" 2>&1); then
+    if [ -n "$APIFY_OUTPUT" ]; then
+        printf '%s\n' "$APIFY_OUTPUT" | sanitize_apify_output
+    fi
+    exit 0
+fi
+
+APIFY_EXIT=$?
+
+if printf '%s\n' "$APIFY_OUTPUT" | grep -qi "402 Client Error: Payment Required"; then
+    echo "WARN: Apify API returned HTTP 402 (Payment Required). Skipping Facebook import for this run."
+    exit 0
+fi
+
+printf '%s\n' "$APIFY_OUTPUT" | sanitize_apify_output >&2
+exit "$APIFY_EXIT"

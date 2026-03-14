@@ -18,14 +18,14 @@ SCRAPERS=(
     "sanskimost.py"
     "vrtic_bihac.py"
     "cesteusk.py"
-    "usnkrajina.py"
-    "usnkrajina_com.py"
+    #"usnkrajina.py"
+    #"usnkrajina_com.py"
     "radiobihac.py"
     "rtvusk.py"
     "nsusk.py"
     "kcbihac.py"
     "naslovi_bihac.py"
-    "fhmzbih_meteo.py"
+    #"fhmzbih_meteo.py"
     "usk_szz_oglasi.py"
     "visitbihac.py"
     "snusk.py"
@@ -71,9 +71,25 @@ SCRAPERS=(
     "posao_klix.py"
     "fmrsp.py"
     "fmf.py"
+    "bhrt_bihac.py"
+    "buzimpress.py"
+    "cazin_ba.py"
+    "crt_ba.py"
+    "czusk.py"
+    "dijaspora_mhrr.py"
+    "dzbihac.py"
+    "gradcazin.py"
+    "inmedia.py"
+    "kbbihac.py"
+    "npuna.py"
+    "okusk.py"
+    "opcinabuzim.py"
+    "pzusk.py"
+    "radiobk.py"
+    "radiovkladusa.py"
+    "sanartv.py"
+    "sportskevijesti.py"
 )
-
-FACEBOOK_SCRAPER="/home/bihac-danas/web-scraper/run_apify_facebook_scrape.sh"
 
 EMAILS=("hare.de@gmail.com" "danasbihac@gmail.com")
 LOG_FILE="/home/bihac-danas/web-scraper/scraper_log.txt"
@@ -132,25 +148,6 @@ for scraper in "${SCRAPERS[@]}"; do
     fi
 done
 
-# Run Facebook / Apify scraper if config exists
-echo -e "\n${BLUE}▶ Running: Facebook Apify scraper${NC}" | tee -a "$LOG_FILE"
-if [ -f "$FACEBOOK_SCRAPER" ] && [ -f "/home/bihac-danas/web-scraper/.apify_config" ]; then
-    FB_START_TIME=$(date +%s)
-    /bin/bash "$FACEBOOK_SCRAPER" 2>&1 | tee -a "$LOG_FILE"
-    FB_EXIT=${PIPESTATUS[0]}
-    FB_DURATION=$(( $(date +%s) - FB_START_TIME ))
-    if [ $FB_EXIT -eq 0 ]; then
-        echo -e "  ${GREEN}✓ Facebook scraper completed successfully (${FB_DURATION}s)${NC}" | tee -a "$LOG_FILE"
-    else
-        FAILED_SCRAPERS+=("run_apify_facebook_scrape.sh")
-        echo -e "  ${RED}✗ Facebook scraper failed with exit code $FB_EXIT (${FB_DURATION}s)${NC}" | tee -a "$LOG_FILE"
-    fi
-elif [ ! -f "/home/bihac-danas/web-scraper/.apify_config" ]; then
-    echo -e "  ${YELLOW}⏭ Skipping Facebook scraper: .apify_config not found${NC}" | tee -a "$LOG_FILE"
-else
-    echo -e "  ${RED}✗ Facebook scraper script not found: $FACEBOOK_SCRAPER${NC}" | tee -a "$LOG_FILE"
-fi
-
 # Count JSON files after running
 COUNT_AFTER=$(find "$OUTPUT_DIR" -name "*.json" 2>/dev/null | wc -l)
 NEW_COUNT=$((COUNT_AFTER - COUNT_BEFORE))
@@ -173,7 +170,7 @@ if [ -z "$SERVER_IP" ]; then
     SERVER_IP=$(curl -s ifconfig.me 2>/dev/null || echo "localhost")
 fi
 
-BASE_URL="http://$SERVER_IP:8080"
+BASE_URL="https://$SERVER_IP:8443"
 
 # More reliable way to find new files - using Python for all JSON parsing
 for file in "$OUTPUT_DIR"/*.json; do
@@ -266,7 +263,7 @@ echo "$LOG_ENTRY" >> "$LOG_FILE"
 if [ ${#NEW_FILES[@]} -gt 0 ]; then
     echo -e "\n${YELLOW}📧 Sending email notifications...${NC}" | tee -a "$LOG_FILE"
 
-    DASHBOARD_URL="http://$SERVER_IP:8080"
+    DASHBOARD_URL="https://$SERVER_IP:8443"
     echo "  Dashboard URL: $DASHBOARD_URL" | tee -a "$LOG_FILE"
 
     EMAIL_SUBJECT="🚀 $NEW_COUNT New Articles Found - Bihać Scrapers ($TODAY)"

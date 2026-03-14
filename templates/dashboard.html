@@ -379,11 +379,21 @@ function onCheckboxChange(cb) {
 
 function updateSelectionUI() {
     const count = document.querySelectorAll('.article-select:checked').length;
-    document.getElementById('selectedCount').textContent = count;
-    document.getElementById('deleteSelectedBtn').disabled = count === 0;
-    document.getElementById('selectionInfo').textContent = count > 0
-        ? count + ' article' + (count !== 1 ? 's' : '') + ' selected'
-        : '';
+    const selectedCountEl = document.getElementById('selectedCount');
+    const deleteBtn = document.getElementById('deleteSelectedBtn');
+    const selectionInfoEl = document.getElementById('selectionInfo');
+
+    if (selectedCountEl) {
+        selectedCountEl.textContent = count;
+    }
+    if (deleteBtn) {
+        deleteBtn.disabled = count === 0;
+    }
+    if (selectionInfoEl) {
+        selectionInfoEl.textContent = count > 0
+            ? count + ' article' + (count !== 1 ? 's' : '') + ' selected'
+            : '';
+    }
 }
 
 function selectAll() {
@@ -408,7 +418,10 @@ function deleteSelected() {
     const filenames = checked.map(cb => cb.dataset.filename);
     if (!confirm('Delete ' + filenames.length + ' selected article' + (filenames.length !== 1 ? 's' : '') + '?\n\nThis cannot be undone!')) return;
     const btn = document.getElementById('deleteSelectedBtn');
-    btn.disabled = true; btn.innerHTML = 'Deleting...';
+    if (!btn) return;
+    const originalHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.textContent = 'Deleting...';
     fetch('/api/delete-multiple', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -420,16 +433,16 @@ function deleteSelected() {
             const cb = document.querySelector('.article-select[data-filename="' + CSS.escape(filename) + '"]');
             if (cb) cb.closest('.article-card').remove();
         });
+        btn.innerHTML = 'Delete Selected (<span id="selectedCount">0</span>)';
         updateSelectionUI();
         if (d.errors && d.errors.length > 0) {
             alert('Deleted ' + d.deleted_count + ' articles.\nErrors: ' + d.errors.map(function(e) { return e.filename + ': ' + e.error; }).join('\n'));
         }
-        btn.innerHTML = 'Delete Selected (<span id="selectedCount">0</span>)';
     })
     .catch(function(e) {
         alert('Error: ' + e.message);
-        btn.disabled = false;
-        btn.innerHTML = 'Delete Selected (<span id="selectedCount">' + document.querySelectorAll('.article-select:checked').length + '</span>)';
+        btn.innerHTML = originalHtml;
+        updateSelectionUI();
     });
 }
 
