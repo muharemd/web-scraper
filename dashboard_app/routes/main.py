@@ -179,3 +179,46 @@ def facebook_tools():
             message="An error occurred while loading the Facebook tools page.",
             error=str(exc),
         ), 500
+
+
+@main_bp.route("/webhooks")
+@login_required
+def webhooks_page():
+    client_ip = get_client_ip()
+    username = session.get("username", "UNKNOWN")
+    log_activity(client_ip, username, "VIEWED_WEBHOOKS")
+
+    forwarded_proto = (request.headers.get("X-Forwarded-Proto") or "").split(",")[0].strip()
+    scheme = forwarded_proto if forwarded_proto else request.scheme
+    base_url = f"{scheme}://{request.host}"
+
+    default_webhook_url = (
+        f"{base_url}/inoreader-webhook?token=c4bcff3760cfa6b34b204cf234dd7e17d12ab2b53335932cdfae615a8b285ff4"
+    )
+    custom_webhook_url = (
+        f"{base_url}{config.INOREADER_WEBHOOK_PATH}?token=c4bcff3760cfa6b34b204cf234dd7e17d12ab2b53335932cdfae615a8b285ff4"
+    )
+
+    token_value = config.INOREADER_WEBHOOK_TOKEN or ""
+    token_configured = bool(token_value)
+    if token_configured and len(token_value) > 8:
+        token_preview = f"{token_value[:4]}...{token_value[-4:]}"
+    elif token_configured:
+        token_preview = "(configured)"
+    else:
+        token_preview = "(missing)"
+
+    return render_template(
+        "webhooks.html",
+        now=datetime.now(),
+        inoreader_config_file=config.INOREADER_CONFIG_FILE,
+        token_configured=token_configured,
+        token_preview=token_preview,
+        webhook_path=config.INOREADER_WEBHOOK_PATH,
+        default_webhook_path="/inoreader-webhook",
+        webhook_max_bytes=config.INOREADER_WEBHOOK_MAX_BYTES,
+        webhook_allowed_ips=config.INOREADER_WEBHOOK_ALLOWED_IPS,
+        webhook_source_name=config.INOREADER_WEBHOOK_SOURCE_NAME,
+        default_webhook_url=default_webhook_url,
+        custom_webhook_url=custom_webhook_url,
+    )

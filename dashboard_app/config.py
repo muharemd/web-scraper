@@ -15,12 +15,37 @@ CUSTOM_SCRAPE_STATE_FILE = os.path.join(BASE_DIR, "custom_dashboard_scrape_state
 ACCESS_LOG = os.path.join(BASE_DIR, "dashboard_access.log")
 ACTIVITY_LOG = os.path.join(BASE_DIR, "dashboard_activity.log")
 FAILED_LOGIN_LOG = os.path.join(BASE_DIR, "failed_logins.log")
+INOREADER_CONFIG_FILE = os.path.join(BASE_DIR, ".inoreader_config")
 
 # ===== PREFIXES =====
 APIFY_RESULT_PREFIX = "__APIFY_RESULT__"
 WP_RESULT_PREFIX = "__WP_RESULT__"
 
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+
+
+def _safe_positive_int(value, default):
+    try:
+        parsed = int(str(value).strip())
+    except (TypeError, ValueError):
+        return default
+    return parsed if parsed > 0 else default
+
+
+def _safe_int_env(name, default):
+    value = os.environ.get(name, str(default)).strip()
+    return _safe_positive_int(value, default)
+
+
+def _normalize_webhook_path(raw_path):
+    path = (raw_path or "").strip()
+    if not path:
+        path = "/sync-9823-data-xca"
+    if "?" in path:
+        path = path.split("?", 1)[0]
+    if not path.startswith("/"):
+        path = f"/{path}"
+    return path
 
 # ===== WORDPRESS CATEGORIES =====
 WP_CATEGORIES = [
@@ -107,6 +132,52 @@ def load_wp_default_category():
     return "36"
 
 
+def load_inoreader_config():
+    values = {}
+    try:
+        with open(INOREADER_CONFIG_FILE, "r", encoding="utf-8") as handle:
+            for raw_line in handle:
+                line = raw_line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, value = line.split("=", 1)
+                values[key.strip()] = value.strip().strip('"').strip("'")
+    except FileNotFoundError:
+        return values
+    except Exception as e:
+        print(f"ERROR loading Inoreader config: {e}")
+    return values
+
+
+def _inoreader_value(loaded_values, key, default=""):
+    from_file = loaded_values.get(key, "")
+    if isinstance(from_file, str) and from_file.strip():
+        return from_file.strip()
+    return os.environ.get(key, default)
+
+
 _make_webhooks = load_make_webhooks()
 WEBHOOK_URL = _make_webhooks.get("webhook_url")
 WEBHOOK_URL_KONKURSI = _make_webhooks.get("webhook_url_konkursi")
+
+# ===== INOREADER WEBHOOK =====
+_inoreader_cfg = load_inoreader_config()
+
+INOREADER_WEBHOOK_TOKEN = _inoreader_value(_inoreader_cfg, "INOREADER_WEBHOOK_TOKEN", "").strip()
+INOREADER_WEBHOOK_PATH = _normalize_webhook_path(
+    _inoreader_value(_inoreader_cfg, "INOREADER_WEBHOOK_PATH", "/sync-9823-data-xca")
+)
+INOREADER_WEBHOOK_MAX_BYTES = _safe_positive_int(
+    _inoreader_value(_inoreader_cfg, "INOREADER_WEBHOOK_MAX_BYTES", str(1024 * 1024)),
+    1024 * 1024,
+)
+_inoreader_allowed_ips = _inoreader_value(_inoreader_cfg, "INOREADER_WEBHOOK_ALLOWED_IPS", "")
+INOREADER_WEBHOOK_ALLOWED_IPS = [
+    value.strip()
+    for value in _inoreader_allowed_ips.split(",")
+    if value.strip()
+]
+INOREADER_WEBHOOK_SOURCE_NAME = (
+    _inoreader_value(_inoreader_cfg, "INOREADER_WEBHOOK_SOURCE_NAME", "Inoreader").strip()
+    or "Inoreader"
+)

@@ -48,6 +48,7 @@ dist/
 .deepseek_config
 .make_tokens
 .apify_config
+.inoreader_config
 .wp_config
 .fb_pages.json
 .fb_pages_preconfigured.json

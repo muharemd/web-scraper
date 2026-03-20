@@ -1,0 +1,18 @@
+# Copy this file to .inoreader_config and keep it local-only (never commit).
+# This is used by dashboard_app/config.py for Inoreader webhook settings.
+
+# Required secret
+INOREADER_WEBHOOK_TOKEN="c4bcff3760cfa6b34b204cf234dd7e17d12ab2b53335932cdfae615a8b285ff4"
+
+# Optional route slug (default: /sync-9823-data-xca)
+INOREADER_WEBHOOK_PATH="/sync-9823-data-xca"
+
+# Optional max payload size in bytes (default: 1048576)
+INOREADER_WEBHOOK_MAX_BYTES="1048576"
+
+# Optional comma-separated allowlist (IPs or CIDR ranges)
+# Example: 203.0.113.10,198.51.100.0/24
+INOREADER_WEBHOOK_ALLOWED_IPS="104.26.0.0/20"
+
+# Optional source label used in saved article JSON files
+INOREADER_WEBHOOK_SOURCE_NAME="Inoreader"

@@ -17,6 +17,8 @@ if __name__ == '__main__':
     from dashboard_app import config
     print(f"JSON Directory: {config.JSON_DIR}")
     print(f"Users File: {config.USERS_FILE}")
+    print(f"Webhook Path: {config.INOREADER_WEBHOOK_PATH}")
+    print(f"Webhook Token Configured: {'yes' if config.INOREADER_WEBHOOK_TOKEN else 'no'}")
     print(f"Server HTTPS: https://31.31.74.183:8443")
     print(f"{'='*50}")
     print("🔐 Login with credentials from manage_users.sh")
@@ -30,7 +32,9 @@ if __name__ == '__main__':
     key_path = '/home/bihac-danas/web-scraper/certs/key.pem'
 
     if os.path.exists(cert_path) and os.path.exists(key_path):
-        print("🔒 Starting with HTTPS (8443) only...")
+        print("🔒 Starting with HTTPS (8443)...")
+        print(f"SSL cert: {cert_path}")
+        print(f"SSL key:  {key_path}")
         from werkzeug.serving import run_simple
 
         run_simple(

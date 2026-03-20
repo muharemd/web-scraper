@@ -42,6 +42,7 @@ def create_app():
     from .routes.scrapers import scrapers_bp
     from .routes.facebook_api import fb_api_bp
     from .routes.ai_routes import ai_bp
+    from .routes.inoreader_webhook import webhook_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -50,6 +51,7 @@ def create_app():
     app.register_blueprint(scrapers_bp)
     app.register_blueprint(fb_api_bp)
     app.register_blueprint(ai_bp)
+    app.register_blueprint(webhook_bp)
 
     # Ensure article output directory exists
     os.makedirs(config.JSON_DIR, exist_ok=True)
