@@ -63,6 +63,60 @@ def _content_hash(text):
     return hashlib.md5(normalized.encode("utf-8")).hexdigest()[:12]
 
 
+def _normalize_duplicate_text(text):
+    """Normalize post text so tiny formatting/url/source differences do not bypass dedup."""
+    if text is None:
+        return ""
+
+    value = _clean_multiline_text(text)
+    normalized_lines = []
+    for raw_line in value.split("\n"):
+        line = _clean_text(raw_line)
+        if not line:
+            continue
+
+        lowered = line.lower()
+        if (
+            lowered.startswith("📰 izvor:")
+            or lowered.startswith("izvor:")
+            or lowered.startswith("🔗 pročitaj više:")
+            or lowered.startswith("pročitaj više:")
+            or lowered.startswith("procitaj vise:")
+        ):
+            continue
+
+        line = re.sub(r"https?://\S+", " ", line, flags=re.IGNORECASE)
+        line = line.lower()
+        line = (
+            line.replace("ć", "c")
+            .replace("č", "c")
+            .replace("š", "s")
+            .replace("ž", "z")
+            .replace("đ", "dj")
+        )
+        line = re.sub(r"[^a-z0-9\s]", " ", line)
+        line = re.sub(r"\s+", " ", line).strip()
+        if line:
+            normalized_lines.append(line)
+
+    return " ".join(normalized_lines)
+
+
+def _text_duplicate_fingerprint(title, content):
+    """Fingerprint that stays stable when URL/source lines or punctuation differ."""
+    normalized_content = _normalize_duplicate_text(content)
+    normalized_title = _normalize_duplicate_text(title)
+    if normalized_content and normalized_title and normalized_title not in normalized_content:
+        normalized_content = f"{normalized_title} {normalized_content}".strip()
+    elif not normalized_content:
+        normalized_content = normalized_title
+
+    if not normalized_content:
+        return ""
+
+    return hashlib.md5(normalized_content.encode("utf-8")).hexdigest()[:16]
+
+
 def _trim_title(text, max_length=160):
     cleaned = _clean_text(text)
     if len(cleaned) <= max_length:
@@ -495,7 +549,7 @@ def _run_apify(input_payload, per_page_limit):
     run_response = apify_session.post(
         run_url,
         json=input_payload,
-        timeout=120,
+        timeout=600,
     )
     run_response.raise_for_status()
 
@@ -577,9 +631,17 @@ def main():
     run_data = _run_apify(apify_input, per_page_limit)
     items = run_data["items"]
 
-    state = _load_json(STATE_FILE, {"seen_urls": [], "seen_hashes": []})
+    state = _load_json(
+        STATE_FILE,
+        {
+            "seen_urls": [],
+            "seen_hashes": [],
+            "seen_text_fingerprints": [],
+        },
+    )
     seen_urls = set(state.get("seen_urls", []))
     seen_hashes = set(state.get("seen_hashes", []))
+    seen_text_fingerprints = set(state.get("seen_text_fingerprints", []))
 
     created_files = []
     skipped_count = 0
@@ -619,7 +681,12 @@ def main():
                 publish_text = f"{publish_text}\n🔗 Pročitaj više: {url}"
 
             c_hash = _content_hash(publish_text)
-            if (url and url in seen_urls) or c_hash in seen_hashes:
+            text_fingerprint = _text_duplicate_fingerprint(title, content)
+            if (
+                (url and url in seen_urls)
+                or c_hash in seen_hashes
+                or (text_fingerprint and text_fingerprint in seen_text_fingerprints)
+            ):
                 skipped_count += 1
                 continue
 
@@ -637,6 +704,7 @@ def main():
                 "source": source_hash,
                 "source_name": source_name,
                 "content_hash": c_hash,
+                "content_text_fingerprint": text_fingerprint,
                 "scraped_at": datetime.now().isoformat(),
                 "date": _extract_date(item),
                 "raw_item": item,
@@ -672,6 +740,8 @@ def main():
             if url:
                 seen_urls.add(url)
             seen_hashes.add(c_hash)
+            if text_fingerprint:
+                seen_text_fingerprints.add(text_fingerprint)
             created_files.append(filename)
     finally:
         download_session.close()
@@ -680,6 +750,7 @@ def main():
             {
                 "seen_urls": sorted(seen_urls),
                 "seen_hashes": sorted(seen_hashes),
+                "seen_text_fingerprints": sorted(seen_text_fingerprints),
                 "last_run": datetime.now().isoformat(),
             },
         )

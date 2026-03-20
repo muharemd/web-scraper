@@ -101,7 +101,7 @@ def extract_title_content(url, html):
                 content = candidate
                 break
     if not content:
-        paragraphs = [clean_text(p.get_text(" ")) for p in soup.select("p")[:25] if len(clean_text(p.get_text(" "))) > 35]
+        paragraphs = [clean_text(p.get_text(" ")) for p in soup.select("p") if len(clean_text(p.get_text(" "))) > 35]
         content = clean_text(" ".join(paragraphs))
     # Image
     image_url = ""

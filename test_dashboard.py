@@ -21,6 +21,7 @@ EXPECTED_ROUTES = [
     "/refresh",
     "/view-logs",
     "/facebook",
+    "/manual-entry",
     "/post/<filename>",
     "/post-all-new",
     "/delete/<filename>",

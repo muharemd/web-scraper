@@ -1,6 +1,8 @@
 import json
 import os
+import hashlib
 from datetime import datetime
+from urllib.parse import urlparse
 
 from flask import Blueprint, jsonify, redirect, render_template, request, session, url_for
 
@@ -9,8 +11,135 @@ from .. import config
 from ..logging_utils import get_client_ip, log_activity
 from ..services.articles import get_articles
 from ..services.facebook import run_curl_command, run_curl_command_for_target
+from ..services.scraping import next_output_filename
+from ..utils import clean_text, content_hash
 
 articles_bp = Blueprint("articles", __name__)
+
+
+def _paragraph_metrics(text):
+    paragraphs = [line.strip() for line in text.split("\n") if line.strip()]
+    if not paragraphs and text.strip():
+        return 1, len(text.strip())
+    return len(paragraphs), sum(len(line) for line in paragraphs)
+
+
+@articles_bp.route("/manual-entry", methods=["GET", "POST"])
+@login_required
+def manual_entry():
+    client_ip = get_client_ip()
+    username = session.get("username", "UNKNOWN")
+
+    form_data = {
+        "title": "",
+        "url": "",
+        "image_url": "",
+        "content": "",
+    }
+
+    if request.method == "GET":
+        log_activity(client_ip, username, "VIEW_MANUAL_ENTRY_PAGE")
+        return render_template(
+            "manual_entry.html",
+            now=datetime.now(),
+            form_data=form_data,
+            error_message="",
+            success_message="",
+            created_filename="",
+        )
+
+    title = clean_text(request.form.get("title", ""))
+    url = clean_text(request.form.get("url", ""))
+    image_url = clean_text(request.form.get("image_url", ""))
+    raw_content = (request.form.get("content", "") or "")
+    normalized_content = raw_content.replace("\r\n", "\n").replace("\r", "\n").strip()
+
+    form_data = {
+        "title": title,
+        "url": url,
+        "image_url": image_url,
+        "content": normalized_content,
+    }
+
+    if not title or not url or not normalized_content:
+        return render_template(
+            "manual_entry.html",
+            now=datetime.now(),
+            form_data=form_data,
+            error_message="Title, URL and content are required.",
+            success_message="",
+            created_filename="",
+        ), 400
+
+    if not url.startswith(("http://", "https://")):
+        return render_template(
+            "manual_entry.html",
+            now=datetime.now(),
+            form_data=form_data,
+            error_message="URL must start with http:// or https://",
+            success_message="",
+            created_filename="",
+        ), 400
+
+    if image_url and not image_url.startswith(("http://", "https://")):
+        return render_template(
+            "manual_entry.html",
+            now=datetime.now(),
+            form_data=form_data,
+            error_message="Image URL must start with http:// or https://",
+            success_message="",
+            created_filename="",
+        ), 400
+
+    content_value = normalized_content
+    if url not in content_value:
+        content_value = f"{content_value}\n\n🔗 Pročitaj više: {url}"
+
+    source_domain = urlparse(url).netloc.lower().replace("www.", "")
+    source_name = f"Manual Entry ({source_domain})" if source_domain else "Manual Entry"
+    source_hash = hashlib.md5(f"manual:{source_domain or 'unknown'}".encode("utf-8")).hexdigest()[:12]
+
+    paragraph_count, paragraph_total_length = _paragraph_metrics(normalized_content)
+    now_dt = datetime.now()
+    article_payload = {
+        "title": title,
+        "id": hashlib.md5(url.encode("utf-8")).hexdigest()[:8],
+        "content": content_value,
+        "url": url,
+        "scheduled_publish_time": None,
+        "published": "",
+        "source": source_hash,
+        "source_name": source_name,
+        "content_hash": content_hash(content_value),
+        "content_full_length": len(content_value),
+        "content_post_length": len(content_value),
+        "content_truncated_for_facebook": False,
+        "content_extraction_method": "manual_form",
+        "content_coverage_label": "manual",
+        "content_coverage_ratio": 1.0,
+        "page_paragraph_count": paragraph_count,
+        "page_paragraph_total_length": paragraph_total_length,
+        "scraped_at": now_dt.isoformat(),
+        "date": now_dt.strftime("%Y-%m-%d"),
+        "image_url": image_url,
+    }
+
+    os.makedirs(config.JSON_DIR, exist_ok=True)
+    created_filename = next_output_filename(source_hash)
+    output_path = os.path.join(config.JSON_DIR, created_filename)
+
+    with open(output_path, "w", encoding="utf-8") as handle:
+        json.dump(article_payload, handle, ensure_ascii=False, indent=2)
+
+    log_activity(client_ip, username, "MANUAL_ENTRY_CREATED", f"File: {created_filename}")
+    return render_template(
+        "manual_entry.html",
+        now=datetime.now(),
+        form_data={"title": "", "url": "", "image_url": "", "content": ""},
+        error_message="",
+        success_message="Manual article JSON created successfully.",
+        created_filename=created_filename,
+    )
 
 
 @articles_bp.route("/post/<filename>")

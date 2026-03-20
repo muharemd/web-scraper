@@ -15,9 +15,10 @@ from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
 OUTPUT_DIR = "facebook_ready_posts"
 MAX_ARTICLES = 12
-MAX_CONTENT_LEN = 900
-FALLBACK_PARAGRAPH_LIMIT = 25
+FALLBACK_PARAGRAPH_LIMIT = 120
 FALLBACK_PARAGRAPH_MIN_LEN = 40
+REQUEST_CONNECT_TIMEOUT = 8
+REQUEST_READ_TIMEOUT = 20
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -178,7 +179,7 @@ def _is_region_related(article, region_terms):
 
 def _fetch_html(url, session):
     try:
-        response = session.get(url, timeout=20)
+        response = session.get(url, timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT))
         response.raise_for_status()
         raw_bytes = response.content
         if not raw_bytes:
@@ -229,7 +230,7 @@ def _fetch_html(url, session):
 def _extract_listing_links(listing_url, session):
     html = _fetch_html(listing_url, session)
     if not html:
-        return []
+        return [], False
 
     soup = BeautifulSoup(html, "html.parser")
     links = []
@@ -259,9 +260,9 @@ def _extract_listing_links(listing_url, session):
             if full_url not in links:
                 links.append(full_url)
             if len(links) >= MAX_ARTICLES:
-                return links
+                return links, True
 
-    return links[:MAX_ARTICLES]
+    return links[:MAX_ARTICLES], True
 
 
 def _extract_title(soup):
@@ -619,10 +620,16 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
     print("=" * 60)
     print(f"Source URL: {target_url}")
 
-    links = _extract_listing_links(target_url, session)
+    links, source_loaded = _extract_listing_links(target_url, session)
     if not links:
-        print("  ⚠️ No listing links found, using source page as fallback")
-        links = [target_url]
+        if source_loaded:
+            print("  ⚠️ No listing links found, using source page as fallback")
+            links = [target_url]
+        else:
+            print("  ⚠️ Source page unreachable, skipping fallback retry")
+            _save_state(state_file, scraped_urls, content_hashes, url_content_hashes)
+            print(f"✅ Finished. New posts saved: {new_saved} | Updated posts saved: {updated_saved}")
+            return
 
     for link in links:
         seen_before = link in scraped_urls
@@ -642,9 +649,10 @@ def run_single_source(target_url, source_name, state_file, region_terms=None):
         content_meta = article.get("content_meta", {})
         raw_content = _clean_text(article.get("content", ""))
         full_content_length = len(raw_content)
-        post_content = raw_content[:MAX_CONTENT_LEN]
+        post_content = raw_content
         post_content_length = len(post_content)
-        content_truncated_for_facebook = full_content_length > MAX_CONTENT_LEN
+        # Legacy metadata key kept for downstream compatibility; content is no longer hard-truncated.
+        content_truncated_for_facebook = False
 
         fb_content = f"{post_content}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {article['url']}"
         content_hash = _generate_content_hash(fb_content)

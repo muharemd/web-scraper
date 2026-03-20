@@ -136,6 +136,7 @@
         <form action="/run-rewrite-titles" method="post" style="display:inline;">
             <button type="submit" class="btn btn-primary">&#10000;&#65039; Rewrite Titles</button>
         </form>
+        <a href="/manual-entry" class="btn btn-primary">&#9997;&#65039; Manual Article</a>
         {% if new_count is defined and new_count > 0 %}
         <a href="/post-all-new" class="btn btn-success" onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">&#128228; Post All New ({{ new_count }})</a>
         {% else %}

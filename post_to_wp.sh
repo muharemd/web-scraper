@@ -117,24 +117,15 @@ if [ "$PARTIAL_CONTENT" = "false" ] && [ -z "$CONTENT_COVERAGE_LABEL" ] && [ "${
 fi
 
 if [ -n "$SOURCE_URL" ] && [ "$SOURCE_URL" != "null" ]; then
-    ESCAPED_SOURCE_URL=$(jq -rn --arg value "$SOURCE_URL" '$value | @html')
     SOURCE_LINE_EMOJI="🔗 Pročitaj više: $SOURCE_URL"
     SOURCE_LINE_PLAIN="Procitaj vise: $SOURCE_URL"
-    SOURCE_LINK_HTML="<a href=\"${ESCAPED_SOURCE_URL}\" target=\"_blank\" rel=\"noopener noreferrer\">${ESCAPED_SOURCE_URL}</a>"
-    SOURCE_HTML_LINE_EMOJI="🔗 Pročitaj više: ${SOURCE_LINK_HTML}"
-    SOURCE_HTML_LINE_PLAIN="Procitaj vise: ${SOURCE_LINK_HTML}"
 
-    if [[ "$CONTENT" == *"$SOURCE_LINE_EMOJI"* ]]; then
-        CONTENT="${CONTENT//$SOURCE_LINE_EMOJI/$SOURCE_HTML_LINE_EMOJI}"
-    elif [[ "$CONTENT" == *"$SOURCE_LINE_PLAIN"* ]]; then
-        CONTENT="${CONTENT//$SOURCE_LINE_PLAIN/$SOURCE_HTML_LINE_PLAIN}"
-    elif [[ "$CONTENT" == *"$SOURCE_URL"* ]]; then
-        CONTENT="${CONTENT//$SOURCE_URL/$SOURCE_LINK_HTML}"
-    else
-        CONTENT="${CONTENT}"$'\n\n'"<p>🔗 Pročitaj više: ${SOURCE_LINK_HTML}</p>"
+    # Ensure source line is present as plain text; do not convert to a hyperlink.
+    if [[ "$CONTENT" != *"$SOURCE_LINE_EMOJI"* ]] && [[ "$CONTENT" != *"$SOURCE_LINE_PLAIN"* ]] && [[ "$CONTENT" != *"$SOURCE_URL"* ]]; then
+        CONTENT="${CONTENT}"$'\n\n'"🔗 Pročitaj više: ${SOURCE_URL}"
     fi
 
-    echo "Source link mode: hyperlink."
+    echo "Source link mode: plain text."
 fi
 
 SOURCE_KEY=$(jq -r '.source // empty' "$ARTICLE_JSON")

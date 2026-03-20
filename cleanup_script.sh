@@ -19,7 +19,7 @@ echo "2. Rotating log files..."
 
 # Large activity logs - keep last 5000 lines
 LARGE_LOGS=(
-    "/home/bihac-danas/web-scraper/scraper_log.txt"
+    "/home/bihac-danas/web-scraper/scraper_log"
     "/home/bihac-danas/web-scraper/scraper_cron.log"
     "/home/bihac-danas/web-scraper/dashboard_access.log"
     "/home/bihac-danas/web-scraper/dashboard_activity.log"

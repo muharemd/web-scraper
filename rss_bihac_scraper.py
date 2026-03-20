@@ -11,13 +11,29 @@ from urllib.parse import urljoin
 import feedparser
 
 OUTPUT_DIR = "facebook_ready_posts"
-MAX_CONTENT_LEN = 900
 
 BIHAC_STRONG_TERMS = {
-    "bihać", "bihac", "bihaću", "bihacu",
-    "grad bihać", "grad bihac", "općina bihać", "opcina bihac",
-    "unsko-sanski", "unskosanski", "una-sana",
-    "sanski most", "cazin", "bužim", "buzim", "velika kladuša", "kladusa",
+    # Bihac city variants (all cases)
+    "bihać", "bihac", "bihaću", "bihacu", "bihaće", "bihace",  # various cases with diacritics
+    "grad bihać", "grad bihac", "grad bihaću", "grad bihacu",
+    "općina bihać", "opcina bihac", "općina bihaću", "opcina bihacu",
+    "bihacka", "bihaćka",  # adjective form
+    
+    # Unsko-Sanska region
+    "unsko-sanski", "unskosanski", "unsko sanski", "una-sana", "unasana",
+    "usk", "usnk", "u-s-k",
+    "unsko-sanska krajina", "unskosanska krajina",
+    "unsko sanska regija", "unsko-sanska regija",
+    "bihacka regija", "bihaćka regija", "bihacka zona",
+    
+    # Cities in the region
+    "sanski most", "sansko most", "cazin", "čazin", "cazinu", "čazinu",  # cazin with cases
+    "bužim", "buzim", "buži", "buzi", "buzim",
+    "velika kladuša", "kladusa", "velka kladusa", "kladuša",
+    "kostolac",
+    
+    # Regional references
+    "usn", "usa", "usna",  # Common abbreviations
 }
 
 
@@ -41,6 +57,10 @@ def _is_bihac_related(title, summary="", categories=None):
     if categories:
         full += " " + " ".join(categories)
     normalized = _normalize_text(full)
+    # Remove punctuation to improve matching (e.g., "bihacu:" becomes "bihacu ")
+    normalized = re.sub(r"[^\w\s]", " ", normalized)
+    # Normalize multiple spaces to single space
+    normalized = re.sub(r"\s+", " ", normalized).strip()
     padded = f" {normalized} "
     for term in BIHAC_STRONG_TERMS:
         normalized_term = _normalize_text(term)
@@ -204,7 +224,8 @@ def run_rss_source(feed_url, source_name, state_file):
         seen_before = url in scraped_urls
 
         body = summary if summary else title
-        body = body[:MAX_CONTENT_LEN] + ("..." if len(body) > MAX_CONTENT_LEN else "")
+        body = _clean_text(body)
+        full_content_length = len(body)
         content = f"{body}\n\n📰 Izvor: {source_name}\n🔗 Pročitaj više: {url}"
         content_hash = _generate_content_hash(content)
         previous_hash = url_content_hashes.get(url)
@@ -227,6 +248,9 @@ def run_rss_source(feed_url, source_name, state_file):
             "source": script_hash,
             "source_name": source_name,
             "content_hash": content_hash,
+            "content_full_length": full_content_length,
+            "content_post_length": full_content_length,
+            "content_truncated_for_facebook": False,
             "scraped_at": datetime.now().isoformat(),
             "date": _entry_date(entry),
         }

@@ -104,8 +104,10 @@ def custom_scrape():
             if is_low_quality_article(article) or not matches_filter(article, filter_terms):
                 scraped_urls.add(link)
                 continue
+            article_content = clean_text(article.get("content", ""))
+            content_length = len(article_content)
             body = (
-                f"{article['content'][:900]}\n\n"
+                f"{article_content}\n\n"
                 f"📰 Izvor: {source_name}\n"
                 f"🔗 Pročitaj više: {article['url']}"
             )
@@ -124,6 +126,9 @@ def custom_scrape():
                 "source": source_hash,
                 "source_name": source_name,
                 "content_hash": c_hash,
+                "content_full_length": content_length,
+                "content_post_length": content_length,
+                "content_truncated_for_facebook": False,
                 "scraped_at": datetime.now().isoformat(),
                 "date": datetime.now().strftime("%Y-%m-%d"),
             }
