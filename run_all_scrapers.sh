@@ -43,7 +43,7 @@ SCRAPERS=(
     #"bljesak_bihac.py"
     #"mondo_bihac.py"
     #"stav_bihac.py"
-    "vecernji_bihac.py"
+    #"vecernji_bihac.py"
     "visitbih_tag_bihac.py"
     "nahla_bihac.py"
     "federalna_bihac.py"

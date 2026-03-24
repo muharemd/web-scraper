@@ -250,7 +250,7 @@ def _extract_items(payload):
         return [item for item in payload if isinstance(item, dict)]
 
     if isinstance(payload, dict):
-        for key in ("items", "articles", "entries", "data"):
+        for key in ("items", "articles", "entries", "data", "item", "article", "entry", "payload", "event"):
             value = payload.get(key)
             if isinstance(value, list):
                 return [item for item in value if isinstance(item, dict)]
@@ -261,6 +261,41 @@ def _extract_items(payload):
         return [payload]
 
     return []
+
+
+def _load_payload(raw_body):
+    payload = request.get_json(silent=True)
+    if payload is not None:
+        return payload, "request_json"
+
+    if raw_body:
+        body_text = raw_body.decode("utf-8", errors="replace").strip()
+        if body_text:
+            try:
+                return json.loads(body_text), "raw_body_json"
+            except Exception:
+                pass
+
+    if request.form:
+        for key in ("payload", "data", "body", "json", "event", "item", "items"):
+            value = request.form.get(key, "")
+            if not value:
+                continue
+            try:
+                return json.loads(value), f"form_field:{key}"
+            except Exception:
+                continue
+
+    return None, "none"
+
+
+def _payload_shape(payload):
+    if isinstance(payload, dict):
+        keys = list(payload.keys())[:10]
+        return f"type=dict keys={keys}"
+    if isinstance(payload, list):
+        return f"type=list len={len(payload)}"
+    return f"type={type(payload).__name__}"
 
 
 def _source_hash(source_name, article_url):
@@ -402,9 +437,32 @@ def _is_ip_allowed(client_ip):
     return False
 
 
-@webhook_bp.route("/inoreader-webhook", methods=["POST"])
+@webhook_bp.route("/inoreader-webhook", methods=["GET", "HEAD", "POST"])
 def handle_inoreader_webhook():
     client_ip = get_client_ip()
+
+    if request.method in {"GET", "HEAD"}:
+        if not config.INOREADER_WEBHOOK_TOKEN:
+            log_activity(
+                client_ip,
+                "inoreader-webhook",
+                "INOREADER_WEBHOOK_REJECTED",
+                "INOREADER_WEBHOOK_TOKEN is not configured",
+            )
+            return jsonify({"status": "error", "message": "Webhook token is not configured."}), 503
+
+        token = clean_text(request.args.get("token", ""))
+        if not token or not hmac.compare_digest(token, config.INOREADER_WEBHOOK_TOKEN):
+            log_activity(client_ip, "inoreader-webhook", "INOREADER_WEBHOOK_FORBIDDEN", "Invalid token")
+            abort(403)
+
+        log_activity(
+            client_ip,
+            "inoreader-webhook",
+            "INOREADER_WEBHOOK_PROBE_OK",
+            f"Method={request.method}",
+        )
+        return jsonify({"status": "ok", "message": "Webhook endpoint reachable."}), 200
 
     if not config.INOREADER_WEBHOOK_TOKEN:
         log_activity(
@@ -418,15 +476,6 @@ def handle_inoreader_webhook():
     token = clean_text(request.args.get("token", ""))
     if not token or not hmac.compare_digest(token, config.INOREADER_WEBHOOK_TOKEN):
         log_activity(client_ip, "inoreader-webhook", "INOREADER_WEBHOOK_FORBIDDEN", "Invalid token")
-        abort(403)
-
-    if not _is_ip_allowed(client_ip):
-        log_activity(
-            client_ip,
-            "inoreader-webhook",
-            "INOREADER_WEBHOOK_FORBIDDEN",
-            f"IP not allowed: {client_ip}",
-        )
         abort(403)
 
     content_length = request.content_length or 0
@@ -449,18 +498,33 @@ def handle_inoreader_webhook():
         )
         abort(413)
 
-    payload = request.get_json(silent=True)
+    payload, payload_source = _load_payload(raw_body)
     if payload is None:
+        content_type = clean_text(request.content_type or "") or "unknown"
+        log_activity(
+            client_ip,
+            "inoreader-webhook",
+            "INOREADER_WEBHOOK_REJECTED",
+            f"Request body must be valid JSON (content_type={content_type}, bytes={len(raw_body)})",
+        )
         return jsonify({"status": "error", "message": "Request body must be valid JSON."}), 400
 
     items = _extract_items(payload)
     if not items:
+        log_activity(
+            client_ip,
+            "inoreader-webhook",
+            "INOREADER_WEBHOOK_REJECTED",
+            f"No article items found in payload ({_payload_shape(payload)})",
+        )
         return jsonify({"status": "error", "message": "No article items found in payload."}), 400
 
     os.makedirs(config.JSON_DIR, exist_ok=True)
 
     created_files = []
     skipped_count = 0
+    skipped_missing_required = 0
+    skipped_duplicates = 0
 
     envelope = payload if isinstance(payload, dict) else {}
 
@@ -468,6 +532,7 @@ def handle_inoreader_webhook():
         article_payload = _build_article_payload(item, envelope)
         if not article_payload:
             skipped_count += 1
+            skipped_missing_required += 1
             continue
 
         existing_name = _find_existing_article(
@@ -476,6 +541,7 @@ def handle_inoreader_webhook():
         )
         if existing_name:
             skipped_count += 1
+            skipped_duplicates += 1
             continue
 
         filename = next_output_filename(article_payload["source"])
@@ -488,7 +554,11 @@ def handle_inoreader_webhook():
         client_ip,
         "inoreader-webhook",
         "INOREADER_WEBHOOK_IMPORTED",
-        f"Processed={len(items)} Created={len(created_files)} Skipped={skipped_count}",
+        (
+            f"Processed={len(items)} Created={len(created_files)} Skipped={skipped_count} "
+            f"MissingRequired={skipped_missing_required} Duplicates={skipped_duplicates} "
+            f"PayloadSource={payload_source}"
+        ),
     )
 
     return jsonify(
@@ -506,5 +576,5 @@ if config.INOREADER_WEBHOOK_PATH != "/inoreader-webhook":
     webhook_bp.add_url_rule(
         config.INOREADER_WEBHOOK_PATH,
         view_func=handle_inoreader_webhook,
-        methods=["POST"],
+        methods=["GET", "HEAD", "POST"],
     )

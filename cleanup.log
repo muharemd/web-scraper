@@ -1071,3 +1071,163 @@ To automate cleanup, add to crontab:
 
 This will run cleanup daily at 2 AM
 ==============================================
+🧹 Starting cleanup of Bihać Scrapers System...
+==============================================
+1. Cleaning Python temporary files...
+   ✓ Python cache cleaned
+2. Rotating log files...
+   ✓ Rotated: scraper_log
+   ✓ Rotated: scraper_cron.log
+   ✓ Rotated: dashboard_access.log
+   ✓ Rotated: dashboard_activity.log
+   ✓ Rotated: dashboard.log
+   ✓ Rotated: email_sent.log
+   ✓ Rotated: failed_logins.log
+3. Cleaning old JSON files...
+   ✓ Removed 0 old JSON files (kept 33)
+3b. Cleaning old attachment files...
+   ✓ Removed 60 old attachment files (kept 134, retention 2 days)
+4. Cleaning backup files...
+   ✓ Old backup files cleaned
+5. Cleaning temporary email files...
+   ✓ Temporary email files cleaned
+6. Cleaning browser cache...
+   ✓ Browser cache cleaned
+7. Checking disk space...
+   Current disk usage:
+/dev/mapper/ubuntu--vg-ubuntu--lv   29G   15G   13G  56% /
+8. Largest files in /home/bihac-danas/web-scraper:
+-rwxrwxr-x 1 bihac-danas bihac-danas 13M Mar 11 13:50 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/backend_c.cpython-312-x86_64-linux-gnu.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/_cffi.cpython-312-x86_64-linux-gnu.so
+9. Cleaning empty directories...
+   ✓ Empty directories removed
+
+==============================================
+✅ Cleanup completed!
+
+To automate cleanup, add to crontab:
+0 2 * * * /home/bihac-danas/web-scraper/cleanup_script.sh >> /home/bihac-danas/web-scraper/cleanup.log 2>&1
+
+This will run cleanup daily at 2 AM
+==============================================
+🧹 Starting cleanup of Bihać Scrapers System...
+==============================================
+1. Cleaning Python temporary files...
+   ✓ Python cache cleaned
+2. Rotating log files...
+   ✓ Rotated: scraper_log
+   ✓ Rotated: scraper_cron.log
+   ✓ Rotated: dashboard_access.log
+   ✓ Rotated: dashboard_activity.log
+   ✓ Rotated: dashboard.log
+   ✓ Rotated: email_sent.log
+   ✓ Rotated: failed_logins.log
+3. Cleaning old JSON files...
+   ✓ Removed 0 old JSON files (kept 41)
+3b. Cleaning old attachment files...
+   ✓ Removed 0 old attachment files (kept 162, retention 2 days)
+4. Cleaning backup files...
+   ✓ Old backup files cleaned
+5. Cleaning temporary email files...
+   ✓ Temporary email files cleaned
+6. Cleaning browser cache...
+   ✓ Browser cache cleaned
+7. Checking disk space...
+   Current disk usage:
+/dev/mapper/ubuntu--vg-ubuntu--lv   29G   16G   13G  56% /
+8. Largest files in /home/bihac-danas/web-scraper:
+-rwxrwxr-x 1 bihac-danas bihac-danas 13M Mar 11 13:50 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/backend_c.cpython-312-x86_64-linux-gnu.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/_cffi.cpython-312-x86_64-linux-gnu.so
+9. Cleaning empty directories...
+   ✓ Empty directories removed
+
+==============================================
+✅ Cleanup completed!
+
+To automate cleanup, add to crontab:
+0 2 * * * /home/bihac-danas/web-scraper/cleanup_script.sh >> /home/bihac-danas/web-scraper/cleanup.log 2>&1
+
+This will run cleanup daily at 2 AM
+==============================================
+🧹 Starting cleanup of Bihać Scrapers System...
+==============================================
+1. Cleaning Python temporary files...
+   ✓ Python cache cleaned
+2. Rotating log files...
+   ✓ Rotated: scraper_log
+   ✓ Rotated: scraper_cron.log
+   ✓ Rotated: dashboard_access.log
+   ✓ Rotated: dashboard_activity.log
+   ✓ Rotated: dashboard.log
+   ✓ Rotated: email_sent.log
+   ✓ Rotated: failed_logins.log
+3. Cleaning old JSON files...
+   ✓ Removed 0 old JSON files (kept 68)
+3b. Cleaning old attachment files...
+   ✓ Removed 34 old attachment files (kept 146, retention 2 days)
+4. Cleaning backup files...
+   ✓ Old backup files cleaned
+5. Cleaning temporary email files...
+   ✓ Temporary email files cleaned
+6. Cleaning browser cache...
+   ✓ Browser cache cleaned
+7. Checking disk space...
+   Current disk usage:
+/dev/mapper/ubuntu--vg-ubuntu--lv   29G   15G   13G  56% /
+8. Largest files in /home/bihac-danas/web-scraper:
+-rwxrwxr-x 1 bihac-danas bihac-danas 13M Mar 11 13:50 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/backend_c.cpython-312-x86_64-linux-gnu.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/_cffi.cpython-312-x86_64-linux-gnu.so
+9. Cleaning empty directories...
+   ✓ Empty directories removed
+
+==============================================
+✅ Cleanup completed!
+
+To automate cleanup, add to crontab:
+0 2 * * * /home/bihac-danas/web-scraper/cleanup_script.sh >> /home/bihac-danas/web-scraper/cleanup.log 2>&1
+
+This will run cleanup daily at 2 AM
+==============================================
+🧹 Starting cleanup of Bihać Scrapers System...
+==============================================
+1. Cleaning Python temporary files...
+   ✓ Python cache cleaned
+2. Rotating log files...
+   ✓ Rotated: scraper_log
+   ✓ Rotated: scraper_cron.log
+   ✓ Rotated: dashboard_access.log
+   ✓ Rotated: dashboard_activity.log
+   ✓ Rotated: dashboard.log
+   ✓ Rotated: email_sent.log
+   ✓ Rotated: failed_logins.log
+3. Cleaning old JSON files...
+   ✓ Removed 0 old JSON files (kept 32)
+3b. Cleaning old attachment files...
+   ✓ Removed 86 old attachment files (kept 103, retention 2 days)
+4. Cleaning backup files...
+   ✓ Old backup files cleaned
+5. Cleaning temporary email files...
+   ✓ Temporary email files cleaned
+6. Cleaning browser cache...
+   ✓ Browser cache cleaned
+7. Checking disk space...
+   Current disk usage:
+/dev/mapper/ubuntu--vg-ubuntu--lv   29G   16G   13G  56% /
+8. Largest files in /home/bihac-danas/web-scraper:
+-rwxrwxr-x 1 bihac-danas bihac-danas 13M Mar 11 13:50 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/backend_c.cpython-312-x86_64-linux-gnu.so
+-rwxrwxr-x 1 bihac-danas bihac-danas 12M Mar 11 13:46 /home/bihac-danas/web-scraper/scraper-env/lib/python3.12/site-packages/zstandard/_cffi.cpython-312-x86_64-linux-gnu.so
+9. Cleaning empty directories...
+   ✓ Empty directories removed
+
+==============================================
+✅ Cleanup completed!
+
+To automate cleanup, add to crontab:
+0 2 * * * /home/bihac-danas/web-scraper/cleanup_script.sh >> /home/bihac-danas/web-scraper/cleanup.log 2>&1
+
+This will run cleanup daily at 2 AM
+==============================================
