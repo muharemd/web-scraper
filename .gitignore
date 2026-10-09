@@ -11,7 +11,6 @@
 .profile
 .bash_logout
 .lesshst
-.viminfo
 
 # Python cache
 __pycache__/
@@ -26,13 +25,37 @@ env/
 .scraper-env/
 scraper-env/
 
+# Virtualenv Python packages / binaries (belt-and-suspenders)
+**/site-packages/
+**/lib64/
+**/lib/python*/
+**/bin/python
+**/bin/python3
+**/bin/python3.*
+**/bin/pip
+**/bin/pip3
+**/bin/pip3.*
+**/*.pyc
+**/*.pyo
+**/*.pyi
+**/*.egg-info/
+**/*.dist-info/
+**/*.abi3.so
+**/*.cpython-*.so
+
 # Playwright binaries (these are huge)
 **/playwright/
 **/playwright/**
-
-# Node binaries inside Playwright
 **/playwright/driver/
 **/playwright/driver/**
+
+# Bundled media binaries (ffmpeg etc. — huge, never commit)
+**/ffmpeg*
+**/ffprobe*
+**/imageio_ffmpeg/**
+**/binaries/**
+ffmpeg
+ffmpeg.exe
 
 # Build artifacts
 build/
@@ -46,23 +69,31 @@ dist/
 
 # API keys and sensitive configuration
 .deepseek_config
+.openai_config
 .make_tokens
 .apify_config
 .inoreader_config
 .wp_config
-.fb_pages.json
-.fb_pages_preconfigured.json
+*_config
 *.config
 .env
+.env.*
 dashboard_users.json
+fb_pages.json
+fb_pages_preconfigured.json
+fb.*.json
 *state.json
 *_access.log
 *_activity.log
 *failed_logins.log
 
+# NOTE: certs/ is intentionally NOT ignored (kept tracked per project requirement).
+# Private keys (*.key/*.pem) are sensitive — review before sharing the repo.
+
 # Log files
-*.log
-*.log.*
+**/*.log
+**/*.log.*
+scraper_log
 scraper_log.txt
 scraper_cron.log
 dashboard.log
@@ -71,10 +102,30 @@ dashboard_activity.log
 email_sent.log
 failed_logins.log
 cleanup.log
-email_sent.log
-scraper_cron.log
-scraper_log.txt
+apify_facebook_cron.log
 
 # Generated Facebook posts (output files)
 facebook_ready_posts/*.json
 facebook_ready_posts/attachments/
+
+# Runtime state & generated data
+*_history.json
+scraper_history.json
+dated_history.json
+vladausk_history.json
+dated_articles/
+news_articles/
+fb_articles/
+preview_*.html
+
+# Audio files (TTS output, etc.)
+**/*.mp3
+**/*.wav
+**/*.m4a
+**/*.aac
+**/*.ogg
+audio/
+**/audios/
+tts_output/
+
+
