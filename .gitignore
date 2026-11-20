@@ -96,6 +96,8 @@ certs/webhook.blinktech.art.crt
 # Private keys are sensitive — never commit them.
 *.key
 *.pem
+# NOTE: certs/ is intentionally NOT ignored (kept tracked per project requirement).
+# Private keys (*.key/*.pem) are sensitive — review before sharing the repo.
 
 # Log files
 **/*.log
