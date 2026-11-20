@@ -1,0 +1,18 @@
+[Unit]
+Description=Facebook Posting Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=bihac-danas
+Group=bihac-danas
+WorkingDirectory=/home/bihac-danas/web-scraper
+Environment="PATH=/home/bihac-danas/web-scraper/scraper-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/bihac-danas/web-scraper/scraper-env/bin/python /home/bihac-danas/web-scraper/dashboard.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
