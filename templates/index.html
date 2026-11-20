@@ -670,10 +670,9 @@
                 </button>
             </form>
             {% if new_count > 0 %}
-            <a href="/post-all-new" class="btn btn-success" 
-               onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">
+            <button class="btn btn-success" disabled title="Post All New is disabled">
                 📤 Post All New ({{ new_count }})
-            </a>
+            </button>
             {% else %}
             <button class="btn btn-success" disabled>
                 📤 No New Articles
@@ -700,6 +699,7 @@
                     <button class="filter-btn active" onclick="filterArticles('all')">All</button>
                     <button class="filter-btn" onclick="filterArticles('new')">New ({{ new_count }})</button>
                     <button class="filter-btn" onclick="filterArticles('published')">Published ({{ published_count }})</button>
+                    <input id="searchInput" type="search" placeholder="&#128269; Search..." style="margin-left:0.5rem; padding:0.3rem 0.6rem; border:1px solid #e2e8f0; border-radius:4px; font-size:0.85rem;" oninput="searchArticles()">
                 </div>
             </div>
 
@@ -802,8 +802,31 @@
         let totalArticles = {{ articles|length }};
         let totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
         let currentFilter = 'all';
+        let currentSearch = '';
 
-        // Initialize pagination
+        function applyFilters() {
+            const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
+            articles.forEach(article => {
+                const status = article.getAttribute('data-status');
+                const title = (article.querySelector('.article-title')?.textContent || '').toLowerCase();
+                const statusMatch = currentFilter === 'all' || status === currentFilter;
+                const searchMatch = !currentSearch || title.includes(currentSearch);
+                article.setAttribute('data-visible', statusMatch && searchMatch ? 'true' : 'false');
+                if (statusMatch && searchMatch) visibleCount++;
+            });
+            totalArticles = visibleCount;
+            totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
+            currentPage = 1;
+            let shown = 0;
+            articles.forEach(article => {
+                if (article.getAttribute('data-visible') === 'true' && shown < ARTICLES_PER_PAGE) {
+                    article.style.display = 'block'; shown++;
+                } else { article.style.display = 'none'; }
+            });
+            document.getElementById('pagination').style.display = totalPages > 1 ? 'flex' : 'none';
+            updatePagination();
+        }
         function initPagination() {
             if (totalArticles > ARTICLES_PER_PAGE) {
                 document.getElementById('pagination').style.display = 'flex';
@@ -818,15 +841,18 @@
             const articles = document.querySelectorAll('.article-card');
             const start = (pageNum - 1) * ARTICLES_PER_PAGE;
             const end = start + ARTICLES_PER_PAGE;
-            
-            articles.forEach((article, index) => {
-                if (index >= start && index < end) {
+            let shown = 0;
+            articles.forEach(article => {
+                if (article.getAttribute('data-visible') === 'false') {
+                    article.style.display = 'none';
+                } else if (shown >= start && shown < end) {
                     article.style.display = 'block';
+                    shown++;
                 } else {
                     article.style.display = 'none';
+                    shown++;
                 }
             });
-            
             updatePagination();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -868,47 +894,15 @@
         // Filter articles
         function filterArticles(status) {
             currentFilter = status;
-            const articles = document.querySelectorAll('.article-card');
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            // Update active filter button
             filterBtns.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            
-            // Count visible articles and recalculate pagination
-            let visibleCount = 0;
-            articles.forEach(article => {
-                const articleStatus = article.getAttribute('data-status');
-                if (status === 'all' || articleStatus === status) {
-                    visibleCount++;
-                    article.setAttribute('data-visible', 'true');
-                } else {
-                    article.setAttribute('data-visible', 'false');
-                }
-            });
-            
-            // Update pagination for filtered results
-            totalArticles = visibleCount;
-            totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
-            currentPage = 1;
-            
-            // Show first page of filtered results
-            let shown = 0;
-            articles.forEach(article => {
-                if (article.getAttribute('data-visible') === 'true' && shown < ARTICLES_PER_PAGE) {
-                    article.style.display = 'block';
-                    shown++;
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-            
-            if (totalPages > 1) {
-                document.getElementById('pagination').style.display = 'flex';
-            } else {
-                document.getElementById('pagination').style.display = 'none';
-            }
-            updatePagination();
+            applyFilters();
+        }
+
+        function searchArticles() {
+            currentSearch = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters();
         }
 
         // Show article details

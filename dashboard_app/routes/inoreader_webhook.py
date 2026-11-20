@@ -102,6 +102,20 @@ def _extract_article_url(payload):
                 if url:
                     return url
 
+    # Inoreader format: canonical/alternate are lists of {"href": "..."}
+    for key in ("canonical", "alternate"):
+        entries = payload.get(key)
+        if isinstance(entries, list):
+            for entry in entries:
+                if isinstance(entry, dict):
+                    url = _normalize_http_url(entry.get("href") or entry.get("url") or "")
+                    if url:
+                        return url
+                elif isinstance(entry, str):
+                    url = _normalize_http_url(entry)
+                    if url:
+                        return url
+
     return ""
 
 
@@ -126,14 +140,20 @@ def _extract_image_url(payload):
             if url:
                 return url
 
-    enclosures = payload.get("enclosures")
-    if isinstance(enclosures, list):
+    # Check both "enclosures" (generic) and "enclosure" (Inoreader singular form)
+    for enc_key in ("enclosures", "enclosure"):
+        enclosures = payload.get(enc_key)
+        if not isinstance(enclosures, list):
+            continue
         for entry in enclosures:
             if isinstance(entry, str):
                 url = _normalize_http_url(entry)
                 if url:
                     return url
             elif isinstance(entry, dict):
+                mime = entry.get("type", "")
+                if mime and not mime.startswith("image"):
+                    continue
                 url = _normalize_http_url(entry.get("url") or entry.get("href") or "")
                 if url:
                     return url
@@ -161,11 +181,12 @@ def _extract_source_name(item, envelope, article_url):
         if source_name:
             return source_name
 
-        feed = payload.get("feed")
-        if isinstance(feed, dict):
-            feed_name = _first_non_empty(feed, ["title", "name"])
-            if feed_name:
-                return feed_name
+        for feed_key in ("feed", "origin"):
+            feed = payload.get(feed_key)
+            if isinstance(feed, dict):
+                feed_name = _first_non_empty(feed, ["title", "name"])
+                if feed_name:
+                    return feed_name
 
     domain = urlparse(article_url).netloc.lower().replace("www.", "")
     if domain:

@@ -24,27 +24,8 @@ if __name__ == '__main__':
     print("🔐 Login with credentials from manage_users.sh")
     print(f"{'='*50}\n")
 
-    # Keep previous runtime behavior for systemd: HTTPS on 8443 when certs exist,
-    # otherwise fallback to HTTP on 8080.
+    # SSL is handled by nginx reverse proxy on port 8443.
+    # Dashboard runs on plain HTTP port 8080 (internal only).
     os.makedirs(config.JSON_DIR, exist_ok=True)
-
-    cert_path = '/home/bihac-danas/web-scraper/certs/cert.pem'
-    key_path = '/home/bihac-danas/web-scraper/certs/key.pem'
-
-    if os.path.exists(cert_path) and os.path.exists(key_path):
-        print("🔒 Starting with HTTPS (8443)...")
-        print(f"SSL cert: {cert_path}")
-        print(f"SSL key:  {key_path}")
-        from werkzeug.serving import run_simple
-
-        run_simple(
-            '0.0.0.0',
-            8443,
-            app,
-            ssl_context=(cert_path, key_path),
-            use_reloader=False,
-            use_debugger=False,
-        )
-    else:
-        print("⚠️ SSL certificates not found, running HTTP only on port 8080")
-        app.run(host='0.0.0.0', port=8080, debug=False)
+    print("🔒 SSL handled by nginx on port 8443. Starting HTTP on port 8080...")
+    app.run(host='0.0.0.0', port=8080, debug=False)

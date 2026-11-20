@@ -137,11 +137,8 @@
             <button type="submit" class="btn btn-primary">&#10000;&#65039; Rewrite Titles</button>
         </form>
         <a href="/manual-entry" class="btn btn-primary">&#9997;&#65039; Manual Article</a>
-        {% if new_count is defined and new_count > 0 %}
-        <a href="/post-all-new" class="btn btn-success" onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">&#128228; Post All New ({{ new_count }})</a>
-        {% else %}
-        <button class="btn btn-success" disabled>&#128228; No New Articles</button>
-        {% endif %}
+        <a href="/ai-compose" class="btn btn-primary">&#129302; AI Compose</a>
+
         <a href="/facebook" class="btn btn-facebook">&#128216; Facebook Tools</a>
         <a href="/webhooks" class="btn btn-primary">&#128279; Webhooks</a>
         <a href="/refresh" class="btn btn-secondary">&#128260; Refresh</a>
@@ -164,6 +161,7 @@
         <button class="btn btn-secondary" onclick="selectNone()">&#9744; Deselect All</button>
         <button class="btn btn-danger" id="deleteSelectedBtn" onclick="deleteSelected()" disabled>&#128465; Delete Selected (<span id="selectedCount">0</span>)</button>
         <span class="selection-info" id="selectionInfo"></span>
+        <input id="searchInput" type="search" placeholder="&#128269; Search articles..." class="input-sm" style="flex:1; min-width:180px; max-width:300px;" oninput="searchArticles()">
     </div>
 
     <div class="article-grid" id="articleGrid">
@@ -412,6 +410,14 @@ function selectNone() {
         cb.closest('.article-card').classList.remove('selected');
     });
     updateSelectionUI();
+}
+
+function searchArticles() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.article-card').forEach(card => {
+        const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
+        card.style.display = (!q || title.includes(q)) ? '' : 'none';
+    });
 }
 
 function deleteSelected() {

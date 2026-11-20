@@ -2,6 +2,7 @@ import hashlib
 import json
 import os
 import subprocess
+import tempfile
 from datetime import datetime
 
 from .. import config
@@ -111,15 +112,63 @@ def get_webhook_for_target(target):
     return None
 
 
+def _effective_publish_title(payload):
+    if not isinstance(payload, dict):
+        return "Bez naslova"
+
+    rewritten = clean_text(payload.get("title_rewritten", ""))
+    if rewritten:
+        return rewritten
+
+    original = clean_text(payload.get("title", ""))
+    if original:
+        return original
+
+    return "Bez naslova"
+
+
+def _prepare_publish_payload_path(json_file_path):
+    temp_path = None
+    try:
+        with open(json_file_path, "r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+    except Exception:
+        return json_file_path, temp_path
+
+    if not isinstance(payload, dict):
+        return json_file_path, temp_path
+
+    effective_title = _effective_publish_title(payload)
+
+    # Keep publish semantics consistent for all downstream consumers.
+    if not clean_text(payload.get("title", "")):
+        payload["title"] = effective_title
+    if not clean_text(payload.get("title_rewritten", "")):
+        payload["title_rewritten"] = effective_title
+    payload["title_effective"] = effective_title
+
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".json", delete=False, encoding="utf-8"
+    ) as temp_file:
+        json.dump(payload, temp_file, ensure_ascii=False)
+        temp_path = temp_file.name
+
+    return temp_path, temp_path
+
+
 def run_curl_command_for_target(json_file_path, target="bihac_danas"):
     webhook_url = get_webhook_for_target(target)
     if not webhook_url:
         return {"success": False, "error": f"Unknown or unconfigured target: {target}"}
+
+    payload_path = json_file_path
+    temp_payload_path = None
     try:
+        payload_path, temp_payload_path = _prepare_publish_payload_path(json_file_path)
         cmd = [
             "curl", "-X", "POST",
             "-H", "Content-Type: application/json",
-            "-d", f"@{json_file_path}",
+            "-d", f"@{payload_path}",
             webhook_url,
             "--max-time", "30",
         ]
@@ -127,6 +176,12 @@ def run_curl_command_for_target(json_file_path, target="bihac_danas"):
         return {"success": result.returncode == 0, "stdout": result.stdout, "stderr": result.stderr}
     except Exception as e:
         return {"success": False, "error": str(e)}
+    finally:
+        if temp_payload_path:
+            try:
+                os.remove(temp_payload_path)
+            except Exception:
+                pass
 
 
 def run_curl_command(json_file_path):

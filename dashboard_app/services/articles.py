@@ -45,7 +45,7 @@ def get_articles(offset=0, limit=50):
                     "published": data.get("published", ""),
                     "published_target": data.get("published_target", ""),
                     "source_name": source_name,
-                    "url": data.get("url", "#"),
+                    "url": data.get("url") or "#",
                     "is_new": not bool(data.get("published")),
                     "image_url": data.get("image_url", ""),
                     "wp_published": data.get("wp_published", ""),

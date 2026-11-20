@@ -48,7 +48,7 @@ SCRAPERS=(
     "nahla_bihac.py"
     "federalna_bihac.py"
     "fokus_bihac.py"
-    "vijesti_ba_bihac.py"
+    #"vijesti_ba_bihac.py"
     "euronews_bihac.py"
     "klix_tag_bihac.py"
     "radiosarajevo_bihac.py"

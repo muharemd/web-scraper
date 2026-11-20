@@ -36,7 +36,7 @@ if [ ! -f "$ARTICLE_JSON" ]; then
 fi
 
 AUTH=""
-WP_STATUS_VALUE="${WP_STATUS:-publish}"
+WP_STATUS_VALUE="${WP_STATUS:-draft}"
 CURL_CONNECT_TIMEOUT="${WP_CURL_CONNECT_TIMEOUT:-10}"
 CURL_MAX_TIME="${WP_CURL_MAX_TIME:-30}"
 
@@ -58,14 +58,20 @@ if [ "$DRY_RUN" = "false" ]; then
     fi
 
     AUTH="${WP_USERNAME}:${WP_APP_PASSWORD}"
-    WP_STATUS_VALUE="${WP_STATUS:-publish}"
+    WP_STATUS_VALUE="${WP_STATUS:-draft}"
     CURL_CONNECT_TIMEOUT="${WP_CURL_CONNECT_TIMEOUT:-10}"
     CURL_MAX_TIME="${WP_CURL_MAX_TIME:-30}"
 else
     echo "Running in dry-run mode: WordPress publish and media uploads are skipped."
 fi
 
-TITLE=$(jq -r '.title_rewritten // .title // "Bez naslova"' "$ARTICLE_JSON")
+TITLE=$(jq -r '
+    [.title_rewritten, .title, "Bez naslova"]
+    | map(if . == null then "" else tostring end)
+    | map(gsub("^\\s+|\\s+$"; ""))
+    | map(select(length > 0))
+    | .[0] // "Bez naslova"
+' "$ARTICLE_JSON")
 CONTENT=$(jq -r '.content // ""' "$ARTICLE_JSON")
 SOURCE_URL=$(jq -r '.url // empty' "$ARTICLE_JSON")
 CONTENT_COVERAGE_LABEL=$(jq -r '.content_coverage_label // ""' "$ARTICLE_JSON")
