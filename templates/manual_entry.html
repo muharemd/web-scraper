@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Article Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #f4f7ff 0%, #eef3ff 40%, #f7f9fc 100%);
+            color: #2d3748;
+            min-height: 100vh;
+            padding: 18px;
+        }
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 28px rgba(31, 41, 55, 0.12);
+            overflow: hidden;
+        }
+        .header {
+            padding: 1.2rem 1.5rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #0f766e 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        .body { padding: 1.2rem 1.5rem 1.5rem; }
+        .field-label {
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: #334155;
+        }
+        .form-control, .form-control:focus {
+            border-radius: 8px;
+            border-color: #cbd5e1;
+            box-shadow: none;
+        }
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.15);
+        }
+        textarea.form-control {
+            min-height: 260px;
+            line-height: 1.45;
+            font-size: 0.95rem;
+        }
+        .actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .hint {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.45;
+        }
+        .footer {
+            border-top: 1px solid #e2e8f0;
+            padding: 0.9rem 1.5rem;
+            background: #f8fafc;
+            color: #64748b;
+            font-size: 0.83rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .created-file {
+            font-family: 'Courier New', monospace;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            padding: 0.45rem 0.6rem;
+            color: #1d4ed8;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 640px) {
+            body { padding: 8px; }
+            .body, .header, .footer { padding-left: 0.9rem; padding-right: 0.9rem; }
+            textarea.form-control { min-height: 220px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <div>
+            <h1>&#9997;&#65039; Manual Article Entry</h1>
+            <p>Create a ready-to-publish JSON file in facebook_ready_posts</p>
+        </div>
+        <a href="/" class="btn btn-light btn-sm">Back to Dashboard</a>
+    </div>
+
+    <div class="body">
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+        {% endif %}
+
+        {% if success_message %}
+        <div class="alert alert-success" role="alert">{{ success_message }}</div>
+        {% endif %}
+
+        {% if created_filename %}
+        <div class="created-file">Created file: {{ created_filename }}</div>
+        {% endif %}
+
+        <form method="post" action="/manual-entry" style="margin-top:0.9rem;">
+            <div class="mb-3">
+                <label for="title" class="field-label">Title *</label>
+                <input type="text" id="title" name="title" class="form-control" required maxlength="500"
+                       value="{{ form_data.title if form_data else '' }}"
+                       placeholder="Example: Servisne informacije - 18.03.2026.">
+            </div>
+
+            <div class="mb-3">
+                <label for="url" class="field-label">Source URL *</label>
+                <input type="url" id="url" name="url" class="form-control" required
+                       value="{{ form_data.url if form_data else '' }}"
+                       placeholder="https://example.com/article">
+            </div>
+
+            <div class="mb-3">
+                <label for="image_url" class="field-label">Image URL</label>
+                <input type="url" id="image_url" name="image_url" class="form-control"
+                       value="{{ form_data.image_url if form_data else '' }}"
+                       placeholder="https://example.com/image.webp">
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="field-label">Content *</label>
+                <textarea id="content" name="content" class="form-control" required
+                          placeholder="Paste or type full post content here...">{{ form_data.content if form_data else '' }}</textarea>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Create JSON File</button>
+                <a href="/" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+        </form>
+
+        <div class="hint">
+            Required fields are title, URL and content. If your content does not include the URL, the system appends
+            a "Pročitaj više" link automatically. After creation, the new article appears in the main dashboard with
+            the same Facebook/WordPress publish actions as scraped files.
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>Output folder: /home/bihac-danas/web-scraper/facebook_ready_posts</span>
+        <span>{{ now.strftime('%Y-%m-%d %H:%M:%S') if now is defined else '' }}</span>
+    </div>
+</div>
+</body>
+</html>

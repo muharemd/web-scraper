@@ -1,0 +1,11 @@
+# Copy to .wp_config and fill with your values.
+# This file is intentionally local-only and should NOT be committed.
+
+# Required
+WP_BASE="https://example.com/wp-json/wp/v2"
+WP_USERNAME="wp-username"
+WP_APP_PASSWORD="xxxx xxxx xxxx xxxx xxxx xxxx"
+
+# Optional defaults
+WP_DEFAULT_CATEGORY="36"
+WP_STATUS="publish"

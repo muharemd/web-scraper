@@ -242,20 +242,9 @@
         .article-content {
             color: #4a5568;
             margin-bottom: 1.5rem;
-            line-height: 1.5;
-            max-height: 100px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .article-content:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: linear-gradient(transparent, white);
+            line-height: 1.6;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
         }
 
         .article-actions {
@@ -340,28 +329,308 @@
             border-color: #667eea;
         }
 
+        /* Tablet and Mobile Styles */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 1.5rem;
+            }
+
             .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .stats-container {
+                padding: 1rem;
+                gap: 0.75rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-card h3 {
                 font-size: 2rem;
             }
 
             .actions {
                 flex-direction: column;
+                padding: 1rem;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+                min-height: 44px;
+                padding: 1rem 1.5rem;
+            }
+
+            .articles-container {
+                padding: 0 1rem 1rem;
+            }
+
+            .articles-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .articles-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .filters {
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                flex: 1;
+                min-width: 100px;
+                text-align: center;
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+
+            .article-card {
+                padding: 1rem;
             }
 
             .article-header {
                 flex-direction: column;
             }
 
+            .article-title {
+                font-size: 1.1rem;
+            }
+
+            .article-meta {
+                font-size: 0.8rem;
+            }
+
+            .article-content {
+                font-size: 0.9rem;
+            }
+
+            .article-actions {
+                gap: 0.5rem;
+            }
+
+            .article-actions .btn {
+                flex: 1;
+                min-width: 100px;
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                max-height: 95vh;
+                margin: 10px;
+            }
+
+            .modal-header {
+                padding: 1rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .pagination {
+                gap: 0.25rem;
+            }
+
+            .page-btn {
+                padding: 0.5rem 0.75rem;
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card h3 {
+                font-size: 1.75rem;
+            }
+
             .filters {
                 flex-direction: column;
-                align-items: stretch;
             }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-actions {
+                flex-direction: column;
+            }
+
+            .article-actions .btn {
+                width: 100%;
+            }
+
+            .modal-content {
+                width: 100%;
+                max-height: 100vh;
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .page-btn {
+                padding: 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 768px) {
+            * {
+                max-width: 100%;
+            }
+
+            .container {
+                border-radius: 0;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .article-detail {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-detail h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-detail p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .article-detail pre {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            color: #2d3748;
+        }
+
+        .article-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
@@ -395,11 +664,15 @@
             <a href="/run-scrapers" class="btn btn-warning">
                 🚀 Run All Scrapers
             </a>
+            <form action="/run-rewrite-titles" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-primary">
+                    ✍️ Rewrite Titles (DeepSeek)
+                </button>
+            </form>
             {% if new_count > 0 %}
-            <a href="/post-all-new" class="btn btn-success" 
-               onclick="return confirm('Post ALL {{ new_count }} new articles to Facebook?')">
+            <button class="btn btn-success" disabled title="Post All New is disabled">
                 📤 Post All New ({{ new_count }})
-            </a>
+            </button>
             {% else %}
             <button class="btn btn-success" disabled>
                 📤 No New Articles
@@ -426,6 +699,7 @@
                     <button class="filter-btn active" onclick="filterArticles('all')">All</button>
                     <button class="filter-btn" onclick="filterArticles('new')">New ({{ new_count }})</button>
                     <button class="filter-btn" onclick="filterArticles('published')">Published ({{ published_count }})</button>
+                    <input id="searchInput" type="search" placeholder="&#128269; Search..." style="margin-left:0.5rem; padding:0.3rem 0.6rem; border:1px solid #e2e8f0; border-radius:4px; font-size:0.85rem;" oninput="searchArticles()">
                 </div>
             </div>
 
@@ -437,6 +711,11 @@
                     <div class="article-header">
                         <div style="flex: 1;">
                             <div class="article-title">{{ article.title }}</div>
+                            {% if article.title_rewritten %}
+                            <div style="font-size: 0.95rem; color: #667eea; font-weight: 500; margin-top: 0.5rem; font-style: italic;">
+                                ✍️ {{ article.title_rewritten }}
+                            </div>
+                            {% endif %}
                             <div class="article-meta">
                                 <span>📅 {{ article.date }}</span>
                                 <span class="source-badge">{{ article.source_name }}</span>
@@ -464,13 +743,23 @@
                             📤 Post to Facebook
                         </a>
                         {% endif %}
+                        {% if not article.title_rewritten %}
+                        <button class="btn" style="background: #9f7aea; color: white;" 
+                                onclick="rewriteSingleTitle('{{ article.filename|e }}', this)">
+                            ✍️ Rewrite Title
+                        </button>
+                        {% endif %}
                         <a href="{{ article.url }}" target="_blank" class="btn" style="background: #e2e8f0; color: #4a5568;">
                             🔗 View Source
                         </a>
                         <button class="btn" style="background: #f7fafc; color: #4a5568;" 
-                                onclick="showDetails('{{ article.filename|escapejs }}')">
+                                onclick="showDetails('{{ article.filename|e }}')">
                             👁️ Preview
                         </button>
+                        <a href="/delete/{{ article.filename }}" class="btn" style="background: #feb2b2; color: #c53030;"
+                           onclick="return confirm('Are you sure you want to delete this article?\n\nTitle: {{ article.title }}\n\nThis action cannot be undone!')">
+                            🗑️ Delete
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
@@ -483,23 +772,120 @@
             </div>
             {% endif %}
 
-            {% if articles|length > 20 %}
-            <div class="pagination">
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <span>...</span>
+            <div class="pagination" id="pagination" style="display: none;">
+                <!-- Pagination buttons will be generated by JavaScript -->
             </div>
-            {% endif %}
         </div>
 
         <div class="footer">
             <p>Bihac Scrapers System • {{ now.strftime('%Y-%m-%d %H:%M') }}</p>
-            <p>Server: http://{{ server_ip }}:{{ port }} • Webhook: https://hook.eu1.make.com/p1kanqk3w243rnyaio8gbeeiosvhddgb</p>
+        </div>
+    </div>
+
+    <!-- Article Preview Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>👁️ Article Preview</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p style="text-align: center; color: #a0aec0;">Loading...</p>
+            </div>
         </div>
     </div>
 
     <script>
+        // Pagination settings
+        const ARTICLES_PER_PAGE = 10;
+        let currentPage = 1;
+        let totalArticles = {{ articles|length }};
+        let totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        function applyFilters() {
+            const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
+            articles.forEach(article => {
+                const status = article.getAttribute('data-status');
+                const title = (article.querySelector('.article-title')?.textContent || '').toLowerCase();
+                const statusMatch = currentFilter === 'all' || status === currentFilter;
+                const searchMatch = !currentSearch || title.includes(currentSearch);
+                article.setAttribute('data-visible', statusMatch && searchMatch ? 'true' : 'false');
+                if (statusMatch && searchMatch) visibleCount++;
+            });
+            totalArticles = visibleCount;
+            totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
+            currentPage = 1;
+            let shown = 0;
+            articles.forEach(article => {
+                if (article.getAttribute('data-visible') === 'true' && shown < ARTICLES_PER_PAGE) {
+                    article.style.display = 'block'; shown++;
+                } else { article.style.display = 'none'; }
+            });
+            document.getElementById('pagination').style.display = totalPages > 1 ? 'flex' : 'none';
+            updatePagination();
+        }
+        function initPagination() {
+            if (totalArticles > ARTICLES_PER_PAGE) {
+                document.getElementById('pagination').style.display = 'flex';
+                updatePagination();
+            }
+            showPage(1);
+        }
+
+        // Show specific page
+        function showPage(pageNum) {
+            currentPage = pageNum;
+            const articles = document.querySelectorAll('.article-card');
+            const start = (pageNum - 1) * ARTICLES_PER_PAGE;
+            const end = start + ARTICLES_PER_PAGE;
+            let shown = 0;
+            articles.forEach(article => {
+                if (article.getAttribute('data-visible') === 'false') {
+                    article.style.display = 'none';
+                } else if (shown >= start && shown < end) {
+                    article.style.display = 'block';
+                    shown++;
+                } else {
+                    article.style.display = 'none';
+                    shown++;
+                }
+            });
+            updatePagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Update pagination buttons
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            if (!pagination || totalPages <= 1) return;
+            
+            let html = '';
+            
+            // Previous button
+            if (currentPage > 1) {
+                html += '<button class="page-btn" onclick="showPage(' + (currentPage - 1) + ')">&laquo; Prev</button>';
+            }
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                    html += '<button class="page-btn ' + (i === currentPage ? 'active' : '') + '" onclick="showPage(' + i + ')">' + i + '</button>';
+                } else if (i === currentPage - 3 || i === currentPage + 3) {
+                    html += '<span style="padding: 0.5rem;">...</span>';
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                html += '<button class="page-btn" onclick="showPage(' + (currentPage + 1) + ')">Next &raquo;</button>';
+            }
+            
+            pagination.innerHTML = html;
+        }
+
         // Auto-refresh every 60 seconds
         setTimeout(() => {
             window.location.reload();
@@ -507,27 +893,127 @@
 
         // Filter articles
         function filterArticles(status) {
-            const articles = document.querySelectorAll('.article-card');
+            currentFilter = status;
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            // Update active filter button
             filterBtns.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            
-            // Show/hide articles based on filter
-            articles.forEach(article => {
-                if (status === 'all') {
-                    article.style.display = 'block';
-                } else {
-                    const articleStatus = article.getAttribute('data-status');
-                    article.style.display = articleStatus === status ? 'block' : 'none';
-                }
-            });
+            applyFilters();
+        }
+
+        function searchArticles() {
+            currentSearch = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters();
         }
 
         // Show article details
         function showDetails(filename) {
-            alert('Article details for: ' + filename + '\n\nFull details would be shown here.');
+            const modal = document.getElementById('articleModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            // Show modal
+            modal.classList.add('active');
+            modalBody.innerHTML = '<p style="text-align: center; color: #a0aec0;">Loading...</p>';
+            
+            // Fetch article data
+            fetch('/get-article/' + filename)
+                .then(response => response.json())
+                .then(data => {
+                    let html = '';
+                    
+                    if (data.title) {
+                        html += '<div class="article-detail"><h3>📝 Title</h3><p>' + data.title + '</p></div>';
+                    }
+                    
+                    if (data.content) {
+                        html += '<div class="article-detail"><h3>📄 Content</h3><p>' + data.content + '</p></div>';
+                    }
+                    
+                    if (data.url) {
+                        html += '<div class="article-detail"><h3>🔗 Source URL</h3><p><a href="' + data.url + '" target="_blank">' + data.url + '</a></p></div>';
+                    }
+                    
+                    if (data.source) {
+                        html += '<div class="article-detail"><h3>📰 Source</h3><p>' + data.source + '</p></div>';
+                    }
+                    
+                    if (data.image_url) {
+                        html += '<div class="article-detail"><h3>🖼️ Image</h3><img src="' + data.image_url + '" class="article-image" onerror="this.style.display=\'none\'"></div>';
+                    }
+                    
+                    if (data.scraped_at) {
+                        html += '<div class="article-detail"><h3>⏰ Scraped At</h3><p>' + data.scraped_at + '</p></div>';
+                    }
+                    
+                    if (data.published) {
+                        html += '<div class="article-detail"><h3>✅ Published At</h3><p>' + data.published + '</p></div>';
+                    }
+                    
+                    html += '<div class="article-detail"><h3>📋 Raw JSON</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>';
+                    
+                    modalBody.innerHTML = html;
+                })
+                .catch(error => {
+                    modalBody.innerHTML = '<div style="text-align: center; color: #e53e3e;"><h3>❌ Error</h3><p>' + error.message + '</p></div>';
+                });
+        }
+        
+        function closeModal() {
+            document.getElementById('articleModal').classList.remove('active');
+        }
+        
+        // Close modal on outside click
+        document.getElementById('articleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Rewrite single article title
+        function rewriteSingleTitle(filename, button) {
+            if (!confirm('Rewrite this article title using DeepSeek API?\\n\\nThis will cost API credits.')) {
+                return;
+            }
+
+            // Disable button and show loading state
+            const originalText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '⏳ Rewriting...';
+            button.style.opacity = '0.6';
+
+            fetch('/rewrite-title/' + filename, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('✅ Title rewritten successfully!\\n\\nOriginal: ' + data.original + '\\n\\nNew: ' + data.rewritten);
+                    // Reload page to show updated title
+                    window.location.reload();
+                } else {
+                    alert('❌ Error: ' + data.message);
+                    // Re-enable button on error
+                    button.disabled = false;
+                    button.innerHTML = originalText;
+                    button.style.opacity = '1';
+                }
+            })
+            .catch(error => {
+                alert('❌ Error: ' + error.message);
+                // Re-enable button on error
+                button.disabled = false;
+                button.innerHTML = originalText;
+                button.style.opacity = '1';
+            });
         }
 
         // Confirm before posting all
@@ -547,6 +1033,11 @@
                 e.preventDefault();
                 alert('Search functionality would open here');
             }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initPagination();
         });
     </script>
 </body>

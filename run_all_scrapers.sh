@@ -4,24 +4,95 @@
 # Sends email notifications when new articles are found
 
 # Use Python from virtual environment
-PYTHON="/home/bihac-danas/scraper-env/bin/python3"
+PYTHON="/home/bihac-danas/web-scraper/scraper-env/bin/python3"
 
 # Configuration
 SCRAPERS=(
-    #"dzbinac.py"
-    "vladausk.py"
-    "kbbihac.py"
-    "kcbihac.py"
-    "rtvusk.py"
+    # New separated per-site scripts only
+    "cinestar_bihac.py"
+    "ggbihac.py"
+    "unbi.py"
+    "fzs_unbi.py"
+    "vodovod_bihac.py"
+    "prostornobihac.py"
+    "sanskimost.py"
+    "vrtic_bihac.py"
+    "cesteusk.py"
+    #"usnkrajina.py"
+    #"usnkrajina_com.py"
     "radiobihac.py"
-    "vodovod-bihac.py"
-    "usnkrajina.py"
-    #"komrad-bihac.py"
-    "bihac-org.py"
+    "rtvusk.py"
+    "nsusk.py"
+    "kcbihac.py"
+    "naslovi_bihac.py"
+    #"fhmzbih_meteo.py"
+    "usk_szz_oglasi.py"
+    "visitbihac.py"
+    "snusk.py"
+    "rotary_bihac.py"
+    "avaz_bihac_tag.py"
+    "haber_usk.py"
+    "crna_hronika_bihac.py"
+    "raport_bihac.py"
+    #"indexhr_bihac.py"
+    "n1info_grad_bihac.py"
+    "biznisinfo_bihac.py"
+    "faktor_mup_usk.py"
+    "faktor_bihac.py"
+    "oslobodjenje_bihac_tag.py"
+    #"bljesak_bihac.py"
+    #"mondo_bihac.py"
+    #"stav_bihac.py"
+    #"vecernji_bihac.py"
+    "visitbih_tag_bihac.py"
+    "nahla_bihac.py"
+    "federalna_bihac.py"
+    "fokus_bihac.py"
+    #"vijesti_ba_bihac.py"
+    "euronews_bihac.py"
+    "klix_tag_bihac.py"
+    "radiosarajevo_bihac.py"
+    "bihacorg.py"
+    "mojposao.py"
+    "boljiposao.py"
+    "jooble_ba.py"
+    "agencijaspektar.py"
+    "careerjet.py"
+    "vladausk.py"
+    "zzousk.py"
+    #"pravosudje_fbih.py"
+    #"kt_bihac_pravosudje.py"
+    "ekonkurs.py"
+    "fzzz.py"
+    "ads_gov.py"
+    "epbih.py"
+    "konkursi_ads.py"
+    "bhtelecom.py"
+    "posao_klix.py"
+    "fmrsp.py"
+    "fmf.py"
+    "bhrt_bihac.py"
+    "buzimpress.py"
+    #"cazin_ba.py"
+    "crt_ba.py"
+    "czusk.py"
+    "dijaspora_mhrr.py"
+    "dzbihac.py"
+    "gradcazin.py"
+    "inmedia.py"
+    "kbbihac.py"
+    "npuna.py"
+    "okusk.py"
+    "opcinabuzim.py"
+    "pzusk.py"
+    "radiobk.py"
+    "radiovkladusa.py"
+    "sanartv.py"
+    #"sportskevijesti.py"
 )
 
 EMAILS=("hare.de@gmail.com" "danasbihac@gmail.com")
-LOG_FILE="/home/bihac-danas/web-scraper/scraper_log.txt"
+LOG_FILE="/home/bihac-danas/web-scraper/scraper_log"
 OUTPUT_DIR="/home/bihac-danas/web-scraper/facebook_ready_posts"
 EMAIL_LOG="/home/bihac-danas/web-scraper/email_sent.log"
 
@@ -99,9 +170,9 @@ if [ -z "$SERVER_IP" ]; then
     SERVER_IP=$(curl -s ifconfig.me 2>/dev/null || echo "localhost")
 fi
 
-BASE_URL="http://$SERVER_IP:8080"
+BASE_URL="https://$SERVER_IP:8443"
 
-# More reliable way to find new files
+# More reliable way to find new files - using Python for all JSON parsing
 for file in "$OUTPUT_DIR"/*.json; do
     if [ -f "$file" ]; then
         FILENAME=$(basename "$file")
@@ -111,30 +182,71 @@ for file in "$OUTPUT_DIR"/*.json; do
         if [ -n "$FILE_MOD_TIME" ] && [ "$FILE_MOD_TIME" -ge "$LAST_15_MIN" ]; then
             NEW_FILES+=("$FILENAME")
             
-            # Extract original article URL from JSON file
-            ORIGINAL_URL=$(grep -o '"url":"[^"]*"' "$file" | head -1 | cut -d'"' -f4)
-            if [ -z "$ORIGINAL_URL" ]; then
-                ORIGINAL_URL=$(grep -o '"link":"[^"]*"' "$file" | head -1 | cut -d'"' -f4)
-            fi
-            if [ -z "$ORIGINAL_URL" ]; then
-                ORIGINAL_URL=$(grep -o '"original_url":"[^"]*"' "$file" | head -1 | cut -d'"' -f4)
-            fi
-            if [ -z "$ORIGINAL_URL" ]; then
-                ORIGINAL_URL=$(grep -o '"article_url":"[^"]*"' "$file" | head -1 | cut -d'"' -f4)
-            fi
+            # Use Python to properly parse JSON (reliable method)
+            JSON_INFO=$($PYTHON -c "
+import json, sys, os
+try:
+    with open('$file', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # Get URL - try multiple field names
+    url_fields = ['url', 'link', 'original_url', 'article_url', 'source_url', 'page_url']
+    url = None
+    for field in url_fields:
+        if field in data and data[field]:
+            url = str(data[field])
+            break
+    
+    # Get title - try multiple field names
+    title_fields = ['title', 'name', 'heading', 'headline']
+    title = None
+    for field in title_fields:
+        if field in data and data[field]:
+            title = str(data[field])
+            break
+    
+    # Clean title - remove newlines and extra spaces
+    if title:
+        title = ' '.join(title.split())
+    else:
+        title = '$FILENAME'
+    
+    # Output in a parseable format
+    print(f'TITLE:{title}')
+    if url:
+        print(f'URL:{url}')
+    else:
+        print('URL:NOT_FOUND')
+        
+except Exception as e:
+    # If JSON parsing fails, just use filename
+    print(f'TITLE:$FILENAME')
+    print('URL:NOT_FOUND')
+")
             
-            # Also extract title for display
-            TITLE=$(grep -o '"title":"[^"]*"' "$file" | head -1 | cut -d'"' -f4)
-            if [ -z "$TITLE" ]; then
-                TITLE="$FILENAME"
+            # Parse the Python output
+            TITLE="$FILENAME"  # Default
+            ORIGINAL_URL=""
+            
+            while IFS= read -r line; do
+                if [[ "$line" == TITLE:* ]]; then
+                    TITLE="${line#TITLE:}"
+                elif [[ "$line" == URL:* ]]; then
+                    ORIGINAL_URL="${line#URL:}"
+                fi
+            done <<< "$JSON_INFO"
+            
+            # Clean URL value
+            if [ "$ORIGINAL_URL" = "NOT_FOUND" ] || [ "$ORIGINAL_URL" = "null" ] || [ -z "$ORIGINAL_URL" ]; then
+                ORIGINAL_URL=""
             fi
 
-            # Store file info with original URL and title
+            # Store file info
             NEW_FILES_INFO+=("{\"filename\":\"$FILENAME\",\"title\":\"$TITLE\",\"url\":\"$ORIGINAL_URL\"}")
 
             echo "  Found new: $FILENAME" | tee -a "$LOG_FILE"
             echo "    Title: $TITLE" | tee -a "$LOG_FILE"
-            if [ -n "$ORIGINAL_URL" ]; then
+            if [ -n "$ORIGINAL_URL" ] && [ "$ORIGINAL_URL" != "" ]; then
                 echo "    Original URL: $ORIGINAL_URL" | tee -a "$LOG_FILE"
             else
                 echo "    ⚠️  No original URL found in JSON" | tee -a "$LOG_FILE"
@@ -151,12 +263,12 @@ echo "$LOG_ENTRY" >> "$LOG_FILE"
 if [ ${#NEW_FILES[@]} -gt 0 ]; then
     echo -e "\n${YELLOW}📧 Sending email notifications...${NC}" | tee -a "$LOG_FILE"
 
-    DASHBOARD_URL="http://$SERVER_IP:8080"
+    DASHBOARD_URL="https://$SERVER_IP:8443"
     echo "  Dashboard URL: $DASHBOARD_URL" | tee -a "$LOG_FILE"
 
     EMAIL_SUBJECT="🚀 $NEW_COUNT New Articles Found - Bihać Scrapers ($TODAY)"
 
-    # Create HTML email content - FIXED: Using heredoc for multi-line string
+    # Create HTML email content
     EMAIL_HTML=$(cat << HTMLEND
 <html>
     <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
@@ -179,17 +291,16 @@ if [ ${#NEW_FILES[@]} -gt 0 ]; then
 HTMLEND
 )
 
-    # Add each new file with clickable ORIGINAL URL
+    # Add each new file
     for file_info in "${NEW_FILES_INFO[@]}"; do
-        # Extract info from JSON-like string
         FILENAME=$(echo "$file_info" | grep -o '"filename":"[^"]*"' | cut -d'"' -f4)
         TITLE=$(echo "$file_info" | grep -o '"title":"[^"]*"' | cut -d'"' -f4)
         ORIGINAL_URL=$(echo "$file_info" | grep -o '"url":"[^"]*"' | cut -d'"' -f4)
         
-        # Clean up title (remove HTML entities if any)
-        CLEAN_TITLE=$(echo "$TITLE" | sed 's/&amp;/\&/g; s/&lt;/</g; s/&gt;/>/g; s/&quot;/"/g; s/&#39;/'"'"'/g')
+        # Clean up title - handle escaped characters
+        CLEAN_TITLE=$(echo "$TITLE" | sed 's/\\//g; s/&amp;/\&/g; s/&lt;/</g; s/&gt;/>/g; s/&quot;/"/g; s/&#39;/'"'"'/g')
         
-        if [ -n "$ORIGINAL_URL" ] && [ "$ORIGINAL_URL" != "null" ]; then
+        if [ -n "$ORIGINAL_URL" ] && [ "$ORIGINAL_URL" != "null" ] && [ "$ORIGINAL_URL" != "" ]; then
             EMAIL_HTML="${EMAIL_HTML}
                     <div style='margin-bottom: 12px; padding: 10px; background-color: white; border: 1px solid #e1e1e1; border-radius: 3px;'>
                         <div style='font-family: Arial, sans-serif; font-size: 14px; color: #2c3e50; margin-bottom: 5px; font-weight: bold;'>
@@ -236,7 +347,6 @@ HTMLEND
                 <div style='background-color: #fff5f5; padding: 15px; border-radius: 3px; border-left: 4px solid #e74c3c;'>
                     <p><strong>Failed scrapers:</strong> ${#FAILED_SCRAPERS[@]}</p>"
 
-    # Add failed scrapers to email
     if [ ${#FAILED_SCRAPERS[@]} -gt 0 ]; then
         EMAIL_HTML="${EMAIL_HTML}<ul style='color: #c0392b;'>"
         for scraper in "${FAILED_SCRAPERS[@]}"; do
@@ -247,7 +357,6 @@ HTMLEND
         EMAIL_HTML="${EMAIL_HTML}<p style='color: #27ae60;'>✅ None - All scrapers completed successfully!</p>"
     fi
 
-    # Close the HTML
     EMAIL_HTML="${EMAIL_HTML}
                 </div>
             </div>
@@ -265,10 +374,9 @@ HTMLEND
     TEMP_EMAIL=$(mktemp)
     echo "$EMAIL_HTML" > "$TEMP_EMAIL"
 
-    # Try sending email with different methods (sendmail removed)
+    # Try sending email
     EMAIL_SENT=false
 
-    # Method 1: Using mail command (HTML)
     if command -v mail &> /dev/null; then
         echo "  Trying to send with 'mail' command..." | tee -a "$LOG_FILE"
         for email in "${EMAILS[@]}"; do

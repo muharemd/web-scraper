@@ -1,0 +1,16 @@
+scraper_name,url_type,url,source_file
+ads_gov,main_url,https://www.ads.gov.ba/bs-latn-ba/open-vacancies?page=1&rows=9&searchByStatus=Open,ads_gov.py
+ads_gov,scraped_url,https://www.ads.gov.ba/bs-latn-ba/open-vacancies?page=1&rows=9&searchByStatus=Open,ads_gov_state.json
+klix_tag_bihac,main_url,https://www.klix.ba/rss,klix_tag_bihac.py
+klix_tag_bihac,scraped_url,https://www.klix.ba/sport/ostali-sportovi/mnk-bubamara-trazi-da-se-identifikuju-i-kazne-huligani-koji-su-napali-njihove-navijace-u-banjoj-luci/260226012,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/sport/kosarka/durant-zelim-igrati-za-reprezentaciju-amerike-na-olimpijskim-igrama-2028-u-los-angelesu/260224031,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/vijesti/bih/muskarcu-koji-se-s-tri-prsta-fotografisao-kod-masovne-grobnice-poostrena-kazna-na-pola-godine-zatvora/260224152,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/vijesti/bih/potvrdena-optuznica-protiv-amira-osmancevica-i-edina-keskica-zbog-kriminala-u-direkciji-regionalnih-cesta-usk/260306185,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/sport/ostali-sportovi/bubamara-cazin-na-divljastvo-navijaca-borca-odgovorila-plasmanom-u-polufinale-kupa-bih/260225183,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/sport/ostali-sportovi/preminuo-samir-karabasic-kamaco-predstavnik-bih-na-olimpijskim-igrama-1996-godine/260307036,klix_tag_bihac_state.json
+klix_tag_bihac,scraped_url,https://www.klix.ba/vijesti/svijet/americka-obalska-straza-uklonila-kukasti-krst-iz-centra-za-obuku-i-pokrenula-istragu/260224010,klix_tag_bihac_state.json
+bihacorg,main_url,https://www.bihac.org/obavijesti,bihacorg.py
+bihacorg,main_url,https://www.bihac.org/javni-pozivi,bihacorg.py
+bhtelecom,main_url,https://www.bhtelecom.ba/category/javni-oglasi-za-posao/,bhtelecom.py
+faktor_bihac,main_url,https://faktor.ba/tag/bihac,faktor_bihac.py
+vladausk,main_url,https://vladausk.ba/v4/novost/konkursi-za-popunu-upraznjenih-radnih-mjesta/672,vladausk.py
