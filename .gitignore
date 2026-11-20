@@ -138,3 +138,6 @@ audio/
 tts_output/
 
 
+*.log
+scraper_log.txt
+facebook_ready_posts/
