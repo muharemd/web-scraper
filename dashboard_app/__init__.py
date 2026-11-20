@@ -23,10 +23,8 @@ def create_app():
             except Exception:
                 pass
     if not secret_key:
-        secret_key = "b1e2c3d4e5f6a7b8againc9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
-        print(
-            "WARNING: Using hardcoded secret key. "
-            "Set DASHBOARD_SECRET_KEY env var or create .dashboard_secret_key to silence this."
+        raise RuntimeError(
+            "DASHBOARD_SECRET_KEY or .dashboard_secret_key must be configured"
         )
 
     app.secret_key = secret_key
